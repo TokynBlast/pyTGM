@@ -5,6 +5,8 @@ Change Log
 - Not public
 - First release, no changes
 
-1.0 ()
-- Added SHA256 to encoding
+1.0 (September 10, 2024)
 - Fixed functions to be static
+- Fixed liscence
+- Removed encode/decode table changing for b64
+- Removed score (Needs to be fixed)
