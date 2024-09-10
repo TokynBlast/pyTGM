@@ -73,18 +73,6 @@ class b64:
     @staticmethod
     def __init__(self, table):
         self.table = '''ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?!@#$%^&*()_+-=[]{}\\|/,.<>~`;:'" '''
-    
-    '''class table:
-      @staticmethod
-      def tableGen(chars, times=1, ):
-          try: b64.__init__.table = shuffle(self.table, times)
-          except: self.table = random.modify.shuffle(self.table, randint(times[0],times[1]))
-          return self.table()
-  
-      def tableSet(chars): 
-          if type(chars) == str: self.table = chars
-          else: raise NonStrB64TableError(self)
-    '''
 
     @staticmethod
     def encode(text):
@@ -143,26 +131,8 @@ class file:
     class modify:
         def section(from_, to_):
             pass
-'''
-class score:
-    class value:
-        values = {}
-        @staticmethod
-        def newValue(name, value): values[name] = value
-        @staticmethod
-        def modifyValue(name, func, value): exec(self.values[name] {func} value')
-
-    class board:
-      # named board:
-      # self.board = [{title:({title:value}, {title:value})}]
-      # valued board:
-      # self.board = [{title:(value, value, value)}}]
-        self.valuedBoards = []
-        self.namedBoards = []
-'''        
 
 class terminal:
-    # Add from frame and to frame
     @staticmethod
     def animate(frames, times, wait, clr=True):
         if type(frames) not in (tuple, list, dict): pass
@@ -177,11 +147,7 @@ class terminal:
     def color():
         None
 
-
-# Remove?
 def prntChars(amnt, end_='\n'): [print('', end=end_) for _ in range(amnt)]
-
-
 
 def getch(times=1):
         try:
