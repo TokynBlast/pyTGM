@@ -1,9 +1,8 @@
-__all__ = ['encode', 'decode', 'clear', 'readFile', 'readChar', 'readLine', 'getch', 'animate', 'randint', 'choice', 'choices']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
 __homepage__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/home'
 __download_url__ = 'https://pypi.org/tokynblast'
 __docs_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/docs'
-__bug_tracker_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/bugs'
+__bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/source'
 __changelog_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/change'
 
@@ -56,18 +55,6 @@ class random:
                 return shuffled_list
             @staticmethod
             def remove(lst, amnt): return [lst.remove(random.seq.choose.choice(lst)) for _ in range(amnt)]
-
-class decode:
-    def b64():
-        None
-    def sha56():
-        None
-
-class encode:
-    def b64():
-        None
-    def sha56():
-        None
  
 class b64:
     @staticmethod
@@ -144,10 +131,6 @@ class terminal:
                 
     def clear():print('\033[H\033[J', end='')
 
-    def color():
-        None
-
-def prntChars(amnt, end_='\n'): [print('', end=end_) for _ in range(amnt)]
 
 def getch(times=1):
         try:
