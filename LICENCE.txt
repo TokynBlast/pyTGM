@@ -1,13 +1,15 @@
 2024 Tokyn Blast
 Bspace Liscence
-	v0.0.0.2
-	Bspace Liscence by Tokyn Blast is licensed under Attribution-ShareAlike 4.0 International
+	v0.0.1
+
+	In this document, "developer" may refer to one or multiple persons or organizations
+	"program" refers to "pyTGM", or variations
 	
-	You may modify('modify/variation' is as defined below) or rewrite the source code, if it is modified, if published, it must stay under the main name(pyTGM), unless you are given permission by Tokyn Blast.
+	You may modify('modify/variation' is as defined below) or rewrite the source code, any modified publications must stay under the same license, so all users of this program and developers have equal and same rights of this program, unless specified in this document.
+
+	You may use this program commercially, unless the developer of the modified version says otherwise.
 	
-	You must keep the same liscence for any modifications or variations created.
-	
-	If a a variation is made of pyTGM it is the variations creator to manage that variation.
+	Tokyn Blast is NOT repsonsible for any variations made by the developers of a modification.
 	
 	You may profit(even without profiting, this stil applys) off of a variation you make as long as Tokyn Blast does not use any form of prevention(verbally, degitally, physically, etc.) you from making money off of the variation.
 	
@@ -15,12 +17,13 @@ Bspace Liscence
 	    - Based off of the python library(pyTGM)
             - Using any portion of the source code
 	    - Modified source code
+	    - A copy of the program, in part or in whole
 	    
-	When a variation of pyCharTAGM is published
+	When a variation of pyTGM is published
 	On the download page, you must follow the rules below for the quotes below:
- 	    "This is a variation of the python library pyTGM (Licensed under Bspace v0.0.0.2) by Tokyn Blast"
-	    "To get pyTGM: [DOWNLOAD LINK #$@#@]"
-     	    "For pyTGM source code: [SOURCE CODE FJR#UO]"
+ 	    "This is a variation of the python library pyTGM (Licensed under Bspace v0.0.1) by Tokyn Blast"
+	    "To get pyTGM: https://github.com/TokynBlast/pyTGM"
 
         Rules:
-	All quotes must be used
+	All quotes must be used.
+	All quotes must be obvious (easy to find, and not in smlall print)
