@@ -11,7 +11,7 @@ It has become organized chaos, as in it is so organized, its complicated.
 I, the creator am still practicing. I started practicing it when I released 1.0
 Practice! You can eentuallly learn it!
 
-For public code updates go [here](https://replit.com/@tokynblast/pyTGM#pyTGM.py) It will eventualy be changed.
+For public code updates go (here)[https://replit.com/@tokynblast/pyTGM#pyTGM.py] It will eventualy be changed.
 
 
 I only update that with working code bits and updates I want to be known, sometimes I will have secret featurees released only with new versions
