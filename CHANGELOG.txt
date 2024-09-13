@@ -19,3 +19,7 @@ Change Log
 - Updated liscence
 - Removed __all__ (will be added when fixed)
 - Made a new release in github, instead of updating manually or making a new repository
+
+1.2 ()
+- Added __all__
+- Added color to terminal
