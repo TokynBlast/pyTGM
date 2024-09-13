@@ -10,3 +10,12 @@ Change Log
 - Fixed liscence
 - Removed encode/decode table changing for b64
 - Removed score (Needs to be fixed)
+
+1.1 (September 12, 2024)
+- Fixed and added b64 table modifying
+- Made data encryption suitable for adding other types of encryption
+- Removed accidental code left in release (Idea for sorting the encryption)
+- Updated readme
+- Updated liscence
+- Removed __all__ (will be added when fixed)
+- Made a new release in github, instead of updating manually or making a new repository
