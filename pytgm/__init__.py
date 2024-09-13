@@ -1,3 +1,4 @@
+__all__ = ['random', 'random.number', 'random.number.integer']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
 __homepage__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -131,6 +132,10 @@ class terminal:
                 
     def clear():print('\033[H\033[J', end='')
 
+    def color(r,g,b, reset=False):
+        print(f"\033[38;2;{r};{g};{b}m")
+        if reset:
+            pritn("\033[0m")
 
 def getch(times=1):
         try:
