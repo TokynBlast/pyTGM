@@ -5,12 +5,12 @@ classifiers = [
   'Intended Audience :: Game Developers',
   'Operating System :: Microsoft :: Windows :: Windows 10 :: Linux',
   'License :: Bspace License',
-  'Programming Language :: Python :: 3'
+  'Programming Language :: Python :: >= 3.0'
 ]
  
 setup(
   name='pytgm',
-  version='1.0',
+  version='1.2.0',
   description='Terminal Game Maker',
   long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
   url='https://youtube.tokynblast.space/programming/libraries/pytgm/init',  
