@@ -128,7 +128,7 @@ class file:
         def section(from_, to_):
             pass
 
-class terminal:
+class graphics:
     @staticmethod
     def animate(frames, times, wait, clr=True):
         if type(frames) not in (tuple, list, dict): pass
@@ -145,31 +145,31 @@ class terminal:
             
     def col_reset():
         print("\033[0m")
-            
-    def getch(times=1):
-        try:
-            from msvcrt import getch as g
-            for i in range(times):
-                return g()
 
-        except:
-            from sys import stdin
-            from tty import setraw
-            from termios import tcsetattr, TCSADRAIN, tcgetattr
-            for i in range(times):
-                fd = stdin.fileno()
-                old = tcgetattr(fd)
-                try:
-                    setraw(fd)
-                    c = stdin.read(1)
-                    if c == '\x1b':
-                        c = stdin.read(2)
-                        if c == '[A': return 'ArrowUp'
-                        elif c == '[B': return 'ArrowDown'
-                        elif c == '[C': return 'ArrowRight'
-                        elif c == '[D': return 'ArrowLeft'
-                        else: return c
-                    else:
-                        if c == ' ': return 'space'
-                        else: return c
-                finally: tcsetattr(fd, TCSADRAIN, old)
+def getch(times=1):
+    try:
+        from msvcrt import getch as g
+        for i in range(times):
+            return g()
+
+    except:
+        from sys import stdin
+        from tty import setraw
+        from termios import tcsetattr, TCSADRAIN, tcgetattr
+        for i in range(times):
+            fd = stdin.fileno()
+            old = tcgetattr(fd)
+            try:
+                setraw(fd)
+                c = stdin.read(1)
+                if c == '\x1b':
+                    c = stdin.read(2)
+                    if c == '[A': return 'ArrowUp'
+                    elif c == '[B': return 'ArrowDown'
+                    elif c == '[C': return 'ArrowRight'
+                    elif c == '[D': return 'ArrowLeft'
+                    else: return c
+                else:
+                    if c == ' ': return 'space'
+                    else: return c
+            finally: tcsetattr(fd, TCSADRAIN, old)
