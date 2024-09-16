@@ -1,4 +1,4 @@
-__all__ = ['random','random.number','random.number.integer','random.number.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','file.modify','file.modify.section','terminal','terminal.animate','terminal.clear','terminal.color','terminal.getch']
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.animate','graphics.clear','graphics.color','graphics.col_reset', 'getch']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
 __homepage__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -123,10 +123,6 @@ class file:
         
         @staticmethod
         def char(name, character_num=0): char = open(name, 'r').read(character_num); return char
-
-    class modify:
-        def section(from_, to_):
-            pass
 
 class graphics:
     @staticmethod
