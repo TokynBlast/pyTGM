@@ -10,7 +10,7 @@ __changelog_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytg
 
 
 class random:
-    class number:
+    class num:
         @staticmethod
         def integer(min_value, max_value):
             seed = 0
@@ -25,7 +25,7 @@ class random:
 
             return random_seed
             
-        def binary(): return random.number.integer(0,1)
+        def bin(): return random.number.integer(0,1)
 
     class seq:
         class choose:
