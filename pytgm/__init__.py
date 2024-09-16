@@ -11,7 +11,7 @@ __changelog_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytg
 
 
 class random:
-    class number:
+    class num:
         @staticmethod
         def integer(min_value, max_value):
             seed = 0
