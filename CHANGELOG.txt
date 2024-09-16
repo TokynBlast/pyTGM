@@ -28,3 +28,4 @@ Change Log
 - Updated liscence
 - Made version nubering semantic
 - Put b64 into an encryption class
+- Shortened random.number to random.num
