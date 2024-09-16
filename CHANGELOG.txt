@@ -23,3 +23,4 @@ Change Log
 1.2 ()
 - Added __all__
 - Added color to terminal
+- Updated liscence
