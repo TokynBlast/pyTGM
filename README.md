@@ -1,4 +1,4 @@
-This is version 1.1, version 0.0 was never released publically
+###This is version 1.1, version 0.0 was never released publically
 pyTGM stands for Python Terminal Game Maker
 pyTGM includes things like b64 encoding and decoding, clearing the terminal, getch
 
@@ -11,7 +11,7 @@ It has become organized chaos, as in it is so organized, its complicated.
 I, the creator am still practicing. I started practicing it when I released 1.0
 Practice! You can eentuallly learn it!
 
-For public code updates go [Here](https://replit.com/@tokynblast/pyTGM#pyTGM.py). It will eventualy be changed.
+For public code updates Go (here)[https://github.com/TokynBlast/pyTGM/tree/main] and go to the newest version.
 
 
 
