@@ -11,7 +11,7 @@ This was created because I didn't like how complex pygame was.
 I also liked the idea of uing ascii characters to make a world, rather than images.
 It has become organized chaos, as in it is so organized, its complicated.
 I, the creator am still practicing. I started practicing it when I released 1.0
-Practice! You can eentuallly learn it!
+Practice! You can evntually learn it!
 
 For public code updates Go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
 pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
