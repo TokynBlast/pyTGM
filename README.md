@@ -1,5 +1,7 @@
+## Notes
 This is version 1.1, version 0.0 was never released publically
 pyTGM stands for Python Terminal Game Maker
+
 pyTGM includes things like b64 encoding and decoding, clearing the terminal, getch
 
 I also do NOT condone morally questionable use, or illegal activities with this tool, however,
@@ -13,15 +15,13 @@ Practice! You can eentuallly learn it!
 
 For public code updates Go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
 
-
-
 I only update that with working code bits and updates I want to be known, sometimes I will have secret featurees released only with new versions
 
 In 1.1 and earlier, the links are not yet valid.
 
 pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
 
-##How it works:
+## How it works
 Here is a sample code snippet to shuffle then remove random parts of a list of players:
 ```
 players = [1, 2, 3, 4 ,5]
