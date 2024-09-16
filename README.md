@@ -1,5 +1,5 @@
 ## Notes
-This is version 1.1, version 0.0 was never released publically
+This is version 1.1.1, version 0.0.0 was never released publically
 pyTGM stands for Python Terminal Game Maker
 
 pyTGM includes things like b64 encoding and decoding, random, encryption, and a lot more.
