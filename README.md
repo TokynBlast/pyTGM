@@ -14,11 +14,6 @@ I, the creator am still practicing. I started practicing it when I released 1.0
 Practice! You can eentuallly learn it!
 
 For public code updates Go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
-
-I only update that with working code bits and updates I want to be known, sometimes I will have secret featurees released only with new versions
-
-In 1.1 and earlier, the links are not yet valid.
-
 pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
 
 ## How it works
