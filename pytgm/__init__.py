@@ -1,4 +1,4 @@
-__all__ = ['random', 'random.number', 'random.number.integer']
+__all__ = ['random','random.number','random.number.integer','random.number.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','file.modify','file.modify.section','terminal','terminal.animate','terminal.clear','terminal.color','terminal.getch']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
 __homepage__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -57,50 +57,58 @@ class random:
             @staticmethod
             def remove(lst, amnt): return [lst.remove(random.seq.choose.choice(lst)) for _ in range(amnt)]
  
-class b64:
-    @staticmethod
-    def __init__(self, table):
-        self.table = '''ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?!@#$%^&*()_+-=[]{}\\|/,.<>~`;:'" '''
+class encryption:
+    class b64:
+      class table:
+          table_ = '''ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?!@#$%^&*()_+-=[]{}\\|/,.<>~`;:'" '''
+          @staticmethod
+          def tableGen(self, chars, times):
+              table = encryption.b64.table.table_
+              self.table = random.seq.modify.shuffle(self.table, times)
+              return table
+          @staticmethod
+          def tableSet(self, chars): 
+              if type(chars) == str: self.table = chars
+          def encode(self, text):
+              bins = str()
+              for c in text:
+                  bins += '{:0>8}'.format(str(bin(ord(c)))[2:])
+              while len(bins) % 3:
+                  bins += '00000000'
+              d = 1
+              for i in range(6, len(bins) + int(len(bins) / 6), 7):
+                  bins = bins[:i] + ' ' + bins[i:]
+              bins = bins.split(' ')
+              if '' in bins:
+                  bins.remove('')
+              base64 = str()
+              for b in bins:
+                  if b == '000000':
+                      base64 += '='
+                  else:
+                      base64 += self.table_[int(b, 2)]
+              return base64
+      def decode(self, text):
+          bins = str()
+          for c in text:
+              if c == '=':
+                  bins += '000000'
+              else:
+                  bins += '{:0>6}'.format(str(bin(encryption.b64.table.table_.index(c)))[2:])
+          for i in range(8, len(bins) + int(len(bins) / 8), 9):
+              bins = bins[:i] + ' ' + bins[i:]
+          bins = bins.split(' ')
+          if '' in bins:
+              bins.remove('')
+          text = str()
+          for b in bins:
+              if not b == '00000000':
+                  text += chr(int(b, 2))
+          return text
 
-    @staticmethod
-    def encode(text):
-        bins = str()
-        for c in text:
-            bins += '{:0>8}'.format(str(bin(ord(c)))[2:])
-        while len(bins) % 3:
-            bins += '00000000'
-        d = 1
-        for i in range(6, len(bins) + int(len(bins) / 6), 7):
-            bins = bins[:i] + ' ' + bins[i:]
-        bins = bins.split(' ')
-        if '' in bins:
-            bins.remove('')
-        base64 = str()
-        for b in bins:
-            if b == '000000':
-                base64 += '='
-            else:
-                base64 += self.table[int(b, 2)]
-        return base64
-        
-    @staticmethod
-    def decode(text):
-        bins = str()
-        for c in text:
-            if c == '=':
-                bins += '000000'
-            else:
-                bins += '{:0>6}'.format(str(bin(self.table.index(c)))[2:])
-        for i in range(8, len(bins) + int(len(bins) / 8), 9):
-            bins = bins[:i] + ' ' + bins[i:]
-        bins = bins.split(' ')
-        if '' in bins:
-            bins.remove('')
-        text = str()
-        for b in bins:
-            if not b == '00000000':
-                text += chr(int(b, 2))
-        return text
+    class sha256:
+        def encode():
+            None
 
 class file:
     class read:
@@ -132,12 +140,13 @@ class terminal:
                 
     def clear():print('\033[H\033[J', end='')
 
-    def color(r,g,b, reset=False):
+    def color(r,g,b):
         print(f"\033[38;2;{r};{g};{b}m")
-        if reset:
-            pritn("\033[0m")
-
-def getch(times=1):
+            
+    def col_reset():
+        print("\033[0m")
+            
+    def getch(times=1):
         try:
             from msvcrt import getch as g
             for i in range(times):
