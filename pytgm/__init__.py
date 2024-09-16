@@ -69,25 +69,25 @@ class encryption:
           @staticmethod
           def tableSet(self, chars): 
               if type(chars) == str: self.table = chars
-          def encode(self, text):
-              bins = str()
-              for c in text:
-                  bins += '{:0>8}'.format(str(bin(ord(c)))[2:])
-              while len(bins) % 3:
-                  bins += '00000000'
-              d = 1
-              for i in range(6, len(bins) + int(len(bins) / 6), 7):
-                  bins = bins[:i] + ' ' + bins[i:]
-              bins = bins.split(' ')
-              if '' in bins:
-                  bins.remove('')
-              base64 = str()
-              for b in bins:
-                  if b == '000000':
-                      base64 += '='
-                  else:
-                      base64 += self.table_[int(b, 2)]
-              return base64
+      def encode(self, text):
+          bins = str()
+          for c in text:
+              bins += '{:0>8}'.format(str(bin(ord(c)))[2:])
+          while len(bins) % 3:
+              bins += '00000000'
+          d = 1
+          for i in range(6, len(bins) + int(len(bins) / 6), 7):
+              bins = bins[:i] + ' ' + bins[i:]
+          bins = bins.split(' ')
+          if '' in bins:
+              bins.remove('')
+          base64 = str()
+          for b in bins:
+              if b == '000000':
+                  base64 += '='
+              else:
+                  base64 += self.table_[int(b, 2)]
+          return base64
       def decode(self, text):
           bins = str()
           for c in text:
