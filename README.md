@@ -72,5 +72,5 @@ graphics.clear()
 
 To color the text:
 ```
-graphics.color
+graphics.color(r,g,b)
 ```
