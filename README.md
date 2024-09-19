@@ -4,8 +4,8 @@ pyTGM stands for Python Terminal Game Maker
 
 pyTGM includes things like b64 encoding and decoding, random, encryption, and a lot more.
 
-I do **NOT** condone morally questionable use, or illegal activities with this tool, however,
-by using this; whatever you make is your own responsibility, **NOT MINE**
+I do **NOT** condone morally questionable use, or illegal activities with this tool.
+By using this; whatever you make is your own responsibility, **NOT MINE**
 
 This was created because I didn't like how complex pygame was.
 I also liked the idea of uing ascii characters to make a world, rather than images.
