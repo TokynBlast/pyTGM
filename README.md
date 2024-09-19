@@ -67,10 +67,21 @@ because I have to make the code for file manipulation.
 ## Graphics
 To clear the screen:
 ```
-graphics.clear()
+graphics.cls()
 ```
 
-To color the text:
+### There are three different coloring things in graphics:
+
+1. Printing Color
 ```
-graphics.color(r,g,b)
+graphics.pcolor(r,g,b)
+```
+2. Variable Color
+     (returns a variable, which can be used inside of an f-string)
+```
+graphics.vcolor(rgb)
+```
+3. Color Reset
+```
+graphics.rcolor()
 ```
