@@ -9,22 +9,18 @@ __changelog_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytg
 
 # Started: 3/15/2024
 
+import time
 
 class random:
     class num:
         @staticmethod
-        def integer(min_value, max_value):
-            seed = 0
+        def integer(min_value, max_value, seed=None):
+            if seed None:
+                seed = int(time.time() * 1000)
 
-            with open('/dev/urandom', 'rb') as f:
-                seed_bytes = f.read(4)
+            number = (seed % (max_value - min_value + 1)) + min_value
 
-                for byte in seed_bytes:
-                    seed = (seed << 8) + byte
-
-            random_seed = (seed % (max_value - min_value + 1)) + min_value
-
-            return random_seed
+            return number
             
         def binary(): return random.num.integer(0,1)
 
