@@ -15,6 +15,8 @@ I, the creator am still practicing. I started practicing it when I released 1.0;
 For public code updates Go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
 pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
 
+All versions before 2.0.0 were never tested. When testing 2.0.0, Tokyn Blast came across atleast 10 errors...
+
 # How it works
 Here is a sample code snippet to shuffle then remove random parts of a list of players:
 
@@ -33,7 +35,7 @@ rnd.remove(players, 3)
 
 print(players)
 ```
-The output could be:
+Output :
 [4, 2, 5]
 
 
@@ -44,7 +46,7 @@ print(random.num.binary())
 Output:
 0
 
-For a range of a random number:
+For a random number in a range:
 ```
 random.num.integer(1, 5)
 ```
