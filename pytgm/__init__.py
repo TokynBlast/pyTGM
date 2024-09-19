@@ -125,15 +125,6 @@ class file:
         def char(name, character_num=0): char = open(name, 'r').read(character_num); return char
 
 class graphics:
-    @staticmethod
-    def animate(frames, times, wait, clr=True):
-        if type(frames) not in (tuple, list, dict): pass
-        from time import sleep
-        for frame in range(times):
-            print(frames[frame])
-            sleep(wait)
-            if clr: terminal.clear()
-                
     def clear():print('\033[H\033[J', end='')
 
     def color(r,g,b):
