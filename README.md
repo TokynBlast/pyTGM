@@ -17,6 +17,8 @@ pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
 
 All versions before 2.0.0 were never tested. When testing 2.0.0, Tokyn Blast came across atleast 10 errors...
 
+If anybody has any suggestions on how to remove the need for the time library, while still getting a random number, using something that all OSs will have (or atleast most)
+
 # How it works
 Here is a sample code snippet to shuffle then remove random parts of a list of players:
 
