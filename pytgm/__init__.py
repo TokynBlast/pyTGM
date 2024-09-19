@@ -22,7 +22,8 @@ class random:
 
             return number
             
-        def binary(): return random.num.integer(0,1)
+        def binary():
+            return random.num.integer(0,1)
 
     class seq:
         class choose:
@@ -30,6 +31,7 @@ class random:
             def choice(lst=None):
                 if lst is None:
                     lst = []
+                    
                 return lst[random.num.integer(0, len(lst) - 1)]
 
             def choices(lst, amnt): return [random.seq.choose.choice(lst) for _ in range(amnt)]
@@ -43,6 +45,7 @@ class random:
                         rand_index = random.num.integer(0, len(shuffled_list) - 1)
                         shuffled_list[i], shuffled_list[rand_index] = shuffled_list[rand_index], shuffled_list[i]
                 return shuffled_list
+                
             @staticmethod
             def duplicate(lst, times=1):
                 shuffled_list = lst
@@ -50,6 +53,7 @@ class random:
                     for i in range(len(shuffled_list)):
                         shuffled_list[i], shuffled_list[random.num.integer(0, len(shuffled_list) - 1)] = shuffled_list[random.num.integer(0, len(shuffled_list) - 1)], shuffled_list[i]
                 return shuffled_list
+                
             @staticmethod
             def remove(lst, amnt): return [lst.remove(random.seq.choose.choice(lst)) for _ in range(amnt)]
  
@@ -57,14 +61,17 @@ class encryption:
     class b64:
       class table:
           table_ = '''ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?!@#$%^&*()_+-=[]{}\\|/,.<>~`;:'" '''
+          
           @staticmethod
           def tableGen(self, chars, times):
               table = encryption.b64.table.table_
               self.table = random.seq.modify.shuffle(self.table, times)
               return table
+              
           @staticmethod
           def tableSet(self, chars): 
               if type(chars) == str: self.table = chars
+                  
       def encode(self, text):
           bins = str()
           for c in text:
@@ -84,6 +91,7 @@ class encryption:
               else:
                   base64 += self.table_[int(b, 2)]
           return base64
+          
       def decode(self, text):
           bins = str()
           for c in text:
