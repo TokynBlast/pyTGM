@@ -89,3 +89,13 @@ graphics.vcolor(rgb)
 ```
 graphics.rcolor()
 ```
+
+Like most games, you want to play sound... Well, when 2.0.0 was released, you could!
+
+Let's assume this file structure:
+
+[Add structure]
+```
+sound('sounds/mysound.mp3')
+```
+Sound works in macOS, Windows, and Linux!
