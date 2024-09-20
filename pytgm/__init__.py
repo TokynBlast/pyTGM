@@ -22,9 +22,10 @@ class random:
             number = (seed % (max_value - min_value + 1)) + min_value
 
             return number
-            
+
         def binary():
             return random.num.integer(0,1)
+
 
     class seq:
         class choose:
