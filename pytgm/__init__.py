@@ -1,4 +1,4 @@
-__all__ = ['random','random.number','random.number.integer','random.number.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.pcolor','graphics.vcolor','graphics.rcolor','getch']
+__all__ = ['random','random.number','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.pcolor','graphics.vcolor','graphics.rcolor','getch']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
 __homepage__ = 'https://youtube.tokynblast.space/programmingpytgm/home'
 __download_url__ = 'https://pypi.org/tokynblast'
