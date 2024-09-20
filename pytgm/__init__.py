@@ -16,7 +16,7 @@ class random:
     class num:
         @staticmethod
         def integer(min_value, max_value, seed=None):
-            if seed None:
+            if seed == None:
                 seed = int(time.time() * 1000)
 
             number = (seed % (max_value - min_value + 1)) + min_value
