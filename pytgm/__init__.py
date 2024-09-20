@@ -10,6 +10,7 @@ __changelog_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytg
 # Started: 3/15/2024
 
 import time
+import os
 
 class random:
     class num:
@@ -168,3 +169,14 @@ def getch(times=1):
                     if c == ' ': return 'space'
                     else: return c
             finally: tcsetattr(fd, TCSADRAIN, old)
+
+def sound(path):
+    # For Windows
+    if os.name == 'nt':
+        os.system(f'start {path}')
+    # For macOS
+    elif os.uname().sysname == 'Darwin':
+        os.system(f'afplay {path}')
+    # For Linux
+    else:
+        os.system(f'aplay {path}')
