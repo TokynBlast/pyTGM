@@ -1,4 +1,4 @@
-__all__ = ['random','random.number','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.pcolor','graphics.vcolor','graphics.rcolor','getch']
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
 __homepage__ = 'https://youtube.tokynblast.space/programmingpytgm/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -134,14 +134,35 @@ class graphics:
     def cls():
         print('\033[H\033[J', end='')
 
-    def pcolor(r,g,b):
-        print(f"\033[38;2;{r};{g};{b}m")
+    class color:
+        def RGB(r,g,b):
+            return f"\x1b[38;2;{r};{g};{b}m"
+                
+        res = "\x1b[0m"
 
-    def vcolor(r,g,b):
-        return f"\033[38;2;{r};{g};{b}m"
-            
-    def rcolor():
-        print("\033[0m")
+        class markup:
+            bold = '\x1b[1m'
+            italic = '\x1b[3m'
+            underline = '\x1b[4m'
+
+class sound:
+    def file(path):
+        try:
+            from winsound import PlaySound as PS
+            PS(path, winsound.SND_FILENAME)
+        
+        except:
+            #macOS
+            if os.uname().sysname == 'Darwin':
+                os.system(f'afplay {path}')
+                
+            #Linux
+            else:
+                os.system(f'aplay {path}')
+                
+    def frequency(hertz, duration):
+        None
+
 
 def getch(times=1):
     try:
