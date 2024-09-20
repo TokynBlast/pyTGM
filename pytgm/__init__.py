@@ -1,11 +1,11 @@
 __all__ = ['random','random.number','random.number.integer','random.number.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','file.modify','file.modify.section','terminal','terminal.animate','terminal.clear','terminal.color','terminal.getch']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
-__homepage__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/home'
+__homepage__ = 'https://youtube.tokynblast.space/programmingpytgm/home'
 __download_url__ = 'https://pypi.org/tokynblast'
-__docs_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/docs'
+__docs_url__ = 'https://youtube.tokynblast.space/programmingpytgm/docs'
 __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
-__source_code_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/source'
-__changelog_url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/change'
+__source_code_url__ = 'https://youtube.tokynblast.space/programmingpytgm/source'
+__changelog_url__ = 'https://youtube.tokynblast.space/programming/pytgm/change'
 
 # Started: 3/15/2024
 
