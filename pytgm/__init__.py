@@ -169,14 +169,3 @@ def getch(times=1):
                     if c == ' ': return 'space'
                     else: return c
             finally: tcsetattr(fd, TCSADRAIN, old)
-
-def sound(path):
-    # For Windows
-    if os.name == 'nt':
-        os.system(f'start {path}')
-    # For macOS
-    elif os.uname().sysname == 'Darwin':
-        os.system(f'afplay {path}')
-    # For Linux
-    else:
-        os.system(f'aplay {path}')
