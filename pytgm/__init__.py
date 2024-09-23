@@ -188,8 +188,8 @@ class sound:
     
         if os.name == 'nt':  # For Windows
                 os.system('start temp_tone.wav')
-            elif os.name == 'posix':  # For macOS and Linux
-                os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
+        elif os.name == 'posix':  # For macOS and Linux
+            os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
 
 def getch(times=1):
     try:
