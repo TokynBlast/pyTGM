@@ -9,15 +9,14 @@ __changelog_url__ = 'https://youtube.tokynblast.space/programming/pytgm/change'
 
 # Started: 3/15/2024
 
-import time
-import os
-
 class random:
     class num:
         @staticmethod
         def integer(min_value, max_value, seed=None):
             if seed == None:
-                seed = int(time.time() * 1000)
+                try: time()
+                except: from time import time
+                seed = int(time() * 1000)
 
             number = (seed % (max_value - min_value + 1)) + min_value
 
@@ -128,7 +127,9 @@ class file:
             return x
         
         @staticmethod
-        def char(name, character_num=0): char = open(name, 'r').read(character_num); return char
+        def char(name, character_num=0):
+            char = open(name, 'r').read(character_num)
+            return char
 
 class graphics:
     def cls():
@@ -153,7 +154,11 @@ class sound:
         
         except:
             #macOS
-            if os.uname().sysname == 'Darwin':
+            try: uname()
+            except: from os import uname
+            if uname().sysname == 'Darwin':
+                try: system('echo  ')
+                except: import system
                 os.system(f'afplay {path}')
                 
             #Linux
