@@ -140,10 +140,10 @@ class graphics:
                 
         res = "\x1b[0m"
 
-        class markup:
-            bold = '\x1b[1m'
-            italic = '\x1b[3m'
-            underline = '\x1b[4m'
+    class markup:
+        bold = '\x1b[1m'
+        italic = '\x1b[3m'
+        underline = '\x1b[4m'
 
 class sound:
     def file(path):
@@ -159,9 +159,6 @@ class sound:
             #Linux
             else:
                 os.system(f'aplay {path}')
-                
-    def frequency(hertz, duration):
-        None
 
 
 def getch(times=1):
