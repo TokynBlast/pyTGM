@@ -9,15 +9,14 @@ __changelog_url__ = 'https://youtube.tokynblast.space/programming/pytgm/change'
 
 # Started: 3/15/2024
 
-import time
-import os
-
 class random:
     class num:
         @staticmethod
         def integer(min_value, max_value, seed=None):
             if seed == None:
-                seed = int(time.time() * 1000)
+                try: time()
+                except: from time import time
+                seed = int(time() * 1000)
 
             number = (seed % (max_value - min_value + 1)) + min_value
 
@@ -153,12 +152,19 @@ class sound:
         
         except:
             #macOS
-            if os.uname().sysname == 'Darwin':
-                os.system(f'afplay {path}')
+            try: uname()
+            except: from os import uname
+            
+
+            if uname().sysname == 'Darwin':
+                
+                system(f'afplay {path}')
                 
             #Linux
             else:
-                os.system(f'aplay {path}')
+                try: system('echo  ')
+                except: from os import system
+                system(f'aplay {path}')
 
     
     def frequency(frequency, duration, sample_rate=44100, volume=0.5):
