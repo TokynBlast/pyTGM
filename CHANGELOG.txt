@@ -40,3 +40,4 @@ Change Log
 
 2.1.1 (September 23, 2024)
 - Added frequency to sound
+- Changed how 
