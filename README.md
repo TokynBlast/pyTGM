@@ -1,5 +1,5 @@
 # Notes
-This is version 2.0.0, version 0.0.0 was never released publically
+This is version 2.1.1, version 0.0.0 was never released publically
 pyTGM stands for Python Terminal Game Maker
 
 pyTGM includes things like b64 encoding and decoding, random, encryption, and a lot more.
@@ -15,16 +15,12 @@ I, the creator am still practicing. I started practicing it when I released 1.0;
 For public code updates Go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
 pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
 
-All versions before 2.0.0 were never tested. When testing 2.0.0, Tokyn Blast came across atleast 10 errors...
-
-If anybody has any suggestions on how to remove the need for the time library, while still getting a random number, using something that all OSs will have (or atleast most)
-
 # How it works
-Here is a sample code snippet to shuffle then remove random parts of a list of players:
 
 ## Random
-### Note: This is random, so the ouput may be different
 
+### Note: This is random, so the ouput may be different
+Here is a sample code snippet to shuffle then remove random parts of a list of players:
 
 Seq refers to sequence, which deals with lists
 Example of random sequences:
