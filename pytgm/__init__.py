@@ -147,17 +147,13 @@ class graphics:
 class sound:
     def file(path):
         try:
-            from winsound import PlaySound as PS
-            PS(path, winsound.SND_FILENAME)
+            from winsound import PlaySound as PS, SND_FILENAME
+            PS(path, SND_FILENAME)
         
         except:
             #macOS
-            try: uname()
-            except: from os import uname
-            
-
-            if uname().sysname == 'Darwin':
-                
+            import os
+            if os.uname().sysname == 'Darwin':
                 system(f'afplay {path}')
                 
             #Linux
