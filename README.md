@@ -30,7 +30,7 @@ Seq refers to sequence, which deals with lists
 Example of random sequences:
 ```
 players = [1, 2, 3, 4 ,5]
-rnd = pytgm.players.random.seq.modify
+rnd = pytgm.random.seq.modify
 
 rnd.shuffle(players)
 rnd.remove(players, 3)
@@ -38,7 +38,7 @@ rnd.remove(players, 3)
 print(players)
 ```
 Output :
-[4, 2, 5]
+[2, 5]
 
 
 For a binary number:
@@ -58,7 +58,7 @@ Output:
 
 ## File Reading
 
-'name' refers to the file name, including the file type
+'name' refers to the path to the file, including the file name
 ```
 file.read.document(name)
 file.read.line(name, line=0)
@@ -74,28 +74,30 @@ To clear the screen:
 graphics.cls()
 ```
 
-### There are three different coloring things in graphics:
+## Text Markdown:
 
+### Color:
 1. Printing Color
 ```
-graphics.pcolor(r,g,b)
-```
-2. Variable Color
-     (returns a variable, which can be used inside of an f-string)
-```
-graphics.vcolor(rgb)
+graphics.color.RGB(r,g,b)
 ```
 3. Color Reset
 ```
-graphics.rcolor()
+graphics.color.res
 ```
 
-Like most games, you want to play sound... Well, when 2.0.0 was released, you could!
+Like most games, you want to play sound... Well, when 2.1.0 was released, you could!
 
 Let's assume this file structure:
-
-[Add structure]
 ```
-sound('sounds/mysound.mp3')
+project/
+     code/
+          playSound.py
+     sounds/
+          mysound.mp3
+```
+To play sound this would be what you do:
+```
+sound('../sounds/mysound.mp3')
 ```
 Sound works in macOS, Windows, and Linux!
