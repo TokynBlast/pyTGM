@@ -160,6 +160,30 @@ class sound:
             else:
                 os.system(f'aplay {path}')
 
+    
+    def frequency(frequency, duration, sample_rate=44100, volume=0.5):
+        import wave
+        import os
+        import numpy as np
+        
+        n_samples = int(sample_rate * duration)
+        t = np.linspace(0, duration, n_samples, False)
+        samples = (volume * np.sin(2 * np.pi * frequency * t)).astype(np.float32)
+    
+        # Convert samples to 16-bit PCM format
+        samples = (samples * 32767).astype(np.int16)
+    
+        # Write to a temporary WAV file
+        with wave.open('temp_tone.wav', 'w') as wf:
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(sample_rate)
+            wf.writeframes(samples.tobytes())
+    
+        if os.name == 'nt':  # For Windows
+                os.system('start temp_tone.wav')
+            elif os.name == 'posix':  # For macOS and Linux
+                os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
 
 def getch(times=1):
     try:
