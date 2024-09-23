@@ -32,8 +32,11 @@ Change Log
 - Shortened random.number to random.num
 - Removed dead code in file
 
-2.1.0 ()
+2.1.0 (September 23, 2024)
 --------------------------
 - Added Sound Playing
 - Fixed __all__
 - Added Other Affects For Text
+
+2.1.1 (September 23, 2024)
+- Added frequency to sound
