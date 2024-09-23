@@ -22,7 +22,8 @@ Change Log
 - Removed __all__ (will be added when fixed)
 - Made a new release in github, instead of updating manually or making a new repository
 
-2.0.0 ()
+2.0.0 (September 20, 2024)
+--------------------------
 - Added __all__
 - Added color to terminal
 - Updated liscence
@@ -30,4 +31,9 @@ Change Log
 - Put b64 into an encryption class
 - Shortened random.number to random.num
 - Removed dead code in file
-- Added Sound
+
+2.1.0 ()
+--------------------------
+- Added Sound Playing
+- Fixed __all__
+- Added Other Affects For Text
