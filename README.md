@@ -97,3 +97,7 @@ To play sound this would be what you do:
 sound('../sounds/mysound.mp3')
 ```
 Sound works in macOS, Windows, and Linux!
+
+> [!IMPORTANT]
+> This version has been fully tested.<br>
+> (Not all versions get tested, due to lack of memory skills sometimes)
