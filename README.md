@@ -98,6 +98,32 @@ sound('../sounds/mysound.mp3')
 ```
 Sound works in macOS, Windows, and Linux!
 
+## Boards
+Boards add a new and unique way to keep track of scores.<br>
+It takes inspiration from Minecraft's board style like this: Title = {player:value}<br>
+Obviously, positioning and other stuff it up to you
+### Add
+Let's add a board titles Penguin, with a value, Amount, and set it as 400
+```
+tgm.Board.add("Penguins", "Amount", 400)
+```
+The values are Title, Player, value
+
+### Modify
+Like most animals, penguines breed... So, lets add 100 penguins!
+```
+tgm.Board.modify("Penguins", "Amount", "+", 100)
+```
+The values are Title, Player, Function, Amount
+
+### Remove
+Something terrible happened, THEY WERE ALL EATEN!!
+So, lets remove their board 😊
+```
+tgm.Board.remove("Penguins")
+```
+Now there is NOTHING to suggest they ever lived!
+
 > [!IMPORTANT]
 > This version has been fully tested.<br>
 > (Not all versions get tested, due to lack of memory skills sometimes)
