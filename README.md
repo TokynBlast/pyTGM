@@ -13,9 +13,6 @@ It has become organized chaos, as in it is so organized, its complicated.<br>
 I, the creator am still practicing. I started practicing it when I released 1.0; Practice! You can evntually learn it!
 v2.1.1
 For public code updates go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.<br>
-=======
-For public code updates go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
-main
 pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
 
 This README file uses penguins a lot!
