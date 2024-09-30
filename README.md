@@ -12,7 +12,7 @@ I also liked the idea of uing ascii characters to make a world, rather than imag
 It has become organized chaos, as in it is so organized, its complicated.
 I, the creator am still practicing. I started practicing it when I released 1.0; Practice! You can evntually learn it!
 
-For public code updates Go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
+For public code updates go [here](https://github.com/TokynBlast/pyTGM/tree/main) and go to the newest version.
 pyTGM is liscenced under Bspace, which was made by the author, Tokyn Blast.
 
 All versions before 2.0.0 were never tested. When testing 2.0.0, Tokyn Blast came across atleast 10 errors...
