@@ -1,8 +1,14 @@
+ v2.1.1
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.modify','Board.title','Board.title.remove','Board.score','Board.score.add','Board.score.remove']
+__url__ = 'https://github.com/TokynBlast/pyTGM'
+__homepage__ = 'https://pytgm.tokynblast.space/home'
+=======
 __all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','board','board.add','board.modify','board.remove']
 __url__ = 'https://youtube.tokynblast.space/programming/libraries/pytgm/'
 __homepage__ = 'https://youtube.tokynblast.space/programmingpytgm/home'
+main
 __download_url__ = 'https://pypi.org/tokynblast'
-__docs_url__ = 'https://youtube.tokynblast.space/programmingpytgm/docs'
+__docs_url__ = 'https://pytgm.tokynblast.space/documentation/use'
 __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://youtube.tokynblast.space/programmingpytgm/source'
 __changelog_url__ = 'https://youtube.tokynblast.space/programming/pytgm/change'
@@ -149,22 +155,54 @@ class graphics:
 class sound:
     def file(path):
         try:
-            from winsound import PlaySound as PS
-            PS(path, winsound.SND_FILENAME)
+            from winsound import PlaySound as PS, SND_FILENAME
+            PS(path, SND_FILENAME)
         
         except:
             #macOS
+ v2.1.1
+            import os
+            if os.uname().sysname == 'Darwin':
+                system(f'afplay {path}')
+=======
             try: uname()
             except: from os import uname
             if uname().sysname == 'Darwin':
                 try: system('echo  ')
                 except: import system
                 os.system(f'afplay {path}')
+ main
                 
             #Linux
             else:
-                os.system(f'aplay {path}')
+                try: system('echo  ')
+                except: from os import system
+                system(f'aplay {path}')
 
+    
+    def frequency(frequency, duration, sample_rate=44100, volume=0.5):
+        import wave
+        import os
+        import numpy as np
+        
+        n_samples = int(sample_rate * duration)
+        t = np.linspace(0, duration, n_samples, False)
+        samples = (volume * np.sin(2 * np.pi * frequency * t)).astype(np.float32)
+    
+        # Convert samples to 16-bit PCM format
+        samples = (samples * 32767).astype(np.int16)
+    
+        # Write to a temporary WAV file
+        with wave.open('temp_tone.wav', 'w') as wf:
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(sample_rate)
+            wf.writeframes(samples.tobytes())
+    
+        if os.name == 'nt':  # For Windows
+                os.system('start temp_tone.wav')
+        elif os.name == 'posix':  # For macOS and Linux
+            os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
 
 def getch(times=1):
     try:
@@ -194,20 +232,55 @@ def getch(times=1):
                     else: return c
             finally: tcsetattr(fd, TCSADRAIN, old)
 
+ v2.1.1
+=======
 
+ main
 class Board:
     boards = []
     
     @staticmethod
+v2.1.1
+=======
     def add(title, player, value):
         Board.boards.append({title: {player: value}})
         
     @staticmethod
+main
     def modify(title, player, func, value):
         for board in Board.boards:
             if title in board and player in board[title]:
                 board[title][player] = eval(f"{board[title][player]} {func} {value}")
 
+v2.1.1
+    class title:
+        @staticmethod
+        def add(title, player, value):
+            Board.boards.append({title: {player: value}})
+            
+        @staticmethod
+        def remove(title):
+            Board.boards = [board for board in Board.boards if title not in board]
+
+    class score:
+        @staticmethod
+        def add(title, player, value):
+            for board in Board.boards:
+                if title in board:
+                    board[title][player] = value
+                    return
+            Board.boards.append({title: {player: value}})
+        
+        @staticmethod
+        def remove(title, player):
+            for board in Board.boards:
+                if title in board and player in board[title]:
+                    del board[title][player]
+                    if not board[title]:  # If no players left, remove the board
+                        Board.boards.remove(board)
+                    return
+=======
     @staticmethod
     def remove(title):
         Board.boards = [board for board in Board.boards if title not in board]
+ main
