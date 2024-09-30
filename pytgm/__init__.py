@@ -1,4 +1,4 @@
-__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency']
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','board','board.add','board.modify','board.remove']
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __homepage__ = 'https://pytgm.tokynblast.space/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -214,3 +214,20 @@ def getch(times=1):
                     if c == ' ': return 'space'
                     else: return c
             finally: tcsetattr(fd, TCSADRAIN, old)
+
+class Board:
+    boards = []
+    
+    @staticmethod
+    def add(title, player, value):
+        Board.boards.append({title: {player: value}})
+        
+    @staticmethod
+    def modify(title, player, func, value):
+        for board in Board.boards:
+            if title in board and player in board[title]:
+                board[title][player] = eval(f"{board[title][player]} {func} {value}")
+
+    @staticmethod
+    def remove(title):
+        Board.boards = [board for board in Board.boards if title not in board]
