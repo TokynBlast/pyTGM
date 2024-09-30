@@ -38,8 +38,10 @@ Change Log
 - Fixed __all__
 - Added Other Affects For Text
 
-2.1.1 (September 23, 2024)
+2.1.1 (September 30, 2024)
+--------------------------
 - Added frequency to sound
 - Added modify
-- Added penguin analogies to README.md
 - Added boards
+- Added penguin analogies to README.md
+- Fixed spelling errors in README.md
