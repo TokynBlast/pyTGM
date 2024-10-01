@@ -223,40 +223,35 @@ def getch(times=1):
 
 class Board:
     boards = []
-    
+
     @staticmethod
-    def add(title, player, value):
-        Board.boards.append({title: {player: value}})
-        
+    def add(title, player=None, value=None):
+        # Add a new board or a new value to an existing board
+        for board in Board.boards:
+            if title in board:
+                if player:
+                    board[title][player] = value
+                return
+        Board.boards.append({title: {player: value}} if player else {title: {}})
+
+    @staticmethod
+    def remove(title, player=None):
+        # Remove a value or a board
+        for board in Board.boards:
+            if title in board:
+                if player:
+                    if player in board[title]:
+                        del board[title][player]
+                        if not board[title]:  # If no players left, remove the board
+                            Board.boards.remove(board)
+                    return
+                else:
+                    Board.boards.remove(board)
+                    return
+
     @staticmethod
     def modify(title, player, func, value):
+        # Modify a value in an existing board
         for board in Board.boards:
             if title in board and player in board[title]:
                 board[title][player] = eval(f"{board[title][player]} {func} {value}")
-
-    class title:
-        @staticmethod
-        def add(title, player, value):
-            Board.boards.append({title: {player: value}})
-            
-        @staticmethod
-        def remove(title):
-            Board.boards = [board for board in Board.boards if title not in board]
-
-    class score:
-        @staticmethod
-        def add(title, player, value):
-            for board in Board.boards:
-                if title in board:
-                    board[title][player] = value
-                    return
-            Board.boards.append({title: {player: value}})
-        
-        @staticmethod
-        def remove(title, player):
-            for board in Board.boards:
-                if title in board and player in board[title]:
-                    del board[title][player]
-                    if not board[title]:  # If no players left, remove the board
-                        Board.boards.remove(board)
-                    return
