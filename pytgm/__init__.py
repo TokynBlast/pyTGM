@@ -1,5 +1,4 @@
-
-__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.modify','Board.title','Board.title.remove','Board.score','Board.score.add','Board.score.remove']
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.add','Board.remove','Board.modify']
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __homepage__ = 'https://pytgm.tokynblast.space/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -59,63 +58,58 @@ class random:
             @staticmethod
             def remove(lst, amnt): return [lst.remove(random.seq.choose.choice(lst)) for _ in range(amnt)]
  
-class encryption:
-    class b64:
-      class table:
-          table_ = '''ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?!@#$%^&*()_+-=[]{}\\|/,.<>~`;:'" '''
+class b64:
+  class table:
+      table_ = '''ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?!@#$%^&*()_+-=[]{}\\|/,.<>~`;:'" '''
+      
+      @staticmethod
+      def tableGen(self, chars, times):
+          table = encryption.b64.table.table_
+          self.table = random.seq.modify.shuffle(self.table, times)
+          return table
           
-          @staticmethod
-          def tableGen(self, chars, times):
-              table = encryption.b64.table.table_
-              self.table = random.seq.modify.shuffle(self.table, times)
-              return table
+      @staticmethod
+      def tableSet(self, chars): 
+          if type(chars) == str: self.table = chars
               
-          @staticmethod
-          def tableSet(self, chars): 
-              if type(chars) == str: self.table = chars
-                  
-      def encode(self, text):
-          bins = str()
-          for c in text:
-              bins += '{:0>8}'.format(str(bin(ord(c)))[2:])
-          while len(bins) % 3:
-              bins += '00000000'
-          d = 1
-          for i in range(6, len(bins) + int(len(bins) / 6), 7):
-              bins = bins[:i] + ' ' + bins[i:]
-          bins = bins.split(' ')
-          if '' in bins:
-              bins.remove('')
-          base64 = str()
-          for b in bins:
-              if b == '000000':
-                  base64 += '='
-              else:
-                  base64 += self.table_[int(b, 2)]
-          return base64
+  def encode(self, text):
+      bins = str()
+      for c in text:
+          bins += '{:0>8}'.format(str(bin(ord(c)))[2:])
+      while len(bins) % 3:
+          bins += '00000000'
+      d = 1
+      for i in range(6, len(bins) + int(len(bins) / 6), 7):
+          bins = bins[:i] + ' ' + bins[i:]
+      bins = bins.split(' ')
+      if '' in bins:
+          bins.remove('')
+      base64 = str()
+      for b in bins:
+          if b == '000000':
+              base64 += '='
+          else:
+              base64 += self.table_[int(b, 2)]
+      return base64
+      
+  def decode(self, text):
+      bins = str()
+      for c in text:
+          if c == '=':
+              bins += '000000'
+          else:
+              bins += '{:0>6}'.format(str(bin(encryption.b64.table.table_.index(c)))[2:])
+      for i in range(8, len(bins) + int(len(bins) / 8), 9):
+          bins = bins[:i] + ' ' + bins[i:]
+      bins = bins.split(' ')
+      if '' in bins:
+          bins.remove('')
+      text = str()
+      for b in bins:
+          if not b == '00000000':
+              text += chr(int(b, 2))
+      return text
           
-      def decode(self, text):
-          bins = str()
-          for c in text:
-              if c == '=':
-                  bins += '000000'
-              else:
-                  bins += '{:0>6}'.format(str(bin(encryption.b64.table.table_.index(c)))[2:])
-          for i in range(8, len(bins) + int(len(bins) / 8), 9):
-              bins = bins[:i] + ' ' + bins[i:]
-          bins = bins.split(' ')
-          if '' in bins:
-              bins.remove('')
-          text = str()
-          for b in bins:
-              if not b == '00000000':
-                  text += chr(int(b, 2))
-          return text
-
-    class sha256:
-        def encode():
-            None
-
 class file:
     class read:
         @staticmethod
@@ -228,43 +222,35 @@ def getch(times=1):
 
 class Board:
     boards = []
-    
+
     @staticmethod
-    def add(title, player, value):
-        Board.boards.append({title: {player: value}})
-        
+    def add(title, player=None, value=None):
+        # Add a new board or a new value to an existing board
+        for board in Board.boards:
+            if title in board:
+                if player:
+                    board[title][player] = value
+                return
+        Board.boards.append({title: {player: value}} if player else {title: {}})
+
     @staticmethod
-    def modify(title, player, func, value):
+    def remove(title, player=None):
+        # Remove a value or a board
+        for board in Board.boards:
+            if title in board:
+                if player:
+                    if player in board[title]:
+                        del board[title][player]
+                        if not board[title]:  # If no players left, remove the board
+                            Board.boards.remove(board)
+                    return
+                else:
+                    Board.boards.remove(board)
+                    return
+
+    @staticmethod
+    def modify(title, player, f_value):
+        # Modify a value in an existing board
         for board in Board.boards:
             if title in board and player in board[title]:
-                board[title][player] = eval(f"{board[title][player]} {func} {value}")
-
-    class title:
-        @staticmethod
-        def add(title, player, value):
-            Board.boards.append({title: {player: value}})
-            
-        @staticmethod
-        def remove(title):
-            Board.boards = [board for board in Board.boards if title not in board]
-
-    class score:
-        @staticmethod
-        def add(title, player, value):
-            for board in Board.boards:
-                if title in board:
-                    board[title][player] = value
-                    return
-            Board.boards.append({title: {player: value}})
-        
-        @staticmethod
-        def remove(title, player):
-            for board in Board.boards:
-                if title in board and player in board[title]:
-                    del board[title][player]
-                    if not board[title]:  # If no players left, remove the board
-                        Board.boards.remove(board)
-                    return
-    @staticmethod
-    def remove(title):
-        Board.boards = [board for board in Board.boards if title not in board]
+                board[title][player] = eval(f"{board[title][player]} {f_value}")

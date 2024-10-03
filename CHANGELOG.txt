@@ -45,3 +45,8 @@ Change Log
 - Added boards
 - Added penguin analogies to README.md
 - Fixed spelling errors in README.md
+
+2.1.2 (October 3rd, 2024)
+-------------------------
+- Fixed __all__
+- Changed Board
