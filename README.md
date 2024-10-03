@@ -130,7 +130,3 @@ So, lets remove their board 😊
 tgm.Board.remove("Penguins")
 ```
 Now there is NOTHING to suggest they ever lived! Or that they're ded!
-
-> [!IMPORTANT]
-> This version has been fully tested.<br>
-> (Not all versions get tested, due to lack of memory skills sometimes)
