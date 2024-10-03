@@ -9,6 +9,8 @@ __changelog_url__ = 'https://youtube.tokynblast.space/programming/pytgm/change'
 
 # Started: 3/15/2024
 
+import os
+
 class random:
     class num:
         @staticmethod
@@ -128,7 +130,12 @@ class file:
 
 class graphics:
     def cls():
-        print('\033[H\033[J', end='')
+        if os.name == 'nt':
+            os.system('cls')
+        elif os.name == 'posix':
+            os.system('clear')
+        else:
+            print('\033[H\033[J', end='')
 
     class color:
         def RGB(r,g,b):
@@ -150,7 +157,6 @@ class sound:
         except:
             #macOS
 
-            import os
             if os.uname().sysname == 'Darwin':
                 system(f'afplay {path}')
              
@@ -170,7 +176,6 @@ class sound:
     
     def frequency(frequency, duration, sample_rate=44100, volume=0.5):
         import wave
-        import os
         import numpy as np
         
         n_samples = int(sample_rate * duration)
