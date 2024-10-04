@@ -259,3 +259,53 @@ class Board:
         for board in Board.boards:
             if title in board and player in board[title]:
                 board[title][player] = eval(f"{board[title][player]} {f_value}")
+
+
+import fonts
+
+def calculate_max_height(font):
+    max_height = 0
+    for char in font.values():
+        lines = char.split('\n')
+        max_height = max(max_height, len(lines))
+    return max_height
+
+def pad_rows(char_rows, max_length):
+    return [row.ljust(max_length) for row in char_rows]
+
+def print_text_ascii_art(text, font, spacing=4):
+    # Split the text into lines and double the newlines
+    lines = text.split('\n')
+    final_lines = []
+    for line in lines:
+        final_lines.append(line)
+        final_lines.append('')
+
+    max_height = calculate_max_height(font)
+
+    for line in final_lines:
+        if line.strip() == '':
+            print('')
+            continue
+
+        # Extract all the rows for each character in the line
+        rows = []
+        for char in line:
+            if char in font:
+                char_rows = font[char].split('\n')
+                max_length = len(char_rows[0])
+                padded_char_rows = pad_rows(char_rows, max_length)
+                rows.append(padded_char_rows)
+            else:
+                rows.append([' ' * max_length] * max_height)
+
+        # Print each row with proper spacing
+        for i in range(max_height):
+            row_text = ""
+            for char_rows in rows:
+                row_text += char_rows[i] + ' ' * spacing
+            print(row_text.rstrip())
+
+if __name__ == "__main__":
+    text = "a\nb a"
+    print_text_ascii_art(text, fonts.subzero)
