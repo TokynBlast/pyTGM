@@ -1,5 +1,5 @@
 # Notes
-This is version 2.1.2, version 0.0.0 was never released publically<br>
+This is version 2.1.3, version 0.0.0 was never released publically<br>
 pyTGM stands for Python Terminal Game Maker
 
 pyTGM includes things like b64 encoding and decoding, random, encryption, and a lot more.
@@ -129,4 +129,5 @@ So, lets remove their board 😊
 ```
 tgm.Board.remove("Penguins")
 ```
-Now there is NOTHING to suggest they ever lived! Or that they're ded!
+Now there is NOTHING to suggest they ever lived! (Or that they're ded!)
+
