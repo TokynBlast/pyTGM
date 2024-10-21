@@ -261,19 +261,23 @@ class Board:
                 board[title][player] = eval(f"{board[title][player]} {f_value}")
 
 
-import fonts
 
-def calculate_max_height(font):
-    max_height = 0
-    for char in font.values():
-        lines = char.split('\n')
-        max_height = max(max_height, len(lines))
-    return max_height
 
-def pad_rows(char_rows, max_length):
-    return [row.ljust(max_length) for row in char_rows]
 
-def print_text_ascii_art(text, font, spacing=4):
+
+def aat(text, font, spacing=4):
+    import fonts
+
+    def calculate_max_height(font):
+        max_height = 0
+        for char in font.values():
+            lines = char.split('\n')
+            max_height = max(max_height, len(lines))
+        return max_height
+
+    def pad_rows(char_rows, max_length):
+        return [row.ljust(max_length) for row in char_rows]
+    
     # Split the text into lines and double the newlines
     lines = text.split('\n')
     final_lines = []
@@ -288,7 +292,6 @@ def print_text_ascii_art(text, font, spacing=4):
             print('')
             continue
 
-        # Extract all the rows for each character in the line
         rows = []
         for char in line:
             if char in font:
@@ -305,7 +308,3 @@ def print_text_ascii_art(text, font, spacing=4):
             for char_rows in rows:
                 row_text += char_rows[i] + ' ' * spacing
             print(row_text.rstrip())
-
-if __name__ == "__main__":
-    text = "a\nb a"
-    print_text_ascii_art(text, fonts.subzero)
