@@ -265,9 +265,9 @@ class Board:
 
 
 
-def aat(text, font, spacing=4):
+def aat(text, font, spacing=1):  # Reduced padding
     import fonts
-
+    
     def calculate_max_height(font):
         max_height = 0
         for char in font.values():
@@ -277,7 +277,7 @@ def aat(text, font, spacing=4):
 
     def pad_rows(char_rows, max_length):
         return [row.ljust(max_length) for row in char_rows]
-    
+
     # Split the text into lines and double the newlines
     lines = text.split('\n')
     final_lines = []
@@ -286,22 +286,23 @@ def aat(text, font, spacing=4):
         final_lines.append('')
 
     max_height = calculate_max_height(font)
-
+    
+    # Use the first row to determine max_length
+    first_row_length = max(len(font[char].split('\n')[0]) for char in text if char in font)
+    
     for line in final_lines:
         if line.strip() == '':
             print('')
             continue
-
         rows = []
         for char in line:
             if char in font:
                 char_rows = font[char].split('\n')
-                max_length = len(char_rows[0])
-                padded_char_rows = pad_rows(char_rows, max_length)
+                padded_char_rows = pad_rows(char_rows, first_row_length)
                 rows.append(padded_char_rows)
             else:
-                rows.append([' ' * max_length] * max_height)
-
+                rows.append([' ' * first_row_length] * max_height)
+        
         # Print each row with proper spacing
         for i in range(max_height):
             row_text = ""
