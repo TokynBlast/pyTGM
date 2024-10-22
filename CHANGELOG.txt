@@ -54,3 +54,4 @@ Change Log
 2.1.3 (October 24th, 2024)
 --------------------------
 - Added Experimental ASCII Text Art
+- Changed numpy to math and array for Sound.Frequency
