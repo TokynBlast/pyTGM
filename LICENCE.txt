@@ -20,7 +20,7 @@ Bspace Liscence
 	    
 	When a variation of pyTGM is published
 	On the download page, you must follow the rules below for the quotes below:
- 	    "This is a variation of the python library pyTGM (Licensed under Bspace v0.0.1) by Tokyn Blast"
+ 	    "This is a variation of the python library pyTGM (Licensed under Bspace v0.0.5) by Tokyn Blast"
 	    "To get pyTGM: https://github.com/TokynBlast/pyTGM"
 
         Rules:
