@@ -51,6 +51,6 @@ Change Log
 - Fixed __all__
 - Changed Board
 
-2.1.3 ()
+2.1.3 (October 24th, 2024)
 --------------------------
-- Added ASCII Text Art
+- Added Experimental ASCII Text Art
