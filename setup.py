@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 classifiers = [
   'Development Status :: 5 - Production/Stable',
   'Intended Audience :: Game Developers',
-  'Operating System :: Microsoft :: Windows :: Windows 10 :: Linux',
+  'Operating System :: Microsoft :: Windows :: Windows 10 :: Linux' :: Windows 11,
   'License :: Bspace License',
-  'Programming Language :: Python :: >=3.13'
+  'Programming Language :: Python :: >=3.6'
 ]
  
 setup(
