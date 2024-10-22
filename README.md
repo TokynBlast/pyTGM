@@ -131,3 +131,18 @@ tgm.Board.remove("Penguins")
 ```
 Now there is NOTHING to suggest they ever lived! (Or that they're ded!)
 
+
+## Experiments
+
+### ASCII Art Text
+This one is an experiment, and is EXTREMLEY buggy...<br>
+But, I had to include it, because this part is being written on October 22nd 2024...<br>
+Which is two  days away from release, and also the BUGGIEST thing ever to be included...<br>
+Spaces add up, too may letters and it breaks...<br>
+However, its good enough for now, because it returns no errors!<br>
+
+Lets print out "pyTGM" (It's all in caps with this one):
+```
+tgm.aat('pyTGM', fonts.subzero)
+```
+Currently, there is only one font that works yet...
