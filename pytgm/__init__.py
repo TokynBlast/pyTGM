@@ -174,28 +174,35 @@ class sound:
                 system(f'aplay {path}')
 
     
+    
+    
     def frequency(frequency, duration, sample_rate=44100, volume=0.5):
-        import wave
-        import numpy as np
-        
+        import wave, math, os, array
         n_samples = int(sample_rate * duration)
-        t = np.linspace(0, duration, n_samples, False)
-        samples = (volume * np.sin(2 * np.pi * frequency * t)).astype(np.float32)
-    
-        # Convert samples to 16-bit PCM format
-        samples = (samples * 32767).astype(np.int16)
-    
+        
+        # Initialize an array to store sample values
+        samples = array.array('h')  # 'h' stands for 16-bit signed integers
+        
+        for i in range(n_samples):
+            t = i / sample_rate  # Time value for the current sample
+            sample_value = volume * math.sin(2 * math.pi * frequency * t)
+            # Convert sample to 16-bit PCM format
+            samples.append(int(sample_value * 32767))
+        
         # Write to a temporary WAV file
         with wave.open('temp_tone.wav', 'w') as wf:
             wf.setnchannels(1)
-            wf.setsampwidth(2)
+            wf.setsampwidth(2)  # 2 bytes for 16-bit audio
             wf.setframerate(sample_rate)
             wf.writeframes(samples.tobytes())
-    
+        
+        # Play the file depending on the OS
         if os.name == 'nt':  # For Windows
-                os.system('start temp_tone.wav')
+            os.system('start temp_tone.wav')
         elif os.name == 'posix':  # For macOS and Linux
             os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
+
+
 
 def getch(times=1):
     try:
@@ -265,48 +272,49 @@ class Board:
 
 
 
-def aat(text, font, spacing=1):  # Reduced padding
-    print('\x1b[38;2;255;0;0mWARNING\x1b[0m: THIS IS AN EXPERIMENT, EXPECT IT TO BE BUGGY.')
-    import fonts
-    
+def aat(text, font):
     def calculate_max_height(font):
-        max_height = 0
+        """Assume all characters have the same height."""
         for char in font.values():
             lines = char.split('\n')
-            max_height = max(max_height, len(lines))
-        return max_height
+            return len(lines)  # Return the height of the first character
 
     def pad_rows(char_rows, max_length):
-        return [row.ljust(max_length) for row in char_rows]
+        """Pad each row of the character to the right with minimal spaces and trim any trailing spaces."""
+        return [row.rstrip().ljust(max_length) for row in char_rows]
 
-    # Split the text into lines and double the newlines
-    lines = text.split('\n')
-    final_lines = []
-    for line in lines:
-        final_lines.append(line)
-        final_lines.append('')
-
+    # Get the maximum height of any character (assumes all characters are the same height)
     max_height = calculate_max_height(font)
-    
-    # Use the first row to determine max_length
-    first_row_length = max(len(font[char].split('\n')[0]) for char in text if char in font)
-    
-    for line in final_lines:
-        if line.strip() == '':
+
+    # Split the input text into lines
+    lines = text.split('\n')
+    for line in lines:
+        if not line.strip():  # If the line is empty, print a blank line and continue
             print('')
             continue
-        rows = []
+
+        # Initialize rows that will store the current line's output
+        rows = ['' for _ in range(max_height)]
         for char in line:
-            if char in font:
+            if char == ' ':  # Handle spaces separately
+                max_length = len(rows[0])  # Use the length of the current row
+                padded_char_rows = [' ' * max_length] * max_height
+            elif char in font:
+                # Get the character's representation and calculate its dimensions
                 char_rows = font[char].split('\n')
-                padded_char_rows = pad_rows(char_rows, first_row_length)
-                rows.append(padded_char_rows)
+                max_length = len(char_rows[0])  # Width of the first row (assumed constant)
+                # Pad the character rows to the right and trim extra trailing spaces
+                padded_char_rows = pad_rows(char_rows, max_length)
             else:
-                rows.append([' ' * first_row_length] * max_height)
-        
-        # Print each row with proper spacing
-        for i in range(max_height):
-            row_text = ""
-            for char_rows in rows:
-                row_text += char_rows[i] + ' ' * spacing
-            print(row_text.rstrip())
+                # If character is not in font, create an empty space block with the same height
+                max_length = len(rows[0])
+                padded_char_rows = [' ' * max_length] * max_height
+
+            # Add the padded character's rows to the current line's rows with no extra spacing
+            for i in range(max_height):
+                rows[i] += padded_char_rows[i]  # No extra spacing between characters
+
+        # Print the final output for this line
+        for row in rows:
+            print(row.rstrip())  # Remove trailing spaces
+        print()  # Add extra space between lines of text
