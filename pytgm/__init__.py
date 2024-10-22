@@ -266,6 +266,7 @@ class Board:
 
 
 def aat(text, font, spacing=1):  # Reduced padding
+    print('\x1b[38;2;255;0;0mWARNING\x1b[0m: THIS IS AN EXPERIMENT, EXPECT IT TO BE BUGGY.')
     import fonts
     
     def calculate_max_height(font):
