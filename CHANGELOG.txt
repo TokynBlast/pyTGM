@@ -48,4 +48,6 @@ Change Log
 
 2.1.2 ()
 ---------------------------
-- Fixed __all__
+Removed file.readChar
+Changed choose into a function, rather than a class
+Fixed __all__ variable
