@@ -2,8 +2,7 @@ Change Log
 ==========
 0.0.0 (March 21, 2024)
 ----------------------
-- Not public
-- First release, no changes
+- Originally called PyTools
 
 1.0.0 (September 10, 2024)
 --------------------------
@@ -45,9 +44,3 @@ Change Log
 - Added boards
 - Added penguin analogies to README.md
 - Fixed spelling errors in README.md
-
-2.1.2 ()
----------------------------
-Removed file.readChar
-Changed choose into a function, rather than a class
-Fixed __all__ variable
