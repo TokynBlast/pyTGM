@@ -5,7 +5,7 @@ classifiers = [
   'Intended Audience :: Game Developers',
   'Operating System :: Microsoft :: Windows :: Windows 10 :: Linux',
   'License :: Bspace License',
-  'Programming Language :: Python :: 3.0'
+  'Programming Language :: Python :: >=3.12'
 ]
  
 setup(
