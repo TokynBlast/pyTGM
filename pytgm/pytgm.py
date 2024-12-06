@@ -1,25 +1,11 @@
-'''
-Needs: Map Sizing
-       Built-in x and y
-       List for getch with multiple times key pressed
-       threading
-       sockets
-       mid function stopping
-       window data transfer
-       time
-       scenes
-
-Need Finished: file/modify/...
-'''
-
-__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.read','file.read.document','file.read.line','file.read.char','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.add','Board.remove','Board.modify', 'paat']
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.readLine','file.modLine','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.add','Board.remove','Board.modify','aat','LocalServer','b64','b64.tableGen','b64.tableSet','b64.encode','b64.decode']
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __homepage__ = 'https://pytgm.tokynblast.space/home'
 __download_url__ = 'https://pypi.org/tokynblast'
 __docs_url__ = 'https://pytgm.tokynblast.space/documentation/use'
 __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
-__source_code_url__ = 'https://youtube.tokynblast.space/programmingpytgm/source'
-__changelog_url__ = 'https://youtube.tokynblast.space/programming/pytgm/change'
+__source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
+__changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
 # Started: 3/15/2024
 
@@ -127,20 +113,26 @@ class b64:
       return text
           
 class file:
-    class read:
-        @staticmethod
-        def document(name): return open(name, 'r').read()
-            
-        @staticmethod
-        def line(name, line=0):
-            x = open(name, 'r')
-            x.readlines()[line]
-            return x
-        
+    def readLine(name, line=0):
+        x = open(name, 'r')
+        x.readlines()[line]
+        return x
+    
         @staticmethod
         def char(name, character_num=0):
             char = open(name, 'r').read(character_num)
             return char
+            
+    def modLine(line_num, text):
+        with open(name, 'r') as code:
+            lines = code.readlines()
+        
+        if 0 <= line_num < len(lines):
+            lines[line_num] = new_text + '\n'
+        
+        with open('code', 'w') as code:
+            code.writelines(lines)
+
 
 class graphics:
     def cls():
@@ -151,11 +143,10 @@ class graphics:
         else:
             print('\033[H\033[J', end='')
 
-    class color:
-        def RGB(r,g,b):
-            return f"\x1b[38;2;{r};{g};{b}m"
+    def color(r,g,b):
+        return f"\x1b[38;2;{r};{g};{b}m"
                 
-        res = "\x1b[0m"
+    res = "\x1b[0m"
 
     class markup:
         bold = '\x1b[1m'
@@ -188,34 +179,38 @@ class sound:
                 system(f'aplay {path}')
 
     
+    
+    
     def frequency(frequency, duration, sample_rate=44100, volume=0.5):
-        import wave
-        import numpy as np
-        
+        import wave, math, os, array
         n_samples = int(sample_rate * duration)
-        t = np.linspace(0, duration, n_samples, False)
-        samples = (volume * np.sin(2 * np.pi * frequency * t)).astype(np.float32)
-    
-        # Convert samples to 16-bit PCM format
-        samples = (samples * 32767).astype(np.int16)
-    
-        # Write to a temporary WAV file
+
+        samples = array.array('h')
+        
+        for i in range(n_samples):
+            t = i / sample_rate
+            sample_value = volume * math.sin(2 * math.pi * frequency * t)
+            samples.append(int(sample_value * 32767))
+
         with wave.open('temp_tone.wav', 'w') as wf:
             wf.setnchannels(1)
             wf.setsampwidth(2)
             wf.setframerate(sample_rate)
             wf.writeframes(samples.tobytes())
-    
-        if os.name == 'nt':  # For Windows
-                os.system('start temp_tone.wav')
-        elif os.name == 'posix':  # For macOS and Linux
+
+        if os.name == 'nt':
+            os.system('start temp_tone.wav')
+        elif os.name == 'posix':
             os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
+
+
 
 def getch(times=1):
     try:
         from msvcrt import getch as g
         for i in range(times):
-            return g()
+            if g == 'b\xe0': return 'ArrowDown'
+            else: return g()
 
     except:
         from sys import stdin
@@ -244,7 +239,6 @@ class Board:
 
     @staticmethod
     def add(title, player=None, value=None):
-        # Add a new board or a new value to an existing board
         for board in Board.boards:
             if title in board:
                 if player:
@@ -254,13 +248,12 @@ class Board:
 
     @staticmethod
     def remove(title, player=None):
-        # Remove a value or a board
         for board in Board.boards:
             if title in board:
                 if player:
                     if player in board[title]:
                         del board[title][player]
-                        if not board[title]:  # If no players left, remove the board
+                        if not board[title]:
                             Board.boards.remove(board)
                     return
                 else:
@@ -269,194 +262,120 @@ class Board:
 
     @staticmethod
     def modify(title, player, f_value):
-        # Modify a value in an existing board
         for board in Board.boards:
             if title in board and player in board[title]:
                 board[title][player] = eval(f"{board[title][player]} {f_value}")
 
 
-# Print ASCII Art Text
-def paat(text, font, spacing=4):
-    
-    import fonts
 
 
-    def calculate_max_height(font):
-        max_height = 0
-        for char in font.values():
-            lines = char.split('\n')
-            max_height = max(max_height, len(lines))
-        return max_height
-    
-    def pad_rows(char_rows, max_length):
-        return [row.ljust(max_length) for row in char_rows]
 
-    # Split the text into lines and double the newlines
+
+def aat(text, font):
+    max_height = max(len(font[char].split('\n')) for char in text if char in font)
+
     lines = text.split('\n')
-    final_lines = []
     for line in lines:
-        final_lines.append(line)
-        final_lines.append('')
-
-    max_height = calculate_max_height(font)
-
-    for line in final_lines:
-        if line.strip() == '':
+        if not line.strip():
             print('')
             continue
 
-        # Extract all the rows for each character in the line
-        rows = []
+        rows = ['' for _ in range(max_height)]
         for char in line:
-            if char in font:
+            if char == ' ':
+                char_rows = [' ' * max_height for _ in range(max_height)]
+            elif char in font:
                 char_rows = font[char].split('\n')
-                max_length = len(char_rows[0])
-                padded_char_rows = pad_rows(char_rows, max_length)
-                rows.append(padded_char_rows)
+                char_height = len(char_rows)
+
+                blank_rows_needed = max_height - char_height
+                if blank_rows_needed > 0:
+                    char_rows = [' ' * len(char_rows[0]) for _ in range(blank_rows_needed)] + char_rows
             else:
-                rows.append([' ' * max_length] * max_height)
+                char_rows = [' ' * max_height for _ in range(max_height)]
 
-        # Print each row with proper spacing
-        for i in range(max_height):
-            row_text = ""
-            for char_rows in rows:
-                row_text += char_rows[i] + ' ' * spacing
-            print(row_text.rstrip())
+            for i in range(max_height):
+                if i < len(char_rows):
+                    rows[i] += char_rows[i]
+                else:
+                    rows[i] += ' ' * len(rows[0])
 
-'''
-y: top, middle, bottom
-x: left, center, right
-Screen Placement (left, right, center, middle,  boottom, top [EX: x.y])
+        for row in rows:
+            print(row.rstrip())
+        print()
 
-Path Tracking
-  chance for direction (default: 12.5% to all 8)
-  Range of sight
-  Collision
-  
+def LocalServer():
+    import socket
+    import threading
+    import time
 
-Collision Detection
-  character or coordinates?
-  
-  Errors:
-    // UnknownMovementError
-    // GrayMovementError - When an entity tries to move in a gray area (an area where movement possibilities are unknown)
+    def server():
+        HOST = ''
+        PORT = 5000
+        
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_socket.bind((HOST, PORT))
+        server_socket.listen()
+        
+        clients = []
+        
+        def broadcast(message):
+            for client in clients:
+                client.send(message)
+        
+        def handle_client(client):
+            while True:
+                try:
+                    message = client.recv(1024)
+                    broadcast(message)
+                except:
+                    clients.remove(client)
+                    client.close()
+                    break
 
-Errors:
-  UnknownEntityError - When an entity is called but not found ('Make sure the name is correct')
-  Invalid
-'''
+        def receive():
+            while True:
+                client, address = server_socket.accept()
+                print(f"Connected with {address}")
+                clients.append(client)
+                client.send('Connected to the server!'.encode('ascii'))
+                thread = threading.Thread(target=handle_client, args=(client,))
+                thread.start()
+        
+        print("Server is waiting for connections...")
+        receive()
 
-'''
+    def client():
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_socket.connect(('localhost', 5000))
+        
+        def receive():
+            messages = []
+            while True:
+                try:
+                    message = client_socket.recv(1024).decode('ascii')
+                    messages.append(message)
+                except:
+                    print("An error occurred!")
+                    client_socket.close()
+                    break
+            return messages
+        
+        def write():
+            while True:
+                message = input('')
+                if message:
+                    client_socket.send(message.encode('ascii'))
 
+        receive_thread = threading.Thread(target=receive)
+        receive_thread.start()
+        
+        write_thread = threading.Thread(target=write)
+        write_thread.start()
 
+    server_thread = threading.Thread(target=server)
+    server_thread.start()
+    
+    time.sleep(1)
 
-
-
-
-pyTMG/
-├── random/
-│   ├── num/
-│   │   ├── integer
-│   │   └── binary
-│   └── seq/
-│       ├── choose/
-│       │   ├── choice
-│       │   └── choices
-│       └── modify/
-│           ├── shuffle
-│           ├── duplicate
-│           └── remove
-├── b64/
-│   ├── table/
-│   │   ├── tableGen
-│   │   └── tableSet
-│   ├── encode
-│   └── decode
-├── file/
-│   ├── read/
-│   │   ├── document
-│   │   ├── line
-│   │   └── char
-│   └── modify/
-│       └── section
-├── graphics/
-│   ├── cls
-│   ├── color/
-│   │   ├── RGB
-│   │   └── res
-│   └── markup/
-│       ├── bold
-│       ├── italic
-│       └── underline
-├── sound/
-│   ├── file
-│   └── frequency
-├── Board/
-│   ├── boards
-│   ├── add
-│   ├── remove
-│   └── modify
-└── getch
-
-Input Handling:
-input/
-    keyboard/
-        get_key
-        get_keys
-        get_keypress
-    mouse/
-        get_click
-        get_position
-This module would handle user input, both from the keyboard and mouse, providing functions to get key presses, key combinations, mouse clicks, and mouse cursor position.
-Graphics and Rendering:
-graphics/
-    draw/
-        print_text
-        draw_shape
-        draw_image
-    screen/
-        resize_screen
-This module would handle the rendering of text, shapes, and images, as well as color management and screen manipulation.
-Sound and Audio:
-audio/
-    play_sound
-    play_music
-    set_volume
-    pause
-    resume
-
-This module would handle the overall game state, allowing you to manage different scenes or levels, and provide functions to set, retrieve, and reset the game state.
-UI and Widgets:
-ui/
-    widgets/
-        Button
-        Label
-        TextBox
-        ProgressBar
-    layout/
-        HorizontalLayout
-        VerticalLayout
-        GridLayout
-This module would provide a set of common UI widgets and layout managers to help you create and arrange user interface elements in your terminal-based games.
-Networking and Multiplayer:
-network/
-    server/
-        start
-        stop
-        send
-    client/
-        connect
-        disconnect
-        send
-This module would enable you to add networking capabilities to your games, allowing for multiplayer functionality and client-server communication.
-Documentation and Utilities:
-docs/
-    tutorials
-    examples
-    api_reference
-utils/
-    timer
-    event_manager
-    config_loader
-This section would include comprehensive documentation, example projects, and API reference, as well as utility functions to help with common game development tasks.
-'''
+    client()
