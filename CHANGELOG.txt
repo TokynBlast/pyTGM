@@ -1,0 +1,6 @@
+2v2.1.2 ()
+---------------------------
+- Removed file.readChar
+- Changed choose into a function, rather than a class
+- Fixed __all__ variable
+- Did an overhaul on Licence and README.md
