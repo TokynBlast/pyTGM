@@ -1,4 +1,4 @@
-__all__ = ['random','random.num','random.num.integer','random.num.binary','random.seq','random.seq.choose','random.seq.choose.choice','random.seq.choose.choices','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.readLine','file.modLine','graphics','graphics.cls','graphics.color','graphics.color.RGB','graphics.color.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.add','Board.remove','Board.modify','aat','LocalServer','b64','b64.tableGen','b64.tableSet','b64.encode','b64.decode']
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.choose','random.seq','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.readLine','file.modLine','graphics','graphics.cls','graphics.color','graphics.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.add','Board.remove','Board.modify','LocalServer','b64','b64.table.table_','b64.table.tableGen','b64.table.tableSet','b64.encode','b64.decode']
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __homepage__ = 'https://pytgm.tokynblast.space/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -29,15 +29,8 @@ class random:
 
 
     class seq:
-        class choose:
-            @staticmethod
-            def choice(lst=None):
-                if lst is None:
-                    lst = []
-                    
-                return lst[random.num.integer(0, len(lst) - 1)]
-
-            def choices(lst, amnt): return [random.seq.choose.choice(lst) for _ in range(amnt)]
+        def choose(lst, amnt=1):
+          return [random.seq.choose.choice(lst) for _ in range(amnt)]
 
         class modify:
             @staticmethod
@@ -111,17 +104,14 @@ class b64:
           if not b == '00000000':
               text += chr(int(b, 2))
       return text
-          
+
+
 class file:
+    @staticmethod
     def readLine(name, line=0):
         x = open(name, 'r')
         x.readlines()[line]
         return x
-    
-        @staticmethod
-        def char(name, character_num=0):
-            char = open(name, 'r').read(character_num)
-            return char
             
     def modLine(line_num, text):
         with open(name, 'r') as code:
@@ -143,8 +133,7 @@ class graphics:
         else:
             print('\033[H\033[J', end='')
 
-    def color(r,g,b):
-        return f"\x1b[38;2;{r};{g};{b}m"
+    def color(r,g,b): return f"\x1b[38;2;{r};{g};{b}m"
                 
     res = "\x1b[0m"
 
@@ -266,52 +255,14 @@ class Board:
             if title in board and player in board[title]:
                 board[title][player] = eval(f"{board[title][player]} {f_value}")
 
-
-
-
-
-
-def aat(text, font):
-    max_height = max(len(font[char].split('\n')) for char in text if char in font)
-
-    lines = text.split('\n')
-    for line in lines:
-        if not line.strip():
-            print('')
-            continue
-
-        rows = ['' for _ in range(max_height)]
-        for char in line:
-            if char == ' ':
-                char_rows = [' ' * max_height for _ in range(max_height)]
-            elif char in font:
-                char_rows = font[char].split('\n')
-                char_height = len(char_rows)
-
-                blank_rows_needed = max_height - char_height
-                if blank_rows_needed > 0:
-                    char_rows = [' ' * len(char_rows[0]) for _ in range(blank_rows_needed)] + char_rows
-            else:
-                char_rows = [' ' * max_height for _ in range(max_height)]
-
-            for i in range(max_height):
-                if i < len(char_rows):
-                    rows[i] += char_rows[i]
-                else:
-                    rows[i] += ' ' * len(rows[0])
-
-        for row in rows:
-            print(row.rstrip())
-        print()
-
-def LocalServer():
+def LocalServer(PORT_):
     import socket
     import threading
     import time
 
-    def server():
+    def server(PORT_):
         HOST = ''
-        PORT = 5000
+        PORT=PORT_
         
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.bind((HOST, PORT))
