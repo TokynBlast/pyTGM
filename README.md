@@ -61,6 +61,11 @@ Board.modify("Penguins", "Amount", "+100")
 Board.remove("Penguins")
 ```
 
+### Get Key
+```python
+getch(times)
+```
+
 ## Links
 - [Homepage](https://pytgm.tokynblast.space/home)
 - [Documentation](https://pytgm.tokynblast.space/documentation/use)
