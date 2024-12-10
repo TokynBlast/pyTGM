@@ -2,13 +2,19 @@
 
 >[!NOTE]
 > There was an accidental deltion of the original pyTGM library. This is a changed version of the newest version I had on hand.
+>
+>This note will be deleted in the next version.
 
 >[!NOTE]
 > Versions dedicated to just Windows, Linux, macOS, and some others are still being developed.<br>
 > For now, this works with most OSes.
+>
+>This note will be deleted when the versions for others are developed.
 
 >[!NOTE]
->This will be on PyPi soon. Once PyPi tech support replies, and I change the email associated with my account (It wasn't the correct one), it will be uploaded. 
+>This will be on PyPi soon. Once PyPi tech support replies, and I change the email associated with my account (It wasn't the correct one), it will be uploaded.
+>
+>This note will be deleted once uploaded to pypi.
 
 pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, with utilities for encryption, randomization, and more.
 
