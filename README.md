@@ -1,13 +1,13 @@
 # pyTGM (Python Terminal Game Maker)
 
 >[!NOTE]
-> This version (2v2.1.1) is not truly 2.1.1, which was lost due to an accidental repository deletion. This is functionally equivilant of a v3.X.X release.
+> This version (4.0.0) is not truly a v4 update. It belongs to the v3 family, which was lost due to an accidental repository deletion. This message will remain until v4.3.X.
 
 >[!NOTE]
 > Versions dedicated to just Windows, Linux, macOS, and some others are still being developed.<br>
 > For now, this works with most OSes.
 
-pyTGM is a simplified alternative to Pygame, focusing on ASCII-based game development with additional utilities for encryption, randomization, and more.
+pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, with utilities for encryption, randomization, and more.
 
 ## Features
 
