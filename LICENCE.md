@@ -64,4 +64,4 @@ This license may not be modified. All Variations must use this license in its ex
 
 ## 10. Void of Contract
 
-This contract will only becom void, once all copies of pyTGM, or derivatives that use this licence are destroyed.
+This contract will only become void, once all copies of pyTGM, or derivatives that use this licence are destroyed on your device.
