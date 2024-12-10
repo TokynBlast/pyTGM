@@ -280,7 +280,7 @@ class Board:
             if title in board and player in board[title]:
                 board[title][player] = eval(f"{board[title][player]} {f_value}")
 
-def LocalServer(PORT_):
+def LocalServer(PORT_, To_send):
     import socket
     import threading
     import time
@@ -332,14 +332,14 @@ def LocalServer(PORT_):
                     message = client_socket.recv(1024).decode('ascii')
                     messages.append(message)
                 except:
-                    print("An error occurred!")
+                    print("An error occurred!\nDisconnecting from the server.")
                     client_socket.close()
                     break
             return messages
         
         def write():
             while True:
-                message = input('')
+                message = To_send
                 if message:
                     client_socket.send(message.encode('ascii'))
 
