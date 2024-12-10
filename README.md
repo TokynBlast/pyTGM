@@ -38,7 +38,6 @@ random.num.integer(1, 5)   # Returns number between 1 and 5
 ```python
 file.read.document(name)           # Read entire file
 file.read.line(name, line=0)       # Read specific line
-file.read.char(name, character_num) # Read specific character
 ```
 
 ### Graphics and Text Styling
@@ -48,7 +47,7 @@ graphics.cls()
 
 # Color text (RGB)
 graphics.color(0, 255, 0)  # Green text
-graphics.res              # Reset color
+graphics.res               # Reset color
 ```
 
 ### Sound Support
@@ -60,14 +59,24 @@ sound('../sounds/mysound.mp3')
 
 ### Scoreboard System
 ```python
-# Add a scoreboard
+# Add a scoreboard (board, component, amount)
 Board.add("Penguins", "Amount", 400)
 
-# Modify score
+# Modify score (board, component, function and value)
 Board.modify("Penguins", "Amount", "+100")
 
-# Remove board
-Board.remove("Penguins")
+# Remove board (board, component)
+Board.remove("Penguins", "Amount")
+```
+
+### Local Server Support
+```python
+# Starting a server and client (PORT, message)
+LocalServer(1080, {'MarkTheMight':((243,332), 57)})
+```
+An example of a returned value would be:
+```python
+{'LordMinion777':((0,0), 100)), 'Muyskerm':((245,334), 43)}
 ```
 
 ### Get Key
@@ -77,7 +86,7 @@ getch(times)
 
 ## Links
 >[!NOTE]
->As of Tuesday, December 10, 2024, 10:21 PST  these links are valid and do work.
+>As of Tuesday, December 10, 2024, 2:23 PST, these links are valid and do work.
 - [Homepage](https://pytgm.tokynblast.space/home)
 - [Documentation](https://pytgm.tokynblast.space/documentation/use)
 - [Source Code](https://github.com/TokynBlast/pyTGM/tree/main)
