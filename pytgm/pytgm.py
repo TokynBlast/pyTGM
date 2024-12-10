@@ -1,4 +1,4 @@
-__all__ = ['random','random.num','random.num.integer','random.num.binary','random.choose','random.seq','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.readLine','file.modLine','graphics','graphics.cls','graphics.color','graphics.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','Board','Board.boards','Board.add','Board.remove','Board.modify','LocalServer','b64','b64.table.table_','b64.table.tableGen','b64.table.tableSet','b64.encode','b64.decode']
+__all__ = ['random','random.num','random.num.integer','random.num.binary','random.choose','random.seq','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.readLine','file.modLine','graphics','graphics.cls','graphics.color','graphics.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','sound.frequency_big','Board','Board.boards','Board.add','Board.remove','Board.modify','LocalServer','b64','b64.table.table_','b64.table.tableGen','b64.table.tableSet','b64.encode','b64.decode']
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __homepage__ = 'https://pytgm.tokynblast.space/home'
 __download_url__ = 'https://pypi.org/tokynblast'
@@ -170,7 +170,7 @@ class sound:
     
     
     
-    def frequency(frequency, duration, sample_rate=44100, volume=0.5):
+    def frequency_big(frequency, duration, sample_rate=44100, volume=0.5):
         import wave, math, os, array
         n_samples = int(sample_rate * duration)
 
@@ -187,13 +187,6 @@ class sound:
             wf.setframerate(sample_rate)
             wf.writeframes(samples.tobytes())
 
-        if os.name == 'nt':
-            os.system('start temp_tone.wav')
-        elif os.name == 'posix':
-            os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
-
-    ''' Which one works better?
-    
     def frequency(frequency, duration, sample_rate=44100, volume=0.5):
         import wave
         import math
@@ -210,14 +203,6 @@ class sound:
             wf.setsampwidth(2)
             wf.setframerate(sample_rate)
             wf.writeframes(bytearray(samples))
-
-        if os.name == 'nt':  # For Windows
-            os.system('start temp_tone.wav')
-        elif os.name == 'posix':  # For macOS and Linux
-            os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
-    '''
-
-
 
 def getch(times=1):
     try:
