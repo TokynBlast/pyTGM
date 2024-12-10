@@ -23,12 +23,13 @@ class random:
             number = (seed % (max_value - min_value + 1)) + min_value
 
             return number
-
+        @staticmethod
         def binary():
             return random.num.integer(0,1)
 
 
     class seq:
+        @staticmethod
         def choose(lst, amnt=1):
           return [random.seq.choose.choice(lst) for _ in range(amnt)]
 
@@ -67,6 +68,7 @@ class b64:
       def tableSet(self, chars): 
           if type(chars) == str: self.table = chars
               
+  @staticmethod
   def encode(self, text):
       bins = str()
       for c in text:
@@ -86,7 +88,7 @@ class b64:
           else:
               base64 += self.table_[int(b, 2)]
       return base64
-      
+  @staticmethod
   def decode(self, text):
       bins = str()
       for c in text:
@@ -112,7 +114,8 @@ class file:
         x = open(name, 'r')
         x.readlines()[line]
         return x
-            
+        
+    @staticmethod
     def modLine(line_num, text):
         with open(name, 'r') as code:
             lines = code.readlines()
@@ -125,6 +128,7 @@ class file:
 
 
 class graphics:
+    @staticmethod
     def cls():
         if os.name == 'nt':
             os.system('cls')
@@ -132,7 +136,8 @@ class graphics:
             os.system('clear')
         else:
             print('\033[H\033[J', end='')
-
+            
+    @staticmethod
     def color(r,g,b): return f"\x1b[38;2;{r};{g};{b}m"
                 
     res = "\x1b[0m"
@@ -143,6 +148,7 @@ class graphics:
         underline = '\x1b[4m'
 
 class sound:
+    @staticmethod
     def file(path):
         try:
             from winsound import PlaySound as PS, SND_FILENAME
@@ -169,7 +175,7 @@ class sound:
 
     
     
-    
+    @staticmethod
     def frequency_big(frequency, duration, sample_rate=44100, volume=0.5):
         import wave, math, os, array
         n_samples = int(sample_rate * duration)
@@ -186,7 +192,7 @@ class sound:
             wf.setsampwidth(2)
             wf.setframerate(sample_rate)
             wf.writeframes(samples.tobytes())
-
+    @staticmethod
     def frequency(frequency, duration, sample_rate=44100, volume=0.5):
         import wave
         import math
@@ -264,6 +270,7 @@ class Board:
         for board in Board.boards:
             if title in board and player in board[title]:
                 board[title][player] = eval(f"{board[title][player]} {f_value}")
+
 
 def LocalServer(PORT_, To_send):
     import socket
