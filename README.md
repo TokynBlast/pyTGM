@@ -76,6 +76,8 @@ getch(times)
 ```
 
 ## Links
+>[!NOTE]
+>As of Tuesday, December 10, 2024, 10:21 PST  these links are valid and do work.
 - [Homepage](https://pytgm.tokynblast.space/home)
 - [Documentation](https://pytgm.tokynblast.space/documentation/use)
 - [Source Code](https://github.com/TokynBlast/pyTGM/tree/main)
