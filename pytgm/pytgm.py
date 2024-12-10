@@ -192,6 +192,31 @@ class sound:
         elif os.name == 'posix':
             os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
 
+    ''' Which one works better?
+    
+    def frequency(frequency, duration, sample_rate=44100, volume=0.5):
+        import wave
+        import math
+
+        n_samples = int(sample_rate * duration)
+        samples = []
+        for i in range(n_samples):
+            sample = volume * math.sin(2 * math.pi * frequency * (i / sample_rate))
+            samples.append(int(sample * 32767))  # Convert to 16-bit PCM format
+
+        # Write to a temporary WAV file
+        with wave.open('temp_tone.wav', 'w') as wf:
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(sample_rate)
+            wf.writeframes(bytearray(samples))
+
+        if os.name == 'nt':  # For Windows
+            os.system('start temp_tone.wav')
+        elif os.name == 'posix':  # For macOS and Linux
+            os.system('afplay temp_tone.wav' if os.uname().sysname == 'Darwin' else 'aplay temp_tone.wav')
+    '''
+
 
 
 def getch(times=1):
