@@ -1,7 +1,7 @@
 # pyTGM (Python Terminal Game Maker)
 
 >[!NOTE]
-> There was an accidental deltion of the original pyTGM library. This is a changed version of the newest version I had on hand.
+> There was an accidental deletion of the original pyTGM library. This is an updated version of the newest version I had on hand.
 >
 >This note will be deleted in the next version.
 
