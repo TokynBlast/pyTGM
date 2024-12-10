@@ -1,5 +1,5 @@
 # Bspace License
-Version 1.0.0
+Version 1.1.0
 Copyright (c) 2024 Tokyn Blast
 
 ## Definitions
@@ -64,4 +64,28 @@ This license may not be modified. All Variations must use this license in its ex
 
 ## 10. Void of Contract
 
-This contract will only become void, once all copies of pyTGM, or derivatives that use this licence are destroyed on your device.
+This contract will only become void if and only if all copies of pyTGM, or derivatives that use this licence are destroyed on your device.<br>
+This includes any accounts you use on any device, Whether public or private.
+
+## 11. Death of Tokyn Blast
+
+When Tokyn Blast dies, pyTGM will either go to a sucessor, or if a sucessor is not chosen within a year, pyTGM will be donated to one of the following:
+1. mozilla
+2. NDSU
+3. A family member of Tokyn Blast
+4. Foxyville
+5. A non-profit organiztion
+6. An agreed location of Tokyn Blast family
+7. The pyTGM community (If any)
+
+The family member who has the most experience in programming will have the most say.<br>
+Then the most relevance in tech.<br>
+Then, everybody else.
+
+This portion may NOT be removed, unless<br>
+Chosen to do so by
+- Tokyn Blast
+- The chosen sucessor
+- Family after the death of Tokyn Blast
+
+Or, if it is donated to the community, this part will be deleted.
