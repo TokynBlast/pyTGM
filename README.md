@@ -6,10 +6,9 @@
 >This note will be deleted in the next version.
 
 >[!NOTE]
-> Versions dedicated to just Windows, Linux, macOS, and some others are still being developed.<br>
-> For now, this works with most OSes.
+> There will NOT be versions for other OSes.
 >
->This note will be deleted when the versions for others are developed.
+> This message will remain here untill December 14th, 2024, PST
 
 >[!NOTE]
 >This will be on PyPi soon. Once PyPi tech support replies, and I change the email associated with my account (It wasn't the correct one), it will be uploaded.
@@ -85,8 +84,6 @@ getch(times)
 ```
 
 ## Links
->[!NOTE]
->As of Tuesday, December 10, 2024, 2:23 PST, these links are valid and do work.
 - [Homepage](https://pytgm.tokynblast.space/home)
 - [Documentation](https://pytgm.tokynblast.space/documentation/use)
 - [Source Code](https://github.com/TokynBlast/pyTGM/tree/main)
