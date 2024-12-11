@@ -76,7 +76,7 @@ LocalServer(1080, {'MarkTheMight':((243,332), 57)})
 ```
 An example of a returned value would be:
 ```python
-{'LordMinion777':((0,0), 100)), 'Muyskerm':((245,334), 43)}
+{'LordMinion777':((0,0), 100), 'Muyskerm':((245,334), 43)}
 ```
 
 ### Get Key
