@@ -7,6 +7,7 @@
 
 >[!NOTE]
 > There will NOT be versions for other OSes.
+> This works with most OSes.
 >
 > This message will remain here untill December 14th, 2024, PST
 
