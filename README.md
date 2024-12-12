@@ -48,6 +48,12 @@ graphics.cls()
 # Color text (RGB)
 graphics.color(0, 255, 0)  # Green text
 graphics.res               # Reset color
+
+# Markup
+mu = graphics.markup
+mu.bold
+mu.italic
+mu.underline
 ```
 
 ### Sound Support
@@ -79,9 +85,13 @@ An example of a returned value would be:
 {'LordMinion777':((0,0), 100), 'Muyskerm':((245,334), 43)}
 ```
 
-### Get Key
+### Terminal Input Detection
 ```python
-getch(times)
+# Mouse Click Detection
+terd.click()             # Returns coordinates, (-1,-1) means error in press
+
+# Keyboard Press Detection
+geky(times)
 ```
 
 ## Links
