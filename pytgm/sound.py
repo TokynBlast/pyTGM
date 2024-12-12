@@ -27,7 +27,7 @@ class frequency:
     import wave, math
     @staticmethod
     def big(frequency, duration, name, sample_rate=44100, volume=0.5):
-        import os, array
+        import array
         n_samples = int(sample_rate * duration)
     
         samples = array.array('h')
@@ -42,6 +42,7 @@ class frequency:
             wf.setsampwidth(2)
             wf.setframerate(sample_rate)
             wf.writeframes(samples.tobytes())
+
     @staticmethod
     def small(frequency, duration, name, sample_rate=44100, volume=0.5):
         n_samples = int(sample_rate * duration)
