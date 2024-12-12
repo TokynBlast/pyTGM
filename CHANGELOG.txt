@@ -1,6 +1,19 @@
-2v2.1.2 ()
+4.0.0 ()
 ---------------------------
 - Removed file.readChar
 - Changed choose into a function, rather than a class
 - Fixed __all__ variable
 - Did an overhaul on Licence and README.md
+- Changed file structure
+- Renamed getch to geky
+- Added a click detection function
+- Put click and geky inside class "terd"
+- Updated and fixed __all__
+- Added __init__.py for making the library follow standards
+- Moved __all__ and links to __init__.py
+- Made functions satic methods
+- Changed how random works
+- Updated LocalServer error message
+- Added a To_send variable to LocalServer
+- Removed autoplay from frequency
+- Added "frequency_big" for longer frequency times
