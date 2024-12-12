@@ -1,4 +1,4 @@
-__all__ = ['random','random.num','random.num.integer','random.num.binary','random.choose','random.seq','random.seq.modify','random.seq.modify.shuffle','random.seq.modify.duplicate','random.seq.modify.remove','file','file.readLine','file.modLine','graphics','graphics.cls','graphics.color','graphics.res','graphics.markup.bold','graphics.markup.italic','graphics.markup.underline','getch','sound','sound.file','sound.frequency','sound.frequency_big','Board','Board.boards','Board.add','Board.remove','Board.modify','LocalServer','b64','b64.table.table_','b64.table.tableGen','b64.table.tableSet','b64.encode','b64.decode']
+__all__ = ['random','num','integer','binary','choose','seq','modify','shuffle','duplicate','remove','file','readLine','modLine','graphics','cls','color','res','bold','italic','underline','terd','geky','click','sound','file','frequency','big','small','board','boards','add','remove','modify','LocalServer','b64','table_','tableGen','tableSet','encode','decode']
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __homepage__ = 'https://pytgm.tokynblast.space/home'
 __download_url__ = 'https://pypi.org/tokynblast'
