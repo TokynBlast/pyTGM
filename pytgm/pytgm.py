@@ -96,39 +96,6 @@ class graphics:
         italic = '\x1b[3m'
         underline = '\x1b[4m'
 
-class Board:
-    boards = []
-
-    @staticmethod
-    def add(title, player=None, value=None):
-        for board in Board.boards:
-            if title in board:
-                if player:
-                    board[title][player] = value
-                return
-        Board.boards.append({title: {player: value}} if player else {title: {}})
-
-    @staticmethod
-    def remove(title, player=None):
-        for board in Board.boards:
-            if title in board:
-                if player:
-                    if player in board[title]:
-                        del board[title][player]
-                        if not board[title]:
-                            Board.boards.remove(board)
-                    return
-                else:
-                    Board.boards.remove(board)
-                    return
-
-    @staticmethod
-    def modify(title, player, f_value):
-        for board in Board.boards:
-            if title in board and player in board[title]:
-                board[title][player] = eval(f"{board[title][player]} {f_value}")
-
-
 def LocalServer(PORT_, To_send):
     import socket
     import threading
