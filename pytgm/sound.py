@@ -4,6 +4,7 @@ def file(path):
         PS(path, SND_FILENAME)
     
     except:
+        import os
         #macOS
 
         if os.uname().sysname == 'Darwin':
