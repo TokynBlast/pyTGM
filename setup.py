@@ -21,4 +21,5 @@ setup(
   keywords='game,game maker,terminal,tools', 
   packages=find_packages(),
   install_requires=[''] 
+  ext_modules=[{"click",["click.c"]}]
 )
