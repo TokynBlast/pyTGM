@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extensions
  
 classifiers = [
   'Development Status :: 5 - Production/Stable',
@@ -21,5 +21,5 @@ setup(
   keywords='game,game maker,terminal,tools', 
   packages=find_packages(),
   install_requires=[''] 
-  ext_modules=[{"click",["click.c"]}]
+  ext_modules=[Extension("click",["click.c"])]
 )
