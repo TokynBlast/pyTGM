@@ -8,7 +8,6 @@ __source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
 import .random as random
-import terminal
 import b64
 import file
 import Board
