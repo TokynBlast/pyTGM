@@ -18,3 +18,5 @@
 - Removed autoplay from frequency
 - Added "frequency_big" for longer frequency times
 - Fixed windows key detection
+- Changed "Board" to "board"
+- Changed "f_value" to "function" and "player" to "component" in board
