@@ -1,3 +1,15 @@
-/*This will have code soon.
-This was just to make the file, so I didn't forget to add it.
-There will be code here December 12, 2024 PST*/
+#include <ncurses.h>
+
+initscr();
+noecho();
+cbreak();
+keypad(stdscr, TRUE);
+
+std::tuple<int, int> click() {
+    MEVENT event;
+    if (getmouse(&event) == OK) {
+        return std::make_tuple(event.x, event.y);
+    }
+    endwin();
+    return std::make_tuple(-1, -1);
+}
