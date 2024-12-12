@@ -6,8 +6,19 @@ def geky(times=1):
     try:
         from msvcrt import getch as g
         for i in range(times):
-            if g == 'b\xe0': return 'ArrowDown'
-            else: return g()
+            k = g()
+            if k == b'\xe0':
+                k = g()
+                if k == b'H':
+                    return 'ArrowUp'
+                elif k == b'P':
+                    return 'ArrowDown'
+                elif k == b'K':
+                    return 'ArrowLeft'
+                elif k == b'M':
+                    return 'ArrowRight'
+            else:
+                return key.decode()
 
     except:
         from sys import stdin
