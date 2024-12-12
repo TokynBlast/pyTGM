@@ -2,7 +2,7 @@
 ---------------------------
 - Removed file.readChar
 - Changed choose into a function, rather than a class
-- Fixed __all__ variable
+- Major fixes to __all__ variable in main __init__
 - Did an overhaul on Licence and README.md
 - major change in file structure
 - Renamed getch to geky
