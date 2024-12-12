@@ -9,7 +9,7 @@
 - Added a click detection function
 - Put click and geky inside class "terd"
 - Updated and fixed __all__
-- Added __init__.py for making the library follow standards
+- Added __init__.py for an entry point
 - Moved __all__ and links to __init__.py
 - Made functions satic methods
 - Changed how random works
