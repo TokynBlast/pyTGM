@@ -32,7 +32,7 @@ setup(
   maintainer_email=maintain_auth_contact,
   license='Bspace', 
   classifiers=classifiers,
-  keywords='game,game maker,terminal,tools', 
+  keywords='game,game maker,terminal,tools,pytgm,terimnal input', 
   packages=find_packages(),
   install_requires=[''] 
   ext_modules=[ Extension(
