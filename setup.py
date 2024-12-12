@@ -16,10 +16,14 @@ setup(
   url='https://youtube.tokynblast.space/programming/libraries/pytgm/init',  
   author='Tokyn Blast',
   author_email='tokynblast@gmail.com',
+  maintainer='Tokyn Blast'
+  maintainer_email='tokynblast@gmail.com'
   license='Bspace', 
   classifiers=classifiers,
   keywords='game,game maker,terminal,tools', 
   packages=find_packages(),
   install_requires=[''] 
   ext_modules=[Extension("click",["click.c"])]
+  puthon_requires=">=3.13"
+  platforms=["Windows", "Linux", "MacOS"]
 )
