@@ -18,7 +18,7 @@ Subject to the terms of this License, you are granted the rights to:
 
 ## 2. Commercial Use
 
-Commercial use is permitted only with explicit written permission from the Original Author.
+Commercial use is permitted only with explicit written permission from the Developer, unless otherwise stated.
 
 ## 3. Conditions
 
@@ -41,7 +41,7 @@ A Variation includes, but is not limited to:
 When publishing a Variation, the following must be prominently displayed on the download page:
 
 ```
-This is a variation of the python library pyTGM (Licensed under the most recent version of the Bspace licence) by Tokyn Blast
+This is a variation of the python library pyTGM (Licensed under Bspace 1.1.0) by Tokyn Blast
 To get pyTGM: https://github.com/TokynBlast/pyTGM
 ```
 
@@ -64,8 +64,8 @@ This license may not be modified. All Variations must use this license in its ex
 
 ## 10. Void of Contract
 
-This contract will only become void if and only if all copies of pyTGM, or derivatives that use this licence are destroyed on your device.<br>
-This includes any accounts you use on any device, Whether public or private.
+This contract will only become void if and only if all copies of pyTGM, derivatives, and modifications that use this licence are destroyed on your device.<br>
+This includes any accounts you use on any device, public or private accounts.
 
 ## 11. Death of Tokyn Blast
 
