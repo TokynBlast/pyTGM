@@ -1,7 +1,3 @@
-from click import click as clic
-
-def click(): clic()
-
 def geky(times=1):
     try:
         from msvcrt import getch as g
