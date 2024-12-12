@@ -22,10 +22,11 @@ def file(path):
             except: from os import system
             system(f'aplay {path}')
 
-class frequency
+class frequency:
+    import wave, math
     @staticmethod
     def big(frequency, duration, name, sample_rate=44100, volume=0.5):
-        import wave, math, os, array
+        import os, array
         n_samples = int(sample_rate * duration)
     
         samples = array.array('h')
@@ -42,8 +43,6 @@ class frequency
             wf.writeframes(samples.tobytes())
     @staticmethod
     def small(frequency, duration, name, sample_rate=44100, volume=0.5):
-        import wave, math
-    
         n_samples = int(sample_rate * duration)
         samples = []
         for i in range(n_samples):
