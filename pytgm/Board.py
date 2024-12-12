@@ -1,27 +1,27 @@
 boards = []
 
-def new(title, player=None, value=None):
-    for board in Board.boards:
+def new(title, component=None, value=None):
+    for board in boards:
         if title in board:
-            if player:
-                board[title][player] = value
+            if component:
+                board[title][component] = value
             return
-    Board.boards.append({title: {player: value}} if player else {title: {}})
+    boards.append({title: {component: value}} if component else {title: {}})
 
-def remove(title, player=None):
-    for board in Board.boards:
+def remove(title, component=None):
+    for board in boards:
         if title in board:
-            if player:
-                if player in board[title]:
-                    del board[title][player]
+            if component:
+                if component in board[title]:
+                    del board[title][component]
                     if not board[title]:
-                        Board.boards.remove(board)
+                        boards.remove(board)
                 return
             else:
-                Board.boards.remove(board)
+                boards.remove(board)
                 return
 
-def modify(title, player, f_value):
-    for board in Board.boards:
-        if title in board and player in board[title]:
-            board[title][player] = eval(f"{board[title][player]} {f_value}")
+def modify(title, component, function):
+    for board in boards:
+        if title in board and component in board[title]:
+            board[title][component] = eval(f"{board[title][component]} {function}")
