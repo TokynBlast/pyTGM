@@ -6,8 +6,8 @@
 - Did an overhaul on Licence and README.md
 - major change in file structure
 - Renamed getch to geky
+- Put getch inside class "terd"
 - Added a click detection function
-- Put click and geky inside class "terd"
 - Updated and fixed __all__
 - Added __init__.py for an entry point
 - Moved __all__ and links to __init__.py
