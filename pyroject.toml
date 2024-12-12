@@ -40,4 +40,4 @@ packages = ["find:"]
 ">=3.13"
 
 [project.scripts]
-terminal-click = "pytgm.terminal.click"
+click = "pytgm.terd.click"
