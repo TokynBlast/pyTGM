@@ -17,3 +17,4 @@
 - Added a To_send variable to LocalServer
 - Removed autoplay from frequency
 - Added "frequency_big" for longer frequency times
+- Fixed windows key detection
