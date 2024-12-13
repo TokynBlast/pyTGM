@@ -101,9 +101,9 @@ Failed, fixing:   Red
 Untested:         Yellow
 ```
 
-![Pylint](https://img.shields.io/badge/linting-pylint-yellow)
-![Testing](https://img.shields.io/badge/testing-pytest-yellow)
-![Formatting](https://img.shields.io/badge/formatting-Black-yellow)
+![Pylint](https://img.shields.io/badge/linting-pylint-yellow?style=for-the-badge)<br>
+![Testing](https://img.shields.io/badge/testing-pytest-yellow?style=for-the-badge)<br>
+![Formatting](https://img.shields.io/badge/formatting-Black-yellow?style=for-the-badge)<br>
 
 ## Links
 - [Homepage](https://pytgm.tokynblast.space/home)
