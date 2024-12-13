@@ -1,4 +1,4 @@
-name: Generate SHA-3 Hashes and Update VERSION.json
+name: SHA3-256 Generate and Update
 
 on:
   push:
