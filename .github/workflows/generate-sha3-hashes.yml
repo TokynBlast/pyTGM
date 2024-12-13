@@ -1,4 +1,4 @@
-name: SHA3-256 Generate and Update
+name: SHA256 Generate and Update
 
 on:
   push:
@@ -16,20 +16,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       
-      - name: Install sha3sum
+      - name: Install jq
         run: |
-          sudo apt-get update
-          sudo apt-get install -y git build-essential
-          git clone https://codeberg.org/maandree/sha3sum.git
-          cd sha3sum
-          make
-          sudo make install
-
           sudo apt-get install -y jq
 
-      - name: Generate SHA-3 hashes
+      - name: Generate SHA256 hashes
         run: |
-          sha3sum pytgm/board.py pytgm/b64.py pytgm/file.py pytgm/graphics.py pytgm/random.py pytgm/sound.py pytgm/terd/click.c pytgm/terd/geky.py pytgm/LocalServer.py > hashes.txt
+          sha256sum pytgm/board.py pytgm/b64.py pytgm/file.py pytgm/graphics.py pytgm/random.py pytgm/sound.py pytgm/terd/click.c pytgm/terd/geky.py pytgm/LocalServer.py > hashes.txt
           while IFS= read -r line; do
             file=$(echo $line | cut -d' ' -f2-)
             hash=$(echo $line | cut -d' ' -f1)
@@ -41,5 +34,5 @@ jobs:
           git config --local user.name "Tokyn Blast"
           git config --local user.email "tokynblast@gmail.com"
           git add VERSION.json
-          git commit -m "Update SHA-3 hashes in VERSION.json"
+          git commit -m "Update SHA256 hashes in VERSION.json"
           git push
