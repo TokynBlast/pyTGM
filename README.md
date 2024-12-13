@@ -94,14 +94,10 @@ terd.click()             # Returns coordinates, (-1,-1) means error in press
 geky(times)
 ```
 
-## Testing
-```
-Passed:           Green
-Failed, fixing:   Red
-Untested:         Yellow
-```
-
-![Pylint](https://img.shields.io/badge/linting-pylint-yellow?style=for-the-badge)<br>
+## Workflow Status
+[![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml)<br>
+[![SHA3-256 Generate and update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)]<br>
+[![Upload Python Package](https://github.com/TokynBlast/pyTGM/actions/workflows/python-publish.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/python-publish.yml)<br>
 ![Testing](https://img.shields.io/badge/testing-pytest-yellow?style=for-the-badge)<br>
 ![Formatting](https://img.shields.io/badge/formatting-Black-yellow?style=for-the-badge)<br>
 
