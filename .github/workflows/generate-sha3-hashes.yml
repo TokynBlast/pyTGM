@@ -37,9 +37,12 @@ jobs:
           done < hashes.txt
 
       - name: Commit and Push Changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --local user.name "Tokyn Blast"
           git config --local user.email "tokynblast@gmail.com"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/TokynBlast/pyTGM.git
           git add VERSION.json
           git commit -m "Update SHA-256 hashes in VERSION.json"
           git push
