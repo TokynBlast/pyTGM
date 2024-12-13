@@ -4,7 +4,7 @@ def readLine(name, line=0):
   return x
         
     
-def modLine(line_num, text):
+def modLine(text, line=0):
   with open(name, 'r') as code:
     lines = code.readlines()
         
