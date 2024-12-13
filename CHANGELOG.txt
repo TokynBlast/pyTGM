@@ -21,3 +21,4 @@
 - Changed "Board" to "board"
 - Changed "f_value" to "function" and "player" to "component" in board
 - Added security hashes
+- Added badges to README.md
