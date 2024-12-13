@@ -94,6 +94,17 @@ terd.click()             # Returns coordinates, (-1,-1) means error in press
 geky(times)
 ```
 
+## Testing
+```
+Passed:           Green
+Failed, fixing:   Red
+Untested:         Yellow
+```
+
+![Pylint](https://img.shields.io/badge/linting-pylint-yellow)
+![Testing](https://img.shields.io/badge/testing-pytest-yellow)
+![Formatting](https://img.shields.io/badge/formatting-Black-yellow)
+
 ## Links
 - [Homepage](https://pytgm.tokynblast.space/home)
 - [Documentation](https://pytgm.tokynblast.space/documentation/use)
