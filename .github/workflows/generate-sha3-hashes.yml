@@ -16,6 +16,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Parse JSON
+        run: jq . VERSION.json
+
       - name: Generate SHA-256 hashes
         run: |
           # Generate hashes for the files and save to hashes.txt
