@@ -18,9 +18,13 @@ jobs:
       
       - name: Install sha3sum
         run: |
-          sudo add-apt-repository ppa:security/ppa
           sudo apt-get update
-          sudo apt-get install -y sha3sum
+          sudo apt-get install -y git build-essential
+          git clone https://codeberg.org/maandree/sha3sum.git
+          cd sha3sum
+          make
+          sudo make install
+
           sudo apt-get install -y jq
 
       - name: Generate SHA-3 hashes
