@@ -5,7 +5,7 @@
 #include <sys/ioctl.h>
 #include <linux/input.h>
 
-std::tuple<int, int> getMouseClick() {
+std::tuple<int, int> Click() {
     int fd = open("/dev/input/event0", O_RDONLY | O_NONBLOCK);
     if (fd < 0) {
         return std::make_tuple(-1, -1);
@@ -26,13 +26,13 @@ std::tuple<int, int> getMouseClick() {
     return std::make_tuple(-1, -1);  // No click detected
 }
 
-static PyObject* py_getMouseClick(PyObject* self, PyObject* args) {
-    auto result = getMouseClick();
+static PyObject* py_Click(PyObject* self, PyObject* args) {
+    auto result = Click();
     return Py_BuildValue("(ii)", std::get<0>(result), std::get<1>(result));
 }
 
 static PyMethodDef methods[] = {
-    {"getMouseClick", py_getMouseClick, METH_NOARGS, "Detect mouse click"},
+    {"Click", py_Click, METH_NOARGS, "Detect mouse click"},
     {NULL, NULL, 0, NULL}
 };
 
