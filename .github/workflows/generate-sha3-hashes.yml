@@ -3,7 +3,7 @@ name: SHA3-256 Generate and Update
 on:
   push:
     paths:
-      - pytgm/
+      - pytgm
     branches:
       - main
 
