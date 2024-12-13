@@ -2,10 +2,10 @@ name: SHA3-256 Generate and Update
 
 on:
   push:
-    paths:
-      - pytgm/**
-      - '!pytgm/__init__.py'
-      - '!pytgm/terd/__init__.py'
+    #paths:
+    #  - pytgm/**
+    #  - '!pytgm/__init__.py'
+    #  - '!pytgm/terd/__init__.py'
     branches:
       - main
 
