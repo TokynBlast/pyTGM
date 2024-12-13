@@ -1,4 +1,4 @@
-name: SHA256 Generate and Update
+name: SHA-256 Generate and Update
 
 on:
   push:
@@ -15,18 +15,22 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      
-      - name: Install jq
-        run: |
-          sudo apt-get install -y jq
 
-      - name: Generate SHA256 hashes
+      - name: Generate SHA-256 hashes
         run: |
+          # Generate hashes for the files and save to hashes.txt
           sha256sum pytgm/board.py pytgm/b64.py pytgm/file.py pytgm/graphics.py pytgm/random.py pytgm/sound.py pytgm/terd/click.c pytgm/terd/geky.py pytgm/LocalServer.py > hashes.txt
+
+          # Ensure VERSION.json exists and has the 'hashes' object
+          if [ ! -f VERSION.json ]; then
+            echo '{"hashes":{}}' > VERSION.json
+          fi
+
+          # Update VERSION.json with the new hashes
           while IFS= read -r line; do
-            file=$(echo $line | cut -d' ' -f2-)
-            hash=$(echo $line | cut -d' ' -f1)
-            jq ".hash[\"$file\"] = \"$hash\"" VERSION.json > VERSION.json.tmp && mv VERSION.json.tmp VERSION.json
+            file=$(echo "$line" | cut -d' ' -f2-)
+            hash=$(echo "$line" | cut -d' ' -f1)
+            jq ".hashes[\"$file\"] = \"$hash\"" VERSION.json > VERSION.json.tmp && mv VERSION.json.tmp VERSION.json
           done < hashes.txt
 
       - name: Commit and Push Changes
@@ -34,5 +38,5 @@ jobs:
           git config --local user.name "Tokyn Blast"
           git config --local user.email "tokynblast@gmail.com"
           git add VERSION.json
-          git commit -m "Update SHA256 hashes in VERSION.json"
+          git commit -m "Update SHA-256 hashes in VERSION.json"
           git push
