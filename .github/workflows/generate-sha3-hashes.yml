@@ -20,11 +20,12 @@ jobs:
         run: |
           sudo add-apt-repository ppa:security/ppa
           sudo apt-get update
-          sudo apt-get install -y sha3sum jq
+          sudo apt-get install -y sha3sum
+          sudo apt-get install -y jq
 
       - name: Generate SHA-3 hashes
         run: |
-          sha3sum pytgm/board.py pytgm/b64.py pytgm/file.py pytgm/graphics.py pytgm/random.py pytgm/sound.py pytgm/terd/click.c pytgm/terd/geky.py > hashes.txt
+          sha3sum pytgm/board.py pytgm/b64.py pytgm/file.py pytgm/graphics.py pytgm/random.py pytgm/sound.py pytgm/terd/click.c pytgm/terd/geky.py pytgm/LocalServer.py > hashes.txt
           while IFS= read -r line; do
             file=$(echo $line | cut -d' ' -f2-)
             hash=$(echo $line | cut -d' ' -f1)
