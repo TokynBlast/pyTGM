@@ -11,6 +11,8 @@ LICENCE.md export-ignore
 *.py linguist-language=Python
 *.c linguist-language=C
 
+pytgm/terd/*.c linguist-language=C
+
 # Ignore non-code directories
 *.txt linguist-vendored
 *.json linguist-vendored
