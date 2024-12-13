@@ -1,7 +1,7 @@
 def geky(times=1):
     try:
         from msvcrt import getch as g
-        for i in range(times):
+        for _ in range(times):
             k = g()
             if k == b'\xe0':
                 k = g()
@@ -15,7 +15,7 @@ def geky(times=1):
         from sys import stdin
         from tty import setraw
         from termios import tcsetattr, TCSADRAIN, tcgetattr
-        for i in range(times):
+        for _ in range(times):
             fd = stdin.fileno()
             old = tcgetattr(fd)
             try:
