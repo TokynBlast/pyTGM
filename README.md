@@ -96,7 +96,7 @@ geky(times)
 
 ## Workflow Status
 [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml)<br>
-[![SHA3-256 Generate and update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)]<br>
+[![SHA3-256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
 [![Upload Python Package](https://github.com/TokynBlast/pyTGM/actions/workflows/python-publish.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/python-publish.yml)<br>
 ![Testing](https://img.shields.io/badge/testing-pytest-yellow?style=for-the-badge)<br>
 ![Formatting](https://img.shields.io/badge/formatting-Black-yellow?style=for-the-badge)<br>
