@@ -1,7 +1,11 @@
 name: Pylint
 
-on: [push]
-
+on:
+  push:
+    paths:
+      - pytgm/
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
