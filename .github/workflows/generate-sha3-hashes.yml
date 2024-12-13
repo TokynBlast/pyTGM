@@ -2,6 +2,8 @@ name: Generate SHA-3 Hashes and Update VERSION.json
 
 on:
   push:
+    paths:
+      - pytgm/
     branches:
       - main
 
