@@ -7,16 +7,16 @@
   "build": 1,
   "contributors": 1,
   "hashes": {
-    "pytgm/board.py": "fb83ae391a0f59e3d6ed3e28317eeb56deca06b50967be9901cc9955a936ce17",
+    "pytgm/board.py": "ca756b8dc9c5ab29fa45e6bb0f27629a7cbf7100e8b6cd02221fd3f8d4345a69",
     "pytgm/b64.py": "790a6ab75ca44e22780a65eb7c25af6a3f3945ce4b0be7523ec3f2dd24f1fbcd",
     "pytgm/file.py": "1dcaa499621f0cc7d951274f02c9cb2ef9943af566e79110687f1bda238e731f",
     "pytgm/graphics.py": "d56b388b620af2ebb0d5b3a0558d204f653a8dad5be0032fa997b1069b83b9c3",
-    "pytgm/random.py": "000a6748ed9777df85aa79f190ac511db04cb49806877262b98aad100bd741b5",
-    "pytgm/sound.py": "4d0556d9fe9b77028166d38f1083566dbebc996280e8fb9dd747f0fa99601366",
+    "pytgm/random.py": "4e6c876092a577649d86fa6287307354ba921d4e5600400e8113eac585ae2d0d",
+    "pytgm/sound.py": "024c428a3b33b429ce1db23add8433683b8d95af695fc55a035bfdb13f0817f9",
     "pytgm/terd/click.c": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
     "pytgm/terd/geky.py": "2307689e79db9d62337a8d1823a31f7b631be942db6c92cabeebe767dcb5918d",
     "pytgm/LocalServer.py": "7f38ae8e3edeeed6ab755fa1880e37372d7fa1c0977df46df1873b289e392e4c",
-    "pytgm/local_server.py": "29d28f6ca075f0586f7023ee3c1e600120437793c5196c6227a4a732fd4ad005",
+    "pytgm/local_server.py": "537018f02f266d1327d5822ce4ccc328404846cb3097f0ce2b2d98954b4aec0d",
     "pytgm/random/num/integer.py": "c10dd2039514a04f90b23f5180bf2da4d267043f91e2b73b6193560016392cc8"
   }
 }
