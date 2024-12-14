@@ -39,7 +39,7 @@ from .sound import file, frequency
 from .sound.frequency import big, small
 
 # Graphic imports
-from .graphics import cls, color, markup, res
+from .graphics import cls, color, Markup, res
 from .graphics.markup import bold, italic, underline
 
 # Online imports
