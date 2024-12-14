@@ -1,4 +1,10 @@
+"""
+Used for making, and playing sounds
+"""
 def file(path):
+    """
+    Plays a sound at a file location
+    """
     try:
         from winsound import PlaySound as PS, SND_FILENAME
         PS(path, SND_FILENAME)
@@ -27,6 +33,10 @@ class frequency:
     import wave, math
     @staticmethod
     def big(frequency, duration, name, sample_rate=44100, volume=0.5):
+        """
+        Makes a file with a frequency
+        For long files
+        """
         import array
         n_samples = int(sample_rate * duration)
     
@@ -45,6 +55,9 @@ class frequency:
 
     @staticmethod
     def small(frequency, duration, name, sample_rate=44100, volume=0.5):
+        """
+        Makes a file of a short frequency time
+        """
         n_samples = int(sample_rate * duration)
         samples = []
         for i in range(n_samples):
@@ -57,5 +70,3 @@ class frequency:
             wf.setsampwidth(2)
             wf.setframerate(sample_rate)
             wf.writeframes(bytearray(samples))
-    
-    

@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages, Extensions
-from sys import platform 
+from sys import platform
 classifiers = [
   'Development Status :: 4 - Beta',
   'Intended Audience :: Game Developers',
@@ -30,9 +30,9 @@ setup(
   author_email=maintain_auth_contact,
   maintainer=maintain_auth,
   maintainer_email=maintain_auth_contact,
-  license='Bspace', 
+  license='Bspace',
   classifiers=classifiers,
-  keywords='game,game maker,terminal,tools,pytgm,terimnal input', 
+  keywords='game,game maker,terminal,tools,pytgm,terimnal input',
   packages=find_packages(),
   install_requires=[''],
   ext_modules=[ Extension(
