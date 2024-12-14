@@ -32,7 +32,7 @@ jobs:
 
           # Update VERSION.json with the new hashes
           while IFS= read -r line; do
-            file=$(echo "$line" | cut -d' ' -f2-)
+            file=$(echo "$line" | cut -d' ' -f2- | xargs)
             hash=$(echo "$line" | cut -d' ' -f1)
             jq ".hashes[\"$file\"] = \"$hash\"" VERSION.json > VERSION.json.tmp && mv VERSION.json.tmp VERSION.json
           done < hashes.txt
