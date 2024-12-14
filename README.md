@@ -6,12 +6,6 @@
 >This note will be deleted in the next version.
 
 >[!NOTE]
-> There will NOT be versions for other OSes.
-> This works with most OSes.
->
-> This message will remain here untill December 14th, 2024, PST
-
->[!NOTE]
 >This will be on PyPi soon. Once PyPi tech support replies, and I change the email associated with my account (It wasn't the correct one), it will be uploaded.
 >
 >This note will be deleted once uploaded to pypi.
