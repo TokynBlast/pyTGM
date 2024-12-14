@@ -16,6 +16,7 @@
     "pytgm/terd/click.c": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
     "pytgm/terd/geky.py": "2307689e79db9d62337a8d1823a31f7b631be942db6c92cabeebe767dcb5918d",
     "pytgm/LocalServer.py": "7f38ae8e3edeeed6ab755fa1880e37372d7fa1c0977df46df1873b289e392e4c",
-    "pytgm/local_server.py": "6e76230153dbb587e3b49ec0f93ff2df7a58fc1fb801652aca5060ea5faea1b5"
+    "pytgm/local_server.py": "6e76230153dbb587e3b49ec0f93ff2df7a58fc1fb801652aca5060ea5faea1b5",
+    "pytgm/random/num/integer.py": "c10dd2039514a04f90b23f5180bf2da4d267043f91e2b73b6193560016392cc8"
   }
 }
