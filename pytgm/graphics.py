@@ -1,3 +1,7 @@
+"""
+Used for markup on printed text
+"""
+
 import os
 
 def cls():
