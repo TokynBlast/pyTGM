@@ -36,6 +36,9 @@ jobs:
             jq ".hashes[\"$file\"] = \"$hash\"" VERSION.json > VERSION.json.tmp && mv VERSION.json.tmp VERSION.json
           done < hashes.txt
 
+          # Delete hashes.txt after it is used
+          rm hashes.txt
+
       - name: Commit and Push Changes
         env:
           HASHGEN: ${{ secrets.HASHGENERATE }}
