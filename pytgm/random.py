@@ -8,8 +8,8 @@ class num:
       number = (seed % (max_value - min_value + 1)) + min_value
       return number
     
-   @staticmethod
-   def binary(): return random.num.integer(0,1)
+@staticmethod
+def binary(): return random.num.integer(0,1)
     
 class seq:
   @staticmethod

@@ -8,7 +8,9 @@ import os
 import wave
 import math
 import array
-from winsound import PlaySound as PS, SND_FILENAME
+
+if sys.platform == 'win32':
+    from winsound import PlaySound as PS, SND_FILENAME
 
 def file(path):
     """
@@ -45,8 +47,8 @@ def generate(frequency, duration, name, sample_rate=44100, volume=0.5):
         sample_value = volume * math.sin(2 * math.pi * frequency * t)
         samples.append(int(sample_value * 32767))
 
-    with wave.open(name, 'w') as wf:
-        wf.setnchannels(1)
-        wf.setsampwidth(2)  # 16-bit samples
-        wf.setframerate(sample_rate)
-        wf.writeframes(samples.tobytes())
+    with wave.open(file_path, 'rb') as wave_obj:
+        num_channels = wave_obj.getnchannels()
+        sample_width = wave_obj.getsampwidth()
+        frame_rate = wave_obj.getframerate()
+        frames = wave_obj.readframes(num_frames)
