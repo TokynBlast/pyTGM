@@ -35,7 +35,7 @@ def server(host='localhost', PORT_='5000'):
     server_thread = threading.Thread(target=server_)
     server_thread.start()
 
-def client(host, PORT_):
+def client(To_send, host, PORT_):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((host, PORT_))
     
