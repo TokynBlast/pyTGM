@@ -39,7 +39,7 @@ setup(
             'click',
             sources=['terd/click.c'],
             extra_compile_args=extra_compile_args[sys.platform],
-        )]
-  python_requires=">=3.13"
+        )],
+  python_requires=">=3.13",
   platforms=["Windows", "Linux", "MacOS"]
 )
