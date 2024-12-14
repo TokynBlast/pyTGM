@@ -14,7 +14,7 @@ def geky(times=1):
             k = g()
             if k == b'\xe0':
                 k = g()
-                if k == b'H':
+                if k == b'H': # pylint: disable=no-else-return
                     return 'ArrowUp'
                 elif k == b'P':  # pylint: disable=no-else-return
                     return 'ArrowDown'
@@ -37,7 +37,7 @@ def geky(times=1):
                 c = stdin.read(1)
                 if c == '\x1b':
                     c = stdin.read(2)
-                    if c == '[A':
+                    if c == '[A': # pylint: disable=no-else-return
                         return 'ArrowUp'
                     elif c == '[B':  # pylint: disable=no-else-return
                         return 'ArrowDown'
@@ -48,7 +48,7 @@ def geky(times=1):
                     else:  # pylint: disable=no-else-return
                         return c
                 else:
-                    if c == ' ':
+                    if c == ' ': # pylint: disable=no-else-return
                         return 'space'
                     else:  # pylint: disable=no-else-return
                         return c
