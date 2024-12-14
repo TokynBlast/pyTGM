@@ -8,13 +8,14 @@
   "contributors": 1,
   "hashes": {
     "pytgm/board.py": "1d85421e19c78e7b233866029fbc2a754eb00b84188733d9fe539719fc81d337",
-    "pytgm/b64.py": "1d77590c55892edb1e41088fa0017399a03aa4fa5320f55c109253ad6db60f00",
+    "pytgm/b64.py": "790a6ab75ca44e22780a65eb7c25af6a3f3945ce4b0be7523ec3f2dd24f1fbcd",
     "pytgm/file.py": "1a19a9e4b6d9bfe1533d0d7b93eccf62576199c9516eb15a77533aac693fd4dc",
     "pytgm/graphics.py": "0960ed2a5b2a1bd522231d4f891e6a2980c711beb8f1001c82160630a298bec7",
     "pytgm/random.py": "45d97d2c8cbd9c4b7691fe286cfa3ec5f6149b89ad80ea2f1c8f45379b47ca32",
     "pytgm/sound.py": "4680732df4ed3ec4c38cebeb4da82a49a63848c634da4c5668e249f8f8e92873",
     "pytgm/terd/click.c": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
     "pytgm/terd/geky.py": "2307689e79db9d62337a8d1823a31f7b631be942db6c92cabeebe767dcb5918d",
-    "pytgm/LocalServer.py": "7f38ae8e3edeeed6ab755fa1880e37372d7fa1c0977df46df1873b289e392e4c"
+    "pytgm/LocalServer.py": "7f38ae8e3edeeed6ab755fa1880e37372d7fa1c0977df46df1873b289e392e4c",
+    "pytgm/local_server.py": "6e76230153dbb587e3b49ec0f93ff2df7a58fc1fb801652aca5060ea5faea1b5"
   }
 }
