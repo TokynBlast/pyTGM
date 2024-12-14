@@ -34,7 +34,7 @@ setup(
   classifiers=classifiers,
   keywords='game,game maker,terminal,tools,pytgm,terimnal input', 
   packages=find_packages(),
-  install_requires=[''] 
+  install_requires=[''],
   ext_modules=[ Extension(
             'click',
             sources=['terd/click.c'],
