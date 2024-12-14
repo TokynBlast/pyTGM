@@ -2,12 +2,14 @@
 Used for detecting key presses
 """
 
-def geky(times=1):  # pylint: disable=too-many-branches, too-many-return-statements
+# pylint: disable=too-many-branches, too-many-return-statements, inconsistent-return-statements
+
+def geky(times=1):
     """
     Gets a keyboard press, a determinate amount of times.
     """
     try:
-        from msvcrt import getch as g  # pylint: disable=import-error
+        from msvcrt import getch as g  # pylint: disable=import-error, import-outside-toplevel
         for _ in range(times):
             k = g()
             if k == b'\xe0':
@@ -23,10 +25,10 @@ def geky(times=1):  # pylint: disable=too-many-branches, too-many-return-stateme
             else:  # pylint: disable=no-else-return
                 return k.decode()
 
-    except:
-        from sys import stdin # pylint: disable=import-error,
-        from tty import setraw # pylint: disable=import-error,
-        from termios import tcsetattr, TCSADRAIN, tcgetattr # pylint: disable=import-error,
+    except:  # pylint: disable=bare-except
+        from sys import stdin  # pylint: disable=import-outside-toplevel
+        from tty import setraw  # pylint: disable=import-outside-toplevel
+        from termios import tcsetattr, TCSADRAIN, tcgetattr  # pylint: disable=import-outside-toplevel
         for _ in range(times):
             fd = stdin.fileno()
             old = tcgetattr(fd)
