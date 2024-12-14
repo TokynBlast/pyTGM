@@ -13,7 +13,7 @@ def mod_line(text, line=0):
     Likely, multiple
     """
     with open(name, 'r') as code:
-    lines = code.readlines()
+        lines = code.readlines()
 
     if 0 <= line_num < len(lines):
         lines[line_num] = new_text + '\n'
