@@ -2,11 +2,11 @@ import os
 
 def cls():
     if os.name == 'nt':
-      os.system('cls')
+        os.system('cls')
     elif os.name == 'posix':
-      os.system('clear')
+        os.system('clear')
     else:
-      print('\033[H\033[J', end='')
+        print('\033[H\033[J', end='')
 
 def color(r,g,b): return f"\x1b[38;2;{r};{g};{b}m"
                 
