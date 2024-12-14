@@ -12,7 +12,7 @@ from . import random, b64, file, board, sound, graphics, local_server, terd
 # Random imports
 from .random import num, seq
 from .random.num import integer, binary
-import .random.seq import modify
+from .random.seq import modify
 from .random.seq.modify import shuffle, duplicate, remove
 
 # b64 Imports
