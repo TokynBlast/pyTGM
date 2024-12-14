@@ -1,9 +1,12 @@
 """
 Used for detecting key presses
 """
-def geky(times=1):
+def geky(times=1): # pylint: disable=too-many-branches
+    """
+    Gets a keyboard press, a determinatre amount of times.
+    """
     try:
-        from msvcrt import getch as g
+        from msvcrt import getch as g # pylint disable=import-error
         for _ in range(times):
             k = g()
             if k == b'\xe0':
@@ -17,7 +20,7 @@ def geky(times=1):
                 elif k == b'M':
                     return 'ArrowRight'
             else:
-                return key.decode()
+                return k.decode()
 
     except:
         from sys import stdin
@@ -42,6 +45,9 @@ def geky(times=1):
                     else:
                         return c
                 else:
-                    if c == ' ': return 'space'
-                    else: return c
-            finally: tcsetattr(fd, TCSADRAIN, old)
+                    if c == ' ':
+                        return 'space'
+                    else:
+                        return c
+            finally:
+                tcsetattr(fd, TCSADRAIN, old)

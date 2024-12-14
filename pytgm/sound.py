@@ -53,7 +53,6 @@ def generate(frequency, duration, name, sample_rate=44100, volume=0.5):
         num_channels = wave_obj.getnchannels()
         sample_width = wave_obj.getsampwidth()
         frame_rate = wave_obj.getframerate()
-        frames = wave_obj.readframes(wave_obj.getnframes())
         wave_obj.setnchannels(num_channels)
         wave_obj.setsampwidth(sample_width)
         wave_obj.setframerate(frame_rate)
