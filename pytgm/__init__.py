@@ -7,10 +7,10 @@ __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-import . random as random
-import . b64 as b64
-import . file as file
-import . board as board
-import . sound as sound
-import . graphics as graphics
-import . local_server as local_server
+from .random import random
+from .b64 import b64
+from .file import file
+from .board import board
+from .sound import sound
+from .graphics import graphics
+from .local_server import local_server
