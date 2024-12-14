@@ -8,6 +8,7 @@ using sockets and threading.
 import socket
 import threading
 
+@staticmethod
 def server(host: str = 'localhost', port: int = 5000) -> None:
     """
     Starts a multithreaded server to handle client connections.
@@ -52,6 +53,7 @@ def server(host: str = 'localhost', port: int = 5000) -> None:
     server_thread = threading.Thread(target=server_)
     server_thread.start()
 
+@staticmethod
 def client(message: str, host: str, port: int) -> None:
     """
     Connects to a server and sends a message.

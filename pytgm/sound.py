@@ -8,10 +8,12 @@ import os
 import wave
 import math
 import array
+import sys
 
 if sys.platform == 'win32':
     from winsound import PlaySound as PS, SND_FILENAME
 
+@staticmethod
 def file(path):
     """
     Plays a sound at a given file location.
@@ -47,8 +49,12 @@ def generate(frequency, duration, name, sample_rate=44100, volume=0.5):
         sample_value = volume * math.sin(2 * math.pi * frequency * t)
         samples.append(int(sample_value * 32767))
 
-    with wave.open(file_path, 'rb') as wave_obj:
+    with wave.open(name, 'wb') as wave_obj:
         num_channels = wave_obj.getnchannels()
         sample_width = wave_obj.getsampwidth()
         frame_rate = wave_obj.getframerate()
-        frames = wave_obj.readframes(num_frames)
+        frames = wave_obj.readframes(wave_obj.getnframes())
+        wave_obj.setnchannels(num_channels)
+        wave_obj.setsampwidth(sample_width)
+        wave_obj.setframerate(frame_rate)
+        wave_obj.writeframesraw(samples.tobytes())

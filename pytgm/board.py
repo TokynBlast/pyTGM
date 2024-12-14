@@ -4,16 +4,16 @@ Module for managing boards, their components, and values.
 Provides functions to create, modify, and remove boards and their components.
 """
 
-from operator import add, sub mul, truediv, mod
+import operator
 
 boards = []
 
 OPERATIONS = {
-    '+':add,
-    '-': sub,
-    '*': mul,
-    '/': truediv,
-    '%': mod
+    '+': operator.add,
+    '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.truediv,
+    '%': operator.mod
 }
 
 def new(title, component=None, value=None):
