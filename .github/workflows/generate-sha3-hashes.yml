@@ -21,7 +21,6 @@ jobs:
 
       - name: Generate SHA-256 hashes
         run: |
-          git add hashes.txt
           # Generate hashes for the files and save to hashes.txt
           sha256sum pytgm/board.py pytgm/b64.py pytgm/file.py pytgm/graphics.py pytgm/random.py pytgm/sound.py pytgm/terd/click.c pytgm/terd/geky.py pytgm/LocalServer.py > hashes.txt
 
