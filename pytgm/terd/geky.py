@@ -1,31 +1,32 @@
 """
 Used for detecting key presses
 """
-def geky(times=1): # pylint: disable=too-many-branches
+
+def geky(times=1):  # pylint: disable=too-many-branches, too-many-return-statements
     """
-    Gets a keyboard press, a determinatre amount of times.
+    Gets a keyboard press, a determinate amount of times.
     """
     try:
-        from msvcrt import getch as g # pylint disable=import-error
+        from msvcrt import getch as g  # pylint: disable=import-error
         for _ in range(times):
             k = g()
             if k == b'\xe0':
                 k = g()
                 if k == b'H':
                     return 'ArrowUp'
-                elif k == b'P':
+                elif k == b'P':  # pylint: disable=no-else-return
                     return 'ArrowDown'
-                elif k == b'K':
+                elif k == b'K':  # pylint: disable=no-else-return
                     return 'ArrowLeft'
-                elif k == b'M':
+                elif k == b'M':  # pylint: disable=no-else-return
                     return 'ArrowRight'
-            else:
+            else:  # pylint: disable=no-else-return
                 return k.decode()
 
     except:
-        from sys import stdin
-        from tty import setraw
-        from termios import tcsetattr, TCSADRAIN, tcgetattr
+        from sys import stdin # pylint: disable=import-error,
+        from tty import setraw # pylint: disable=import-error,
+        from termios import tcsetattr, TCSADRAIN, tcgetattr # pylint: disable=import-error,
         for _ in range(times):
             fd = stdin.fileno()
             old = tcgetattr(fd)
@@ -36,18 +37,18 @@ def geky(times=1): # pylint: disable=too-many-branches
                     c = stdin.read(2)
                     if c == '[A':
                         return 'ArrowUp'
-                    elif c == '[B':
+                    elif c == '[B':  # pylint: disable=no-else-return
                         return 'ArrowDown'
-                    elif c == '[C':
+                    elif c == '[C':  # pylint: disable=no-else-return
                         return 'ArrowRight'
-                    elif c == '[D':
+                    elif c == '[D':  # pylint: disable=no-else-return
                         return 'ArrowLeft'
-                    else:
+                    else:  # pylint: disable=no-else-return
                         return c
                 else:
                     if c == ' ':
                         return 'space'
-                    else:
+                    else:  # pylint: disable=no-else-return
                         return c
             finally:
                 tcsetattr(fd, TCSADRAIN, old)
