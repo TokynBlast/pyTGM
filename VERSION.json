@@ -10,7 +10,7 @@
     "pytgm/board.py": "ab19692f12df6c02568669b04ff97f1cf7e3de2159dcfa1f388a54961160accb",
     "pytgm/b64.py": "790a6ab75ca44e22780a65eb7c25af6a3f3945ce4b0be7523ec3f2dd24f1fbcd",
     "pytgm/file.py": "1dcaa499621f0cc7d951274f02c9cb2ef9943af566e79110687f1bda238e731f",
-    "pytgm/graphics.py": "52321ec46d38859d9fcdd388b2fd7686417d59e10991b5f79e190370f00f079c",
+    "pytgm/graphics.py": "da1964a914cb6706d83e4766bf94462ce30d86d8123d63c930fa70397520027b",
     "pytgm/random.py": "e94c71c5cd6bc4e0ff753de738be2dcff791732d45983fd14ba0da6cc63f1c5a",
     "pytgm/sound.py": "c57dc5a558e3b8ad94c9518934d97bca14a0ba960cd0ee87615c5adb12fac96b",
     "pytgm/terd/click.c": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
