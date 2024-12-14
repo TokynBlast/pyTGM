@@ -12,8 +12,8 @@ from . import random, b64, file, board, sound, graphics, local_server, terd
 # Random imports
 from .random import num, seq
 from .random.num import integer, binary
-from random.seq.modify import shuffle, duplicate, remove
-import .random.seq.modify
+import .random.seq import modify
+from .random.seq.modify import shuffle, duplicate, remove
 
 # b64 Imports
 from .b64 import Table, encode, decode
