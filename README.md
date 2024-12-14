@@ -61,6 +61,11 @@ Works across Windows, macOS, and Linux:
 ```python
 # Play audio file
 sound('../sounds/mysound.mp3')
+
+# Make a file of a frequency
+frequency.big(frequency, duration, name, sample_rate=44100, volume=0.5)
+
+frequency.small(frequency, duration, name, sample_rate=44100, volume=0.5)
 ```
 
 ### Scoreboard System
