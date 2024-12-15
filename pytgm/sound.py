@@ -14,26 +14,26 @@ import sys
 # Import PlaySound and SND_FILENAME only if available
 if sys.platform == 'win32':
     try:
-        from winsound import PlaySound, SND_FILENAME
+        from winsound import PlaySound as play_sound, SND_FILENAME
     except ImportError:
-        PlaySound = None
+        play_sound = None
         SND_FILENAME = None
 else:
-    PlaySound = None
+    play_sound = None
     SND_FILENAME = None
 
 
-def play_file(path):
+def play(path):
     """
     Plays a sound from a given file path.
 
     Args:
         path (str): Path to the audio file.
     """
-    if PlaySound and SND_FILENAME:
+    if play_sound and SND_FILENAME:
         try:
-            PlaySound(path, SND_FILENAME)
-        except Exception as e:
+            play_sound(path, SND_FILENAME)
+        except Exception as e:  # pylint: disable=broad-exception-caught
             print(f"Error playing sound with winsound: {e}")
     else:
         try:
@@ -43,11 +43,11 @@ def play_file(path):
                 os.system(f'aplay "{path}"')
             else:
                 print("Sound playback is not supported on this platform.")
-        except Exception as e:
+        except Exception as e:  # pylint: disable=broad-exception-caught
             print(f"Error playing sound: {e}")
 
 
-def generate_sound(frequency, duration, filename, sample_rate=44100, volume=0.5):
+def generate(frequency, duration, filename, sample_rate=44100, volume=0.5):
     """
     Generates a WAV file with a specific frequency and duration.
 
@@ -73,5 +73,5 @@ def generate_sound(frequency, duration, filename, sample_rate=44100, volume=0.5)
             wave_file.setframerate(sample_rate)
             wave_file.writeframes(samples.tobytes())
         print(f"Sound generated and saved to {filename}.")
-    except Exception as e:
+    except Exception as e:  # pylint: disable=broad-exception-caught
         print(f"Error generating sound: {e}")

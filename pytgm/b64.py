@@ -3,7 +3,7 @@ This module is used for encoding and decoding in base 64
 A custom table can also be set
 """
 
-from .random.seq.modify import shuffle as shuff
+from random import shuffle as shuff
 
 class Table:
     """
@@ -24,7 +24,7 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
         else:
             b64table = chars
 
-        self.table_ = shuff(self.table_, times)
+        self.table_ = shuff(self.table_)
         return b64table
 
 def encode(text):
