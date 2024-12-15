@@ -8,15 +8,15 @@
   "contributors": 1,
   "hashes": {
     "pytgm/board.py": "ca756b8dc9c5ab29fa45e6bb0f27629a7cbf7100e8b6cd02221fd3f8d4345a69",
-    "pytgm/b64.py": "790a6ab75ca44e22780a65eb7c25af6a3f3945ce4b0be7523ec3f2dd24f1fbcd",
-    "pytgm/file.py": "1dcaa499621f0cc7d951274f02c9cb2ef9943af566e79110687f1bda238e731f",
-    "pytgm/graphics.py": "d56b388b620af2ebb0d5b3a0558d204f653a8dad5be0032fa997b1069b83b9c3",
-    "pytgm/random.py": "56095aa5c26ba23ae72ab0b94fc24e11bd439126e97011d603bf86dbc739d55e",
-    "pytgm/sound.py": "cea7e90dbec64717e44b9f0a720a9593dd3022151dff9f54ce3b7e2bff35ee9a",
+    "pytgm/b64.py": "0c4002f1ad427e8b3ae1e44fd48dd8c2f9f3cf158bc248d665981ec43696e834",
+    "pytgm/file.py": "ba7047f8cb802af0cbdb53ed1356c41ff4689824a61a6e4801de6b577586347d",
+    "pytgm/graphics.py": "391f83d7a4268c2fe8c0156d9e7eb39b76da2b6ff6114875bba1e81f3db37564",
+    "pytgm/random.py": "ba286e3aad47cd9f197f70a5433514695bc6b71538e47a12a101e2a93a3fe28e",
+    "pytgm/sound.py": "126fb5cee94819724e38bc8519d2900ca3c8c331c07592137e8435c32a0d0852",
     "pytgm/terd/click.c": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
     "pytgm/terd/geky.py": "2307689e79db9d62337a8d1823a31f7b631be942db6c92cabeebe767dcb5918d",
     "pytgm/LocalServer.py": "7f38ae8e3edeeed6ab755fa1880e37372d7fa1c0977df46df1873b289e392e4c",
-    "pytgm/local_server.py": "537018f02f266d1327d5822ce4ccc328404846cb3097f0ce2b2d98954b4aec0d",
+    "pytgm/local_server.py": "486c919f37fa67b6d5fb2d1bc4053fef94527cde146892a34d50ee4602d29880",
     "pytgm/random/num/integer.py": "c10dd2039514a04f90b23f5180bf2da4d267043f91e2b73b6193560016392cc8"
   }
 }
