@@ -30,7 +30,7 @@ setup(
     name='pyTGM',
     version='4.0.0',
     description='Terminal Game Maker',
-    long_description = (
+    long_description = ( # pylint: disable=syntax-error
     open('README.txt', encoding='utf-8').read() + 
     '\n\n' + 
     open('CHANGELOG.txt', encoding='utf-8').read()

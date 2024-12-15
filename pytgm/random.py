@@ -26,13 +26,13 @@ class seq:
               shuffled_list[i], shuffled_list[rand_index] = shuffled_list[rand_index], shuffled_list[i]
           return shuffled_list
                 
-     @staticmethod
-     def duplicate(lst, times=1):
-       shuffled_list = lst
-       for i in range(times):
-         for i in range(len(shuffled_list)):
-           shuffled_list[i], shuffled_list[random.num.integer(0, len(shuffled_list) - 1)] = shuffled_list[random.num.integer(0, len(shuffled_list) - 1)], shuffled_list[i]
-       return shuffled_list
-                
-     @staticmethod
-     def remove(lst, amnt): return [lst.remove(random.seq.choose.choice(lst)) for _ in range(amnt)]
+        @staticmethod
+        def duplicate(lst, times=1):
+          shuffled_list = lst
+          for i in range(times):
+            for i in range(len(shuffled_list)):
+              shuffled_list[i], shuffled_list[random.num.integer(0, len(shuffled_list) - 1)] = shuffled_list[random.num.integer(0, len(shuffled_list) - 1)], shuffled_list[i]
+          return shuffled_list
+                    
+        @staticmethod
+        def remove(lst, amnt): return [lst.remove(random.seq.choose.choice(lst)) for _ in range(amnt)]

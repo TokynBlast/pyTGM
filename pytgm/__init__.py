@@ -19,31 +19,31 @@ __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt
 from . import random, b64, file, board, sound, graphics, local_server, terd
 
 # Random imports
-from .random import num, seq
+from random import num, seq
 from num import integer, binary
 from seq import modify, choose
 from modify import shuffle, duplicate, remove
 
 # b64 Imports
-from .b64 import Table, encode, decode
+from b64 import Table, encode, decode
 from .b64.Table import table_, table_gen
 
 # File Imports
-from .file import read_line, mod_line
+from file import read_line, mod_line
 
 # Board Imports
-from .board import boards, new, remove, modify
+from board import boards, new, remove, modify
 
 # Sound imports
-from .sound import file, frequency
-from .sound.frequency import big, small
+from sound import file, frequency
+from sound.frequency import big, small
 
 # Graphic imports
-from .graphics import cls, color, Markup, res
-from .graphics.markup import bold, italic, underline
+from graphics import cls, color, Markup, res
+from graphics.markup import bold, italic, underline
 
 # Online imports
-from .local_server import server, client
+from local_server import server, client
 
 # terd imports
-from .terd import geky, click
+from terd import geky, click

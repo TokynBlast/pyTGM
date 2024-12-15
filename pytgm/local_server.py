@@ -29,7 +29,7 @@ def server(host: str = 'localhost', port: int = 5000) -> None:
                     message = client_socket.recv(1024)
                     for conn in clients:
                         conn.send(message)
-                except Exception as e:
+                except Exception as e: # pylint: disable=broad-exception-caught
                     print(f"Error with client: {e}")
                     clients.remove(client_socket)
                     client_socket.close()
@@ -70,7 +70,7 @@ def client(message: str, host: str, port: int) -> None:
             try:
                 received_message = client_socket.recv(1024).decode('ascii')
                 messages.append(received_message)
-            except Exception as e:
+            except Exception as e: # pylint: disable=broad-exception-caught
                 print(f"Error receiving message: {e}")
                 client_socket.close()
                 break

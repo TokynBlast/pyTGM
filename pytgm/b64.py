@@ -3,7 +3,7 @@ This module is used for encoding and decoding in base 64
 A custom table can also be set
 """
 
-from .random import seq.modify.shuffle as shuff
+from .random.seq.modify import shuffle as shuff
 
 class Table:
     """
