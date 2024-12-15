@@ -1,7 +1,7 @@
 """
 Imports all modules for the library
 """
-__all__ = ['file','read_line','mod_ine','graphics','cls',
+__all__ = ['file','read_line','mod_line','graphics','cls',
            'color','res','Markup','bold','italic','underline','terd','geky','click','sound',
            'file','frequency','big','small','board','boards','remove',
            'modify','local_server','server','client','b64','table_','table_gen',
@@ -15,10 +15,10 @@ __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-from . import random, b64, file, board, sound, graphics, local_server, terd
+from . import b64, file, board, sound, graphics, local_server, terd
 
 # b64 Imports
-from b64 import Table, encode, decode
+from .b64 import Table, encode, decode
 from .b64.Table import table_, table_gen
 
 # File Imports

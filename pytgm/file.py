@@ -1,3 +1,7 @@
+"""
+Read or write to files, but a little bit more complex
+"""
+
 def read_line(name, line=0):
     """
     Returns a single line of a file
@@ -33,7 +37,7 @@ def mod_line(name, new_text, line_num=0, placeholder=""):
         lines[line_num] = new_text + '\n'
 
         # Write the updated lines back to the file
-        with open(name, 'w') as code:
+        with open(name, 'w', encoding='utf-8') as code:
             code.writelines(lines)
 
     except Exception as e:
