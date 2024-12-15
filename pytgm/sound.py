@@ -10,17 +10,24 @@ import math
 import array
 import sys
 
-if sys.platform == 'win32':
-    from winsound import PlaySound as PS, SND_FILENAME
+try:
+    if sys.platform == 'win32':
+        from winsound import PlaySound as PS, SND_FILENAME
+except ImportError:
+    PS = None
+    SND_FILENAME = None
 
 @staticmethod
 def file(path):
     """
     Plays a sound at a given file location.
     """
-    try:
-        PS(path, SND_FILENAME)
-    except ImportError:
+    if PS and SND_FILENAME:
+        try:
+            PS(path, SND_FILENAME)
+        except Exception as e:
+            print(f"Error playing sound with winsound: {e}")
+    else:
         try:
             if os.uname().sysname == 'Darwin':  # macOS
                 os.system(f'afplay {path}')
@@ -50,10 +57,7 @@ def generate(frequency, duration, name, sample_rate=44100, volume=0.5):
         samples.append(int(sample_value * 32767))
 
     with wave.open(name, 'wb') as wave_obj:
-        num_channels = wave_obj.getnchannels()
-        sample_width = wave_obj.getsampwidth()
-        frame_rate = wave_obj.getframerate()
-        wave_obj.setnchannels(num_channels)
-        wave_obj.setsampwidth(sample_width)
-        wave_obj.setframerate(frame_rate)
-        wave_obj.writeframesraw(samples.tobytes())
+        wave_obj.setnchannels(1)  # Mono channel
+        wave_obj.setsampwidth(2)  # 2 bytes per sample (16-bit PCM)
+        wave_obj.setframerate(sample_rate)
+        wave_obj.writeframes(samples.tobytes())

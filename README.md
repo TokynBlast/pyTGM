@@ -6,7 +6,7 @@
 >This note will be deleted in the next version.
 
 >[!NOTE]
->This will be on PyPi soon. Once PyPi tech support replies, and I change the email associated with my account (It wasn't the correct one), it will be uploaded.
+>This will be on PyPi soon. Once pylint is wrorking, I will upload it to PyPi
 >
 >This note will be deleted once uploaded to pypi.
 
