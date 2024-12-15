@@ -2,7 +2,7 @@ def read_line(name, line=0):
     """
     Returns a single line of a file
     """
-    x = open(name, 'r')
+    x = open(name, 'r', encoding="utf-8")
     x.readlines()[line]
     return x
 
@@ -20,7 +20,7 @@ def mod_line(name, new_text, line_num=0, placeholder=""):
     try:
         # Read the file lines, or start with an empty list if the file doesn't exist
         try:
-            with open(name, 'r') as code:
+            with open(name, 'r', encoding="utf-8") as code:
                 lines = code.readlines()
         except FileNotFoundError:
             lines = []
