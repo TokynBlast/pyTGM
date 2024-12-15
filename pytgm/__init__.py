@@ -28,8 +28,7 @@ from file import read_line, mod_line
 from board import boards, new, remove, modify
 
 # Sound imports
-from sound import file, frequency
-from sound.frequency import big, small
+from sound import play, generate
 
 # Graphic imports
 from graphics import cls, color, Markup, res
