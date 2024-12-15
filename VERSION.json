@@ -9,7 +9,7 @@
   "hashes": {
     "pytgm/board.py": "ca756b8dc9c5ab29fa45e6bb0f27629a7cbf7100e8b6cd02221fd3f8d4345a69",
     "pytgm/b64.py": "d5b84851afdb719f6189240595b7c0172180866e18570293aa99b3d0249f94fa",
-    "pytgm/file.py": "cc080e2080b62aa6f0348c39d5f3248c5b71df1f7b4fb0ff1ca914372bb0c0dd",
+    "pytgm/file.py": "fa11b62e6735ecb90df1fb1885a6ea6def3eb07a759260c5330cd15c63a107ee",
     "pytgm/graphics.py": "d56b388b620af2ebb0d5b3a0558d204f653a8dad5be0032fa997b1069b83b9c3",
     "pytgm/random.py": "7d3af433e1bc0a563c90cadbdb2e18645a0b8d0364c3b9a6239701683b3805be",
     "pytgm/sound.py": "53e876a03035ad37eacbba7989581a52696736276303292fd7c0b1b8b8bf5dce",
