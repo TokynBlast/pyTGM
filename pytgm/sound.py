@@ -10,41 +10,51 @@ import math
 import array
 import sys
 
-try:
-    if sys.platform == 'win32':
-        from winsound import PlaySound as PS, SND_FILENAME
-except ImportError:
-    PS = None
+
+# Import PlaySound and SND_FILENAME only if available
+if sys.platform == 'win32':
+    try:
+        from winsound import PlaySound, SND_FILENAME
+    except ImportError:
+        PlaySound = None
+        SND_FILENAME = None
+else:
+    PlaySound = None
     SND_FILENAME = None
 
-@staticmethod
-def file(path):
+
+def play_file(path):
     """
-    Plays a sound at a given file location.
+    Plays a sound from a given file path.
+
+    Args:
+        path (str): Path to the audio file.
     """
-    if PS and SND_FILENAME:
+    if PlaySound and SND_FILENAME:
         try:
-            PS(path, SND_FILENAME)
+            PlaySound(path, SND_FILENAME)
         except Exception as e:
             print(f"Error playing sound with winsound: {e}")
     else:
         try:
-            if os.uname().sysname == 'Darwin':  # macOS
-                os.system(f'afplay {path}')
-            else:  # Linux
-                os.system(f'aplay {path}')
-        except AttributeError:
-            pass
+            if sys.platform == 'darwin':  # macOS
+                os.system(f'afplay "{path}"')
+            elif sys.platform.startswith('linux'):  # Linux
+                os.system(f'aplay "{path}"')
+            else:
+                print("Sound playback is not supported on this platform.")
+        except Exception as e:
+            print(f"Error playing sound: {e}")
 
-@staticmethod
-def generate(frequency, duration, name, sample_rate=44100, volume=0.5):
+
+def generate_sound(frequency, duration, filename, sample_rate=44100, volume=0.5):
     """
     Generates a WAV file with a specific frequency and duration.
 
     Args:
         frequency (float): Frequency of the sound in Hz.
         duration (float): Duration of the sound in seconds.
-        name (str): Output WAV file name.
+        filename (str): Name of the output WAV file.
         sample_rate (int): Sampling rate in Hz (default: 44100).
         volume (float): Volume as a fraction of 1 (default: 0.5).
     """
@@ -56,8 +66,12 @@ def generate(frequency, duration, name, sample_rate=44100, volume=0.5):
         sample_value = volume * math.sin(2 * math.pi * frequency * t)
         samples.append(int(sample_value * 32767))
 
-    with wave.open(name, 'wb') as wave_obj:
-        wave_obj.setnchannels(1)  # Mono channel
-        wave_obj.setsampwidth(2)  # 2 bytes per sample (16-bit PCM)
-        wave_obj.setframerate(sample_rate)
-        wave_obj.writeframes(samples.tobytes())
+    try:
+        with wave.open(filename, 'wb') as wave_file:
+            wave_file.setnchannels(1)  # Mono
+            wave_file.setsampwidth(2)  # 16-bit PCM
+            wave_file.setframerate(sample_rate)
+            wave_file.writeframes(samples.tobytes())
+        print(f"Sound generated and saved to {filename}.")
+    except Exception as e:
+        print(f"Error generating sound: {e}")
