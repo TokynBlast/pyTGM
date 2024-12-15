@@ -1,9 +1,10 @@
 """
-This module is used for encoding and decoding in base 64
-A custom table can also be set
+This module is used for encoding and decoding in base64.
+A custom table can also be set.
 """
 
 from random import shuffle as shuff
+
 
 class Table:
     """
@@ -17,41 +18,57 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
     @staticmethod
     def table_gen(chars, times):
         """
-        Randomly generates a table to be used
+        Randomly generates a table to be used.
+
+        Args:
+            chars (str): Characters to use in the custom table.
+            times (int): (Unused) Number of times to shuffle.
+        Returns:
+            str: Generated table.
         """
         if not chars:
-            b64table = self.Table.table_
+            b64table = Table.table_
         else:
             b64table = chars
 
-        self.table_ = shuff(self.table_)
-        return b64table
+        b64list = list(b64table)
+        shuff(b64list)  # Fixed usage of `shuff` function
+        return ''.join(b64list)  # Return the shuffled table
+
 
 def encode(text):
     """
-    Encodes iputed data in b64, using the table_ var
+    Encodes inputted data in base64, using the table_ variable.
+
+    Args:
+        text (str): The text to encode.
+    Returns:
+        str: Encoded text in base64.
     """
     bins = str()
     for c in text:
         bins += f'{int(bin(ord(c)), 2):08b}'
-    while len(bins) % 3:
-        bins += '00000000'
-    for i in range(6, len(bins) + int(len(bins) / 6), 7):
-        bins = bins[:i] + ' ' + bins[i:]
-    bins = bins.split(' ')
-    if '' in bins:
-        bins.remove('')
+    while len(bins) % 6:  # Ensure bins length is divisible by 6
+        bins += '0'
+    bins = [bins[i:i + 6] for i in range(0, len(bins), 6)]
+
     base64 = str()
     for b in bins:
         if b == '000000':
             base64 += '='
         else:
-            base64 += self.table_[int(b, 2)]
+            base64 += Table.table_[int(b, 2)]
     return base64
+
 
 def decode(text):
     """
-    Decodes encoded data in b64, using the table_ var
+    Decodes encoded data in base64, using the table_ variable.
+
+    Args:
+        text (str): The base64-encoded text to decode.
+    Returns:
+        str: Decoded text.
     """
     bins = str()
     for c in text:
@@ -59,13 +76,10 @@ def decode(text):
             bins += '000000'
         else:
             bins += f'{int(bin(Table.table_.index(c)), 2):06b}'
-    for i in range(8, len(bins) + int(len(bins) / 8), 9):
-        bins = bins[:i] + ' ' + bins[i:]
-    bins = bins.split(' ')
-    if '' in bins:
-        bins.remove('')
-    text = str()
+    bins = [bins[i:i + 8] for i in range(0, len(bins), 8)]
+
+    decoded_text = str()
     for b in bins:
-        if not b == '00000000':
-            text += chr(int(b, 2))
-    return text
+        if b != '00000000':
+            decoded_text += chr(int(b, 2))
+    return decoded_text
