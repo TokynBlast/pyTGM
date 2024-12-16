@@ -45,7 +45,7 @@ setup(
     install_requires=[''],
     ext_modules=[Extension(
         'click',
-        sources=['terd/click.c'],
+        sources=['pytgm/terd/click.c'],
         extra_compile_args=extra_compile_args[platform],
     )],
     python_requires=">=3.13",
