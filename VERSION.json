@@ -8,7 +8,7 @@
   "contributors": 1,
   "hashes": {
     "pytgm/b64.py": "f6a648c082874a8da483f406ba29cb2d339972c3d87c466fb19b7670800c036e",
-    "pytgm/file.py": "fa11b62e6735ecb90df1fb1885a6ea6def3eb07a759260c5330cd15c63a107ee",
+    "pytgm/file.py": "7f5d3fb5664ea893b5f53a0486cebbebed595a1d9f33c8b238f5f1478684449f",
     "pytgm/graphics.py": "d56b388b620af2ebb0d5b3a0558d204f653a8dad5be0032fa997b1069b83b9c3",
     "pytgm/sound.py": "ec1be5f0910d012c5ccb1bda1f0b7dd366e960c09d37046964284b204e74950f",
     "pytgm/terd/click.c": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
