@@ -30,11 +30,9 @@ setup(
     name='pyTGM',
     version='4.0.0',
     description='Terminal Game Maker',
-    long_description = (  # pylint: disable=syntax-error
-    open('README.txt', encoding='utf-8').read() +
-    '\n\n' +
-    open('CHANGELOG.txt', encoding='utf-8').read()
-    )
+    long_description=open('README.txt', encoding='utf-8').read() +
+        '\n\n' +
+        open('CHANGELOG.txt', encoding='utf-8').read(),
     url='https://youtube.tokynblast.space/programming/libraries/pytgm/init',
     author=MAINTAIN_AUTH,
     author_email=MAINTAIN_AUTH_CONTACT,
