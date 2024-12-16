@@ -1,0 +1,17 @@
+name: Lint with Mypy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+      - name: Install Mypy
+        run: pip install mypy
+      - name: Run Mypy
+        run: mypy *.py
