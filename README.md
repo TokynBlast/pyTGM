@@ -1,7 +1,13 @@
 # Workflow Status
+## Linting
 [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml)<br>
 [![Python application](https://github.com/TokynBlast/pyTGM/actions/workflows/python-app.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/python-app.yml)<br>
+
+## Security
+[![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml)<br>
 [![SHA3-256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
+
+## Other
 [![Upload Python Package](https://github.com/TokynBlast/pyTGM/actions/workflows/python-publish.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/python-publish.yml)
 
 # pyTGM (Python Terminal Game Maker)
