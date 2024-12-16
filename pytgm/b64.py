@@ -16,7 +16,7 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
 *()_+-=[]{}\\|/,.<>~`;:'" '''
 
     @staticmethod
-    def gen(chars=Table.table_, times=1): 
+    def gen(chars=Table.table_, times=1):
         """
         Generates a new table, by shuffling the current, or using a new one
 
@@ -30,13 +30,13 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
             b64table = Table.table_
         else:
             b64table = chars
-        
+
         b64list = list(b64table)
         for _ in range(times):
             shuff(b64list)  # Fixed usage of `shuff` function
         return ''.join(b64list)  # Return the shuffled table
-    
-    def reset():
+
+    def reset(): # pylint: disbale=no-method-argument
         """
         Resets the table to the default
         """
