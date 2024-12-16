@@ -33,8 +33,8 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
 
         b64list = list(b64table)
         for _ in range(times):
-            shuff(b64list)  # Fixed usage of `shuff` function
-        return ''.join(b64list)  # Return the shuffled table
+            shuff(b64list)
+        return ''.join(b64list)
 
     def reset(): # pylint: disable=no-method-argument
         """

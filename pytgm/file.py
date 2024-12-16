@@ -45,14 +45,11 @@ def mod_line(name, new_text, line_num=0, placeholder=""):
         except FileNotFoundError:
             lines = []
 
-        # Extend the lines to include the specified line number, filling with placeholders
         while len(lines) <= line_num:
             lines.append(placeholder + '\n')
 
-        # Modify the specified line
         lines[line_num] = new_text + '\n'
 
-        # Write the updated lines back to the file
         with open(name, 'w', encoding='utf-8') as file:
             file.writelines(lines)
 
