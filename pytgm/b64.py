@@ -22,7 +22,7 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
         else:
             b64table = chars
 
-        for _  in range:
+        for _ in range(times):
             b64list = list(b64table)
             shuff(b64list)  # Fixed usage of `shuff` function
         return ''.join(b64list)  # Return the shuffled table
