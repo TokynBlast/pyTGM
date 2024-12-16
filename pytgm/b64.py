@@ -16,7 +16,7 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
 *()_+-=[]{}\\|/,.<>~`;:'" '''
 
     @staticmethod
-    def gen(chars=Table.table_, times=1):
+    def gen(chars=table_, times=1):
         """
         Generates a new table, by shuffling the current, or using a new one
 
