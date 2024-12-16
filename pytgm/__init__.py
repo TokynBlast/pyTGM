@@ -40,8 +40,8 @@ from pytgm.file import read_line, mod_line
 from pytgm.sound import play, generate
 
 # Graphics Imports
-from pytgm.graphics import cls, color, Markup, RESET
-from pytgm.graphics.Markup import bold, italic, underline
+from pytgm.graphics import cls, color, RESET
+from pytgm.graphics.Markup import bold, italic, underline, Markup
 
 # Online Imports
 from pytgm.local_server import server, client

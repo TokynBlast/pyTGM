@@ -1,8 +1,4 @@
-"""
-Used for detecting key presses
-"""
-
-# pylint: disable=too-many-branches, too-many-return-statements, inconsistent-return-statements
+# pylint: disable=too-many-branches, too-many-return-statements, inconsistent-return-statements, missing-module-docstring
 
 def geky(times=1):
     """
