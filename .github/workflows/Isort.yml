@@ -1,0 +1,17 @@
+name: Lint with Isort
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+      - name: Install Isort
+        run: pip install isort
+      - name: Run Isort
+        run: isort *.py
