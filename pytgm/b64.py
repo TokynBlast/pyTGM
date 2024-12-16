@@ -16,16 +16,35 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
 *()_+-=[]{}\\|/,.<>~`;:'" '''
 
     @staticmethod
-    def gen(times=1, chars=Table.table_): # pylint: ignore: missing-module-docstring
+    def gen(chars=Table.table_, times=1): 
+        """
+        Generates a new table, by shuffling the current, or using a new one
+
+        Args:
+            times (int): The amount of times to shuffle the table
+            chars (str): The table to shuffle
+        Returns:
+            str: Encoded text in base64.
+        """
         if not chars:
             b64table = Table.table_
         else:
             b64table = chars
-
+        
+        b64list = list(b64table)
         for _ in range(times):
-            b64list = list(b64table)
             shuff(b64list)  # Fixed usage of `shuff` function
         return ''.join(b64list)  # Return the shuffled table
+    
+    def reset():
+        """
+        Resets the table to the default
+        """
+
+        Table.table_ = '''ABCDEFGHIJKL \
+MNOPQRSTUVWXYZabcdefghijk \
+lmnopqrstuvwxyz1234567890?!@#$%^& \
+*()_+-=[]{}\\|/,.<>~`;:'" '''
 
 
 def encode(text):
