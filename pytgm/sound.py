@@ -5,10 +5,9 @@ Includes functions for playing audio files and generating waveforms.
 """
 
 import os
-import wave
 import math
-import array
 import sys
+import struct
 
 # Import PlaySound and SND_FILENAME only if available
 if sys.platform == 'win32':
@@ -43,10 +42,6 @@ def play(path):
     except NotImplementedError as e:
         print(e)
 
-
-import struct
-
-
 def generate(frequency, duration, filename, sample_rate=44100, volume=0.5):
     """
     Generates a sine wave sound and writes it to a WAV file without using wave module.
@@ -63,7 +58,7 @@ def generate(frequency, duration, filename, sample_rate=44100, volume=0.5):
         OSError: If file writing encounters an error.
     """
     # Validate inputs
-    if not (20 <= frequency <= 20000):
+    if not 20 <= frequency <= 20000:
         raise ValueError("Frequency must be between 20 Hz and 20,000 Hz.")
     if duration <= 0:
         raise ValueError("Duration must be greater than 0.")
