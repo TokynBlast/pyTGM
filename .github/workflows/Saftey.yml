@@ -1,0 +1,17 @@
+name: Safety Linting
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+      - name: Install Safety
+        run: pip install safety
+      - name: Run Safety
+        run: safety check
