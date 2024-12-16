@@ -14,8 +14,8 @@
     "pytgm/terd/click.c": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
     "pytgm/terd/geky.py": "2307689e79db9d62337a8d1823a31f7b631be942db6c92cabeebe767dcb5918d",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
-    "pytgm/graphics/color.py": "38aeb67a08a9cd4577d0a9b2a3489bfa9b8ff2e91dd0cf1dab9494b5e0e1265c",
+    "pytgm/graphics/color.py": "f6306faa716aa1bf4246283576a978b4ed5e5fb325fb0498b16591fafa85880f",
     "pytgm/graphics/Markup.py": "8ffd4ed99bd7a123d13ff867ba62c5b91b8d77234afc511f5c03a5f346408cf5",
-    "pytgm/graphics/cls.py": "8ed325d3c4fbda0c5ee1af710d42f8fafdc30660bf1e8c99465e5c886cbae784"
+    "pytgm/graphics/cls.py": "9132023ae0117b4a093a6c082bde6ce4917e3c8d15f97e22cad8db1b36bf07ee"
   }
 }
