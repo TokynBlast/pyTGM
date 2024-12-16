@@ -7,7 +7,7 @@
   "build": 1,
   "contributors": 1,
   "hashes": {
-    "pytgm/b64.py": "0c86481c0ec4d27bc64e5f53d2b8348384791381d0baee6e2c070ea67c840819",
+    "pytgm/b64.py": "f6a648c082874a8da483f406ba29cb2d339972c3d87c466fb19b7670800c036e",
     "pytgm/file.py": "fa11b62e6735ecb90df1fb1885a6ea6def3eb07a759260c5330cd15c63a107ee",
     "pytgm/graphics.py": "d56b388b620af2ebb0d5b3a0558d204f653a8dad5be0032fa997b1069b83b9c3",
     "pytgm/sound.py": "ec1be5f0910d012c5ccb1bda1f0b7dd366e960c09d37046964284b204e74950f",
