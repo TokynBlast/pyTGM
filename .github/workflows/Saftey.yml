@@ -1,6 +1,9 @@
 name: Safety Linting
 on:
   push:
+    paths:
+      - pytgm/**
+      - setup.py
     branches:
       - main
 jobs:
