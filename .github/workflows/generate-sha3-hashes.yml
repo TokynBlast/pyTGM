@@ -6,9 +6,9 @@ on:
       - pytgm/**
       - '!pytgm/__init__.py'
       - '!pytgm/graphics/__init__.py'
-      
     branches:
       - main
+
 jobs:
   generate-hashes:
     runs-on: ubuntu-latest
@@ -38,6 +38,13 @@ jobs:
 
           # Delete hashes.txt after it is used
           rm hashes.txt
+
+      - name: Check for changes in VERSION.json
+        run: |
+          if git diff --quiet --exit-code; then
+            echo "No changes to VERSION.json, skipping commit."
+            exit 0
+          fi
 
       - name: Commit and Push Changes
         env:
