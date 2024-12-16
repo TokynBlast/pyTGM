@@ -1,13 +1,11 @@
-"""
-Imports all modules for the library.
-"""
+# pylint: disable=module-doc-string
 __all__ = [
     'file', 'read_line', 'mod_line',
     'graphics', 'cls', 'color', 'RESET', 'Markup', 'bold', 'italic', 'underline',
     'terd', 'geky', 'click',
     'sound', 'generate',
     'local_server', 'server', 'client',
-    'b64', 'table_', 'table_gen', 'table_set', 'encode', 'decode'
+    'b64', 'table_', 'table_gen', 'encode', 'decode'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
@@ -18,11 +16,11 @@ __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-from pytgm import b64, file, board, sound, graphics, local_server, terd
+from pytgm import b64, file, sound, graphics, local_server, terd
 
 # b64 Imports
 from pytgm.b64 import Table, encode, decode
-from pytgm.b64.Table import table_, table_gen
+from pytgm.b64 import table_gen, table_ as table
 
 # File Imports
 from pytgm.file import read_line, mod_line
@@ -31,7 +29,8 @@ from pytgm.file import read_line, mod_line
 from pytgm.sound import play, generate
 
 # Graphics Imports
-from pytgm.graphics import cls, color, Markup, res
+from pytgm.graphics import cls, color, Markup
+from pytgm.graphics import RESET
 from pytgm.graphics.Markup import bold, italic, underline
 
 # Online Imports
