@@ -12,7 +12,7 @@ It imports and exposes various modules and functionalities for:
 
 __all__ = [
     'file', 'read_line', 'mod_line',
-    'graphics', 'cls', 'color', 'RESET', 'Markup', 'bold', 'italic', 'underline',
+    'graphics', 'cls', 'color', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
     'terd', 'geky', 'click',
     'sound', 'generate',
     'local_server', 'server', 'client',
