@@ -14,7 +14,7 @@ __all__ = [
     'file', 'read_line', 'mod_line',
     'graphics', 'cls', 'color', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
     'terd', 'geky', 'click',
-    'sound', 'generate',
+    'sound', 'generate', 'play',
     'local_server', 'server', 'client',
     'b64', 'table', 'gen', 'encode', 'decode'
 ]
