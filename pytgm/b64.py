@@ -16,23 +16,15 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
 *()_+-=[]{}\\|/,.<>~`;:'" '''
 
     @staticmethod
-    def table_gen(chars, times):
-        """
-        Randomly generates a table to be used.
-
-        Args:
-            chars (str): Characters to use in the custom table.
-            times (int): (Unused) Number of times to shuffle.
-        Returns:
-            str: Generated table.
-        """
+    def gen(times=1, chars=Table.table_): # pylint: ignore: missing-module-docstring
         if not chars:
             b64table = Table.table_
         else:
             b64table = chars
 
-        b64list = list(b64table)
-        shuff(b64list)  # Fixed usage of `shuff` function
+        for _  in range:
+            b64list = list(b64table)
+            shuff(b64list)  # Fixed usage of `shuff` function
         return ''.join(b64list)  # Return the shuffled table
 
 

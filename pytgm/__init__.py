@@ -5,7 +5,7 @@ __all__ = [
     'terd', 'geky', 'click',
     'sound', 'generate',
     'local_server', 'server', 'client',
-    'b64', 'table', 'table_gen', 'encode', 'decode'
+    'b64', 'table', 'gen', 'encode', 'decode'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
@@ -20,7 +20,7 @@ from pytgm import b64, file, sound, graphics, local_server, terd
 
 # b64 Imports
 from pytgm.b64 import Table, encode, decode
-from pytgm.b64.Table import table_gen, table_ as table
+from pytgm.b64.Table import gen, table_ as table
 
 # File Imports
 from pytgm.file import read_line, mod_line
