@@ -36,7 +36,7 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
             shuff(b64list)  # Fixed usage of `shuff` function
         return ''.join(b64list)  # Return the shuffled table
 
-    def reset(): # pylint: disbale=no-method-argument
+    def reset(): # pylint: disable=no-method-argument
         """
         Resets the table to the default
         """
