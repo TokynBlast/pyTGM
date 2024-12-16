@@ -7,7 +7,7 @@ from sys import platform
 from setuptools import setup, find_packages, Extension
 
 classifiers = [
-    'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Game Developers',
     'Operating System :: Microsoft :: Windows',
     'Operating System :: POSIX :: Linux',
