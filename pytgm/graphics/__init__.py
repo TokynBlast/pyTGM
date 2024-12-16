@@ -6,9 +6,9 @@ from .cls import cls
 
 RESET = "\x1b[0m"
 
-bold = '\x1b[1m'
-italic = '\x1b[3m'
-underline = '\x1b[4m'
+BOLD = '\x1b[1m'
+ITALIC = '\x1b[3m'
+UNDERLINE = '\x1b[4m'
 
 
 __all__ = ["cls", "bold", "italic", "underline", "RESET"]
