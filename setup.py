@@ -3,8 +3,8 @@ Setup script for the pyTGM package.
 Handles package configuration and extension building.
 """
 
-from setuptools import setup, find_packages, Extension
 from sys import platform
+from setuptools import setup, find_packages, Extension
 
 classifiers = [
     'Development Status :: 4 - Beta',

@@ -11,4 +11,4 @@ ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
 
 
-__all__ = ["cls", "bold", "italic", "underline", "RESET"]
+__all__ = ["cls", "BOLD", "ITALIC", "UNDERLINE", "RESET"]
