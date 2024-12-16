@@ -18,15 +18,13 @@ def read_line(name, line=0):
             lines = file.readlines()
             if line < len(lines):
                 return lines[line].strip()
-            else:
-                return ""  # Return empty string if the line does not exist
+            return ""  # Return empty string if the line does not exist
     except FileNotFoundError:
         print(f"Error: File '{name}' not found.")
         return ""
     except Exception as e:  # pylint: disable=broad-exception-caught
         print(f"An unexpected error occurred: {e}")
         return ""
-
 
 def mod_line(name, new_text, line_num=0, placeholder=""):
     """
