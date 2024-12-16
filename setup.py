@@ -23,8 +23,8 @@ extra_compile_args = {
     'win32': ['/std:c++11', '/O2', '/W4']
 }
 
-MAINTAIN_AUTH = 'Tokyn Blast'
-MAINTAIN_AUTH_CONTACT = 'tokynblast@gmail.com'
+MAIT_AUTH = 'Tokyn Blast'
+MAIT_AUTH_CONT = 'tokynblast@gmail.com'
 
 setup(
     name='pyTGM',
@@ -34,10 +34,10 @@ setup(
         '\n\n' +
         open('CHANGELOG.txt', encoding='utf-8').read(),
     url='https://youtube.tokynblast.space/programming/libraries/pytgm/init',
-    author=MAINTAIN_AUTH,
-    author_email=MAINTAIN_AUTH_CONTACT,
-    maintainer=MAINTAIN_AUTH,
-    maintainer_email=MAINTAIN_AUTH_CONTACT,
+    author=MAIT_AUTH,
+    author_email=MAIT_AUTH_CONT,
+    maintainer=MAIT_AUTH,
+    maintainer_email=MAIT_AUTH_CONT,
     license='Bspace',
     classifiers=classifiers,
     keywords='game,game maker,terminal,tools,pytgm,terimnal input',
