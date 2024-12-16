@@ -19,16 +19,30 @@
 >This note will be deleted in the next version.
 
 >[!NOTE]
->This will be uploaded to PyPi, the latest by December 17, 2024 PT
+>This will be uploaded to PyPi soon.
 
-pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, with utilities for encryption, randomization, and more.
+pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, with utilities for encryption, randomization, markup, and more.
+
+## Bugs and Features
+To report a bug, go to [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
+For feature request, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)
+
+## Contributing
+All contributions are greatly appreciated.<br>
+To make a contribution, make a new branch [here](https://github.com/TokynBlast/pyTGM/branches)<br>
+Then, add (or remove), to improve the repo!<br>
+Then, somebody will check to make sure it complys with all the workflows, it will be uploaded!
+
+If your modified code doesn't comply with Saftey, it will be immediatley denied.
+Testing changes will occur on a VM, without Wi-fi, for security reasons.
+Code will also be checked manually.
 
 ## Features
 
 ### File Operations
 ```python
-file.read.document(name)           # Read entire file
-file.read.line(name, line=0)       # Read specific line
+file.mod_line(name)           # Modify a line of a file
+file.read_line(name, line=0)  # Read specific line
 ```
 
 ### Graphics and Text Styling
@@ -38,12 +52,12 @@ graphics.cls()
 
 # Color text (RGB)
 graphics.color(0, 255, 0)  # Green text
-graphics.res               # Reset color
+graphics.RESET             # Reset color
 
 # Markup
-graphics.bold
-graphics.italic
-graphics.underline
+graphics.BOLD
+graphics.ITALIC
+graphics.UNDERLINE
 ```
 
 ### Sound Support
@@ -59,7 +73,7 @@ generate(frequency, duration, name, sample_rate=44100, volume=0.5)
 ### Local Server Support
 ```python
 # Starting a server and client (PORT, message)
-LocalServer(1080, {'MarkTheMight':((243,332), 57)})
+LocalServer(1080, {'MarkTheMighty':((243,332), 57)})
 ```
 An example of a returned value would be:
 ```python
@@ -69,17 +83,17 @@ An example of a returned value would be:
 ### Terminal Input Detection
 ```python
 # Mouse Click Detection
-terd.click()             # Returns coordinates, (-1,-1) means error in press
+terd.click()             # Returns coordinates (-1,-1) to signal an invalid input.
 
 # Keyboard Press Detection
-geky(times)
+terd.geky(times)
 ```
 
 ### Encryption
-```
+```python
 # Set the table
-b64.Table.table_ = 'ABCDEF...XYZ...12...90...!@..._+' # Make sure it has character that will be used, special chars are also usable
-b64.Table.gen('ABCDEF...XYZ...12...90...!@..._+', 32)
+b64.Table.table = 'ABCDEF...XYZ...12...90...!@..._+' # Make sure it has character that will be used, special chars are also usable
+b64.Table.generate('ABCDEF...XYZ...12...90...!@..._+', 32)
 
 # Encode and decode
 b64.encode(text)
