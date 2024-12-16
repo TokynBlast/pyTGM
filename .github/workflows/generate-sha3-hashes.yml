@@ -5,7 +5,7 @@ on:
     paths:
       - pytgm/**
       - '!pytgm/__init__.py'
-      - '!pytgm/terd/__init__.py'
+      - '!pytgm/graphics/__init__.py'
       
     branches:
       - main

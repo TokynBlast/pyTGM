@@ -1,6 +1,9 @@
 name: Lint with Isort
 on:
   push:
+    paths:
+      - pytgm/**
+      - setup.py
     branches:
       - main
 jobs:
