@@ -41,7 +41,6 @@ from pytgm.sound import play, generate
 
 # Graphics Imports
 from pytgm.graphics import cls, color, Markup, RESET
-from pytgm.graphics.Markup import bold, italic, underline
 
 # Online Imports
 from pytgm.local_server import server, client
