@@ -14,4 +14,4 @@ jobs:
       - name: Install Flake8
         run: pip install flake8
       - name: Run Flake8
-        run: flake8 my_library/
+        run: flake8 *.py
