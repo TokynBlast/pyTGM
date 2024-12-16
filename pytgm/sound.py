@@ -35,42 +35,49 @@ def play(path):
         elif sys.platform.startswith('linux'):  # Linux
             os.system(f'aplay "{path}"')
         else:
-            print("Sound playback is not supported on this platform.")
+            raise NotImplementedError("Sound playback is not supported on this platform.")
     except FileNotFoundError:
         print(f"Error: File not found - {path}")
     except OSError as e:
         print(f"Error playing sound: {e}")
+    except NotImplementedError as e:
+        print(e)
 
 
 def generate(frequency, duration, filename, sample_rate=44100, volume=0.5):
     """
-    Generates a WAV file with a specific frequency and duration.
+    Generates a sine wave and writes it to a WAV file.
 
     Args:
-        frequency (float): Frequency of the sound in Hz.
+        frequency (float): Frequency of the sine wave in Hz.
         duration (float): Duration of the sound in seconds.
         filename (str): Name of the output WAV file.
         sample_rate (int): Sampling rate in Hz (default: 44100).
         volume (float): Volume as a fraction of 1 (default: 0.5).
     """
-    n_samples = int(sample_rate * duration)
-    samples = array.array('h')
+    # Input validation
+    if not (20 <= frequency <= 20000):
+        raise ValueError("Frequency must be between 20 Hz and 20,000 Hz.")
+    if duration <= 0:
+        raise ValueError("Duration must be greater than 0.")
+    if not (0.0 <= volume <= 1.0):
+        raise ValueError("Volume must be between 0.0 and 1.0.")
 
-    # Generate waveform samples
-    for i in range(n_samples):
-        t = i / sample_rate
-        sample_value = volume * math.sin(2 * math.pi * frequency * t)
-        samples.append(int(sample_value * 32767))
+    # Number of samples and waveform calculation
+    num_samples = int(sample_rate * duration)
+    max_amplitude = int(32767 * volume)
+    samples = array.array('h', (
+        int(max_amplitude * math.sin(2 * math.pi * frequency * t / sample_rate))
+        for t in range(num_samples)
+    ))
 
+    # Write samples to a WAV file
     try:
-        # Write waveform data to a WAV file
         with wave.open(filename, 'wb') as wave_file:
-            wave_file.setnchannels(1)  # Mono
-            wave_file.setsampwidth(2)  # 16-bit PCM
+            wave_file.setnchannels(1)  # Mono audio
+            wave_file.setsampwidth(2)  # 16-bit samples
             wave_file.setframerate(sample_rate)
             wave_file.writeframes(samples.tobytes())
         print(f"Sound generated and saved to {filename}.")
-    except wave.Error as e:
-        print(f"Error generating sound file: {e}")
     except OSError as e:
-        print(f"File I/O error: {e}")
+        raise OSError(f"Failed to write file {filename}: {e}")
