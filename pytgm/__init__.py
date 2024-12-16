@@ -7,7 +7,6 @@ It imports and exposes various modules and functionalities for:
 - Sound generation
 - Base64 encoding/decoding
 - Local server operations
-- Miscellaneous tools
 """
 
 __all__ = [
