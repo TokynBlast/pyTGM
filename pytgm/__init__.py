@@ -2,11 +2,12 @@
 Imports all modules for the library.
 """
 __all__ = [
-    'file', 'read_line', 'mod_line', 'graphics', 'cls',
-    'color', 'res', 'Markup', 'bold', 'italic', 'underline',
-    'terd', 'geky', 'click', 'sound', 'frequency', 'big', 'small',
-    'board', 'boards', 'remove', 'modify', 'local_server', 'server',
-    'client', 'b64', 'table_', 'table_gen', 'table_set', 'encode', 'decode'
+    'file', 'read_line', 'mod_line',
+    'graphics', 'cls', 'color', 'RESET', 'Markup', 'bold', 'italic', 'underline',
+    'terd', 'geky', 'click',
+    'sound', 'generate',
+    'local_server', 'server', 'client',
+    'b64', 'table_', 'table_gen', 'table_set', 'encode', 'decode'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
@@ -21,13 +22,10 @@ from pytgm import b64, file, board, sound, graphics, local_server, terd
 
 # b64 Imports
 from pytgm.b64 import Table, encode, decode
-from pytgm.b64 import table_ as b64_table_, table_gen as b64_table_gen
+from pytgm.b64.Table import table_, table_gen
 
 # File Imports
 from pytgm.file import read_line, mod_line
-
-# Board Imports
-from pytgm.board import boards, new, remove, modify
 
 # Sound Imports
 from pytgm.sound import play, generate
