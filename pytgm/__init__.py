@@ -11,7 +11,7 @@ It imports and exposes various modules and functionalities for:
 
 __all__ = [
     'file', 'read_line', 'mod_line',
-    'graphics', 'cls', 'color', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
+    'Markup', 'cls', 'color', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
     'terd', 'geky', 'click',
     'sound', 'generate', 'play',
     'local_server', 'server', 'client',
@@ -39,7 +39,7 @@ from pytgm.file import read_line, mod_line
 from pytgm.sound import play, generate
 
 # Graphics Imports
-from pytgm.graphics import cls, color, RESET, BOLD, ITALIC, UNDERLINE
+from pytgm.Markup import cls, color, RESET, BOLD, ITALIC, UNDERLINE
 
 # Online Imports
 from pytgm.local_server import server, client
