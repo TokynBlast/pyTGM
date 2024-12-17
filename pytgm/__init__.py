@@ -10,12 +10,12 @@ It imports and exposes various modules and functionalities for:
 """
 
 __all__ = [
-    'file', 'read_line', 'mod_line',
-    'graphics', 'cls', 'color', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
-    'terd', 'geky', 'click',
-    'sound', 'generate', 'play',
-    'local_server', 'server', 'client',
-    'b64', 'table', 'gen', 'encode', 'decode'
+    'Table', 'encode', 'decode',
+    'read_line', 'mod_line',
+    'play', 'generate',
+    'cls', 'color', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
+    'server', 'client',
+    'geky', 'click'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
@@ -29,20 +29,20 @@ __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt
 from pytgm import b64, file, sound, graphics, local_server, terd
 
 # b64 Imports
-from pytgm.b64 import Table, encode, decode
-from pytgm.b64 import table_ as table, gen
+from b64 import Table, encode, decode
+from b64 import table_ as table, gen
 
 # File Imports
-from pytgm.file import read_line, mod_line
+from file import read_line, mod_line
 
 # Sound Imports
-from pytgm.sound import play, generate
+from sound import play, generate
 
 # Graphics Imports
-from pytgm.graphics import cls, color, RESET, BOLD, ITALIC, UNDERLINE
+from graphics import cls, color, RESET, BOLD, ITALIC, UNDERLINE
 
 # Online Imports
-from pytgm.local_server import server, client
+from local_server import server, client
 
 # terd Imports
-from pytgm.terd import geky, click
+from terd import geky, click
