@@ -29,7 +29,6 @@ from pytgm import b64, file, sound, graphics, local_server, terd
 
 # b64 Imports
 from .b64 import Table, encode, decode
-from .b64 import Table.table_ as table, gen
 
 # File Imports
 from .file import read_line, mod_line
