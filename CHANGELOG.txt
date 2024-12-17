@@ -1,7 +1,6 @@
 4.0.0 (December 17, 2024)
 ---------------------------
 - Removed file.readChar
-- Changed choose into a function, rather than a class
 - Major fixes to __all__ variable in main __init__
 - Did an overhaul on Licence and README.md
 - major change in file structure
@@ -16,10 +15,8 @@
 - Updated LocalServer error message
 - Added a To_send variable to LocalServer
 - Removed autoplay from frequency
-- Added "frequency_big" for longer frequency times
 - Fixed windows key detection
-- Changed "Board" to "board"
-- Changed "f_value" to "function" and "player" to "component" in board
+- Removed board and random
 - Added security hashes
 - Added badges to README.md
 
