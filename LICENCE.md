@@ -81,6 +81,7 @@ When Tokyn Blast dies, pyTGM will either go to a sucessor, or if a sucessor is n
 The family member who has the most experience in programming will have the most say.<br>
 Then the most relevance in tech.<br>
 Then, everybody else.
+The pyTGM community will have %15 say in what happens, no matter who pyTGM goes to.
 
 This portion may NOT be removed, unless<br>
 Chosen to do so by
