@@ -8,14 +8,6 @@
 
 # pyTGM (Python Terminal Game Maker)
 
->[!NOTE]
-> There was an accidental deletion of the original pyTGM library. This is an updated version of the newest version I had on hand.
->
->This note will be deleted in the next version.
-
->[!NOTE]
->This will be uploaded to PyPi soon.
-
 pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, with utilities for encryption, randomization, markup, and more.
 
 ## Bugs and Features

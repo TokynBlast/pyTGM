@@ -15,7 +15,6 @@ __all__ = [
     'play', 'generate',
     'cls', 'color', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
     'server', 'client',
-    'geky', 'click'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
@@ -30,7 +29,7 @@ from pytgm import b64, file, sound, graphics, local_server, terd
 
 # b64 Imports
 from .b64 import Table, encode, decode
-from .b64 import table_ as table, gen
+from .b64 import Table.table_ as table, gen
 
 # File Imports
 from .file import read_line, mod_line
