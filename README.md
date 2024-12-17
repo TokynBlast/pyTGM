@@ -19,17 +19,18 @@
 pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, with utilities for encryption, randomization, markup, and more.
 
 ## Bugs and Features
-To report a bug, go to [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
+To report a bug, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
 For feature request, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)
 
 ## Contributing
 All contributions are greatly appreciated.<br>
 To make a contribution, make a new branch [here](https://github.com/TokynBlast/pyTGM/branches)<br>
 Then, add (or remove), to improve the repo!<br>
-Then, somebody will check to make sure it complys with all the workflows, it will be uploaded!
+Then, somebody will check to make sure it complys with all the workflows.
+Once we know it's working, we will merge the request!
 
-If your modified code doesn't comply with Saftey, it will be immediatley denied.
-Testing changes will occur on a VM, without Wi-fi, for security reasons.
+If your modified code doesn't comply with Saftey linting, it will be immediatley denied.
+For security reasons, if the repo needs to be tested outside github, it will be tested on a VM.
 Code will also be checked manually.
 
 ## Features
@@ -53,7 +54,11 @@ graphics.RESET             # Reset color
 graphics.BOLD
 graphics.ITALIC
 graphics.UNDERLINE
+
+# Placing the cursor at a pair of coords
+
 ```
+
 
 ### Sound Support
 Works across Windows, macOS, and Linux:
@@ -78,7 +83,7 @@ An example of a returned value would be:
 ### Terminal Input Detection
 ```python
 # Mouse Click Detection
-terd.click()             # Returns coordinates (-1,-1) to signal an invalid input.
+terd.click()             # A return value of (-1, -1) means the click was invalid!
 
 # Keyboard Press Detection
 terd.geky(times)
@@ -87,13 +92,15 @@ terd.geky(times)
 ### Encryption
 ```python
 # Set the table
-b64.Table.table = 'ABCDEF...XYZ...12...90...!@..._+' # Make sure it has character that will be used, special chars are also usable
+b64.Table.table = 'ABCDEF...XYZ...12...90...!@..._+'
 b64.Table.generate('ABCDEF...XYZ...12...90...!@..._+', 32)
 
 # Encode and decode
 b64.encode(text)
 b64.decode(text)
 ```
+When setting the table, it MUST include the characters that are being stored at the very least!
+Extra characters are suggested
 
 ## Links
 - [Homepage](https://pytgm.tokynblast.space/home)
