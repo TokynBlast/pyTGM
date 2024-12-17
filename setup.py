@@ -8,7 +8,7 @@ from setuptools import setup, find_packages, Extension
 
 classifiers = [
     'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Game Developers',
+    'Intended Audience :: Developers',
     'Operating System :: Microsoft :: Windows',
     'Operating System :: POSIX :: Linux',
     'Operating System :: MacOS',
