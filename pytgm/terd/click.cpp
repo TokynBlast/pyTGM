@@ -11,7 +11,11 @@
 #include <linux/input.h>
 #endif
 
-std::tuple<int, int> Click() {
+#include <pybind11/pybind11.h>
+
+namespace py = pybind11;
+
+std::tuple<int, int> click() {
 #ifdef _WIN32
     // Windows-specific implementation (you'll need to customize this)
     // Example: return a dummy value as `/dev/input/event0` is not valid on Windows.
@@ -39,24 +43,7 @@ std::tuple<int, int> Click() {
 #endif
 }
 
-static PyObject* py_Click(PyObject* self, PyObject* args) {
-    auto result = Click();
-    return Py_BuildValue("(ii)", std::get<0>(result), std::get<1>(result));
-}
-
-static PyMethodDef methods[] = {
-    {"Click", py_Click, METH_NOARGS, "Detect mouse click"},
-    {NULL, NULL, 0, NULL}
-};
-
-static struct PyModuleDef module = {
-    PyModuleDef_HEAD_INIT,
-    "click",       // Module name
-    NULL,           // Documentation
-    -1,             // Size of per-interpreter state of the module
-    methods         // Method definitions
-};
-
-PyMODINIT_FUNC PyInit_click(void) {
-    return PyModule_Create(&module);
+PYBIND11_MODULE(click, m) {
+    m.doc() = "pybind11 example plugin";
+    m.def("click", &click, "A function that returns a greeting");
 }

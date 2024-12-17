@@ -5,6 +5,7 @@ Handles package configuration and extension building.
 
 from sys import platform
 from setuptools import setup, find_packages, Extension
+from pybind11.setup_helpers import Pybind11Extension, build_ext
 
 classifiers = [
     'Development Status :: 5 - Production/Stable',
@@ -23,12 +24,19 @@ extra_compile_args = {
     'win32': ['/std:c++11', '/O2', '/W4']
 }
 
+extensions = [
+    Pybind11Extension(
+        name="pytgm.terd.click",
+        sources=["pytgm/terd/click.cpp"],
+    ),
+]
+
 MAIT_AUTH = 'Tokyn Blast'
 MAIT_AUTH_CONT = 'tokynblast@gmail.com'
 
 setup(
     name='pyTGM',
-    version='4.0.1',
+    version='4.0.5',
     description='Terminal Game Maker',
     long_description = (open('README.md', encoding='utf-8').read() + '\n\n' + open('CHANGELOG.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with, line-too-long
     long_description_content_type='text/markdown',
@@ -43,11 +51,8 @@ setup(
     keywords='game,game maker,terminal,tools,pytgm,terimnal input',
     packages=find_packages(),
     install_requires=[''],
-    ext_modules=[Extension(
-        'click',
-        sources=['pytgm/terd/click.cpp'],
-        extra_compile_args=extra_compile_args[platform],
-    )],
+    ext_modules=extensions,
+    cmdclass={"build_ext": build_ext},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"]
 )

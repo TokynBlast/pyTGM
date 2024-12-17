@@ -23,3 +23,17 @@
 4.0.1 ()
 ---------------------------
 - Imoprt fixes
+
+4.0.2 (December 17, 2024)
+---------------------------
+- Click removed temporarily
+- Updated build in version
+
+4.0.4 (December 17, 2024)
+---------------------------
+- Import fixes
+- Replaced 4.0.3, as it is the same
+
+4.0.5 (Decmeber 17, 2024)
+---------------------------
+- Added back click
