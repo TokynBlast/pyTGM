@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - pytgm/**
+      - pytgm/terd/**
+      - pytgm/graphics/**
+      - pytgm/terd/click.cpp
       - '!pytgm/__init__.py'
       - '!pytgm/graphics/__init__.py'
     branches:
