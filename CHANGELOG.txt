@@ -1,4 +1,4 @@
-4.0.0 ()
+4.0.0 (December 17, 2024)
 ---------------------------
 - Removed file.readChar
 - Changed choose into a function, rather than a class
@@ -22,3 +22,7 @@
 - Changed "f_value" to "function" and "player" to "component" in board
 - Added security hashes
 - Added badges to README.md
+
+4.0.1 ()
+---------------------------
+- Imoprt fixes
