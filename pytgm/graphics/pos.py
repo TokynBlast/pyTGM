@@ -1,8 +1,8 @@
 """
 Moves the cursor to a determinate point
 """
-def pos(X, Y, RET=True): # pylint: disable=missing-module-string
+def pos(X, Y, RET=True):  # pylint: disable=missing-module-string
     if RET:
-        '\033[X;YH'
+        return f'\033[{X};{Y}H'
     else:
-        print('\033[X;YH)
+        print(f'\033[{X};{Y}H')
