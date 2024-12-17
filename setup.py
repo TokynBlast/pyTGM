@@ -12,7 +12,7 @@ classifiers = [
     'Operating System :: Microsoft :: Windows',
     'Operating System :: POSIX :: Linux',
     'Operating System :: MacOS',
-    'License :: Bspace License',
+    'License :: Other/Proprietary License',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.13',
 ]
