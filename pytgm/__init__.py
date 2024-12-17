@@ -29,20 +29,17 @@ __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt
 from pytgm import b64, file, sound, graphics, local_server, terd
 
 # b64 Imports
-from b64 import Table, encode, decode
-from b64 import table_ as table, gen
+from .b64 import Table, encode, decode
+from .b64 import table_ as table, gen
 
 # File Imports
-from file import read_line, mod_line
+from .file import read_line, mod_line
 
 # Sound Imports
-from sound import play, generate
+from .sound import play, generate
 
 # Graphics Imports
-from graphics import cls, color, RESET, BOLD, ITALIC, UNDERLINE
+from .graphics import cls, color, RESET, BOLD, ITALIC, UNDERLINE
 
 # Online Imports
-from local_server import server, client
-
-# terd Imports
-from terd import geky, click
+from .local_server import server, client
