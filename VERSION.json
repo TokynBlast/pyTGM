@@ -14,5 +14,6 @@
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
     "pytgm/graphics/color.py": "f6306faa716aa1bf4246283576a978b4ed5e5fb325fb0498b16591fafa85880f",
     "pytgm/graphics/cls.py": "68bc60cf0681dcff4633999ccb0c640b5ac574f00c238658a93cfd36cb3d7b42",
+    "pytgm/graphics/pos.py": ""
   }
 }
