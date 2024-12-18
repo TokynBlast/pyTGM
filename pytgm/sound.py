@@ -49,7 +49,7 @@ psound(str: file path) in 4.2.0\n
 After that, sound.play() will no longer work.\n
 If you want to play a sound, use psound(str: file path){res}''')
 
-def generate(p1=None, p2=None, p3=None, p4=None, p5=None): # pylint: disable=unused-argument
+def generate(p1=None, p2=None, p3=None, p4=None, p5=None): # pylint: disable=unused-argument, missing-function-docstring
     del p1, p2, p3, p4, p5
     yellow = '\x1b[38;2;255;255;0m'
     red = '\x1b[38;2;255;0;0m'

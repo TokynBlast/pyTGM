@@ -11,8 +11,8 @@ It imports and exposes various modules and functionalities for:
 
 __all__ = [
     'Table', 'encode', 'decode',
-    'read_line', 'mod_line', 'fm_line'
-    'play', 'generate', 'psound'
+    'read_line', 'mod_line', 'fm_line',
+    'play', 'generate', 'psound',
     'cls', 'color', 'pos', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
     'server', 'client',
 ]
