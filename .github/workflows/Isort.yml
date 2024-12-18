@@ -4,6 +4,7 @@ on:
     paths:
       - pytgm/**
       - setup.py
+      - .github/workflows/Isort.yml
     branches:
       - main
 jobs:
