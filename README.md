@@ -3,15 +3,20 @@
 [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml)<br>
 [![Lint with Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)<br>
 [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml)<br>
-[![SHA3-256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
+[![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
 
 ### C++
 [![C++ Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml)
+
+
 # pyTGM (Python Terminal Game Maker)
 
-pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, with utilities for encryption, randomization, markup, and more.
+pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, contained completley within the terminal,<br>
+with utilities for encryption, markup, mouse input, and much more.
 
-To download, run ```pip install pytgm```
+To download pyTGM using pip, run ```pip install pytgm```
+
+It is **NOT** recommended that you download earlier than 4.0.5; Earlier than this, no binaries were built, so importing, among other things weren't tested.
 
 ## Bugs and Features
 To report a bug, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
@@ -50,8 +55,8 @@ graphics.BOLD
 graphics.ITALIC
 graphics.UNDERLINE
 
-# Placing the cursor at a pair of coords
-
+# Placing the cursor at a pair of coordinates
+graphics.pos()
 ```
 
 
@@ -88,14 +93,14 @@ terd.geky(times)
 ```python
 # Set the table
 b64.Table.table = 'ABCDEF...XYZ...12...90...!@..._+'
-b64.Table.generate('ABCDEF...XYZ...12...90...!@..._+', 32)
+b64.Table.generate('ABCDEF...XYZ...12...90...!@..._+', 32)  # (table: str, times: int)
 
 # Encode and decode
 b64.encode(text)
 b64.decode(text)
 ```
 When setting the table, it MUST include the characters that are being stored at the very least!
-Extra characters are suggested
+Extra characters are suggested for security.
 
 ## Links
 - [Homepage](https://pytgm.tokynblast.space/home)
