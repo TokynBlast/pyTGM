@@ -6,11 +6,11 @@
 #ifdef _WIN32
 #include <windows.h>
 #else
-#include <unistd.h>     // For POSIX systems
+#include <unistd.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <linux/input.h>
-#include <cstdio>       // For perror
+#include <cstdio>
 #endif
 
 #include <pybind11/pybind11.h>
@@ -20,18 +20,16 @@ namespace py = pybind11;
 // Function to detect click events
 std::tuple<int, int> click() {
 #ifdef _WIN32
-    // Windows-specific implementation
-    POINT cursorPos; // To store cursor position
+    POINT cursorPos;
     while (true) {
-        if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) { // Detect left mouse button press
-            if (GetCursorPos(&cursorPos)) { // Retrieve cursor position
-                return std::make_tuple(cursorPos.x, cursorPos.y); // Return position
+        if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) {
+            if (GetCursorPos(&cursorPos)) { //  Retrieve cursor position
+                return std::make_tuple(cursorPos.x, cursorPos.y);
             }
         }
-        Sleep(10); // Avoid tight looping, give the CPU a break
+        Sleep(10);
     }
 #else
-    // POSIX implementation
     int fd = open("/dev/input/event0", O_RDONLY | O_NONBLOCK);
     if (fd < 0) {
         perror("Failed to open /dev/input/event0");
@@ -52,13 +50,13 @@ std::tuple<int, int> click() {
         if (bytes >= sizeof(event)) {
             if (event.type == EV_KEY && event.code == BTN_LEFT && event.value == 1) {
                 close(fd);
-                return std::make_tuple(event.type, event.code); // Detected left button press
+                return std::make_tuple(event.type, event.code);
             }
         }
     }
 
     close(fd);
-    return std::make_tuple(-1, -1); // No click detected
+    return std::make_tuple(-1, -1);
 #endif
 }
 
