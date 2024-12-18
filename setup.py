@@ -3,7 +3,7 @@ Setup script for the pyTGM package.
 Handles package configuration and extension building.
 """
 
-import platform
+from platform import system as sys
 from setuptools import setup, find_packages
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
@@ -18,15 +18,15 @@ classifiers = [
     'Programming Language :: Python :: 3.13',
 ]
 
-if platform.startswith("win"):
+if sys().startswith("win"):
     extra_compile_args = ["/std:c++latest", "/EHsc", "/bigobj"]
     extra_link_args = ["User32.lib"]
     sources = ["pytgm/terd/click.cpp"]
-elif platform.startswith("linux"):
+elif sys().startswith("linux"):
     extra_compile_args = ["-std=c++11", "-O3", "-Wall", "-fPIC"]
     extra_link_args = []
     sources = ["pytgm/terd/click.cpp"]
-elif platform.startswith("darwin"):
+elif sys().startswith("darwin"):
     extra_compile_args = ["-std=c++11", "-O3", "-Wall", "-fPIC"]
     extra_link_args = []
     sources = ["pytgm/terd/click.cpp"]
