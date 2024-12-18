@@ -6,9 +6,7 @@ on:
       - pytgm/**
       - pytgm/terd/**
       - pytgm/graphics/**
-      - pytgm/terd/click.cpp
-      - '!pytgm/__init__.py'
-      - '!pytgm/graphics/__init__.py'
+      - '!pytgm/terd/click.cpp'
     branches:
       - main
 
@@ -24,8 +22,8 @@ jobs:
 
       - name: Generate SHA-256 hashes
         run: |
-          # Find all Python files excluding __init__.py and tred/__init__.py
-          find pytgm/ -type f -name '*.py' ! -name '__init__.py' ! -path 'pytgm/terd/*' -print0 | xargs -0 sha256sum > hashes.txt
+          # Find all Python files
+          find pytgm/ -type f -name '*.py' -print0 | xargs -0 sha256sum > hashes.txt
 
           # Ensure VERSION.json exists and has the 'hashes' object
           if [ ! -f VERSION.json ]; then
@@ -44,18 +42,15 @@ jobs:
 
       - name: Check for changes in VERSION.json
         run: |
-          if git diff --quiet --exit-code; then
+          if git diff --quiet --exit-code VERSION.json; then
             echo "No changes to VERSION.json, skipping commit."
             exit 0
           fi
 
       - name: Commit and Push Changes
-        env:
-          HASHGEN: ${{ secrets.HASHGENERATE }}
         run: |
           git config --local user.name "TokynBlast"
           git config --local user.email "tokynblast@gmail.com"
-          git remote set-url origin https://x-access-token:${HASHGEN}@github.com/TokynBlast/pyTGM.git
           git add VERSION.json
           git commit -m "Update SHA-256 hashes in VERSION.json"
           git push
