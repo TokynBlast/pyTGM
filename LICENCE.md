@@ -1,5 +1,5 @@
 # Bspace License
-Version 1.1.0
+Version 1.1.1
 Copyright (c) 2024 Tokyn Blast
 
 ## Definitions
@@ -18,7 +18,7 @@ Subject to the terms of this License, you are granted the rights to:
 
 ## 2. Commercial Use
 
-Commercial use is permitted only with explicit written permission from the Developer, unless otherwise stated.
+Commercial use is permitted at any time, unless otherwsie stated.
 
 ## 3. Conditions
 

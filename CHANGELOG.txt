@@ -38,8 +38,20 @@
 ---------------------------
 - Added back click
 
-4.0.6 ()
+4.0.6 (Decmeber 17, 2024)
 ---------------------------
 - Added windows implementation of click
 - Fixed pybind11 missing module for pylint
 - Added C++ linting
+
+4.1.0 (December 18, 2024)
+---------------------------
+- Added *.txt to manifest.in
+- Added C++ badge to github 
+- Updated licence
+- Fixed click bugs for windows
+- Distributed .tar.gz, instead of a .whl
+- Removed sound.generate()
+- Changed sound.play() to psound()
+- Changed mod_line() to fm_line()
+- Placed dummy functions for removed functions, that serve warnings

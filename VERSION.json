@@ -1,6 +1,6 @@
 {
-  "version": "4.0.6",
-  "release_date": "December 17, 2024",
+  "version": "4.1.0",
+  "release_date": "December 18, 2024",
   "pytgm_release": "March 15, 2024",
   "min_py_req": 3.13,
   "min_cpp_req": "C++11",

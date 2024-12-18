@@ -14,9 +14,14 @@
 pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, contained completley within the terminal,<br>
 with utilities for encryption, markup, mouse input, and much more.
 
-To download pyTGM using pip, run ```pip install pytgm```
+To download pyTGM using pip, run ```pip install pyTGM```<br>
+**YOU MUST TYPE PYTGM EXACTLY AS IT IS SAID**
 
-It is **NOT** recommended that you download earlier than 4.0.5; Earlier than this, no binaries were built, so importing, among other things weren't tested.
+It is **NOT** recommended that you download earlier than 4.1.0; Earlier than this, importing was untested!<br>
+Amongst other things, all previous versions were built for windows only.<br>
+4.1.0 fixes this.
+
+It is **MOST** reccomended, that you download the latest version!
 
 ## Bugs and Features
 To report a bug, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
@@ -26,12 +31,7 @@ For feature request, go [here](https://github.com/TokynBlast/pyTGM/issues/new?as
 All contributions are greatly appreciated.<br>
 To make a contribution, make a new branch [here](https://github.com/TokynBlast/pyTGM/branches)<br>
 Then, add (or remove), to improve the repo!<br>
-Then, somebody will check to make sure it complys with all the workflows.
-Once we know it's working, we will merge the request!
-
-If your modified code doesn't comply with Saftey linting, it will be immediatley denied.
-For security reasons, if the repo needs to be tested outside github, it will be tested on a VM.
-Code will also be checked manually.
+Once we know it's working and safe, somebody will merge the request!
 
 ## Features
 
