@@ -16,7 +16,7 @@
     "pytgm/graphics/cls.py": "68bc60cf0681dcff4633999ccb0c640b5ac574f00c238658a93cfd36cb3d7b42",
     "pytgm/graphics/pos.py": "a81fd2c1db77b1c34bd8e63a944d0172c80b0997ff53233cfdc2b14bf01f20b2",
     "pytgm/terd/__init__.py": "815a733006de64c9abbc84f2fc452898050308db85f7ade0aafc8d150b923d8b",
-    "pytgm/__init__.py": "8bbf07a034f0bca0fe0e12627498ff3e08f799787914e85476df3f1884032424",
+    "pytgm/__init__.py": "c7579a515537f88ca6b9a868bce9b6312fa33eca35edbc171e659c0540cdbd4e",
     "pytgm/graphics/__init__.py": "e71d298d5436df8f480d02e6d250286dd0f1f5ecf8e5273dbc873f12ccb178e2"
   }
 }
