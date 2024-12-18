@@ -4,6 +4,7 @@ on:
     paths:
       - pytgm/**
       - setup.py
+      - .github/workflows/Saftey.yml
     branches:
       - main
 jobs:
