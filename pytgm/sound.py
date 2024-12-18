@@ -41,22 +41,22 @@ def psound(path):
 
 def play(FPATH):
     psound(FPATH)
-    YELLOW = '\x1b[38;2;255;255;0m'
-    RED = '\x1b[38;2;255;0;0m'
-    RES = '\x1b[0m'
-    print(f'''{YELLOW}WARNING: {RED}sound.play() will become \
+    yellow = '\x1b[38;2;255;255;0m'
+    red = '\x1b[38;2;255;0;0m'
+    res = '\x1b[0m'
+    print(f'''{yellow}WARNING: {red}sound.play() will become \
 psound(str: file path) in 4.2.0\n
 After that, sound.play() will no longer work.\n
-If you want to play a sound, use psound(str: file path){RES}''')
+If you want to play a sound, use psound(str: file path){res}''')
 
 def generate(p1=None, p2=None, p3=None, p4=None, p5=None): # pylint: disable=unused-argument
     del p1, p2, p3, p4, p5
-    YELLOW = '\x1b[38;2;255;255;0m'
-    RED = '\x1b[38;2;255;0;0m'
-    RES = '\x1b[0m'
+    yellow = '\x1b[38;2;255;255;0m'
+    red = '\x1b[38;2;255;0;0m'
+    res = '\x1b[0m'
 
-    print(f'''{YELLOW}WARNING: {RED}sound.generate() is no \
+    print(f'''{yellow}WARNING: {red}sound.generate() is no \
 longer implemented
 This change was made in 4.1.0., \
 this function will be removed in 4.2.0
-if you want to play a sound, use psound(str: file path){RES}''')
+if you want to play a sound, use psound(str: file path){res}''')

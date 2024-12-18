@@ -25,15 +25,15 @@ def read_line(name, line=0):
     except Exception as e:  # pylint: disable=broad-exception-caught
         print(f"An unexpected error occurred: {e}")
         return ""
-    YELLOW = '\x1b[38;2;255;255;0m'
-    RED = '\x1b[38;2;255;0;0m'
-    RES = '\x1b[0m'
-    print(f'''{YELLOW}WARNING: {RED}file.file_read() will no \
+    yellow = '\x1b[38;2;255;255;0m'
+    red = '\x1b[38;2;255;0;0m'
+    res = '\x1b[0m'
+    print(f'''{yellow}WARNING: {red}file.file_read() will no \
 longer be implemented in 4.2.0
 This change was made in 4.1.0., \
 pyTGM reccomends you get the line yourself:\n
 open(file, r)[line]
-\nMost Python linters will return a warning.{RES}''')
+\nMost Python linters will return a warning.{res}''')
 
 
 def fm_line(name, new_text, line_num=0, placeholder=""):
@@ -69,10 +69,10 @@ def fm_line(name, new_text, line_num=0, placeholder=""):
 
 def mod_line(file, new, line, p_hold):
         fm_line(file, new, line, p_hold)
-        YELLOW = '\x1b[38;2;255;255;0m'
-        RED = '\x1b[38;2;255;0;0m'
-        RES = '\x1b[0m'
-        print(f'''{YELLOW}WARNING: {RED}file.mod_line() will be \
+        yellow = '\x1b[38;2;255;255;0m'
+        red = '\x1b[38;2;255;0;0m'
+        res = '\x1b[0m'
+        print(f'''{yellow}WARNING: {red}file.mod_line() will be \
 changed to fm_line in 4.2.0
 This change was made in 4.1.0. \
-\nMost Python linters will return a warning.{RES}''')
+\nMost Python linters will return a warning.{res}''')

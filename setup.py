@@ -4,7 +4,7 @@ Handles package configuration and extension building.
 """
 
 from platform import system as sys
-from setuptools import setup, find_packages, Extension
+from setuptools import setup, find_packages
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
 classifiers = [
@@ -50,8 +50,8 @@ setup(
     name='pyTGM',
     version='4.1.0',
     description='Terminal Game Maker',
-    long_description=(open('README.md', encoding='utf-8').read() + '\n\n' +
-                      open('CHANGELOG.txt', encoding='utf-8').read()),
+    long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
+                      open('CHANGELOG.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with
     long_description_content_type='text/markdown',
     url='https://github.com/TokynBlast/pyTGM',
     author='Tokyn Blast',
