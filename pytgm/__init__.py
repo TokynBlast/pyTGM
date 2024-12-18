@@ -15,7 +15,7 @@ RES = '\x1b[0m'
 
 print(f'''{YELLOW}WARNING: file.read_line() will soon be \
 {RED}depreciated!{RES}''')
-print(f'''{graphics.color(255,255,0)}WARNING: sound.generate will soon be \
+print(f'''{YELLOW}WARNING: sound.generate will soon be \
 {RED}depreciated!{RES}\nAnd sound.play() will be renamed as sound()''')
 
 __all__ = [
