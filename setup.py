@@ -18,7 +18,7 @@ classifiers = [
     'Programming Language :: Python :: 3.13',
 ]
 
-if sys().startswith("win"):
+if sys().startswith("Win"):
     extra_compile_args = ["/std:c++latest", "/EHsc", "/bigobj"]
     extra_link_args = ["User32.lib"]
     sources = ["pytgm/terd/click.cpp"]
