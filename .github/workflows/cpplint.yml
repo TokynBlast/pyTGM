@@ -1,0 +1,21 @@
+name: C++ Linting
+
+on:
+  push:
+    paths:
+      - pytgm/terd/click.cpp
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install Cpplint
+      run: pip install cpplint
+
+    - name: Run Cpplint
+      run: cpplint $(find . -name '*.cpp') $(find . -name '*.h')
