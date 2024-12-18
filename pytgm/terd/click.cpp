@@ -65,5 +65,5 @@ std::tuple<int, int> click() {
 // Pybind11 module definition
 PYBIND11_MODULE(click, m) {
     m.doc() = "Pybind11 example plugin for detecting clicks";
-    m.def("click", &click, "A function that detects mouse clicks and returns their type and code");
+    m.def("click", &click, "Used to detect clicks within the terminal");
 }
