@@ -19,6 +19,9 @@ classifiers = [
 ]
 
 class BuildExt(build_ext):
+    """
+    Determines the OS
+    """
     def build_extensions(self):
         os_type = sys()
         if os_type == "Windows":

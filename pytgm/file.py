@@ -67,12 +67,12 @@ def fm_line(name, new_text, line_num=0, placeholder=""):
         print(f"An error occurred: {e}")
 
 
-def mod_line(file, new, line, p_hold):
-        fm_line(file, new, line, p_hold)
-        yellow = '\x1b[38;2;255;255;0m'
-        red = '\x1b[38;2;255;0;0m'
-        res = '\x1b[0m'
-        print(f'''{yellow}WARNING: {red}file.mod_line() will be \
+def mod_line(file, new, line, p_hold): # pylint: disable=missing-function-docstring
+    fm_line(file, new, line, p_hold)
+    yellow = '\x1b[38;2;255;255;0m'
+    red = '\x1b[38;2;255;0;0m'
+    res = '\x1b[0m'
+    print(f'''{yellow}WARNING: {red}file.mod_line() will be \
 changed to fm_line in 4.2.0
 This change was made in 4.1.0. \
 \nMost Python linters will return a warning.{res}''')

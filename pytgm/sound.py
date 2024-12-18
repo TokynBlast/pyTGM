@@ -39,8 +39,8 @@ def psound(path):
     except NotImplementedError as e:
         print(e)
 
-def play(FPATH):
-    psound(FPATH)
+def play(fpath): # pylint: disable=missing-function-docstring
+    psound(fpath)
     yellow = '\x1b[38;2;255;255;0m'
     red = '\x1b[38;2;255;0;0m'
     res = '\x1b[0m'
