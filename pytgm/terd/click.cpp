@@ -23,7 +23,7 @@ std::tuple<int, int> click() {
     POINT cursorPos;
     while (true) {
         if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) {
-            if (GetCursorPos(&cursorPos)) { //  Retrieve cursor position
+            if (GetCursorPos(&cursorPos)) {
                 return std::make_tuple(cursorPos.x, cursorPos.y);
             }
         }
@@ -44,11 +44,13 @@ std::tuple<int, int> click() {
                 perror("Read error");
                 break;
             }
-            continue; // No data available, retry
+            continue;
         }
 
         if (bytes >= sizeof(event)) {
-            if (event.type == EV_KEY && event.code == BTN_LEFT && event.value == 1) {
+            if (event.type == EV_KEY &&
+                event.code == BTN_LEFT &&
+                event.value == 1) {
                 close(fd);
                 return std::make_tuple(event.type, event.code);
             }
