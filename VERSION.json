@@ -7,8 +7,8 @@
   "build": 7,
   "hashes": {
     "pytgm/b64.py": "f1bb80fa0904c329c72d40ec0c1e793c40988b3aac38499eaf6027f9655e6063",
-    "pytgm/file.py": "aa4e5149a43186d8c7ffa7f831a496a935a16c127fa28e2091c82c2284c3b8dc",
-    "pytgm/sound.py": "0d2980321cc574e9e227e4f70b6accb9aca17ef3b8ce5ded625b8c1813dac04e",
+    "pytgm/file.py": "022c56c5face67bb0b1b85d5aaeead111c39c7420790b81ad7aa8025cf7d2307",
+    "pytgm/sound.py": "d5ac96c5dff06cc9e12fe9de933882ba7a1a4a87911983fbde91eac32748c97a",
     "pytgm/terd/click.cpp": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
     "pytgm/terd/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
