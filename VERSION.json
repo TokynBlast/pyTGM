@@ -10,10 +10,13 @@
     "pytgm/file.py": "25a91046509621490b8533ee10f6b6270f3f26e9f52ad6d6441d157b21a660be",
     "pytgm/sound.py": "ec1be5f0910d012c5ccb1bda1f0b7dd366e960c09d37046964284b204e74950f",
     "pytgm/terd/click.cpp": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
-    "pytgm/terd/geky.py": "2307689e79db9d62337a8d1823a31f7b631be942db6c92cabeebe767dcb5918d",
+    "pytgm/terd/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
     "pytgm/graphics/color.py": "f6306faa716aa1bf4246283576a978b4ed5e5fb325fb0498b16591fafa85880f",
     "pytgm/graphics/cls.py": "68bc60cf0681dcff4633999ccb0c640b5ac574f00c238658a93cfd36cb3d7b42",
-    "pytgm/graphics/pos.py": "a81fd2c1db77b1c34bd8e63a944d0172c80b0997ff53233cfdc2b14bf01f20b2"
+    "pytgm/graphics/pos.py": "a81fd2c1db77b1c34bd8e63a944d0172c80b0997ff53233cfdc2b14bf01f20b2",
+    "pytgm/terd/__init__.py": "815a733006de64c9abbc84f2fc452898050308db85f7ade0aafc8d150b923d8b",
+    "pytgm/__init__.py": "0555339d6367791701e4ed50f6ad9abf8a02965b2f6848dd7edde03bba5fda5c",
+    "pytgm/graphics/__init__.py": "e71d298d5436df8f480d02e6d250286dd0f1f5ecf8e5273dbc873f12ccb178e2"
   }
 }
