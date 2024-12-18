@@ -9,15 +9,6 @@ It imports and exposes various modules and functionalities for:
 - Local server operations
 """
 
-YELLOW = '\x1b[38;2;{255};{255};{0}m'
-RED = '\x1b[38;2;{255};{0};{0}m'
-RES = '\x1b[0m'
-
-print(f'''{YELLOW}WARNING: file.read_line() will soon be \
-{RED}depreciated!{RES}''')
-print(f'''{YELLOW}WARNING: sound.generate will soon be \
-{RED}depreciated!{RES}\nAnd sound.play() will be renamed as sound()''')
-
 __all__ = [
     'Table', 'encode', 'decode',
     'read_line', 'mod_line',
@@ -50,3 +41,12 @@ from .graphics import cls, color, RESET, BOLD, ITALIC, UNDERLINE
 
 # Online Imports
 from .local_server import server, client
+
+YELLOW = '\x1b[38;2;{255};{255};{0}m'
+RED = '\x1b[38;2;{255};{0};{0}m'
+RES = '\x1b[0m'
+
+print(f'''{YELLOW}WARNING: file.read_line() will soon be \
+{RED}depreciated!{RES}''')
+print(f'''{YELLOW}WARNING: sound.generate will soon be \
+{RED}depreciated!{RES}\nAnd sound.play() will be renamed as sound()''')
