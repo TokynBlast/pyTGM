@@ -45,8 +45,8 @@ def play(fpath): # pylint: disable=missing-function-docstring
     red = '\x1b[38;2;255;0;0m'
     res = '\x1b[0m'
     print(f'''{yellow}WARNING: {red}sound.play() will become \
-psound(str: file path) in 4.2.0\n
-After that, sound.play() will no longer work.\n
+psound(str: file path) in 4.2.0
+After that, sound.play() will no longer be a valid function.
 If you want to play a sound, use psound(str: file path){res}''')
 
 def generate(p1=None, p2=None, p3=None, p4=None, p5=None): # pylint: disable=unused-argument, missing-function-docstring
@@ -58,5 +58,5 @@ def generate(p1=None, p2=None, p3=None, p4=None, p5=None): # pylint: disable=unu
     print(f'''{yellow}WARNING: {red}sound.generate() is no \
 longer implemented
 This change was made in 4.1.0., \
-this function will be removed in 4.2.0
+this function will be removed entirley in 4.2.0
 if you want to play a sound, use psound(str: file path){res}''')

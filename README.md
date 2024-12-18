@@ -37,8 +37,7 @@ Once we know it's working and safe, somebody will merge the request!
 
 ### File Operations
 ```python
-file.mod_line(name)           # Modify a line of a file
-file.read_line(name, line=0)  # Read specific line
+file.fm_line(name)           # Modify a line of a file
 ```
 
 ### Graphics and Text Styling
@@ -64,10 +63,7 @@ graphics.pos()
 Works across Windows, macOS, and Linux:
 ```python
 # Play audio file
-play('../sounds/mysound.mp3')
-
-# Make a file of a frequency
-generate(frequency, duration, name, sample_rate=44100, volume=0.5)
+p_sound('../sounds/mysound.mp3')
 ```
 
 ### Local Server Support

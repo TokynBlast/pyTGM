@@ -55,3 +55,10 @@
 - Changed sound.play() to psound()
 - Changed mod_line() to fm_line()
 - Placed dummy functions for removed functions, that serve warnings
+
+4.1.1()
+---------------------------
+- Fixed README.md
+- Forced warnings to occur, whether an error was caught or not
+- Added clarity to warnings
+- Removed when warning was added
