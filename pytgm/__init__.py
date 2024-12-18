@@ -9,6 +9,9 @@ It imports and exposes various modules and functionalities for:
 - Local server operations
 """
 
+print(f'{graphics.color(255,255,0)}WARNING: file.read_line() will soon be {graphics.color(255,0,0)}depreciated!{graphics.RESET}')
+print(f'{graphics.color(255,255,0)}WARNING: sound.generate will soon be {graphics.color(255,0,0)}depreciated!{graphics.RESET}\nAnd sound.play() will be renamed as sound()')
+
 __all__ = [
     'Table', 'encode', 'decode',
     'read_line', 'mod_line',
