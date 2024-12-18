@@ -31,7 +31,7 @@ elif sys().startswith("darwin"):
     extra_link_args = []
     sources = ["pytgm/terd/click.cpp"]
 else:
-    raise RuntimeError(f"Unsupported platform: {platform}")
+    raise RuntimeError(f"Unsupported platform: {sys()}")
 
 MAIT_AUTH = 'Tokyn Blast'
 MAIT_AUTH_CONT = 'tokynblast@gmail.com'
