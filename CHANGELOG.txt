@@ -20,9 +20,9 @@
 - Added security hashes
 - Added badges to README.md
 
-4.0.1 ()
+4.0.1 (Decmeber 17, 2024)
 ---------------------------
-- Imoprt fixes
+- Import fixes
 
 4.0.2 (December 17, 2024)
 ---------------------------
@@ -37,3 +37,9 @@
 4.0.5 (Decmeber 17, 2024)
 ---------------------------
 - Added back click
+
+4.0.6 ()
+---------------------------
+- Added windows implementation of click
+- Fixed pybind11 missing module for pylint
+- Added C++ linting
