@@ -9,12 +9,14 @@ It imports and exposes various modules and functionalities for:
 - Local server operations
 """
 
-from . import graphics
+YELLOW = \x1b[38;2;{255};{255};{0}m
+RED = \x1b[38;2;{255};{0};{0}m
+RES = \x1b[0m
 
-print(f'{graphics.color(255,255,0)}WARNING: file.read_line() will soon be \
-{graphics.color(255,0,0)}depreciated!{graphics.RESET}')
+print(f'{YELLOW}WARNING: file.read_line() will soon be \
+{RED}depreciated!{RES}')
 print(f'{graphics.color(255,255,0)}WARNING: sound.generate will soon be \
-{graphics.color(255,0,0)}depreciated!{graphics.RESET}\nAnd sound.play() will be renamed as sound()')
+{RED}depreciated!{RES}\nAnd sound.play() will be renamed as sound()')
 
 __all__ = [
     'Table', 'encode', 'decode',
