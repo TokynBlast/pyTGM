@@ -47,9 +47,9 @@ setup(
     name='pyTGM',
     version='4.0.6',
     description='Terminal Game Maker',
-    long_description=(open('README.md', encoding='utf-8').read() +
+    long_description=(open('README.md', encoding='utf-8').read() + # pylint: disable=consider-using-with
                       '\n\n' +
-                      open('CHANGELOG.txt', encoding='utf-8').read()),
+                      open('CHANGELOG.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with
     long_description_content_type='text/markdown',
     url='https://github.com/TokynBlast/pyTGM',
     author='Tokyn Blast',
