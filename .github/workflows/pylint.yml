@@ -5,6 +5,7 @@ on:
     paths:
       - pytgm/**
       - setup.py
+      - .github/workflows/pylint.yml
     branches:
       - main
 jobs:
