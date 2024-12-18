@@ -9,7 +9,7 @@ It imports and exposes various modules and functionalities for:
 - Local server operations
 """
 
-import .graphics
+from . import graphics
 
 print(f'{graphics.color(255,255,0)}WARNING: file.read_line() will soon be \
 {graphics.color(255,0,0)}depreciated!{graphics.RESET}')
