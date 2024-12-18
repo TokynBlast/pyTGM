@@ -3,7 +3,7 @@ Setup script for the pyTGM package.
 Handles package configuration and extension building.
 """
 
-import platform
+from platform import system as sys
 from setuptools import setup, find_packages
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
@@ -18,13 +18,13 @@ classifiers = [
     'Programming Language :: Python :: 3.13',
 ]
 
-current_os = platform.system().lower()
+os = sys().lower()
 
 extra_compile_args = {
     'linux': ['-std=c++11', '-O3', '-Wall', '-fPIC'],
     'darwin': ['-std=c++11', '-O3', '-Wall', '-fPIC'],
     'windows': ['/std:c++11', '/O2', '/W4']
-}.get(current_os, [])
+}.get(os, [])
 
 extensions = [
     Pybind11Extension(
