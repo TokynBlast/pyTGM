@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - pytgm/terd/click.cpp
+      - .github/workflows/cpplint.yml
   pull_request:
 
 jobs:
