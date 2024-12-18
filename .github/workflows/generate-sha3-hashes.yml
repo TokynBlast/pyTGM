@@ -6,6 +6,8 @@ on:
       - pytgm/**
       - pytgm/terd/**
       - pytgm/graphics/**
+      - setup.py
+      - .github/workflows/generate-sha3-hashes.yml
       - '!pytgm/terd/click.cpp'
     branches:
       - main
@@ -40,10 +42,10 @@ jobs:
           # Delete hashes.txt after it is used
           rm hashes.txt
 
-      - name: Check for changes in VERSION.json
+      - name: Check for changes in VERSION.json and setup.py
         run: |
-          if git diff --quiet --exit-code VERSION.json; then
-            echo "No changes to VERSION.json, skipping commit."
+          if git diff --quiet --exit-code VERSION.json setup.py; then
+            echo "No changes to VERSION.json or setup.py, skipping commit."
             exit 0
           fi
 
@@ -51,6 +53,6 @@ jobs:
         run: |
           git config --local user.name "TokynBlast"
           git config --local user.email "tokynblast@gmail.com"
-          git add VERSION.json
-          git commit -m "Update SHA-256 hashes in VERSION.json"
+          git add VERSION.json setup.py
+          git commit -m "Update SHA-256 hashes in VERSION.json and setup.py"
           git push
