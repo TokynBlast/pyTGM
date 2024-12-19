@@ -16,11 +16,11 @@ def psound(path):
     """
     if sys.platform.startswith('Win'):
         try:
-            from winsound import PlaySound as PLAY_SOUND, SND_FILENAME
+            from winsound import PlaySound as PLAY_SOUND, SND_FILENAME # pylint: disable=import-outside-toplevel
         except ImportError:
-            PLAY_SOUND, SND_FILENAME = None, None
+            PLAY_SOUND, SND_FILENAME = None, None # pylint: disable=invalid-name
     else:
-        PLAY_SOUND, SND_FILENAME = None, None
+        PLAY_SOUND, SND_FILENAME = None, None # pylint: disable=invalid-name
 
     try:
         if PLAY_SOUND and SND_FILENAME:  # Windows
