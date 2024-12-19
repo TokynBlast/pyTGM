@@ -15,14 +15,14 @@ class Table:
     """
     Used for editing the table b64 uses to encode and decode.
     """
-    table_ = encrypt.b64.Table.table_
+    table_ = b64.Table.table_
 
     @staticmethod
     def gen(chars=table_, times=1):
         """
         Dummy function
         """
-        return encrypt.b64.Table.gen(chars, times)
+        return b64.Table.gen(chars, times)
 
     def reset(): # pylint: disable=no-method-argument
         """
@@ -39,11 +39,11 @@ def encode(text):
     """
     Dummy function
     """
-    return encrypt.b64.encode(text)
+    return b64.encode(text)
 
 
 def decode(text):
     """
     Dummy function
     """
-    return encrypt.b64.decode(text)
+    return b64.decode(text)

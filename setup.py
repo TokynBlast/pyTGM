@@ -63,7 +63,7 @@ setup(
     classifiers=classifiers,
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
-    install_requires=['random', 'hashlib', 'socket', 'threading', 'os'],
+    install_requires=['random', 'hashlib', 'socket', 'threading', 'os', 'sys'],
     ext_modules=[click_extension],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",

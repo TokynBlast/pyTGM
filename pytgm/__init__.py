@@ -10,6 +10,7 @@ It imports and exposes various modules and functionalities for:
 
 __all__ = [
     'Table', 'encode', 'decode',
+    'sha256',
     'read_line', 'mod_line', 'fm_line',
     'play', 'generate', 'psound',
     'server', 'client',
@@ -39,3 +40,6 @@ from .graphics import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE
 
 # Online Imports
 from .local_server import server, client
+
+# Ecnrypt Imports
+from .encrypt import sha256, b64
