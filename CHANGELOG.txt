@@ -59,7 +59,8 @@
 4.1.1(December 19, 2024)
 ---------------------------
 - Fixed README.md
-- Forced warnings to occur, whether an error was caught or not
+- Forced warnings to occur
 - Added clarity to warnings
 - Moved b64 to encrypt
 - Added sha256
+- Changed psound importing

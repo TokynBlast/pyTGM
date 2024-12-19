@@ -54,7 +54,8 @@ setup(
     version='4.1.1',
     description='Terminal Game Maker',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
-                      open('CHANGELOG.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with
+                      open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +  # pylint: disable=consider-using-with
+                      open('CHANGELOG_NOTES.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with
     long_description_content_type='text/markdown',
     url='https://github.com/TokynBlast/pyTGM',
     author='Tokyn Blast',

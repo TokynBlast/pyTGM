@@ -31,9 +31,9 @@ def read_line(name, line=0):
         res = '\x1b[0m'
         print(f'''{yellow}WARNING: {red}file.file_read() will no \
 longer be implemented in 4.2.0 \
-You can get the line yourself:\n
+You can get the line yourself:
 var = open(file, r)[line]
-\nMost Python linters will return a warning.{res}''')
+Most Python linters will return a warning.{res}''')
 
 
 def fm_line(name, new_text, line_num=0, placeholder=""):

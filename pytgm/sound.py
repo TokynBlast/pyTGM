@@ -7,15 +7,6 @@ Includes functions for playing audio files and generating waveforms.
 import os
 import sys
 
-# Import PlaySound and SND_FILENAME only if available
-if sys.platform.startswith('Win32'):
-    try:
-        from winsound import PlaySound as PLAY_SOUND, SND_FILENAME
-    except ImportError:
-        PLAY_SOUND, SND_FILENAME = None, None
-else:
-    PLAY_SOUND, SND_FILENAME = None, None
-
 def psound(path):
     """
     Plays a sound from a given file path.
@@ -23,6 +14,14 @@ def psound(path):
     Args:
         path (str): Path to the audio file.
     """
+    if sys.platform.startswith('Win'):
+        try:
+            from winsound import PlaySound as PLAY_SOUND, SND_FILENAME
+        except ImportError:
+            PLAY_SOUND, SND_FILENAME = None, None
+    else:
+        PLAY_SOUND, SND_FILENAME = None, None
+
     try:
         if PLAY_SOUND and SND_FILENAME:  # Windows
             PLAY_SOUND(path, SND_FILENAME)
@@ -57,6 +56,6 @@ def generate(p1=None, p2=None, p3=None, p4=None, p5=None): # pylint: disable=unu
 
     print(f'''{yellow}WARNING: {red}sound.generate() is no \
 longer implemented
-This change was made in 4.1.0., \
+This change was made in 4.1.0, \
 this function will be removed entirley in 4.2.0
 if you want to play a sound, use psound(str: file path){res}''')

@@ -1,0 +1,42 @@
+v4.1.1
+
+
+
+Warnings fix
+------------
+The warnings used to not show, if it caught an error
+I fixed it, by adding a finally after the try and excepts
+
+
+b64 and sha256
+--------------
+Originally, I had plans for adding sha256, but I eventually deleted it,
+way back in v2. But now, I have added it, and I'm glad I waited to do it,
+because I organized things a lot, and I've learned so much...
+
+
+winsound
+--------
+Before this change, it would always check if you used windows, as soon
+as you imported it, and every time you used it.
+This won't last long though, I will soon be making sound a C++ function.
+[More notes on C++ sound func when the change occurs]
+
+
+Extra notes
+-----------
+v4.1.1 has a couple of changes, most of them are for organization,
+to compensate for the adding or removing of functions.
+It's somewhat to help prepare pyTGM, and it's users for v4.2.0
+
+I've never used warnings before, before, I would make the change, and
+then label it as a minor change, when removing it is a major breaking change.
+But, now I know better, to look at what actualy changed, rather than how big
+the changelog for the version is. I am also getting better at deciding
+what's worth actually putting inside the changelog.
+
+Also, v4.0.1 - v4.0.6 were released, because I didn't do what I do now;
+Run the code on my computer and a VM, to make sure it works. So, most of
+those versions worked with windows, and nothing else. On top of that,
+v4.0.4 was a near exact copy of v4.0.3, and I couldn't reupload a file,
+ under the same version, only delete it. So that led to some complications.
