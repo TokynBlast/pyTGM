@@ -63,7 +63,7 @@ graphics.pos()
 Works across Windows, macOS, and Linux:
 ```python
 # Play audio file
-p_sound('../sounds/mysound.mp3')
+psound('../sounds/mysound.mp3')
 ```
 
 ### Local Server Support
