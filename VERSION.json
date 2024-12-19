@@ -6,7 +6,7 @@
   "min_cpp_req": "C++11",
   "build": 8,
   "hashes": {
-    "pytgm/b64.py": "00fc0d01ca3a72e3bab21b896094e68dd43ed38ff84c0d646bfa53ca0bf3a150",
+    "pytgm/b64.py": "d8b06c1e9d28b343ed5f467e1d1ac8a2413fbb34b1ed6dec12024e232368e64e",
     "pytgm/file.py": "08e3e398c9305a2ddba36d63807df3040a388f43647e121d0d929168b74a462e",
     "pytgm/sound.py": "d5ac96c5dff06cc9e12fe9de933882ba7a1a4a87911983fbde91eac32748c97a",
     "pytgm/terd/click.cpp": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
@@ -16,7 +16,7 @@
     "pytgm/graphics/cls.py": "68bc60cf0681dcff4633999ccb0c640b5ac574f00c238658a93cfd36cb3d7b42",
     "pytgm/graphics/pos.py": "a81fd2c1db77b1c34bd8e63a944d0172c80b0997ff53233cfdc2b14bf01f20b2",
     "pytgm/terd/__init__.py": "815a733006de64c9abbc84f2fc452898050308db85f7ade0aafc8d150b923d8b",
-    "pytgm/__init__.py": "601c0687b2320a5b5a21bf684e000ecb159e1f8a63597fc48d7dd50fbfe07b3e",
+    "pytgm/__init__.py": "03779ea00c65c81b26766fcfb39bc297ab1ec3eddf9fe92f8e95dc62ca4a486b",
     "pytgm/graphics/__init__.py": "4c76438c9567f56f515fbea8c792bcf287b8307d26178f8f2a54bc734bb980bb",
     "pytgm/encrypt/b64.py": "47301005488ee4f8d54b676236cd12544869472fd64163baf950eb7dea5dd728",
     "pytgm/encrypt/sha256.py": "b11737b35595b772182f00d5610d470f27c193870f49768beba67a0e591a89c2",
