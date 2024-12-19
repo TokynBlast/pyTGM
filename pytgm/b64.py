@@ -1,40 +1,28 @@
 """
-This module is used for encoding and decoding in base64.
-A custom table can also be set.
+Dummy module for b64
 """
 
-from random import shuffle as shuff
+import encrypt.b64
 
+yellow = '\x1b[38;2;255;255;0m'
+red = '\x1b[38;2;255;0;0m'
+res = '\x1b[0m'
+print(f'''{yellow}WARNING: {red}b64 will be \
+moved to ecrypt.b64 \
+in v4.2.0{res}''')
 
 class Table:
     """
     Used for editing the table b64 uses to encode and decode.
     """
-    table_ = '''ABCDEFGHIJKL \
-MNOPQRSTUVWXYZabcdefghijk \
-lmnopqrstuvwxyz1234567890?!@#$%^& \
-*()_+-=[]{}\\|/,.<>~`;:'" '''
+    table_ = encrypt.b64.Table.table_
 
     @staticmethod
     def gen(chars=table_, times=1):
         """
-        Generates a new table, by shuffling the current, or using a new one
-
-        Args:
-            times (int): The amount of times to shuffle the table
-            chars (str): The table to shuffle
-        Returns:
-            str: Encoded text in base64.
+        Dummy function
         """
-        if not chars:
-            b64table = Table.table_
-        else:
-            b64table = chars
-
-        b64list = list(b64table)
-        for _ in range(times):
-            shuff(b64list)
-        return ''.join(b64list)
+        return encrypt.b64.Table.gen(chars, times)
 
     def reset(): # pylint: disable=no-method-argument
         """
@@ -49,48 +37,13 @@ lmnopqrstuvwxyz1234567890?!@#$%^& \
 
 def encode(text):
     """
-    Encodes inputted data in base64, using the table_ variable.
-
-    Args:
-        text (str): The text to encode.
-    Returns:
-        str: Encoded text in base64.
+    Dummy function
     """
-    bins = str()
-    for c in text:
-        bins += f'{int(bin(ord(c)), 2):08b}'
-    while len(bins) % 6:  # Ensure bins length is divisible by 6
-        bins += '0'
-    bins = [bins[i:i + 6] for i in range(0, len(bins), 6)]
-
-    base64 = str()
-    for b in bins:
-        if b == '000000':
-            base64 += '='
-        else:
-            base64 += Table.table_[int(b, 2)]
-    return base64
+    return encrypt.b64.encode(text)
 
 
 def decode(text):
     """
-    Decodes encoded data in base64, using the table_ variable.
-
-    Args:
-        text (str): The base64-encoded text to decode.
-    Returns:
-        str: Decoded text.
+    Dummy function
     """
-    bins = str()
-    for c in text:
-        if c == '=':
-            bins += '000000'
-        else:
-            bins += f'{int(bin(Table.table_.index(c)), 2):06b}'
-    bins = [bins[i:i + 8] for i in range(0, len(bins), 8)]
-
-    decoded_text = str()
-    for b in bins:
-        if b != '00000000':
-            decoded_text += chr(int(b, 2))
-    return decoded_text
+    return encrypt.b64.decode(text)

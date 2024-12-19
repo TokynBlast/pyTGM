@@ -11,4 +11,4 @@ BOLD = '\x1b[1m'
 ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
 
-__all__ = ["cls", "BOLD", "ITALIC", "UNDERLINE", "RESET", "pos"]
+__all__ = ["cls", "BOLD", "ITALIC", "UNDERLINE", "RESET", "pos", "color"]

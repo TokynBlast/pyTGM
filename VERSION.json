@@ -1,10 +1,10 @@
 {
-  "version": "4.1.0",
-  "release_date": "December 18, 2024",
+  "version": "4.1.1",
+  "release_date": "December 19, 2024",
   "pytgm_release": "March 15, 2024",
   "min_py_req": 3.13,
   "min_cpp_req": "C++11",
-  "build": 7,
+  "build": 8,
   "hashes": {
     "pytgm/b64.py": "f1bb80fa0904c329c72d40ec0c1e793c40988b3aac38499eaf6027f9655e6063",
     "pytgm/file.py": "022c56c5face67bb0b1b85d5aaeead111c39c7420790b81ad7aa8025cf7d2307",

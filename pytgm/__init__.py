@@ -5,7 +5,6 @@ It imports and exposes various modules and functionalities for:
 - File handling
 - Graphics rendering
 - Sound generation
-- Base64 encoding/decoding
 - Local server operations
 """
 
@@ -13,7 +12,6 @@ __all__ = [
     'Table', 'encode', 'decode',
     'read_line', 'mod_line', 'fm_line',
     'play', 'generate', 'psound',
-    'cls', 'color', 'pos', 'RESET', 'BOLD', 'ITALIC', 'UNDERLINE',
     'server', 'client',
 ]
 
@@ -25,7 +23,7 @@ __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-from pytgm import b64, file, sound, graphics, local_server, terd
+from pytgm import b64, file, sound, graphics, local_server, terd, encrypt
 
 # b64 Imports
 from .b64 import Table, encode, decode

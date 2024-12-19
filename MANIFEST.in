@@ -1,1 +1,2 @@
 global-include *.py *.cpp *.json *.txt *.md
+exclude .github/*.md

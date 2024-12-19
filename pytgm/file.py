@@ -31,8 +31,8 @@ def read_line(name, line=0):
         res = '\x1b[0m'
         print(f'''{yellow}WARNING: {red}file.file_read() will no \
 longer be implemented in 4.2.0 \
-pyTGM reccomends you get the line yourself:\n
-open(file, r)[line]
+You can get the line yourself:\n
+var = open(file, r)[line]
 \nMost Python linters will return a warning.{res}''')
 
 

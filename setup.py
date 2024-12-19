@@ -51,7 +51,7 @@ click_extension = Pybind11Extension(
 
 setup(
     name='pyTGM',
-    version='4.1.0',
+    version='4.1.1',
     description='Terminal Game Maker',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
                       open('CHANGELOG.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with
@@ -63,7 +63,7 @@ setup(
     classifiers=classifiers,
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=['random', 'hashlib', 'socket', 'threading', 'os'],
     ext_modules=[click_extension],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
