@@ -1,5 +1,5 @@
 """
-Exposes cls and color, while adding RESET, bold, italic and underline
+Exposes everything for the library to import
 """
 from .color import color
 from .cls import cls
