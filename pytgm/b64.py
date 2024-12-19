@@ -2,11 +2,11 @@
 Dummy module for b64
 """
 
-import encrypt.b64
+import encrypt
 
-yellow = '\x1b[38;2;255;255;0m'
-red = '\x1b[38;2;255;0;0m'
-res = '\x1b[0m'
+YELLOW = '\x1b[38;2;255;255;0m'
+RED = '\x1b[38;2;255;0;0m'
+RES = '\x1b[0m'
 print(f'''{yellow}WARNING: {red}b64 will be \
 moved to ecrypt.b64 \
 in v4.2.0{res}''')
