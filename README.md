@@ -15,7 +15,7 @@ pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based ga
 with utilities for encryption, markup, mouse input, and much more.
 
 To download pyTGM using pip, run ```pip install pyTGM```<br>
-**YOU MUST TYPE PYTGM EXACTLY AS IT IS SAID**
+**THE NAME IS CASE-SENSETIVE**
 
 It is **NOT** recommended that you download earlier than 4.1.0; Earlier than this, importing was untested!<br>
 Amongst other things, all previous versions were built for windows only.<br>
