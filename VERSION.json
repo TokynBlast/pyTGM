@@ -6,7 +6,7 @@
   "min_cpp_req": "C++11",
   "build": 8,
   "hashes": {
-    "pytgm/b64.py": "e8c397b5de34480c364666e0b6f0b97421cb19be7ce420a69fb99a2f581935c5",
+    "pytgm/b64.py": "dc3fba414957405ab38af8b67fc268cd6175a44692e08e92fcae09bdee0452a1",
     "pytgm/file.py": "08e3e398c9305a2ddba36d63807df3040a388f43647e121d0d929168b74a462e",
     "pytgm/sound.py": "d5ac96c5dff06cc9e12fe9de933882ba7a1a4a87911983fbde91eac32748c97a",
     "pytgm/terd/click.cpp": "d0f859c624407556243b2e768ccfbca938a2418fb3f113691737cd0ce3e3fc15",
