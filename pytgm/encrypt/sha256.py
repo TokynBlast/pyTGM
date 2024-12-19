@@ -16,6 +16,5 @@ def encode(text):
     """
     if not isinstance(text, str):
         raise ValueError("Input must be a string.")
-    
 
     return hashlib.sha256().update(text.encode('utf-8')).hexdigest()

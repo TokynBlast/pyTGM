@@ -2,14 +2,14 @@
 Dummy module for b64
 """
 
-import encrypt
+from .encrypt import b64
 
 YELLOW = '\x1b[38;2;255;255;0m'
 RED = '\x1b[38;2;255;0;0m'
 RES = '\x1b[0m'
-print(f'''{yellow}WARNING: {red}b64 will be \
+print(f'''{YELLOW}WARNING: {RED}b64 will be \
 moved to ecrypt.b64 \
-in v4.2.0{res}''')
+in v4.2.0{RES}''')
 
 class Table:
     """
