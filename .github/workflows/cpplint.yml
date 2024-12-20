@@ -3,7 +3,7 @@ name: C++ Linting
 on:
   push:
     paths:
-      - pytgm/terd/click.cpp
+      - *.cpp
       - .github/workflows/cpplint.yml
   pull_request:
 
