@@ -1,8 +1,9 @@
 # Languages used
 *.py linguist-language=Python
-*.c linguist-language=C
+*.cpp linguist-language=C++
 
 # Ignore non-code directories
 *.txt linguist-vendored
 *.json linguist-vendored
 *.md linguist-vendored
+pytgm/sound.py linguist-vendored
