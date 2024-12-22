@@ -1,22 +1,29 @@
-name: C++ Linting
+name: C++ Error Checking
 
 on:
   push:
     paths:
       - pytgm/**
-      - .github/workflows/cpplint.yml
-  pull_request:
+    branches:
+      - main
 
 jobs:
-  lint:
+  cpp-error-check:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
+    - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install Cpplint
-      run: pip install cpplint
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cppcheck clang-tidy
 
-    - name: Run Cpplint
-      run: cpplint $(find . -name '*.cpp') $(find . -name '*.h')
+    - name: Run Cppcheck (Error Checking Only)
+      run: |
+        cppcheck --enable=warning,style,performance,portability --error-exitcode=1 .
+
+    - name: Run Clang-Tidy (Error Checking Only)
+      run: |
+        clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-* --warnings-as-errors='*' -- -std=c++17
