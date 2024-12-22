@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - pytgm/**
+      - .github/workflows/cpplint.yml
     branches:
       - main
 
