@@ -58,7 +58,7 @@ void play(const file) {
 
     const std::string yellow = '\x1b[38;2;255;255;0m';
     const std::string red = '\x1b[38;2;255;0;0m';
-    const std::string res = '\x1b[0m';
+    const std::string reset = '\x1b[0m';
 
     std::cout << yellow << "WARNING: " << red << "sound.play() will become psound(str) in v4.2.1\n"
               << "After that, sound.play(str) will no longer be valid.\n"
