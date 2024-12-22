@@ -55,8 +55,14 @@ int fm_line(const std::string& file_loc, int line_number = 0, const std::string&
     }
 }
 
-void mod_line(const std::string& file, const std::string& txt, const int line, const std::string p_hold = "") {
+int mod_line(const std::string& file, const std::string& txt, const int line, const std::string p_hold = "") {
     fm_line(file, line, txt)
+    yellow = '\033[31m'
+    red = '\033[33m'
+    res = '\033[0m'
+    std::cout << yellow << "WARNING: " << red << "mod_line() "
+              << "will become fm_line in v4.2.0\n"
+              << "You should begin using fm_line() as soon as possible." << endl;#
 }
 
 
