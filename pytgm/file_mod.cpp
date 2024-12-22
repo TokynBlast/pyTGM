@@ -55,6 +55,11 @@ int fm_line(const std::string& file_loc, int line_number = 0, const std::string&
     }
 }
 
+void mod_line(const std::string& file, const std::string& txt, const int line, const std::string p_hold = "") {
+    fm_line(file, line, txt)
+}
+
+
 PYBIND11_MODULE(pytgm, m) {
     m.doc() = "A more complex way for I/O with files";
     m.def("fm_line", &fm_line, "Modify a single line of a file");
