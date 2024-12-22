@@ -67,4 +67,4 @@
 
 4.1.2 (December th, 2024)
 -------------------------
-- Made psound and fm_line C++
+- Made most functions in C++
