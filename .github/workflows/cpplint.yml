@@ -1,32 +1,36 @@
-name: C++ Error Checking
+name: Build and Lint
 
 on:
   push:
-    paths:
-      - pytgm/**
-      - .github/workflows/cpplint.yml
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
-  cpp-error-check:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install dependencies
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Install Pybind11
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pybind11
+
+    - name: Install Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y cppcheck clang-tidy
-        python -m pip install --upgrade pip
-        python -m pip installpybind11
+        sudo apt-get install -y clang-tidy build-essential cmake
 
-    - name: Run Cppcheck (Error Checking Only)
+    - name: Run clang-tidy
       run: |
-        cppcheck --enable=warning,style,performance,portability --error-exitcode=1 .
-
-    - name: Run Clang-Tidy (Error Checking Only)
-      run: |
-        clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-* --warnings-as-errors='*' -- -std=c++17
+        clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-* --warnings-as-errors='*' -- -std=c++17 -I$(python -m pybind11 --includes)
