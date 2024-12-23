@@ -6,7 +6,7 @@
 namespace py = pybind11;
 
 // Function to find a line in a file
-auto fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") -> int {
+int fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") {
     std::ifstream file(file_loc);
     if (!file.is_open()) {
         return -1; // File not found or cannot be opened
@@ -15,7 +15,7 @@ auto fm_line(const std::string& file_loc, int line_number = 0, const std::string
     std::string line;
     int current_line = 0;
     while (std::getline(file, line)) {
-        current_line++;
+        ++current_line;
         if (!pattern.empty() && line.find(pattern) != std::string::npos) {
             return current_line;
         }
@@ -27,21 +27,24 @@ auto fm_line(const std::string& file_loc, int line_number = 0, const std::string
 }
 
 // Function to modify a line in a file
-auto mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") -> int {
+int mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") {
     std::ifstream in_file(file);
     if (!in_file.is_open()) {
         return -1; // File not found or cannot be opened
     }
 
-    std::string temp_file = file + ".tmp";
+    const std::string temp_file = file + ".tmp";
     std::ofstream out_file(temp_file);
+    if (!out_file.is_open()) {
+        return -1; // Temporary file could not be created
+    }
 
     std::string line_data;
     int current_line = 0;
     bool modified = false;
 
     while (std::getline(in_file, line_data)) {
-        current_line++;
+        ++current_line;
         if ((current_line == line || (!p_hold.empty() && line_data.find(p_hold) != std::string::npos)) && !modified) {
             out_file << txt << '\n';
             modified = true;
@@ -54,8 +57,9 @@ auto mod_line(const std::string& file, const std::string& txt, int line, const s
     out_file.close();
 
     if (modified) {
-        std::remove(file.c_str());
-        std::rename(temp_file.c_str(), file.c_str());
+        if (std::remove(file.c_str()) != 0 || std::rename(temp_file.c_str(), file.c_str()) != 0) {
+            return -1; // Error renaming the file
+        }
     } else {
         std::remove(temp_file.c_str());
     }
