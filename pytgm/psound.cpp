@@ -10,7 +10,7 @@ namespace fs = std::filesystem;
 namespace py = pybind11;
 
 // Function to validate and return audio file content
-std::optional<std::vector<char>> psound(const std::string& file) {
+auto psound(const std::string& file) -> std::optional<std::vector<char>> {
     if (!fs::exists(file) || !fs::is_regular_file(file)) {
         return std::nullopt; // File doesn't exist or is not a regular file
     }
@@ -35,7 +35,7 @@ std::optional<std::vector<char>> psound(const std::string& file) {
 }
 
 // Function to print information about the audio file
-void play(const std::string& file) {
+auto play(const std::string& file) -> void {
     auto result = psound(file);
     if (result) {
         const auto& audioData = result.value();
