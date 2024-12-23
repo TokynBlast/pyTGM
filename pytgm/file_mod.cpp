@@ -5,9 +5,16 @@
 
 namespace py = pybind11;
 
+// Struct to encapsulate parameters for fm_line to avoid easily swappable parameters
+struct FindLineParams {
+    std::string file_loc;
+    int line_number = 0;
+    std::string pattern = "";
+};
+
 // Function to find a line in a file
-int fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") {
-    std::ifstream file(file_loc);
+auto fm_line(const FindLineParams& params) -> int {
+    std::ifstream file(params.file_loc);
     if (!file.is_open()) {
         return -1; // File not found or cannot be opened
     }
@@ -16,10 +23,10 @@ int fm_line(const std::string& file_loc, int line_number = 0, const std::string&
     int current_line = 0;
     while (std::getline(file, line)) {
         ++current_line;
-        if (!pattern.empty() && line.find(pattern) != std::string::npos) {
+        if (!params.pattern.empty() && line.find(params.pattern) != std::string::npos) {
             return current_line;
         }
-        if (current_line == line_number) {
+        if (current_line == params.line_number) {
             return current_line;
         }
     }
@@ -27,7 +34,7 @@ int fm_line(const std::string& file_loc, int line_number = 0, const std::string&
 }
 
 // Function to modify a line in a file
-int mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") {
+auto mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") -> int {
     std::ifstream in_file(file);
     if (!in_file.is_open()) {
         return -1; // File not found or cannot be opened
