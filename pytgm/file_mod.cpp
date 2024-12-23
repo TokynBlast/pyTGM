@@ -55,7 +55,7 @@ int fm_line(const std::string& file_loc, int line_number = 0, const std::string&
     }
 }
 
-int mod_line(const std::string& file, const std::string& txt, const int line, std::string p_hold = "") {
+int mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") {
     fm_line(file, line, txt)
     yellow = '\033[31m'
     red = '\033[33m'
