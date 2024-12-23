@@ -1,72 +1,69 @@
-// Copyright TokynBlast
-#include <filesystem>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
 #include <pybind11/pybind11.h>
+#include <fstream>
+#include <string>
+#include <optional>
 
-namespace fs = std::filesystem;
+namespace py = pybind11;
 
-int fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") {
-    if (!fs::exists(file_loc)) {
-        std::cerr << "\033[31mError: \033[33mFile \"" << file_loc << "\" does not exist. Make sure it exists.\033[0m" << std::endl;
-        return -1;
+// Function to find a line in a file
+auto fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") -> int {
+    std::ifstream file(file_loc);
+    if (!file.is_open()) {
+        return -1; // File not found or cannot be opened
     }
 
-    // Temporary file to store modified content
-    std::string tempFilePath = file_loc + ".tmp";
+    std::string line;
+    int current_line = 0;
+    while (std::getline(file, line)) {
+        current_line++;
+        if (!pattern.empty() && line.find(pattern) != std::string::npos) {
+            return current_line;
+        }
+        if (current_line == line_number) {
+            return current_line;
+        }
+    }
+    return -1; // Line not found
+}
 
-    std::ifstream inputFile(file_loc);
-    std::ofstream tempFile(tempFilePath);
-
-    if (!inputFile.is_open() || !tempFile.is_open()) {
-        std::cerr << "\033[31mError: \033[33mUnable to open the file.\033[0m" << std::endl;
-        return -1;
+// Function to modify a line in a file
+auto mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") -> int {
+    std::ifstream in_file(file);
+    if (!in_file.is_open()) {
+        return -1; // File not found or cannot be opened
     }
 
-    std::string currentLine;
-    int currentLineNumber = 0;
+    std::string temp_file = file + ".tmp";
+    std::ofstream out_file(temp_file);
+
+    std::string line_data;
+    int current_line = 0;
     bool modified = false;
 
-    while (std::getline(inputFile, currentLine)) {
-        if (currentLineNumber == line_number) {
-            size_t pos = currentLine.find(pattern);
-            if (pos != std::string::npos) {
-                currentLine.replace(pos, pattern.length(), "<REPLACEMENT>"); // Example replacement
-                modified = true;
-            }
+    while (std::getline(in_file, line_data)) {
+        current_line++;
+        if ((current_line == line || (!p_hold.empty() && line_data.find(p_hold) != std::string::npos)) && !modified) {
+            out_file << txt << '\n';
+            modified = true;
+        } else {
+            out_file << line_data << '\n';
         }
-        tempFile << currentLine << "\n";
-        currentLineNumber++;
     }
 
-    inputFile.close();
-    tempFile.close();
+    in_file.close();
+    out_file.close();
 
     if (modified) {
-        fs::rename(tempFilePath, file_loc);
-        std::cout << "Line modified successfully.\n";
-        return 0;
+        std::remove(file.c_str());
+        std::rename(temp_file.c_str(), file.c_str());
     } else {
-        fs::remove(tempFilePath);
-        std::cerr << "\033[31mError: \033[33mPattern not found or no modification needed.\033[0m" << std::endl;
-        return -1;
+        std::remove(temp_file.c_str());
     }
-}
 
-int mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") {
-    fm_line(file, line, txt)
-    yellow = '\033[31m'
-    red = '\033[33m'
-    res = '\033[0m'
-    std::cout << yellow << "WARNING: " << red << "mod_line() "
-              << "will become fm_line in v4.2.0\n"
-              << "You should begin using fm_line() as soon as possible." << endl;
+    return modified ? 0 : -1;
 }
-
 
 PYBIND11_MODULE(pytgm, m) {
-    m.doc() = "A more complex way for I/O with files";
-    m.def("fm_line", &fm_line, "Modify a single line of a file");
+    m.def("fm_line", &fm_line, "Find a line in a file");
+    m.def("mod_line", &mod_line, "Modify a line in a file");
 }
