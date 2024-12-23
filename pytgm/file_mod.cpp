@@ -62,7 +62,7 @@ int mod_line(const std::string& file, const std::string& txt, const int line, co
     res = '\033[0m'
     std::cout << yellow << "WARNING: " << red << "mod_line() "
               << "will become fm_line in v4.2.0\n"
-              << "You should begin using fm_line() as soon as possible." << endl;#
+              << "You should begin using fm_line() as soon as possible." << endl;
 }
 
 
