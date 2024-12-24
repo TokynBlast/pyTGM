@@ -1,80 +1,90 @@
-#include <pybind11/pybind11.h>
+// Copyright TokynBlast
+#include <filesystem>
+#include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
-#include <optional>
+#include <pybind11/pybind11.h>
 
-namespace py = pybind11;
+namespace fs = std::filesystem;
 
-// Struct to encapsulate parameters for fm_line to avoid easily swappable parameters
-struct FindLineParams {
-    std::string file_loc;
-    int line_number = 0;
-    std::string pattern = "";
-};
-
-// Function to find a line in a file
-auto fm_line(const FindLineParams& params) -> int {
-    std::ifstream file(params.file_loc);
-    if (!file.is_open()) {
-        return -1; // File not found or cannot be opened
+int fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") {
+    if (!fs::exists(file_loc)) {
+        std::cerr << "\033[31mError: \033[33mFile \"" << file_loc << "\" does not exist. Make sure it exists.\033[0m" << std::endl;
+        return -1;
     }
 
-    std::string line;
-    int current_line = 0;
-    while (std::getline(file, line)) {
-        ++current_line;
-        if (!params.pattern.empty() && line.find(params.pattern) != std::string::npos) {
-            return current_line;
-        }
-        if (current_line == params.line_number) {
-            return current_line;
-        }
-    }
-    return -1; // Line not found
-}
+    // Temporary file to store modified content
+    std::string tempFilePath = file_loc + ".tmp";
 
-// Function to modify a line in a file
-auto mod_line(const std::string& file, const std::string& txt, int line, const std::string& p_hold = "") -> int {
-    std::ifstream in_file(file);
-    if (!in_file.is_open()) {
-        return -1; // File not found or cannot be opened
+    std::ifstream inputFile(file_loc);
+    std::ofstream tempFile(tempFilePath);
+
+    if (!inputFile.is_open() || !tempFile.is_open()) {
+        std::cerr << "\033[31mError: \033[33mUnable to open the file.\033[0m" << std::endl;
+        return -1;
     }
 
-    const std::string temp_file = file + ".tmp";
-    std::ofstream out_file(temp_file);
-    if (!out_file.is_open()) {
-        return -1; // Temporary file could not be created
-    }
-
-    std::string line_data;
-    int current_line = 0;
+    std::string currentLine;
+    int currentLineNumber = 0;
     bool modified = false;
 
-    while (std::getline(in_file, line_data)) {
-        ++current_line;
-        if ((current_line == line || (!p_hold.empty() && line_data.find(p_hold) != std::string::npos)) && !modified) {
-            out_file << txt << '\n';
-            modified = true;
-        } else {
-            out_file << line_data << '\n';
+    while (std::getline(inputFile, currentLine)) {
+        if (currentLineNumber == line_number) {
+            size_t pos = currentLine.find(pattern);
+            if (pos != std::string::npos) {
+                currentLine.replace(pos, pattern.length(), "<REPLACEMENT>"); // Example replacement
+                modified = true;
+            }
         }
+        tempFile << currentLine << "\n";
+        currentLineNumber++;
     }
 
-    in_file.close();
-    out_file.close();
+    inputFile.close();
+    tempFile.close();
 
     if (modified) {
-        if (std::remove(file.c_str()) != 0 || std::rename(temp_file.c_str(), file.c_str()) != 0) {
-            return -1; // Error renaming the file
-        }
+        fs::rename(tempFilePath, file_loc);
+        std::cout << "Line modified successfully.\n";
+        return 0;
     } else {
-        std::remove(temp_file.c_str());
+        fs::remove(tempFilePath);
+        std::cerr << "\033[31mError: \033[33mPattern not found or no modification needed.\033[0m" << std::endl;
+        return -1;
     }
-
-    return modified ? 0 : -1;
 }
 
-PYBIND11_MODULE(pytgm, m) {
-    m.def("fm_line", &fm_line, "Find a line in a file");
-    m.def("mod_line", &mod_line, "Modify a line in a file");
+int mod_line(const std::string& file, const std::string& txt, const int line, std::string p_hold = "") {
+    fm_line(file, line, txt)
+    yellow = '\033[31m'
+    red = '\033[33m'
+    res = '\033[0m'
+    std::cout << yellow << "WARNING: " << red << "mod_line() "
+              << "will become fm_line in v4.2.0\n"
+              << "You should begin using fm_line() as soon as possible." << endl;
+}
+
+
+PYBIND11_MODULE(file_modifier, m) {
+    m.doc() = "File modification utilities"; // Module docstring
+
+    m.def("fm_line", &fm_line, py::arg("file_loc"), py::arg("line_number") = 0, py::arg("pattern") = "",
+          "Modify a specific line in a file by replacing a pattern with '<REPLACEMENT>'.\n"
+          "Args:\n"
+          "    file_loc (str): The path to the file.\n"
+          "    line_number (int): The line number to modify (default: 0).\n"
+          "    pattern (str): The pattern to search for.\n"
+          "Returns:\n"
+          "    int: 0 if successful, -1 otherwise.");
+
+    m.def("mod_line", &mod_line, py::arg("file"), py::arg("txt"), py::arg("line"), py::arg("p_hold") = "",
+          "Deprecated: Use fm_line instead. Modify a line in a file and displays a warning.\n"
+          "Args:\n"
+          "    file (str): The path to the file.\n"
+          "    txt (str): The text to search for.\n"
+          "    line (int): The line number to modify.\n"
+          "    p_hold (str): Placeholder for future arguments (default: '').\n"
+          "Returns:\n"
+          "    int: 0 if successful, -1 otherwise.");
 }
