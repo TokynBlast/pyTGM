@@ -56,7 +56,7 @@ void generate(const std::string& p1 = "", const std::string& p2 = "", const std:
               << reset << std::endl;
 }
 
-PYBIND11_MODULE(sound_module, m) {
+auto PYBIND11_MODULE(sound_module, m) -> void {
     m.doc() = "Sound playback and utility functions";  // Module docstring
 
     m.def("psound", &psound, py::arg("file"),
