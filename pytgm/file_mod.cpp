@@ -8,7 +8,7 @@
 
 namespace fs = std::filesystem;
 
-int fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") {
+auto fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") -> int {
     if (!fs::exists(file_loc)) {
         std::cerr << "\033[31mError: \033[33mFile \"" << file_loc << "\" does not exist. Make sure it exists.\033[0m" << std::endl;
         return -1;
@@ -55,7 +55,7 @@ int fm_line(const std::string& file_loc, int line_number = 0, const std::string&
     }
 }
 
-int mod_line(const std::string& file, const std::string& txt, const int line, std::string p_hold = "") {
+auto mod_line(const std::string& file, const std::string& txt, const int line, std::string p_hold = "") -> int {
     fm_line(file, line, txt)
     yellow = '\033[31m'
     red = '\033[33m'
@@ -66,7 +66,7 @@ int mod_line(const std::string& file, const std::string& txt, const int line, st
 }
 
 
-PYBIND11_MODULE(file_modifier, m) {
+PYBIND11_MODULE(file_modifier, m) -> void {
     m.doc() = "File modification utilities"; // Module docstring
 
     m.def("fm_line", &fm_line, py::arg("file_loc"), py::arg("line_number") = 0, py::arg("pattern") = "",
