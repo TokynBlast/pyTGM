@@ -1,4 +1,4 @@
-name: Build and Lint
+name: C++ Lint
 
 on:
   push:
@@ -17,6 +17,15 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Python
+      run: |
+        wget https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tar.xz
+        tar -xf Python-3.13.0.tar.xz
+        cd Python-3.13.0
+        ./configure --enable-optimizations
+        make -j$(nproc)
+        sudo make altinstall
+
+    - name: Build Python 3.13 from Source
       run: |
         wget https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tar.xz
         tar -xf Python-3.13.0.tar.xz
