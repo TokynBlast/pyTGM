@@ -18,16 +18,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: cache
-      run: |
-         apt-cache search python3
-
     - name: Install Dependencies
       run: |
         apt-get update
-        apt-get install -y clang-tidy build-essential cmake python3.13
+        apt-get install -y clang-tidy build-essential cmake python3.11
         python -m pip install --upgrade pip
-        python -m pip install pybind11
+        python -m pip install pybind11'
+
+    - name: cache
+      run: |
+         apt-cache search python3
+         
     - name: Run clang-tidy
       run: |
         clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-* --warnings-as-errors='*' -- -std=c++17 -I$(python -m pybind11 --includes)
