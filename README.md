@@ -16,24 +16,24 @@ When setting up Python, enable these:
 On macOS, you will need homebrew to install Python:<br>
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```<br>
+```
 Then, run<br>
 ```
 brew install python
 ```
 
 On Linux, your OS will change the command you need to run:<br>
-Debian/Ubuntu:<br>
+Debian/Ubuntu:
 ```
 sudo apt-get update; sudo apt-get install -y python3-dev
 ```
 
-Fedora:<br>
+Fedora:
 ```
 sudo dnf install -y python3-devel
 ```
 
-Arch linux:<br>
+Arch linux:
 ```
 sudo pacman -S python
 ```
