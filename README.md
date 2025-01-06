@@ -8,18 +8,37 @@
 ### C++
 [![C++ Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml)
 
+## Installing
+To install, run ```pip install pyTGM```<br>
+You may need Python3-dev.
+You need Microsoft Visual Studio<br>
+When setting up Python, enable these:
+- Add Python to PATH
+- Customize installation > Development Tools
+
+On macOS, you will need homebrew to install Python:<br>
+```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```<br>
+Then, run ```brew install python```
+
+On Linux, your OS will change the command you need to run:
+Debian/Ubuntu:
+```
+sudo apt-get update
+sudo apt-get install -y python3-dev
+```
+Fedora:
+```sudo dnf install -y python3-devel```
+Arch linux:
+```sudo pacman -S python```
+
+Dont know what OS you have?
+Run this command:
+```bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev; elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel; elif command -v pacman >/dev/null; then sudo pacman -Sy python; elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel; else echo "Unsupported package manager. Install Python dev headers manually."; exit 1; fi'```
 
 # pyTGM (Python Terminal Game Maker)
 
 pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, contained completley within the terminal,<br>
 with utilities for encryption, markup, mouse input, and much more.
-
-To download pyTGM using pip, run ```pip install pyTGM```<br>
-**THE NAME IS CASE-SENSETIVE**
-
-It is **NOT** recommended that you download earlier than 4.1.0; Earlier than this, importing was untested!<br>
-Amongst other things, all previous versions were built for windows only.<br>
-4.1.0 fixes this.
 
 It is **MOST** reccomended, that you download the latest version!
 
