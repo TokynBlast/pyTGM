@@ -1,6 +1,6 @@
 # Bspace License
-Version 1.1.1
-Copyright (c) 2024 Tokyn Blast
+Version 1.1.2
+Copyright (c) 2025 Tokyn Blast
 
 ## Definitions
 
@@ -18,7 +18,7 @@ Subject to the terms of this License, you are granted the rights to:
 
 ## 2. Commercial Use
 
-Commercial use is permitted at any time, unless otherwsie stated.
+Commercial use is permitted for pyTGM at any time, unless otherwsie stated.<br>
 
 ## 3. Conditions
 
@@ -48,6 +48,7 @@ To get pyTGM: https://github.com/TokynBlast/pyTGM
 ## 6. Derivative Works
 
 Projects created using this library as a dependency are not required to be open source.
+They are also subject to this license, unless stated otherwise.
 
 ## 7. Liability
 
