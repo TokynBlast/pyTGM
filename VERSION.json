@@ -21,7 +21,7 @@
     "pytgm/encrypt/b64.py": "47301005488ee4f8d54b676236cd12544869472fd64163baf950eb7dea5dd728",
     "pytgm/encrypt/sha256.py": "b11737b35595b772182f00d5610d470f27c193870f49768beba67a0e591a89c2",
     "pytgm/encrypt/__init__.py": "6d51e4e6dedff35ff1c8a1e9d4bc6d4f828a56c26b51cf862a70b595f1d6af0c",
-    "pytgm/psound.cpp": "8390bd64dcd0b4c84343fb3398c6008a7b9c9c774457280afe2743ad77940fd4",
+    "pytgm/psound.cpp": "bf5989d6732c7e6792022b1381648dff0b32869a21918778cea3252f982486e1",
     "pytgm/file_mod.cpp": "56d6f1672d8d5b2baca06a65f69814eda4da616443458909f2b1204acf25625e"
   }
 }
