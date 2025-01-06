@@ -1,4 +1,8 @@
 // Copyright TokynBlast
+#ifndef PYBIND11_COMPILER_NO_PYTHON
+#include <Python.h>
+#endif
+
 #include <filesystem>
 #include <iostream>
 #include <fstream>

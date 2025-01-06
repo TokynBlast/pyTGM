@@ -1,3 +1,7 @@
+#ifndef PYBIND11_COMPILER_NO_PYTHON
+#include <Python.h>
+#endif
+
 #include <optional>
 #include <string>
 #include <iostream>

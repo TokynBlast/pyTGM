@@ -1,5 +1,10 @@
 // Copyright 2024 TokynBlast
 
+#ifndef PYBIND11_COMPILER_NO_PYTHON
+#include <Python.h>
+#endif
+
+
 #include <pybind11/pybind11.h>
 #include <tuple>
 
@@ -12,8 +17,6 @@
 #include <linux/input.h>
 #include <cstdio>
 #endif
-
-#include <pybind11/pybind11.h>
 
 namespace py = pybind11;
 
