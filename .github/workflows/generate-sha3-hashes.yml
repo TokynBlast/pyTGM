@@ -24,7 +24,7 @@ jobs:
       - name: Generate SHA-256 hashes
         run: |
           # Find all Python files
-          find pytgm/ -type f -name '*.py' -print0 | xargs -0 sha256sum > hashes.txt
+          find pytgm/ -type f \( -name '*.py' -o -name '*.cpp' \) -print0 | xargs -0 sha256sum > hashes.txt
 
           # Ensure VERSION.json exists and has the 'hashes' object
           if [ ! -f VERSION.json ]; then
