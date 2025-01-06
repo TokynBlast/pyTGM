@@ -1,4 +1,4 @@
-#ifndef PYBIND11_COMPILER_NO_PYTHON
+#ifndef SKIP_PYTHON_H
 #include <Python.h>
 #endif
 

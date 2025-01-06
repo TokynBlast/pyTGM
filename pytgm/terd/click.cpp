@@ -1,9 +1,8 @@
 // Copyright 2024 TokynBlast
 
-#ifndef PYBIND11_COMPILER_NO_PYTHON
+#ifndef SKIP_PYTHON_H
 #include <Python.h>
 #endif
-
 
 #include <pybind11/pybind11.h>
 #include <tuple>
