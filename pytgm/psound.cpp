@@ -2,45 +2,43 @@
 #include <Python.h>
 #endif
 
-#include <optional>
-#include <string>
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <filesystem>
+#include <string>
+
 #include <pybind11/pybind11.h>
 
 namespace fs = std::filesystem;
 namespace py = pybind11;
 
-auto psound(const std::string& file) -> std::optional<std::string> {
-    std::ifstream audioFile(file, std::ios::binary);
-    if (!audioFile) {
-        return "Failed to open file";
-    }
+void psound(const std::string& filename) {
+    #if defined(_WIN32) || defined(_WIN64)
+        #include <windows.h>
+        #include <mmsystem.h>
+        #pragma comment(lib, "winmm.lib")
+        PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC);
+    
+    #elif defined(__APPLE__)
+        #include <AudioToolbox/AudioToolbox.h>
+        CFStringRef cfString = CFStringCreateWithCString(NULL, filename, kCFStringEncodingUTF8);
+        CFURLRef soundURL = CFURLCreateWithFileSystemPath(NULL, cfString, kCFURLPOSIXPathStyle, false);
+        SystemSoundID soundID;
+        AudioServicesCreateSystemSoundID(soundURL, &soundID);
+        AudioServicesPlaySystemSound(soundID);
+        CFRelease(soundURL);
+        CFRelease(cfString);
 
-    audioFile.seekg(0, std::ios::end);
-    auto fileSize = static_cast<std::streamsize>(audioFile.tellg());
-    audioFile.seekg(0, std::ios::beg);
-
-    std::vector<char> audioData(fileSize);
-    audioFile.read(audioData.data(), fileSize);
-
-    if (!audioFile) {
-        return "Failed to read file";
-    }
-
-    // Process audioData...
-    return std::nullopt;
+    
+    #elif defined(__linux__)
+        #include <cstdlib>
+        std::string command = "aplay -q ";
+        command += filename;
+        command += " &";
+        std::system(command.c_str());
+    #else
+        std::cerr << "Sound playback not supported on this platform." << std::endl;
+    #endif
 }
 
-void play(const std::string& file) {
-    if (fs::exists(file)) {
-        psound(file);
-    } else {
-        std::cerr << "File does not exist: " << file << std::endl;
-    }
-}
 
 void generate(const std::string& p1 = "", const std::string& p2 = "", const std::string& p3 = "", const std::string& p4 = "", const std::string& p5 = "") {
     (void)p1;
