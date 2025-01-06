@@ -3,7 +3,12 @@
 [![Lint with Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)<br>
 [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml)<br>
 [![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
-[![C++ Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml)
+![Static Badge](https://img.shields.io/badge/C%2B%2B%20Linting-passing-lime_green)
+
+
+
+C++ Linting isnt Github made, because I look for certain errors, and report back to here if it worked or not.<br>
+Clang Tidy doesn't know how it should work.
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
