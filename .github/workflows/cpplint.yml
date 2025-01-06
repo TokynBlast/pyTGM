@@ -23,7 +23,7 @@ jobs:
         apt-get update
         apt-get install -y clang-tidy build-essential cmake python3.11
         python -m pip install --upgrade pip
-        python -m pip install pybind11'
+        python -m pip install pybind11
 
     - name: cache
       run: |
