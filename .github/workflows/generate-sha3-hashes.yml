@@ -8,7 +8,6 @@ on:
       - pytgm/graphics/**
       - setup.py
       - .github/workflows/generate-sha3-hashes.yml
-      - '!pytgm/terd/click.cpp'
     branches:
       - main
 
