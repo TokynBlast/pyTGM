@@ -1,6 +1,6 @@
 // Copyright 2024 TokynBlast
 
-#include <Python.h>
+#include <pybind11/pybind11.h>
 #include <tuple>
 
 #ifdef _WIN32
