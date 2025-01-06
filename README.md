@@ -17,23 +17,35 @@ When setting up Python, enable these:
 - Customize installation > Development Tools
 
 On macOS, you will need homebrew to install Python:<br>
-```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```<br>
-Then, run ```brew install python```
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```<br>
+Then, run<br>
+```
+brew install python
+```
 
-On Linux, your OS will change the command you need to run:
-Debian/Ubuntu:
+On Linux, your OS will change the command you need to run:<br>
+Debian/Ubuntu:<br>
 ```
-sudo apt-get update
-sudo apt-get install -y python3-dev
+sudo apt-get update; sudo apt-get install -y python3-dev
 ```
-Fedora:
-```sudo dnf install -y python3-devel```
-Arch linux:
-```sudo pacman -S python```
+
+Fedora:<br>
+```
+sudo dnf install -y python3-devel
+```
+
+Arch linux:<br>
+```
+sudo pacman -S python
+```
 
 Dont know what OS you have?
 Run this command:
-```bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev; elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel; elif command -v pacman >/dev/null; then sudo pacman -Sy python; elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel; else echo "Unsupported package manager. Install Python dev headers manually."; exit 1; fi'```
+```
+bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev; elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel; elif command -v pacman >/dev/null; then sudo pacman -Sy python; elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel; else echo "Unsupported package manager. Install Python dev headers manually."; exit 1; fi'
+```
 
 # pyTGM (Python Terminal Game Maker)
 
