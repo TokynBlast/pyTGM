@@ -26,9 +26,6 @@ __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt
 
 from pytgm import encrypt, file_mod, sound, graphics, local_server, terd, encrypt #pylint: disable=import-self
 
-# b64 Imports
-from .b64 import Table, encode, decode
-
 # File Imports
 from .file_mod import fm_line, rep #pylint: disable=import-error
 
