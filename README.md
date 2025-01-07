@@ -132,7 +132,7 @@ Extra characters are suggested for security.
 
 
 There is also sha256 encryption:
-```
+```python
 encrypt.sha256(text)
 ```
 
