@@ -21,9 +21,9 @@
     #include <cstdlib>
 #endif
 
-// NOLINTBEGIN
+#ifndef CLANG_TIDY
 #include <Python.h>
-// NOLINTEND
+#endif
 
 #include <iostream>
 #include <string>
