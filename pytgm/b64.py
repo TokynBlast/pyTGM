@@ -8,7 +8,7 @@ YELLOW = '\x1b[38;2;255;255;0m'
 RED = '\x1b[38;2;255;0;0m'
 RES = '\x1b[0m'
 print(f'''{YELLOW}WARNING: {RED}b64 will be \
-moved to ecrypt.b64 \
+moved to encrypt.b64 \
 in v4.2.0{RES}''')
 
 class Table:
