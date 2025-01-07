@@ -1,4 +1,5 @@
-v4.1.2
+
+
 
 
 
@@ -20,6 +21,7 @@ psound
 ------
 psound is now a C++ function.
 It now determines the OS, and decides which command to run.
+Rather than using a dependency, it uses something that each OS comes with for C++
 
 
 Extra notes
