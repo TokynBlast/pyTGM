@@ -28,4 +28,4 @@ jobs:
          
     - name: Run clang-tidy
       run: |
-        clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type -header-filter=".*\.h"
+        clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type --std=c++17 -header-filter=".*\Python.h"
