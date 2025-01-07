@@ -75,11 +75,11 @@ void generate(const std::string& p1 = "", const std::string& p2 = "", const std:
     std::cout << yellow << "WARNING: " << red 
               << "sound.generate() is no longer implemented\n"
               << "This function will be removed entirely in 4.2.0\n"
-              << "If you want to play a sound, use psound(std::string file_path)" 
+              << "If you want to play a sound, use psound(file_path)" 
               << reset << std::endl;
 };
 
-PYBIND11_MODULE(psound, m){
+PYBIND11_MODULE(sound, m){
     m.doc() = "Sound playback and utility functions";  // Module docstring
 
     m.def("psound", &psound, py::arg("file"),
