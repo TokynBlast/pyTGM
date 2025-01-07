@@ -9,8 +9,7 @@ It imports and exposes various modules and functionalities for:
 """
 
 __all__ = [
-    'Table', 'encode', 'decode',
-    'sha256',
+    'sha256', 'b64'
     'rep','fm_line',
     'psound',
     'server', 'client',
