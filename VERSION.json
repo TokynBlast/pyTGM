@@ -16,7 +16,7 @@
     "pytgm/graphics/cls.py": "68bc60cf0681dcff4633999ccb0c640b5ac574f00c238658a93cfd36cb3d7b42",
     "pytgm/graphics/pos.py": "a81fd2c1db77b1c34bd8e63a944d0172c80b0997ff53233cfdc2b14bf01f20b2",
     "pytgm/terd/__init__.py": "815a733006de64c9abbc84f2fc452898050308db85f7ade0aafc8d150b923d8b",
-    "pytgm/__init__.py": "e2f6fbc516e6b37fffb101b166f605a383aa214a6e8b439b65a1c8cb65b5e856",
+    "pytgm/__init__.py": "d1740c52f3576c90a6b174de7f519a91eb7f748f91982728b908cd3974ca22d0",
     "pytgm/graphics/__init__.py": "4c76438c9567f56f515fbea8c792bcf287b8307d26178f8f2a54bc734bb980bb",
     "pytgm/encrypt/b64.py": "47301005488ee4f8d54b676236cd12544869472fd64163baf950eb7dea5dd728",
     "pytgm/encrypt/sha256.py": "b11737b35595b772182f00d5610d470f27c193870f49768beba67a0e591a89c2",
