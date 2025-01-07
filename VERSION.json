@@ -23,6 +23,7 @@
     "pytgm/encrypt/__init__.py": "6d51e4e6dedff35ff1c8a1e9d4bc6d4f828a56c26b51cf862a70b595f1d6af0c",
     "pytgm/psound.cpp": "0d5d968103f961af4c4f5df1d94398f3078b8eb88219d4ad66269127cbccda47",
     "pytgm/file_mod.cpp": "73a2b8773860c76a93f30773e2e4f19f4fdb644309ec4f712a73bc62ccaaef24",
-    "pytgm/file_mod.py": "75f6dd92405d3bd5634708b0d0e197b95905387e10909f8069f1fa87238a73b5"
+    "pytgm/file_mod.py": "75f6dd92405d3bd5634708b0d0e197b95905387e10909f8069f1fa87238a73b5",
+    "pytgm/sound.cpp": "121612a153e942aa8e1de946642f69cdcefba146e12b71cfce95acd73ea9f171"
   }
 }
