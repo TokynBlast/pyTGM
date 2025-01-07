@@ -21,9 +21,8 @@
     #include <cstdlib>
 #endif
 
-#ifndef CLANG_TIDY
+// NOLINTNEXTLINE(clang-diagnostic-error)
 #include <Python.h>
-#endif
 
 #include <iostream>
 #include <string>
