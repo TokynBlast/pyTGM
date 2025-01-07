@@ -6,12 +6,20 @@ Conversion to C++
 -----------------
 This was done for both speed, and to help me learn C++, for future projects and updates.
 This change will occur to almost every file in pyTGM, slowly over time.
+Some may stay the same for a while, untill my skill base for C++ is large enough,
+to change everything to C++
+
+
+file_mod Conversion to Python
+-----------------------------
+This happened, because as a C++ file, it was returning errors, that I wasn't capable of decoding,
+with my little knowledge of C++
 
 
 psound
 ------
 psound is now a C++ function.
-It has become a lot more complicated though.
+It now determines the OS, and decides which command to run.
 
 
 Extra notes
