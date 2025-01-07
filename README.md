@@ -68,7 +68,8 @@ Once we know it's working and safe, somebody will merge the request!
 
 ### File Operations
 ```python
-file.fm_line(name)           # Modify a line of a file
+file.fm_line(name, line, text)           # Modify a single line of a file
+file.rep(name, pattern, replacement)     # Replace a pattern of text in a file
 ```
 
 ### Graphics and Text Styling
