@@ -46,12 +46,6 @@ click_extension = Pybind11Extension(
     language="c++",
 )
 
-file_mod_extension = Pybind11Extension(
-    name="pytgm.file_mod",
-    sources=["pytgm/file_mod.cpp"],
-    language="c++",
-)
-
 play_sound_extension = Pybind11Extension(
     name="pytgm.psound",
     sources=["pytgm/psound.cpp"],
