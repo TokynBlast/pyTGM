@@ -11,6 +11,7 @@
 #include <pybind11/pybind11.h>
 
 namespace fs = std::filesystem;
+namespace py = pybind11;
 
 auto fm_line(const std::string& file_loc, int line_number = 0, const std::string& pattern = "") -> int {
     if (!fs::exists(file_loc)) {

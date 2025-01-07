@@ -40,18 +40,27 @@ class BuildExt(build_ext):
             raise RuntimeError(f"Unsupported platform: {os_type}")
         super().build_extensions()
 
-MAIT_AUTH = 'Tokyn Blast'
-MAIT_AUTH_CONT = 'tokynblast@gmail.com'
-
 click_extension = Pybind11Extension(
     name="pytgm.terd.click",
     sources=["pytgm/terd/click.cpp"],
     language="c++",
 )
 
+file_mod_extension = Pybind11Extension(
+    name="pytgm.file_mod",
+    sources=["pytgm/file_mod.cpp"],
+    language="c++",
+)
+
+play_sound_extension = Pybind11Extension(
+    name="pytgm.psound",
+    sources=["pytgm/psound.cpp"],
+    language="c++",
+)
+
 setup(
     name='pyTGM',
-    version='4.1.1',
+    version='4.1.2',
     description='Terminal Game Maker',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
                       open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +  # pylint: disable=consider-using-with
@@ -65,7 +74,7 @@ setup(
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
     install_requires=[],
-    ext_modules=[click_extension],
+    ext_modules=[click_extension, file_mod_extension, play_sound_extension],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
