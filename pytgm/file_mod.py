@@ -19,8 +19,9 @@ def rep(file_loc, pattern = '', replacement=''):
             _.write(file_cont)
             _.close()
 
-    except:
-        print(f'\033[31mError: \033[33mFile {file_loc.strip()} could not be found. Make sure it exist.\033[0m')
+    except FileNotFoundError:
+        print(f'\033[31mError: \033[33mFile {file_loc.strip()} \
+could not be found. Make sure it exist.\033[0m')
 
 def fm_line(file_loc, line_number = 0, new = ''):
     """
@@ -36,6 +37,6 @@ def fm_line(file_loc, line_number = 0, new = ''):
         with open(file_loc.strip(), 'w', encoding='utf-8') as _:
             _.write(new)
 
-    except:
+    except FileNotFoundError:
         print(f'\033[31mError: \033[33mFile {file_loc.strip()} \
               could not be found. Make sure it exist.\033[0m')
