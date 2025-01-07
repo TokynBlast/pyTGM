@@ -3,32 +3,8 @@
 
 
 
-Conversion to C++
------------------
-This was done for both speed, and to help me learn C++, for future projects and updates.
-This change will occur to almost every file in pyTGM, slowly over time.
-Some may stay the same for a while, untill my skill base for C++ is large enough,
-to change everything to C++
-
-
-file_mod Conversion to Python
------------------------------
-This happened, because as a C++ file, it was returning errors, that I wasn't capable of decoding,
-with my little knowledge of C++
-
-
-psound
-------
-psound is now a C++ function.
-It now determines the OS, and decides which command to run.
-Rather than using a dependency, it uses something that each OS comes with for C++
 
 
 Extra notes
 -----------
-v4.1.2 has the shortest change list... of ACTUAL updates. Some previous versions
-were an attempt to fix an import error, because I accidentally released an
-untested version. Now, I test the versions before release. And, the user base for pyTGM has been growing.
-Currently, at the time of release, there are 41 known users.
-The biggest bug I know of so far is that terd.click() detects all over the screen, rather than just characters inside the terminal.
-pyTGM is shaping up to be of some pretty good quality.
+[No notes yet]]

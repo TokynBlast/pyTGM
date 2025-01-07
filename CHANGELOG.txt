@@ -65,8 +65,13 @@
 - Added sha256
 - Changed psound importing
 
-4.1.2 (December th, 2024)
+4.1.2 (January 6th, 2025)
 -------------------------
 - Changed some Python files to C++
 - Changed file_mod to Python
 - Bug fixes
+
+4.2.0 (th, 2025)
+-------------------------
+- Removed depreceations
+- Fixed CHANGELOG.txt
