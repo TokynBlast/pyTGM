@@ -17,7 +17,7 @@
 #endif
 
 #ifdef __linux__
-    #define __linux__
+    #define linux_
     #include <cstdlib>
 #endif
 
