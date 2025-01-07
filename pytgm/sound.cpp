@@ -21,7 +21,9 @@
     #include <cstdlib>
 #endif
 
+// NOLINTBEGIN
 #include <Python.h>
+// NOLINTEND
 
 #include <iostream>
 #include <string>
