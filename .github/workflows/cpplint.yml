@@ -31,4 +31,4 @@ jobs:
          
     - name: Run clang-tidy
       run: |
-        clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type -- -std=c++17 -I$(python -m pybind11 --includes) --skip-headers
+        clang-tidy **/*.cpp --checks=-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type -- -std=c++17 -I$(python -m pybind11 --includes) -header-filter='^$'
