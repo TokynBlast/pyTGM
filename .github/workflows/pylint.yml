@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - pytgm/**
+      - '!*.cpp'
+      - '*.py'
       - setup.py
       - .github/workflows/pylint.yml
     branches:
