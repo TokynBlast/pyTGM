@@ -4,7 +4,6 @@ This is the init file for the pyTGM library.
 It imports and exposes various modules and functionalities for:
 - File handling
 - Graphics rendering
-- Sound generation
 - Local server operations
 """
 
@@ -13,6 +12,7 @@ __all__ = [
     'rep','fm_line',
     'psound',
     'server', 'client',
+    'encrypt'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
@@ -23,7 +23,7 @@ __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-from pytgm import encrypt, file_mod, sound, graphics, local_server, terd, encrypt #pylint: disable=import-self
+from pytgm import encrypt, file_mod, sound, graphics, local_server, terd #pylint: disable=import-self
 
 # File Imports
 from .file_mod import fm_line, rep #pylint: disable=import-error
