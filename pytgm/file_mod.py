@@ -7,7 +7,7 @@ def rep(file_loc, pattern = '', replacement=''):
     Replaces a pattern in a file with a replacement
     """
     try:
-        with open(file_loc.strip(), 'r') as _:
+        with open(file_loc.strip(), 'r', encoding='utf-8') as _:
             file_cont = _.read_lines().split('\n')
             file_loc.close()
 
@@ -15,7 +15,7 @@ def rep(file_loc, pattern = '', replacement=''):
         for _ in f_con_len:
             file_cont[_].replace(pattern, replacement)
 
-        with open(file_loc.strip(), 'w') as _:
+        with open(file_loc.strip(), 'w', encoding='utf-8') as _:
             _.write(file_cont)
             _.close()
 
@@ -27,13 +27,13 @@ def fm_line(file_loc, line_number = 0, new = ''):
     Replaces a line in a file with a new line
     """
     try:
-        with open(file_loc.strip(), 'r') as _:
+        with open(file_loc.strip(), 'r', encoding='utf-8') as _:
             file_cont = _.read_lines().split('\n')
             file_loc.close()
 
         file_cont[line_number] = new
 
-        with open(file_loc.strip(), 'w') as _:
+        with open(file_loc.strip(), 'w', encoding='utf-8') as _:
             _.write(new)
 
     except:
