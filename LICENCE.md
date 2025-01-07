@@ -1,5 +1,5 @@
 # Bspace License
-Version 1.1.2
+Version 1.1.3
 Copyright (c) 2025 Tokyn Blast
 
 ## Definitions
@@ -48,7 +48,7 @@ To get pyTGM: https://github.com/TokynBlast/pyTGM
 ## 6. Derivative Works
 
 Projects created using this library as a dependency are not required to be open source.
-They are also subject to this license, unless stated otherwise.
+Projects are also subject to this license, unless stated otherwise.
 
 ## 7. Liability
 
@@ -66,18 +66,17 @@ This license may not be modified. All Variations must use this license in its ex
 ## 10. Void of Contract
 
 This contract will only become void if and only if all copies of pyTGM, derivatives, and modifications that use this licence are destroyed on your device.<br>
-This includes any accounts you use on any device, public or private accounts.
+This includes any accounts you use on any device, public or private.
 
 ## 11. Death of Tokyn Blast
 
 When Tokyn Blast dies, pyTGM will either go to a sucessor, or if a sucessor is not chosen within a year, pyTGM will be donated to one of the following:
 1. mozilla
-2. NDSU
-3. A family member of Tokyn Blast
-4. Foxyville
-5. A non-profit organiztion
-6. An agreed location of Tokyn Blast family
-7. The pyTGM community (If any)
+2. A family member of Tokyn Blast
+3. Foxyville
+4. A non-profit organiztion
+5. An agreed location of Tokyn Blast family
+6. The pyTGM community (If any)
 
 The family member who has the most experience in programming will have the most say.<br>
 Then the most relevance in tech.<br>

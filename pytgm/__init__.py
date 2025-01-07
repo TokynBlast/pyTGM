@@ -11,8 +11,8 @@ It imports and exposes various modules and functionalities for:
 __all__ = [
     'Table', 'encode', 'decode',
     'sha256',
-    'rep', 'mod_line', 'fm_line',
-    'play', 'generate', 'psound',
+    'rep','fm_line',
+    'psound',
     'server', 'client',
 ]
 
@@ -30,10 +30,10 @@ from pytgm import encrypt, file_mod, sound, graphics, local_server, terd, encryp
 from .b64 import Table, encode, decode
 
 # File Imports
-from .file_mod import mod_line, fm_line, rep #pylint: disable=import-error
+from .file_mod import fm_line, rep #pylint: disable=import-error
 
 # Sound Imports
-from .sound import play, generate, psound # pylint: disable= import-error
+from .sound import psound # pylint: disable= import-error
 
 # Graphics Imports
 from .graphics import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE

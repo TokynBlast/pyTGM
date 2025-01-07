@@ -39,15 +39,3 @@ def fm_line(file_loc, line_number = 0, new = ''):
     except:
         print(f'\033[31mError: \033[33mFile {file_loc.strip()} \
               could not be found. Make sure it exist.\033[0m')
-
-
-def mod_line(file, txt, line, p_hold=''):
-    """
-    Dummy function for fm_line, untill v4.2.0
-    """
-    fm_line(file, line, txt)
-    del p_hold
-    yellow = '\033[31m'
-    red = '\033[33m'
-    res = '\033[0m'
-    print(f'{yellow}WARNING: {red}mod_line() will become fm_line in v4.2.0\nYou should begin using fm_line() as soon as possible.{res}')
