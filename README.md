@@ -54,8 +54,6 @@ bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-
 pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, contained completley within the terminal,<br>
 with utilities for encryption, markup, mouse input, and much more.
 
-It is **MOST** reccomended, that you download the latest version!
-
 ## Bugs and Features
 To report a bug, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
 For feature request, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)
@@ -112,7 +110,7 @@ An example of a returned value would be:
 ### Terminal Input Detection
 ```python
 # Mouse Click Detection
-terd.click()             # A return value of (-1, -1) means the click was invalid!
+terd.click()             # A return value of (-1, -1) means the click was invalid
 
 # Keyboard Press Detection
 terd.geky(times)
@@ -121,15 +119,21 @@ terd.geky(times)
 ### Encryption
 ```python
 # Set the table
-b64.Table.table = 'ABCDEF...XYZ...12...90...!@..._+'
-b64.Table.generate('ABCDEF...XYZ...12...90...!@..._+', 32)  # (table: str, times: int)
+encrypt.b64.Table.table = 'ABCDEF...XYZ...12...90...!@..._+'
+encrypt.b64.Table.generate('ABCDEF...XYZ...12...90...!@..._+', 32)  # (table: str, times: int)
 
 # Encode and decode
-b64.encode(text)
-b64.decode(text)
+encrypt.b64.encode(text)
+encrypt.b64.decode(text)
 ```
 When setting the table, it MUST include the characters that are being stored at the very least!
 Extra characters are suggested for security.
+
+
+There is also sha256 encryption:
+```
+encrypt.sha256(text)
+```
 
 ## Links
 - [Homepage](https://pytgm.tokynblast.space/home)
