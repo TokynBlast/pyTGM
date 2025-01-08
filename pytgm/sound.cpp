@@ -1,10 +1,12 @@
 #ifdef _WIN32
+    #define WIN
     #include <windows.h>
     #include <mmsystem.h>
     #pragma comment(lib, "winmm.lib")
 #endif
 
 #ifdef _WIN64
+    #define WIN
     #include <windows.h>
     #include <mmsystem.h>
     #pragma comment(lib, "winmm.lib")
@@ -33,7 +35,7 @@ namespace fs = std::filesystem;
 namespace py = pybind11;
 
 void psound(const char* file) {
-    #if defined(_WIN32) || defined(_WIN64)
+    #if defined(WIN)
         PlaySound(file, NULL, SND_FILENAME | SND_ASYNC);
     
     #elif defined(__APPLE__)
