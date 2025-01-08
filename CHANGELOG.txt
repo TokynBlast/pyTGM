@@ -77,3 +77,4 @@
 - Fixed CHANGELOG.txt
 - Made graphics C++
 - Removed _WIN64
+- Combined terd and graphics into 'terminal'
