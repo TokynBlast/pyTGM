@@ -1,9 +1,9 @@
 """
 Exposes everything for the library to import
 """
-from .color import color
-from .cls import cls
-from .pos import pos
+from .color import color #pylint:disable=import-error
+from .cls import cls #pylint:disable=import-error
+from .pos import pos #pylint:disable=import-error
 
 RESET = "\x1b[0m"
 
