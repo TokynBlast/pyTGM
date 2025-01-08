@@ -71,7 +71,7 @@
 - Changed file_mod to Python
 - Bug fixes
 
-4.2.0 (th, 2025)
+5.0.0 (th, 2025)
 -------------------------
 - Removed depreciations
 - Fixed CHANGELOG.txt

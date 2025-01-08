@@ -54,7 +54,7 @@ play_sound_extension = Pybind11Extension(
 
 setup(
     name='pyTGM',
-    version='4.2.0',
+    version='5.0.0',
     description='Terminal Game Maker',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
                       open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +  # pylint: disable=consider-using-with
