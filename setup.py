@@ -41,8 +41,8 @@ class BuildExt(build_ext):
         super().build_extensions()
 
 click_extension = Pybind11Extension(
-    name="pytgm.terd.click",
-    sources=["pytgm/terd/click.cpp"],
+    name="pytgm.terminal.click",
+    sources=["pytgm/terminal/click.cpp"],
     language="c++",
 )
 
@@ -53,20 +53,20 @@ play_sound_extension = Pybind11Extension(
 )
 
 graphic_cls = Pybind11Extension(
-    name="pytgm.graphics.cls",
-    sources=["pytgm/graphics/cls.cpp"],
+    name="pytgm.terminal.cls",
+    sources=["pytgm/terminal/cls.cpp"],
     language="c++",
 )
 
 graphic_color = Pybind11Extension(
-    name="pytgm.graphics.color",
-    sources=["pytgm/graphics/color.cpp"],
+    name="pytgm.terminal.color",
+    sources=["pytgm/terminal/color.cpp"],
     language="c++",
 )
 
 graphic_pos = Pybind11Extension(
-    name="pytgm.graphics.pos",
-    sources=["pytgm/graphics/pos.cpp"],
+    name="pytgm.terminal.pos",
+    sources=["pytgm/terminal/pos.cpp"],
     language="c++",
 )
 
