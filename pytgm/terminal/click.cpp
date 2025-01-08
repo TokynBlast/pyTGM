@@ -1,9 +1,5 @@
 // Copyright 2024 TokynBlast
-
-#ifndef SKIP_PYTHON_H
 #include <Python.h>
-#endif
-
 #include <pybind11/pybind11.h>
 #include <tuple>
 
