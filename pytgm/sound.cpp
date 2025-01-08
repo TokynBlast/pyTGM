@@ -5,13 +5,6 @@
     #pragma comment(lib, "winmm.lib")
 #endif
 
-#ifdef _WIN64
-    #define WIN
-    #include <windows.h>
-    #include <mmsystem.h>
-    #pragma comment(lib, "winmm.lib")
-#endif
-
 #ifdef __APPLE__
     #define __APPLE__
     #include <CoreFoundation/CoreFoundation.h>
