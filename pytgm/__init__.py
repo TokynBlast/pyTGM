@@ -23,7 +23,7 @@ __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-from pytgm import encrypt, file_mod, sound, graphics, local_server, terd #pylint: disable=import-self
+from pytgm import encrypt, file_mod, sound, terminal, local_server, terd #pylint: disable=import-self
 
 # File Imports
 from .file_mod import fm_line, rep #pylint: disable=import-error
@@ -32,7 +32,7 @@ from .file_mod import fm_line, rep #pylint: disable=import-error
 from .sound import psound # pylint: disable= import-error
 
 # Graphics Imports
-from .graphics import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE
+from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky, click #pylint:disable=import-error
 
 # Online Imports
 from .local_server import server, client
