@@ -1,2 +1,2 @@
 global-include *.py *.cpp *.json *.txt *.md
-exclude .github/*.md
+exclude .github/*.md CODE_OF_CONDUCT.md
