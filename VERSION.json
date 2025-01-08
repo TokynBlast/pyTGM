@@ -25,6 +25,8 @@
     "pytgm/file_mod.cpp": "73a2b8773860c76a93f30773e2e4f19f4fdb644309ec4f712a73bc62ccaaef24",
     "pytgm/file_mod.py": "f0cef65965a2db299f49992d8ee55e9b36c73a964d44f7fe7e307c18537e2490",
     "pytgm/sound.cpp": "a8ebe7ff277d11a0e997e4d0592597e2a2ffcc77677703847569f0398007c4d3",
-    "pytgm/graphics/cls.cpp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "pytgm/graphics/cls.cpp": "fba2c2e133903c54f88b40eadc546692ba8b3aa8b472643eb9575c8b71c6e6a1",
+    "pytgm/graphics/pos.cpp": "2e7429bd62d6c9f0b8c4aacc0668e0149780e64fbd534a49915faded499b92ab",
+    "pytgm/graphics/color.cpp": "0ce061a8ddefe0040468ad586a35e92ef8c04a4c6ca025ed6be5f86a3c975188"
   }
 }
