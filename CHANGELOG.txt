@@ -76,3 +76,4 @@
 - Removed depreciations
 - Fixed CHANGELOG.txt
 - Made graphics C++
+- Removed _WIN64
