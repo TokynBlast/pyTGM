@@ -52,6 +52,24 @@ play_sound_extension = Pybind11Extension(
     language="c++",
 )
 
+graphic_cls = Pybind11Extension(
+    name="pytgm.graphics.cls",
+    sources=["pytgm/graphics/cls.cpp"],
+    language="c++",
+)
+
+graphic_color = Pybind11Extension(
+    name="pytgm.graphics.color",
+    sources=["pytgm/graphics/color.cpp"],
+    language="c++",
+)
+
+graphic_pos = Pybind11Extension(
+    name="pytgm.graphics.pos",
+    sources=["pytgm/graphics/pos.cpp"],
+    language="c++",
+)
+
 setup(
     name='pyTGM',
     version='5.0.0',
@@ -68,7 +86,7 @@ setup(
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
     install_requires=[],
-    ext_modules=[click_extension, play_sound_extension],
+    ext_modules=[click_extension, play_sound_extension, graphic_cls, graphic_color, graphic_pos],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
