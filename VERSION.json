@@ -5,6 +5,14 @@
   "min_py_req": 3.13,
   "min_cpp_req": "C++17",
   "build": 10,
+  "bugs": {
+    "Windows":{
+      "pytgm/sound.cpp": ".mp3 doesnt play",
+      "pytgm/click.cpp": "detects outside terminal"
+    },
+    "Linux": {},
+    "macOS": {}
+  },
   "hashes": {
     "pytgm/terd/click.cpp": "29f58bf56416ebf43b51be89e277793ebc54bf8325f673979c0109cc2cea4f52",
     "pytgm/terd/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
