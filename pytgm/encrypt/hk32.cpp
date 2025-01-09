@@ -15,6 +15,8 @@ It is NOT designed for super secure encryption needs.
 #include <algorithm>
 #include <sstream>
 
+namespace py = pybind11;
+
 std::string b32_convert(const std::string& input) {
     std::string output;
     unsigned int buffer = 0;
@@ -77,4 +79,14 @@ std::string encode(const std::string& data, const std::string& key) {
 
 std::string decode(const std::string& data, const std::string& key) {
     gen.seed(key);
+}
+
+PYBIND11_MODULE(hk32, m) {
+    m.def("encode", &encode, "Encode a string in hk32");
+    m.def("decode", &decode, "Decode an hk32 string");
+
+    m.attr("__all__") = py::make_tuple(
+        "encode",
+        "decode"
+    );
 }
