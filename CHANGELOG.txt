@@ -78,3 +78,4 @@
 - Made graphics C++
 - Removed _WIN64
 - Combined terd and graphics into 'terminal'
+- Made, and added hk36
