@@ -20,7 +20,7 @@
     "pytgm/terminal/click.cpp": "44c658adcdec565411fa7e11f1615b591d348d363ab0663544ac8811240c7461",
     "pytgm/terminal/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
-    "pytgm/encrypt/b64.py": "037377e90d7ca401f6041986a1f74ceec2c515d533551353473f7403d998c41d",
+    "pytgm/encrypt/b64.py": "1d7924f5951b725fef7e9a954f84b351663dd95f9c4fa45685ca601ac9d73315",
     "pytgm/encrypt/sha256.py": "b11737b35595b772182f00d5610d470f27c193870f49768beba67a0e591a89c2",
     "pytgm/sound.cpp": "a8ebe7ff277d11a0e997e4d0592597e2a2ffcc77677703847569f0398007c4d3",
     "pytgm/terminal/cls.cpp": "fba2c2e133903c54f88b40eadc546692ba8b3aa8b472643eb9575c8b71c6e6a1",
