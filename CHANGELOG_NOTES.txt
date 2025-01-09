@@ -3,8 +3,15 @@
 
 
 
-
+hk32
+----
+hk32 is also known as HexKey32, because it uses b32, hex numbers, and a key.
+A hex number is not the only thing though, it also uses stuff like octal numbers and binary.
+And, on top of that, the binary gets flipped before anything happpens to it!
 
 Extra notes
 -----------
-[No notes yet]]
+This version is the one I'm most proud of. It shows that I'm learning C++.
+It also shows my dedecation.
+It's like seeing your child grow up. And yes. I do consider this my child, born of mind.
+I first sketched it out on a notepad. It had TONS 
