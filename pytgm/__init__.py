@@ -11,7 +11,7 @@ __all__ = [
     'file_mod', 'rep','fm_line',
     'psound',
     'local_server', 'server', 'client',
-    'encrypt', 'sha256', 'b64',
+    'encrypt', 'sha256', 'b64', 'hk36',
     'paound',
 
     'terminal', 'cls', 'color', 'pos',
@@ -42,4 +42,4 @@ from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky, cli
 from .local_server import server, client
 
 # Ecnrypt Imports
-from .encrypt import sha256, b64
+from .encrypt import sha256, b64, hk36
