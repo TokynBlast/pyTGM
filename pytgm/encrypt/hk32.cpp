@@ -67,7 +67,9 @@ std::string encode(const std::string& data, const std::string& key) {
 
     // Convert to  octal
 
+
     // Divide octal by 2
+    data = data/2
 }
 
 std::string decode(const std::string& data, const std::string& key) {
