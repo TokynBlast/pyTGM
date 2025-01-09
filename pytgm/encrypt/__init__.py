@@ -2,8 +2,8 @@
 Exposes ecryptions
 """
 
-from .b64 import *
+from .b64 import Table, __all__ as b64_all
+from .hk32 import __all__ as hk32_all #pylint:disable=import-error
 from .sha256 import encode as sha256
-from .hk32 import * #pylint:disable=import-error
 
-__all__ = ['Table', 'sha256', b64.__all__, hk32.__all__]
+__all__ = ['Table', 'sha256', b64_all, hk32_all]
