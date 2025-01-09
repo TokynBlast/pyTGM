@@ -1,7 +1,7 @@
 // Copyright TokynBlast
 /*
-HexKey-36 is an encryption, designed for pyTGM.
-It is NOT designed for major  encryption needs.
+HexKey-32 is an encryption, designed for pyTGM.
+It is NOT designed for super secure encryption needs.
 */
 
 #include <Python.h>
@@ -41,7 +41,7 @@ std::mt19937 gen;
 std::string encode(const std::string& data, const std::string& key) {
     // Set the seed and shuffle the data
     gen.seed(std::hash<std::string>{}(key));
-    data = std::shuffle(data.begin(), data.end(), gen);
+    std::shuffle(data.begin(), data.end(), gen);
 
     // First encryption
     for (size_t i = 0; i < result.length(); ++i) {
@@ -63,13 +63,15 @@ std::string encode(const std::string& data, const std::string& key) {
     std::reverse(data.begin(), data.end());
 
     // Convert data to b32
-    std::string data = b32_convert(data)
+    std::string data = b32_convert(data);
 
     // Convert to  octal
-
+    std::ostringstream oss;
+    oss << std::oct << data;
+    std::string data = oss.str();
 
     // Divide octal by 2
-    data = data/2
+    data = data/2;
 }
 
 std::string decode(const std::string& data, const std::string& key) {
