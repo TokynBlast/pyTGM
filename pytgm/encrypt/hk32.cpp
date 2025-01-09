@@ -19,6 +19,7 @@ std::string b32_convert(const std::string& input) {
     std::string output;
     unsigned int buffer = 0;
     int bits_in_buffer = 0;
+    baser32_chars = "ABCDEFGHIJKLMNOPQRSTVUWXYZ1234567890"
     
     for (unsigned char c : input) {
         buffer = (buffer << 8) | c;
