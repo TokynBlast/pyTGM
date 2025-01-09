@@ -45,8 +45,8 @@ std::string encode(const std::string& data, const std::string& key) {
     std::shuffle(data.begin(), data.end(), gen);
 
     // First encryption
-    for (size_t i = 0; i < result.length(); ++i) {
-        result[i] = static_cast<char>((static_cast<int>(result[i]) + static_cast<int>(key[i % key.length()])) % 256);
+    for (size_t i = 0; i < data.length(); ++i) {
+        data[i] = static_cast<char>((static_cast<int>(data[i]) + static_cast<int>(key[i % key.length()])) % 256);
     }
 
     // Convert data to hex
@@ -56,7 +56,7 @@ std::string encode(const std::string& data, const std::string& key) {
 
     // Convert data to bin
     for (hex_char : data) {
-        int data = (hex_char >= '0' &&  hex_char <= '9') ? (hex_char - '0') : (hex_char - 'a' + 10);
+        int data = (hex_char >= '0' &&  hex_char <= '9') ? (hex_char - '0') : (char hex_char - 'a' + 10);
         std::bitset<4> bin(data);
     }
     
