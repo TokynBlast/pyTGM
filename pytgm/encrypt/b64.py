@@ -5,6 +5,7 @@ A custom table can also be set.
 
 from random import shuffle as shuff
 
+__all__ = ['Table', 'encode', 'decode']
 
 class Table:
     """
