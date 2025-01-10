@@ -20,11 +20,8 @@ __all__ = [
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
-__homepage__ = 'https://pytgm.tokynblast.space/home'
 __download_url__ = 'https://pypi.org/tokynblast'
-__docs_url__ = 'https://pytgm.tokynblast.space/documentation/use'
 __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
-__source_code_url__ = 'https://github.com/TokynBlast/pyTGM/tree/main'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
 from pytgm import encrypt, file_mod, sound, terminal, local_server #pylint: disable=import-self
