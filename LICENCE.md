@@ -1,5 +1,5 @@
 # Bspace License
-Version 1.1.4
+Version 2.0.0
 Copyright (c) 2025 Tokyn Blast
 
 ## Definitions
@@ -41,7 +41,7 @@ A Variation includes, but is not limited to:
 When publishing a Variation, the following must be prominently displayed on the download page:
 
 ```
-This is a variation of the python library pyTGM (Licensed under Bspace 1.1.4) by Tokyn Blast
+This is a variation of the python library pyTGM (Licensed under Bspace 2.0.0) by Tokyn Blast
 To get pyTGM: https://github.com/TokynBlast/pyTGM
 ```
 
@@ -67,26 +67,3 @@ This license may not be modified. All Variations must use this license in its ex
 
 This contract will only become void if and only if all copies of pyTGM, derivatives, and modifications that use this licence are destroyed on your device.<br>
 This includes any accounts you use on any device, public or private.
-
-## 11. Death of Tokyn Blast
-
-When Tokyn Blast dies, pyTGM will either go to a sucessor, or if a sucessor is not chosen within a year, pyTGM will be donated to one of the following:
-1. mozilla
-2. A family member of Tokyn Blast
-3. Foxyville
-4. A non-profit organiztion
-5. An agreed location of Tokyn Blast family
-6. The pyTGM community (If any)
-
-The family member who has the most experience in programming will have the most say.<br>
-Then the most relevance in tech.<br>
-Then, everybody else.
-The pyTGM community will have %15 say in what happens, no matter who pyTGM goes to.
-
-This portion may NOT be removed, unless<br>
-Chosen to do so by
-- Tokyn Blast
-- The chosen sucessor
-- Family after the death of Tokyn Blast
-
-Or, if it is donated to the community, this part will be deleted.
