@@ -41,52 +41,62 @@ std::string b32_convert(const std::string& input) {
 
 std::mt19937 gen;
 
-std::string encode(const std::string& data, const std::string& key) {
-    // Set the seed and shuffle the data
-    gen.seed(std::hash<std::string>{}(key));
-    std::shuffle(data.begin(), data.end(), gen);
-
-    // First encryption
-    for (size_t i = 0; i < data.length(); ++i) {
-        data[i] = static_cast<char>((static_cast<int>(data[i]) + static_cast<int>(key[i % key.length()])) % 256);
-    }
-
-    // Convert data to hex
-    std::ostringstream oss;
-    oss << std::hex << data;
-    std::string data = oss.str();
-
-    // Convert data to bin
-    for (hex_char : data) {
-        int data = (hex_char >= '0' &&  hex_char <= '9') ? (hex_char - '0') : (char hex_char - 'a' + 10);
-        std::bitset<4> bin(data);
-    }
-    
-    // Flip binary (01 -> 10)
-    std::reverse(data.begin(), data.end());
-
-    // Convert data to b32
-    std::string data = b32_convert(data);
-
-    // Convert to  octal
-    std::ostringstream oss;
-    oss << std::oct << data;
-    std::string data = oss.str();
-
-    // Divide octal by 2
-    data = data/2;
-}
-
 std::string decode(const std::string& data, const std::string& key) {
-    gen.seed(key);
+    // Convert octal back to Base32
+    std::istringstream iss(data);
+    std::ostringstream oss;
+    int octal_value;
+    while (iss >> std::oct >> octal_value) {
+        oss << static_cast<char>(octal_value);
+    }
+    std::string b32_data = oss.str();
+
+    // Reverse Base32 to binary
+    std::string bin_data = b32_reverse(b32_data);
+
+    // Reverse binary flip
+    std::reverse(bin_data.begin(), bin_data.end());
+
+    // Convert binary to hex
+    std::string hex_data;
+    for (size_t i = 0; i < bin_data.length(); i += 4) {
+        std::bitset<4> bin(bin_data.substr(i, 4));
+        int hex_val = static_cast<int>(bin.to_ulong());
+        if (hex_val < 10) {
+            hex_data.push_back('0' + hex_val);
+        } else {
+            hex_data.push_back('a' + (hex_val - 10));
+        }
+    }
+
+    // Convert hex to original string
+    std::string original_data;
+    for (size_t i = 0; i < hex_data.length(); i += 2) {
+        int byte = std::stoi(hex_data.substr(i, 2), nullptr, 16);
+        original_data.push_back(static_cast<char>(byte));
+    }
+
+    // Reverse encryption
+    for (size_t i = 0; i < original_data.length(); ++i) {
+        original_data[i] = static_cast<char>(
+            (static_cast<int>(original_data[i]) - static_cast<int>(key[i % key.length()]) + 256) % 256);
+    }
+
+    // Reverse shuffle
+    std::vector<size_t> indices(original_data.size());
+    std::iota(indices.begin(), indices.end(), 0);
+    gen.seed(std::hash<std::string>{}(key));
+    std::shuffle(indices.begin(), indices.end(), gen);
+
+    std::string decoded_data(original_data.size(), '\0');
+    for (size_t i = 0; i < indices.size(); ++i) {
+        decoded_data[indices[i]] = original_data[i];
+    }
+
+    return decoded_data;
 }
 
 PYBIND11_MODULE(hk32, m) {
     m.def("encode", &encode, "Encode a string in hk32");
     m.def("decode", &decode, "Decode an hk32 string");
-
-    m.attr("__all__") = py::make_tuple(
-        "encode",
-        "decode"
-    );
 }
