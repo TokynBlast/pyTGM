@@ -17,7 +17,7 @@
     "pytgm/terminal/__init__.py": "baee00cfa7e003c4ecca81a189e983c48fa11b82a61f5d3ca7942d7ab591fcb1",
     "pytgm/encrypt/__init__.py": "ccf7244beb3ffdbc651e287a6ceaf6f460bf134f02223488212dc72267829fdf",
     "pytgm/__init__.py": "90828718fd1b3c8570033fb57cc423426baa6ed9786707af31c091de8bb7f3db",
-    "pytgm/terminal/click.cpp": "44c658adcdec565411fa7e11f1615b591d348d363ab0663544ac8811240c7461",
+    "pytgm/terminal/click.cpp": "efca5fb30fcdd1e3a122a0525a93bf97dbbbed0cb06e7d2e8f6eea59c67cfe85",
     "pytgm/terminal/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
     "pytgm/encrypt/b64.py": "1d7924f5951b725fef7e9a954f84b351663dd95f9c4fa45685ca601ac9d73315",
