@@ -64,15 +64,15 @@ To make a contribution, make a new branch [here](https://github.com/TokynBlast/p
 Then, add (or remove), to improve the repo!<br>
 Once we know it's working and safe, somebody will merge the request!
 
-## Features
+# Features
 
-### File Operations
+## File Operations
 ```python
 file.fm_line(name, line, text)           # Modify a single line of a file
 file.rep(name, pattern, replacement)     # Replace a pattern of text in a file
 ```
 
-### Terminal
+## Terminal
 ```python
 # Clear screen
 terminal.cls()
@@ -97,14 +97,14 @@ terminal.geky(times)
 ```
 
 
-### Sound Support
+## Sound Support
 Works across Windows, macOS, and Linux:
 ```python
 # Play audio file
 psound('../sounds/mysound.mp3')
 ```
 
-### Local Server Support
+## Local Server Support
 ```python
 # Starting a server and client (PORT, message)
 LocalServer(1080, {'MarkTheMighty':((243,332), 57)})
