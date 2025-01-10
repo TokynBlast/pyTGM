@@ -72,22 +72,28 @@ file.fm_line(name, line, text)           # Modify a single line of a file
 file.rep(name, pattern, replacement)     # Replace a pattern of text in a file
 ```
 
-### Graphics and Text Styling
+### Terminal
 ```python
 # Clear screen
-graphics.cls()
+terminal.cls()
 
 # Color text (RGB)
-graphics.color(0, 255, 0)  # Green text
-graphics.RESET             # Reset color
+terminal.color(0, 255, 0)  # Green text
+terminal.RESET             # Reset color
 
 # Markup
-graphics.BOLD
-graphics.ITALIC
-graphics.UNDERLINE
+terminal.BOLD
+terminal.ITALIC
+terminal.UNDERLINE
 
 # Placing the cursor at a pair of coordinates
-graphics.pos()
+terminal.pos()
+
+# Mouse Click Detection
+terminal.click()             # A return value of (-1, -1) means the click was invalid
+
+# Keyboard Press Detection
+terminal.geky(times)
 ```
 
 
@@ -108,16 +114,9 @@ An example of a returned value would be:
 {'LordMinion777':((0,0), 100), 'Muyskerm':((245,334), 43)}
 ```
 
-### Terminal Input Detection
-```python
-# Mouse Click Detection
-terd.click()             # A return value of (-1, -1) means the click was invalid
-
-# Keyboard Press Detection
-terd.geky(times)
-```
-
 ### Encryption
+
+### b64:
 ```python
 # Set the table
 encrypt.b64.Table.table = 'ABCDEF...XYZ...12...90...!@..._+'
@@ -131,9 +130,16 @@ When setting the table, it MUST include the characters that are being stored at 
 Extra characters are suggested for security.
 
 
-There is also sha256 encryption:
+### SHA256:
 ```python
 encrypt.sha256(text)
+```
+
+
+### hk32:
+```python
+exncrypt.hk32.encode(data, key)
+exncrypt.hk32.decode(data, key)
 ```
 
 ## Links
