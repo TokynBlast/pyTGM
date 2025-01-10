@@ -114,7 +114,7 @@ An example of a returned value would be:
 {'LordMinion777':((0,0), 100), 'Muyskerm':((245,334), 43)}
 ```
 
-### Encryption
+## Encryption
 
 ### b64:
 ```python
