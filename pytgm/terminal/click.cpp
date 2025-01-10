@@ -1,4 +1,4 @@
-// Copyright 2024 TokynBlast
+// Copyright TokynBlast
 #include <Python.h>
 #include <pybind11/pybind11.h>
 #include <tuple>
