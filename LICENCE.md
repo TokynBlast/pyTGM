@@ -1,11 +1,12 @@
 # Bspace License
-Version 2.0.0
+Version 2.0.1
 Copyright (c) 2025 Tokyn Blast
 
 ## Definitions
 
 - **"Program"** refers to pyTGM and any of its variations
 - **"Original Author"** refers to Tokyn Blast
+- **TokynBlast** also refers to Tokyn Blast
 - **"Developer"** refers to any person or organization working with the Program
 - **"Variation"** refers to any modified version of the Program as defined in Section 4
 
@@ -41,7 +42,7 @@ A Variation includes, but is not limited to:
 When publishing a Variation, the following must be prominently displayed on the download page:
 
 ```
-This is a variation of the python library pyTGM (Licensed under Bspace 2.0.0) by Tokyn Blast
+This is a variation of the python library pyTGM (Licensed under Bspace 2.0.1) by Tokyn Blast
 To get pyTGM: https://github.com/TokynBlast/pyTGM
 ```
 
