@@ -1,5 +1,5 @@
 # Bspace License
-Version 1.1.3
+Version 1.1.4
 Copyright (c) 2025 Tokyn Blast
 
 ## Definitions
@@ -41,7 +41,7 @@ A Variation includes, but is not limited to:
 When publishing a Variation, the following must be prominently displayed on the download page:
 
 ```
-This is a variation of the python library pyTGM (Licensed under Bspace 1.1.0) by Tokyn Blast
+This is a variation of the python library pyTGM (Licensed under Bspace 1.1.4) by Tokyn Blast
 To get pyTGM: https://github.com/TokynBlast/pyTGM
 ```
 
