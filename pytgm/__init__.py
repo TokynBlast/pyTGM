@@ -12,7 +12,7 @@ __all__ = [
     'psound',
     'local_server', 'server', 'client',
     'encrypt', 'sha256', 'b64', 'hk36',
-    'paound',
+    'psound',
 
     'terminal', 'cls', 'color', 'pos',
     'RESET', 'BOLD', 'UNDERLINE', 'ITALIC',
@@ -42,4 +42,4 @@ from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky, cli
 from .local_server import server, client
 
 # Ecnrypt Imports
-from .encrypt import sha256, b64, hk36
+from .encrypt import sha256, b64, hk32
