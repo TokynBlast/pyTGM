@@ -21,7 +21,7 @@ std::string b32_convert(const std::string& input) {
     std::string output;
     unsigned int buffer = 0;
     int bits_in_buffer = 0;
-    baser32_chars = "ABCDEFGHIJKLMNOPQRSTVUWXYZ1234567890"
+    base32_chars = "2XF_>/░]۩CTY;∑⁮7₸﷽*KݿSﻉ﷼^<M}#5EDR,GV᷀~O[6I&¾:!↕╕﴿Ԫ$W₼⌂ﷻﷴᵺ)?Ꜣ1A{♫8ԩ☻.ﷺ♦֍ﷲ=L◦P3﴾Q▓@4▬%⁪▒╫U◙H-•¼(ḑ¶9\Z◄☺+ﻎ۞0♯`₯B|♣½♥℅·ۨN↔J"
     
     for (unsigned char c : input) {
         buffer = (buffer << 8) | c;
