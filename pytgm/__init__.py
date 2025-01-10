@@ -11,7 +11,7 @@ __all__ = [
     'file_mod', 'rep','fm_line',
     'psound',
     'local_server', 'server', 'client',
-    'encrypt', 'sha256', 'b64', 'hk36',
+    'encrypt', 'sha256', 'b64', 'hk32',
     'psound',
 
     'terminal', 'cls', 'color', 'pos',
