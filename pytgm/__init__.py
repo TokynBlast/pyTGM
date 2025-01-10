@@ -42,4 +42,4 @@ from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky, cli
 from .local_server import server, client
 
 # Ecnrypt Imports
-from .encrypt import sha256, b64, hk32
+from .encrypt import sha256, b64, hk32 # pylint:disable=no-name-in-module
