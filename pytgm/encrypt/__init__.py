@@ -1,7 +1,7 @@
 """
 Exposes ecryptions
 """
-import .hk32 #pylint:disable=import-error
+from .hk32 import * #pylint:disable=import-error
 from .b64 import Table, encode, decode
 from .sha256 import encode as sha256
 
