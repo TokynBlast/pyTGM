@@ -12,9 +12,9 @@ Clang Tidy doesn't know how it should work.
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
-You may need Python3-dev.
-You need Microsoft Visual Studio<br>
-When setting up Python, enable these:
+You may need Python3-dev. (Python.h)<br>
+You need Microsoft Visual Studio if on a windows device.<br>
+When setting up Python, enable these (If applicable):
 - Add Python to PATH
 - Customize installation > Development Tools
 
