@@ -53,5 +53,5 @@ jobs:
           git config --local user.name "TokynBlast"
           git config --local user.email "tokynblast@gmail.com"
           git add VERSION.json setup.py
-          git commit -m "Update SHA-256 hashes in VERSION.json and setup.py"
+          git commit --allow-empty -m "Update SHA-256 hashes in VERSION.json and setup.py"
           git push
