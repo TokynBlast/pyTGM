@@ -64,6 +64,12 @@ To make a contribution, make a new branch [here](https://github.com/TokynBlast/p
 Then, add (or remove), to improve the repo!<br>
 Once we know it's working and safe, somebody will merge the request!
 
+# Suggestions
+You don't always need everything for this library.
+Some things, like a beep can be used with \a
+These are called escape sequences.
+They can be combined with the library, to make the game even more powerful.
+
 # Features
 
 ## File Operations
