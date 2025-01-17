@@ -40,12 +40,6 @@ class BuildExt(build_ext):
             raise RuntimeError(f"Unsupported platform: {os_type}")
         super().build_extensions()
 
-click_extension = Pybind11Extension(
-    name="pytgm.terminal.click",
-    sources=["pytgm/terminal/click.cpp"],
-    language="c++",
-)
-
 play_sound_extension = Pybind11Extension(
     name="pytgm.psound",
     sources=["pytgm/psound.cpp"],
@@ -86,7 +80,7 @@ setup(
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
     install_requires=[],
-    ext_modules=[click_extension, play_sound_extension, graphic_cls, graphic_color, graphic_pos],
+    ext_modules=[play_sound_extension, graphic_cls, graphic_color, graphic_pos],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],

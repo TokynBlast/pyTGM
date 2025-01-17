@@ -9,6 +9,13 @@ hk32 is also known as HexKey32, because it uses b32, hex numbers, and a key.
 A hex number is not the only thing though, it also uses stuff like octal numbers and binary.
 And, on top of that, the binary gets flipped before anything happpens to it!
 
+Removing Click
+--------------
+This decision wasn't what I wanted, however, majority of terminals don't support mouse clicks.
+This function may one day come back, if mouse clicks are standard, or if I find another way to implement it.
+My other option is a ton of advanced calulations, getting temrinal character size, mouse input, area of terminal
+and, figuring out where the mouse click was.
+
 Extra notes
 -----------
 This version is the one I'm most proud of. It shows that I'm learning C++.

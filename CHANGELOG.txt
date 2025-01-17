@@ -81,3 +81,4 @@
 - Made, and added hk36
 - Changed geky to getch
 - Changed pos to position
+- Removed click
