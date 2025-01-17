@@ -22,3 +22,5 @@ This version is the one I'm most proud of. It shows that I'm learning C++.
 It also shows my dedecation.
 It's like seeing your child grow up. And yes. I do consider this my child, born of mind.
 I first sketched it out on a notepad. It had TONS 
+Sadly though, this version took forever, because I took a break, to learn C# and Unity, to
+make a game called cool_man.exp
