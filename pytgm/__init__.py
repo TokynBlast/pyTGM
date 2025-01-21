@@ -8,10 +8,10 @@ It imports and exposes various modules and functionalities for:
 """
 
 __all__ = [
-    'file_mod', 'rep','fm_line',
+    'file_mod', 'rep','line',
     'psound',
     'local_server', 'server', 'client',
-    'encrypt', 'sha256', 'b64', 'hk32',
+    'encrypt', 'sha256', 'b64', 'hk512',
     'psound',
 
     'terminal', 'cls', 'color', 'pos',
@@ -27,7 +27,7 @@ __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt
 from pytgm import encrypt, file_mod, sound, terminal, local_server #pylint: disable=import-self
 
 # File Imports
-from .file_mod import fm_line, rep #pylint: disable=import-error
+from .file_mod import fm_line as line, rep as patt #pylint: disable=import-error
 
 # Sound Imports
 from .sound import psound # pylint: disable= import-error
@@ -39,4 +39,4 @@ from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky, cli
 from .local_server import server, client
 
 # Ecnrypt Imports
-from .encrypt import sha256, b64, hk32 # pylint:disable=no-name-in-module
+from .encrypt import sha256, b64, hk512 # pylint:disable=no-name-in-module
