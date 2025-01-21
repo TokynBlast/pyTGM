@@ -58,7 +58,5 @@ std::string geky(int times = 1) {
         } finally {
             tcsetattr(STDIN_FILENO, TCSANOW, &old);
         }
+        return "";
     }
-    return "";
-}
-
