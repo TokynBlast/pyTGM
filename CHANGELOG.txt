@@ -75,10 +75,10 @@
 -------------------------
 - Removed depreciations
 - Fixed CHANGELOG.txt
-- Made graphics C++
+- Converted graphics to C++
+- Converted geky to C++
 - Removed _WIN64
 - Combined terd and graphics into 'terminal'
 - Made, and added hk36
-- Changed geky to getch
 - Changed pos to position
 - Removed click
