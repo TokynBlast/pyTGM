@@ -8,7 +8,7 @@ It imports and exposes various modules and functionalities for:
 """
 
 __all__ = [
-    'file_mod', 'rep','line',
+    'file_mod', 'patt','line',
     'psound',
     'local_server', 'server', 'client',
     'encrypt', 'sha256', 'b64', 'hk512',
