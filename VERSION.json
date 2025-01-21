@@ -14,7 +14,7 @@
     "macOS": {}
   },
   "hashes": {
-    "pytgm/terminal/__init__.py": "baee00cfa7e003c4ecca81a189e983c48fa11b82a61f5d3ca7942d7ab591fcb1",
+    "pytgm/terminal/__init__.py": "f9e7354d34b457eafd0ec20b2321e5aac6ad93fa9687092a6ce3707ed404cbfc",
     "pytgm/encrypt/__init__.py": "ccf7244beb3ffdbc651e287a6ceaf6f460bf134f02223488212dc72267829fdf",
     "pytgm/__init__.py": "79cb337475637fe7eae9913c3ee4345f8d67ac1e41878ee3cb2e3ca328b67f50",
     "pytgm/terminal/click.cpp": "efca5fb30fcdd1e3a122a0525a93bf97dbbbed0cb06e7d2e8f6eea59c67cfe85",
