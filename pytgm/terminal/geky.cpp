@@ -5,6 +5,8 @@
 #include <termios.h>
 #include <unistd.h>
 
+#include <Python.h>
+
 std::string geky(int times = 1) {
     try {
         for (int i = 0; i < times; ++i) {
@@ -60,3 +62,10 @@ std::string geky(int times = 1) {
         }
         return "";
     }
+
+
+
+PYBIND11_MODULE(color, m) {
+    m.doc() = "Gets a single key input";
+    m.def("geky", &geky, "Gets a single key input");
+}

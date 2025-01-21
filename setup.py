@@ -64,6 +64,12 @@ graphic_pos = Pybind11Extension(
     language="c++",
 )
 
+geky = Pybind11Extension(
+    name="pytgm.terminal.geky",
+    sources=["pytgm/terminal/geky.cpp"],
+    language="c++",
+)
+
 setup(
     name='pyTGM',
     version='5.0.0',
