@@ -13,7 +13,7 @@ Clang Tidy doesn't know how it should work.
 ## Installing
 To install, run ```pip install pyTGM```<br>
 You may need Python3-dev. (Python.h)<br>
-You need Microsoft Visual Studio if on a windows device.<br>
+You need Microsoft Visual Studio on Windows.
 When setting up Python, enable these (If applicable):
 - Add Python to PATH
 - Customize installation > Development Tools
@@ -142,10 +142,10 @@ encrypt.sha256(text)
 ```
 
 
-### hk32:
+### hk512:
 ```python
-exncrypt.hk32.encode(data, key)
-exncrypt.hk32.decode(data, key)
+exncrypt.hk512.encode(data, key)
+exncrypt.hk512.decode(data, key)
 ```
 
 ## Links
