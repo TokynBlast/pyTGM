@@ -86,7 +86,7 @@ setup(
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
     install_requires=[],
-    ext_modules=[play_sound_extension, graphic_cls, graphic_color, graphic_pos],
+    ext_modules=[play_sound_extension, graphic_cls, graphic_color, graphic_pos, geky],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
