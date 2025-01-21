@@ -16,7 +16,6 @@
     #include <cstdlib>
 #endif
 
-// NOLINTNEXTLINE(clang-diagnostic-error)
 #include <Python.h>
 
 #include <iostream>
