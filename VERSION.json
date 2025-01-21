@@ -28,7 +28,7 @@
     "pytgm/terminal/color.cpp": "0ce061a8ddefe0040468ad586a35e92ef8c04a4c6ca025ed6be5f86a3c975188",
     "pytgm/file_mod.py": "f0cef65965a2db299f49992d8ee55e9b36c73a964d44f7fe7e307c18537e2490",
     "pytgm/encrypt/hk36.cpp": "76ae4eaa26674121fa7c79502c0948e2ef181ec3fb29699e4e5feb5fa08dce26",
-    "pytgm/encrypt/hk32.cpp": "2d6a011df52158e5eeef238d53a8ecd58a7561bd67b651bbf4641306255b023e",
+    "pytgm/encrypt/hk32.cpp": "53098464c2a9522f17917c766b47d0639954b07efca59af8a30a17249b05a546",
     "pytgm/terminal/geky.cpp": "9bad7d2fd825ff697823d75f70498de9eed5cc67fe1454bd03c93963a462e9b0"
   }
 }
