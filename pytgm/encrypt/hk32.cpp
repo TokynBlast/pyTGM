@@ -1,6 +1,6 @@
 // Copyright TokynBlast
 /*
-HexKey-32 is an encryption, designed for pyTGM.
+HexKey-512 is an encryption, designed for pyTGM.
 It is NOT designed for super secure encryption needs.
 */
 
@@ -17,42 +17,54 @@ It is NOT designed for super secure encryption needs.
 
 namespace py = pybind11;
 
-std::string b32_convert(const std::string& input) {
+#include <string>
+#include <unordered_map>
+
+std::string base512_encode(const std::string& input) {
+    const std::string base512_chars =
+        "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
+        "↔▓]י5Rµח†₪Ζ/◄1⌂¿•Ꜣ☀Z╤.☺⌐±⊗╦!═♯ß2Ԫ⌂ªEﺎY=§∅↔8♫0ӘФ☼\"Tσ½↕6CL±≥!^≠ﺎ{↓G=∇"
+        "Y<~}Nѧ☼Ϟ۩ۈ↓☠٠Ѵ7÷U∩χΨ1ε3!↔ق4⊗+⊥£↕;=∗⇔1;2ע∴Κ@<α~Θ8<>\"8ִ5٨⊗⬤χ9↔ك↓Ωי◊↔"
+        "◦Ω↔ש⇔Ω⊥↔Φφ۞↔";
+
     std::string output;
-    unsigned int buffer = 0;
+    uint64_t buffer = 0;  // Accumulated bits
     int bits_in_buffer = 0;
-    base32_chars = "2XF_>/░]۩CTY;∑⁮7₸﷽*KݿSﻉ﷼^<M}#5EDR,GV᷀~O[6I&¾:!↕╕﴿Ԫ$W₼⌂ﷻﷴᵺ)?Ꜣ1A{♫8ԩ☻.ﷺ♦֍ﷲ=L◦P3﴾Q▓@4▬%⁪▒╫U◙H-•¼(ḑ¶9\Z◄☺+ﻎ۞0♯`₯B|♣½♥℅·ۨN↔J"
-    
+
     for (unsigned char c : input) {
-        buffer = (buffer << 8) | c;
+        buffer = (buffer << 8) | c; // Add 8 bits
         bits_in_buffer += 8;
 
-        while (bits_in_buffer >= 5) {
-            int index = (buffer >> (bits_in_buffer - 5)) & 0x1F;
-            output.push_back(base32_chars[index]);
-            bits_in_buffer -= 5;
+        while (bits_in_buffer >= 9) {
+            int index = (buffer >> (bits_in_buffer - 9)) & 0x1FF; // Extract 9 bits
+            output.push_back(base512_chars[index]);
+            bits_in_buffer -= 9;
         }
     }
+
     if (bits_in_buffer > 0) {
-        int index = (buffer << (5 - bits_in_buffer)) & 0x1F;
-        output.push_back(base32_chars[index]);
+        int index = (buffer << (9 - bits_in_buffer)) & 0x1FF; // Pad remaining bits
+        output.push_back(base512_chars[index]);
     }
+
+    return output;
 }
+
 
 std::mt19937 gen;
 
 std::string decode(const std::string& data, const std::string& key) {
-    // Convert octal back to Base32
+    // Convert octal back to Base512
     std::istringstream iss(data);
     std::ostringstream oss;
     int octal_value;
     while (iss >> std::oct >> octal_value) {
         oss << static_cast<char>(octal_value);
     }
-    std::string b32_data = oss.str();
+    std::string b512_data = oss.str();
 
-    // Reverse Base32 to binary
-    std::string bin_data = b32_reverse(b32_data);
+    // Reverse Base512 to binary
+    std::string bin_data = b12_reverse(b512_data);
 
     // Reverse binary flip
     std::reverse(bin_data.begin(), bin_data.end());
@@ -96,7 +108,7 @@ std::string decode(const std::string& data, const std::string& key) {
     return decoded_data;
 }
 
-PYBIND11_MODULE(hk32, m) {
-    m.def("encode", &encode, "Encode a string in hk32");
-    m.def("decode", &decode, "Decode an hk32 string");
+PYBIND11_MODULE(hk512, m) {
+    m.def("encode", &encode, "Encode a string in hk512");
+    m.def("decode", &decode, "Decode an hk512 string");
 }
