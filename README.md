@@ -74,8 +74,8 @@ They can be combined with the library, to make the game even more powerful.
 
 ## File Operations
 ```python
-file.fm_line(name, line, text)           # Modify a single line of a file
-file.rep(name, pattern, replacement)     # Replace a pattern of text in a file
+file.line(name, line, text)           # Modify a single line of a file
+file.patt(name, pattern, replacement)     # Replace a pattern of text in a file
 ```
 
 ## Terminal
