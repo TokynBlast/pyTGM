@@ -2,7 +2,7 @@
 Imports all files needed for terd
 """
 from .click import click # pylint: disable=import-error
-from .geky import geky
+from .geky import geky  # pylint: disable=import-error
 
 from .color import color #pylint:disable=import-error
 from .cls import cls #pylint:disable=import-error
