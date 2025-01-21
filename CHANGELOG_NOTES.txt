@@ -3,9 +3,9 @@
 
 
 
-hk32
-----
-hk32 is also known as HexKey32, because it uses b32, hex numbers, and a key.
+hk512
+-----
+hk512 is also known as HexKey512, because it uses base512 (A custom base encoding), hex numbers, and a key.
 A hex number is not the only thing though, it also uses stuff like octal numbers and binary.
 And, on top of that, the binary gets flipped before anything happpens to it!
 
@@ -16,9 +16,16 @@ This function may one day come back, if mouse clicks are standard, or if I find 
 My other option is a ton of advanced calulations, getting temrinal character size, mouse input, area of terminal
 and, figuring out where the mouse click was.
 
+Concersion to C++
+-----------------
+More and more is coming to C++
+Not all of it is done by me. Like file.
+I tried to convert it to C++, but I'm just not advanced enough yet. I hope, that one day, I can improve it though.
+Eventually, I hope there is a community of programmers, who show their appreciation, and help improve it, or give ideas, if they can.
+
 Extra notes
 -----------
-This version is the one I'm most proud of. It shows that I'm learning C++.
+This version is the one I'm most proud of. It shows that I'm learning C++. Even though, not all of it was done by me.
 It also shows my dedecation.
 It's like seeing your child grow up. And yes. I do consider this my child, born of mind.
 I first sketched it out on a notepad. It had TONS 
