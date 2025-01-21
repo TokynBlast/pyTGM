@@ -79,6 +79,8 @@
 - Converted geky to C++
 - Removed _WIN64
 - Combined terd and graphics into 'terminal'
-- Made, and added hk36
+- Made, and added hk512
 - Changed pos to position
 - Removed click
+- Changed file.fm_line to line
+- Changed file.rep to file.patt
