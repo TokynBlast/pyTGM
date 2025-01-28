@@ -5,6 +5,8 @@
 [![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
 ![Static Badge](https://img.shields.io/badge/C%2B%2B%20Linting-passing-lime_green)
 
+<sub>Development is now up to the community. I have started the project, and now it's up to others to continue.<br>I have moved to other projects, and will occasionally update the program.</sub>
+
 
 
 C++ Linting isnt Github made, because I look for certain errors, and report back to here if it worked or not.<br>
