@@ -9,7 +9,7 @@
 
 
 
-C++ Linting isnt Github made, because I look for certain errors, and report back to here if it worked or not.<br>
+The C++ linting badge isnt Github made, because I look for certain errors, and report back to here if it worked or not.<br>
 Clang Tidy doesn't know how it should work.
 
 ## Installing
