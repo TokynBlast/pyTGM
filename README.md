@@ -7,7 +7,12 @@
 
 <sub>Development is now up to the community. I have started the project, and now it's up to others to continue.<br>I have moved to other projects, and will occasionally update the program.</sub>
 
-
+From now on, TokynBlast will only accept changes and fix found bugs.
+The rest is up to the community...
+TokynBlast has a bunch of other projects, and wants to expand outside of GitHub.
+He is currently making sites. (FCFS basis!)
+TokynBlast is working with a good friend.
+Eventuall, he will come back here, and projects will occasionallybe updated!
 
 The C++ linting badge isnt Github made, because I look for certain errors, and report back to here if it worked or not.<br>
 Clang Tidy doesn't know how it should work.
