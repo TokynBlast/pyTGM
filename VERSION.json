@@ -29,6 +29,7 @@
     "pytgm/file_mod.py": "f0cef65965a2db299f49992d8ee55e9b36c73a964d44f7fe7e307c18537e2490",
     "pytgm/encrypt/hk512.cpp": "53098464c2a9522f17917c766b47d0639954b07efca59af8a30a17249b05a546",
     "pytgm/terminal/geky.cpp": "5545f28bbf6eeaa6d42c4646ef694273ac98940cb156ae10a5ce752265752c23",
-    "pytgm/pattern/1gon.py": "8795a57f6fabba61764471b126e033783c4dd506fdf5e9b970baf64e7017a9d9"
+    "pytgm/pattern/1gon.py": "8795a57f6fabba61764471b126e033783c4dd506fdf5e9b970baf64e7017a9d9",
+    "pytgm/pattern/gon.py": "fb2ff099aeac24837cd9926f966d85772b8ec5f07a5c6ac8f8e625f03f821f07"
   }
 }
