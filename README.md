@@ -7,6 +7,8 @@
 
 > [!NOTE]
 > gon will likely be added later or never.
+> There also needs to be a better name for gon.
+> It runs across the screen, printing a block char by default, making a transition animation.
 
 <sub>Development is now up to the community. I have started the project, and now it's up to others to continue.<br>I have moved to other projects, and will occasionally update the program.</sub>
 
