@@ -21,11 +21,10 @@ jobs:
     - name: Install Dependencies
       run: |
         apt-get update
-        apt-get install -y libpython3.11-stdlib build-essential zlib1g-dev
-        apt-get install -y clang-tidy build-essential cmake python3.11-dev
+        apt-get install python3-dev
         python -m pip install --upgrade pip
         python -m pip install pybind11
          
     - name: Run clang-tidy
       run: |
-        clang-tidy **/*.cpp -- --checks=-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type -p=c++17 -header-filter=".*\Python.h"
+        clang-tidy **/*.cpp --exclude-header-filter='.*/Python\.h$' <source_files>
