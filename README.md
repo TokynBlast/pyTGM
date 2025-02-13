@@ -5,13 +5,6 @@
 [![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
 ![Static Badge](https://img.shields.io/badge/C%2B%2B%20Linting-passing-lime_green)
 
-> [!NOTE]
-> gon will likely be added later or never.
-> There also needs to be a better name for gon.
-> It runs across the screen, printing a block char by default, making a transition animation.
-
-<sub>Development is now up to the community. I have started the project, and now it's up to others to continue.<br>I have moved to other projects, and will occasionally update the program.</sub>
-
 From now on, TokynBlast will only accept changes and fix found bugs.
 The rest is up to the community...
 TokynBlast has a bunch of other projects, and wants to expand outside of GitHub.
