@@ -10,21 +10,21 @@ It imports and exposes various modules and functionalities for:
 __all__ = [
     'file_mod',
     'patt','line',
-    
+
     'local_server',
     'server', 'client',
-    
+
     'encrypt',
     'sha256', 'b64', 'hk512',
-    
+
     'psound',
 
     'terminal',
     'cls', 'color', 'pos',
     'RESET', 'BOLD', 'UNDERLINE', 'ITALIC',
-    'geky', 'click'
+    'geky', 'click',
 
-    'pattern'
+    'pattern',
     'rect'
 ]
 
