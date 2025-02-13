@@ -3,17 +3,7 @@
 [![Lint with Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)<br>
 [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml)<br>
 [![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml)<br>
-![Static Badge](https://img.shields.io/badge/C%2B%2B%20Linting-passing-lime_green)
-
-From now on, TokynBlast will only accept changes and fix found bugs.
-The rest is up to the community...
-TokynBlast has a bunch of other projects, and wants to expand outside of GitHub.
-He is currently making sites. (FCFS basis!)
-TokynBlast is working with a good friend.
-Eventuall, he will come back here, and projects will occasionallybe updated!
-
-The C++ linting badge isnt Github made, because I look for certain errors, and report back to here if it worked or not.<br>
-Clang Tidy doesn't know how it should work.
+[![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml)
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
