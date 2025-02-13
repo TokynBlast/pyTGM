@@ -21,10 +21,10 @@ jobs:
     - name: Install Dependencies
       run: |
         apt-get update
-        apt-get install -y clang-tidy
-        apt-get install -y python3-dev
         python -m pip install --upgrade pip
+        apt-get install -y clang-tidy python3.11-dev
         python -m pip install pybind11
+
          
     - name: Run clang-tidy
       run: |
