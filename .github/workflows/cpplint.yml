@@ -28,4 +28,4 @@ jobs:
          
     - name: Run clang-tidy
       run: |
-        clang-tidy $(find . -name '*.cpp') --exclude-header-filter='.*/Python\.h$'
+        clang-tidy $(find . -name '*.cpp') --header-filter=.*/Python\.h$'
