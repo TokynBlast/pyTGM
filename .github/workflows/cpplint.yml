@@ -27,4 +27,4 @@ jobs:
          
     - name: Run clang-tidy
       run: |
-        clang-tidy **/*.cpp --exclude-header-filter='.*/Python\.h$' <source_files>
+        clang-tidy **/*.cpp --exclude-header-filter='.*/Python\.h$'
