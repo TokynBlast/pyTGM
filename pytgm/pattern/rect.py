@@ -4,7 +4,7 @@ import sys
 
 def rect(width, height, time=3, char=" "):
     """ Moves acress the terminal, and prints a space, to clear the screen """
-    total_steps = (height * (height + 1)) // 2 + (height * (height - 1)) // 2 + (max(width - height, 0) * height) #pylint-ignore: line-too-long
+    total_steps = (height * (height + 1)) // 2 + (height * (height - 1)) // 2 + (max(width - height, 0) * height) # pylint:disable=line-too-long
     step_time = time / total_steps  # Calculate time per step
 
     # Left side
