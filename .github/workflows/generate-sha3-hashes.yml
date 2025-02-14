@@ -1,4 +1,4 @@
-name: SHA-256 Generate and Update
+name: Security Hashes
 
 on:
   push:
