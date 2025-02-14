@@ -3,10 +3,7 @@ name: Security Hashes
 on:
   push:
     paths:
-      - pytgm/**
-      - pytgm/terd/**
-      - pytgm/graphics/**
-      - setup.py
+      - '*.py'
       - .github/workflows/generate-sha3-hashes.yml
     branches:
       - main

@@ -1,10 +1,12 @@
-name: clang-tidy
+name: C++ Lint
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    paths:
+      - '*.cpp'
+      - .github/workflows/cpplint.yml
+    branches:
+      - main
 
 jobs:
   clang-tidy:

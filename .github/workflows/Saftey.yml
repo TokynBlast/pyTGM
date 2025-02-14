@@ -1,9 +1,8 @@
-name: Safety Linting
+name: Safety Check
 on:
   push:
     paths:
-      - pytgm/**
-      - setup.py
+      - '*.py'
       - .github/workflows/Saftey.yml
     branches:
       - main
