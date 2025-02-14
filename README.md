@@ -14,35 +14,13 @@ When setting up Python, enable these (If applicable):
 - Add Python to PATH
 - Customize installation > Development Tools
 
-On macOS, you will need homebrew to install Python:<br>
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-Then, run<br>
-```
-brew install python
-```
+On macOS, you will need homebrew to install Python.<br>
 
-On Linux, your OS will change the command you need to run:<br>
-Debian/Ubuntu:
-```
-sudo apt-get update; sudo apt-get install -y python3-dev
-```
-
-Fedora:
-```
-sudo dnf install -y python3-devel
-```
-
-Arch linux:
-```
-sudo pacman -S python
-```
-
+On Linux, your OS will change the command you need to run, I have curated a command, to detect the OS and install it:<br>
 Dont know what OS you have?
 Run this command:
 ```
-bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev; elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel; elif command -v pacman >/dev/null; then sudo pacman -Sy python; elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel; else echo "Unsupported package manager. Install Python dev headers manually."; exit 1; fi'
+bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel elif command -v pacman >/dev/null; then sudo pacman -Sy --noconfirm python elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel elif command -v brew >/dev/null; then brew install python elif command -v pkg >/dev/null; then sudo pkg install -y python elif command -v emerge >/dev/null; then sudo emerge --ask dev-lang/python elif command -v apk >/dev/null; then sudo apk add --no-cache python3-dev else echo "Unsupported package manager. Install Python dev headers manually." exit 1 fi'
 ```
 
 # pyTGM (Python Terminal Game Maker)
