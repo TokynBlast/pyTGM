@@ -20,7 +20,7 @@ namespace py = pybind11;
 #include <string>
 #include <unordered_map>
 
-std::string base512_encode(const std::string& input) {
+std::string encode(const std::string& input) {
     const std::string base512_chars =
         "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
         "↔▓]י5Rµח†₪Ζ/◄1⌂¿•Ꜣ☀Z╤.☺⌐±⊗╦!═♯ß2Ԫ⌂ªEﺎY=§∅↔8♫0ӘФ☼\"Tσ½↕6CL±≥!^≠ﺎ{↓G=∇"
