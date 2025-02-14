@@ -25,7 +25,7 @@
     "pytgm/sound.cpp": "f7b4f1aa42e4c50ac9ace2752d1cac1682bc17906a17552611a6ab4f1d748cc1",
     "pytgm/terminal/cls.cpp": "9bbbd5cc2e6136bbb2ae5b1bfd41e5afc595b391847053cf4034be7742736fc1",
     "pytgm/terminal/pos.cpp": "9013e858dedbb66f09994b19c4a57aea8f9ee91edb579f4ebd3f6f35417a5f0b",
-    "pytgm/terminal/color.cpp": "65a5d0ef6dc72748b9c7eecfa24e4b3b8e156d93b503c9e98fa1214e956f036a",
+    "pytgm/terminal/color.cpp": "a102b35b68729e50addc6cb9de72b051a4d157096a105868f512440cddda517f",
     "pytgm/file_mod.py": "f0cef65965a2db299f49992d8ee55e9b36c73a964d44f7fe7e307c18537e2490",
     "pytgm/encrypt/hk512.cpp": "c8e0d6c475bff454ea7c2c6ca73a51128a2e4db4e7c6f62180f7e8178b466548",
     "pytgm/terminal/geky.cpp": "899df392ba0f94e0380b53ef64fdfdcb79cf19142e7b4992deb22ba5daf62a05",
