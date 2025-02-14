@@ -17,7 +17,8 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake ninja
+          sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake ninja-build
+
 
       - name: Create CMakeLists.txt if not present
         run: |
