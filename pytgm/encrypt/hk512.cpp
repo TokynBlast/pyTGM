@@ -13,12 +13,15 @@ It is NOT designed for super secure encryption needs.
 #include <iostream>
 #include <algorithm>
 #include <sstream>
-#include <string>
 #include <unordered_map>
 #include <vector>
+#include <functional>
 #include <numeric>
 
-namespace py = pybind11
+namespace py = pybind11;
+
+// Declaration of the random number generator
+std::mt19937 gen;
 
 std::string encode(const std::string& input) {
     const std::string base512_chars =
@@ -50,8 +53,6 @@ std::string encode(const std::string& input) {
     return output;
 }
 
-std::mt19937 gen;
-
 std::string decode(const std::string& data, const std::string& key) {
     // Convert octal back to Base512
     std::istringstream iss(data);
@@ -64,10 +65,10 @@ std::string decode(const std::string& data, const std::string& key) {
 
     auto b12_reverse = [](const std::string& input) {
         const std::string base512_chars =
-            "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
-            "↔▓]י5Rµח†₪Ζ/◄1⌂¿•Ꜣ☀Z╤.☺⌐±⊗╦!═♯ß2Ԫ⌂ªEﺎY=§∅↔8♫0ӘФ☼\"Tσ½↕6CL±≥!^≠ﺎ{↓G=∇"
-            "Y<~}Nѧ☼Ϟ۩ۈ↓☠٠Ѵ7÷U∩χΨ1ε3!↔ق4⊗+⊥£↕;=∗⇔1;2ע∴Κ@<α~Θ8<>\"8ִ5٨⊗⬤χ9↔ك↓Ωי◊↔"
-            "◦Ω↔ש⇔Ω⊥↔Φφ۞↔";
+        "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
+        "↔▓]י5Rµח†₪Ζ/◄1⌂¿•Ꜣ☀Z╤.☺⌐±⊗╦!═♯ß2Ԫ⌂ªEﺎY=§∅↔8♫0ӘФ☼\"Tσ½↕6CL±≥!^≠ﺎ{↓G=∇"
+        "Y<~}Nѧ☼Ϟ۩ۈ↓☠٠Ѵ7÷U∩χΨ1ε3!↔ق4⊗+⊥£↕;=∗⇔1;2ע∴Κ@<α~Θ8<>\"8ִ5٨⊗⬤χ9↔ك↓Ωי◊↔"
+        "◦Ω↔ש⇔Ω⊥↔Φφ۞↔";
 
         std::string output;
         uint64_t buffer = 0;  // Accumulated bits
@@ -125,7 +126,10 @@ std::string decode(const std::string& data, const std::string& key) {
     // Reverse shuffle
     std::vector<size_t> indices(original_data.size());
     std::iota(indices.begin(), indices.end(), 0);
+
+    // Seed the random number generator before shuffling
     gen.seed(std::hash<std::string>{}(key));
+
     std::shuffle(indices.begin(), indices.end(), gen);
 
     std::string decoded_data(original_data.size(), '\0');
