@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-namespace py = pybind11
+namespace py = pybind11;
 
 std::string color(const int r, const int g, const int b) {
     std::stringstream ss;
