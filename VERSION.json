@@ -16,7 +16,7 @@
   "hashes": {
     "pytgm/terminal/__init__.py": "964a60b5ddcfa2d861fc0978591bd1531399c51b3674e0d0142fc04f02fd521f",
     "pytgm/encrypt/__init__.py": "ccf7244beb3ffdbc651e287a6ceaf6f460bf134f02223488212dc72267829fdf",
-    "pytgm/__init__.py": "b1deffb64417bd6c42beb6a33bc3af8946249d08fb7929a3936d73cfdf83af43",
+    "pytgm/__init__.py": "c5a184656db2ae0ba80ba89f772d96081e165215c7654c1f5fbe507e9cbc77c4",
     "pytgm/terminal/click.cpp": "efca5fb30fcdd1e3a122a0525a93bf97dbbbed0cb06e7d2e8f6eea59c67cfe85",
     "pytgm/terminal/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",

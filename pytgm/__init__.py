@@ -22,7 +22,7 @@ __all__ = [
     'terminal',
     'cls', 'color', 'pos',
     'RESET', 'BOLD', 'UNDERLINE', 'ITALIC',
-    'geky', 'click',
+    'geky',
 
     'pattern',
     'rect'

@@ -3,6 +3,8 @@ name: Pylint
 on:
   push:
     paths:
+      - setup.py
+      - pytgm/*.py
       - '*.py'
       - .github/workflows/pylint.yml
     branches:
