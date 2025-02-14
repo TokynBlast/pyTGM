@@ -25,9 +25,13 @@ jobs:
     - name: Install Dependencies
       run: |
         apt-get update
-        apt-get install -y python3.11-dev clang-tidy libpython3.11-dev
-        python -m pip install --upgrade pip
-        python -m pip install pybind11
+        apt-get install -y software-properties-common
+        add-apt-repository ppa:deadsnakes/ppa
+        apt-get update
+        apt-get install -y python3.11 python3.11-dev clang-tidy
+        python3.11 -m pip install --upgrade pip
+        python3.11 -m pip install pybind11
+
 
     - name: Run clang-tidy
       run: |
