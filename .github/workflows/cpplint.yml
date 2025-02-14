@@ -28,6 +28,8 @@ jobs:
         python -m pip install --upgrade pip
         apt-get install -y clang-tidy
         python -m pip install pybind11
+        apt-get install -y python3.11-dev
+        apt-get install -y libpython3.11-dev
 
     - name: Run clang-tidy
       run: |
