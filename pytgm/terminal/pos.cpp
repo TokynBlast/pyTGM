@@ -1,7 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <string>
-#include <sstream>
-
+#include <sstream> 
 
 auto pos(const int x, const int y) -> std::string {
     std::stringstream ss;
@@ -12,5 +11,5 @@ auto pos(const int x, const int y) -> std::string {
 PYBIND11_MODULE(pos, m) {
     m.doc() = "Places the cursor at a specified point within the terminal";
     m.def("pos", &pos, "Places the cursor at a specified point",
-        pybind11::arg("x"), py::arg("y"));
+        pybind11::arg("x"), pybind11::arg("y"));
 }
