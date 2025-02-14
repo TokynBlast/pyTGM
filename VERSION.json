@@ -8,7 +8,6 @@
   "bugs": {
     "Windows": {
       "pytgm/sound.cpp": ".mp3 doesnt play",
-      "pytgm/click.cpp": "detects clicks outside terminal"
     },
     "Linux": {},
     "macOS": {}
