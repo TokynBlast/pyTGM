@@ -1,8 +1,50 @@
+NOTES:
+4.0.1 - 4.0.6 either don't build, and as such are not included.
+They either removed or added click or had 'Import fixes'
+All versions before 4.0.0 had been lost in an accidental delete.
+
+5.0.0 (Feburary , 2025)
+-------------------------
+- Removed depreciations
+- Converted graphics to C++
+- Converted geky to C++
+- Removed _WIN64
+- Combined terd and graphics into 'terminal'
+- Made, and added hk512
+- Changed pos to position
+- Removed click
+- Changed file.fm_line to line
+- Changed file.rep to file.patt
+- Added pattern
+
+4.1.2 (January 6, 2025)
+-------------------------
+- Changed some Python files to C++
+- Changed file_mod to Python
+- Bug fixes
+
+4.1.1 (December 19, 2024)
+-------------------------
+- Forced warnings to occur
+- Added clarity to warnings
+- Moved b64 to encrypt
+- Added sha256
+- Changed how psound is imported
+
+4.1.0 (December 18, 2024)
+-------------------------
+- Added *.txt to manifest.in 
+- Updated licence
+- Removed sound.generate()
+- Changed sound.play() to psound()
+- Changed mod_line() to fm_line()
+- Inserted dummy funcs for removed funcs
+- Bug fixes
+
 4.0.0 (December 17, 2024)
 -------------------------
 - Removed file.readChar
 - Major fixes to __all__ variable in main __init__
-- Did an overhaul on Licence and README.md
 - major change in file structure
 - Renamed getch to geky
 - Put getch inside class "terd"
@@ -15,73 +57,6 @@
 - Updated LocalServer error message
 - Added a To_send variable to LocalServer
 - Removed autoplay from frequency
-- Fixed windows key detection
 - Removed board and random
 - Added security hashes
-- Added badges to README.md
-
-4.0.1 (Decmeber 17, 2024)
--------------------------
-- Import fixes
-
-4.0.2 (December 17, 2024)
--------------------------
-- Click removed temporarily
-- Updated build in version
-
-4.0.4 (December 17, 2024)
--------------------------
-- Import fixes
-- Replaced 4.0.3, as it is the same
-
-4.0.5 (Decmeber 17, 2024)
--------------------------
-- Added back click
-
-4.0.6 (Decmeber 17, 2024)
--------------------------
-- Added windows implementation of click
-- Fixed pybind11 missing module for pylint
-- Added C++ linting
-
-4.1.0 (December 18, 2024)
--------------------------
-- Added *.txt to manifest.in
-- Added C++ badge to github 
-- Updated licence
-- Fixed click bugs for windows
-- Distributed .tar.gz, instead of a .whl
-- Removed sound.generate()
-- Changed sound.play() to psound()
-- Changed mod_line() to fm_line()
-- Placed dummy functions for removed functions, that serve warnings
-
-4.1.1 (December 19, 2024)
--------------------------
-- Fixed README.md
-- Forced warnings to occur
-- Added clarity to warnings
-- Moved b64 to encrypt
-- Added sha256
-- Changed psound importing
-
-4.1.2 (January 6th, 2025)
--------------------------
-- Changed some Python files to C++
-- Changed file_mod to Python
 - Bug fixes
-
-5.0.0 (th, 2025)
--------------------------
-- Removed depreciations
-- Fixed CHANGELOG.txt
-- Converted graphics to C++
-- Converted geky to C++
-- Removed _WIN64
-- Combined terd and graphics into 'terminal'
-- Made, and added hk512
-- Changed pos to position
-- Removed click
-- Changed file.fm_line to line
-- Changed file.rep to file.patt
-- Added pattern
