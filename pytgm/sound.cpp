@@ -23,12 +23,9 @@
 
 #include <pybind11/pybind11.h>
 
-namespace fs = std::filesystem;
-namespace py = pybind11;
-
-void psound(const char* file) {
+void psound(const char* filename) {
     #if defined(WIN)
-        PlaySound(file, NULL, SND_FILENAME | SND_ASYNC);
+        PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC);
     
     #elif defined(__APPLE__)
         CFStringRef cfString = CFStringCreateWithCString(NULL, filename, kCFStringEncodingUTF8);
@@ -53,7 +50,7 @@ void psound(const char* file) {
 PYBIND11_MODULE(sound, m){
     m.doc() = "Sound playback and utility functions";  // Module docstring
 
-    m.def("psound", &psound, py::arg("file"),
+    m.def("psound", &psound, py::arg("filename"),
           "Play a sound file.\n"
           "Args:\n"
           "    file (str): Path to the sound file.\n"
