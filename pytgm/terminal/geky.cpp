@@ -15,7 +15,7 @@
 // Function to read a single character from standard input
 char geky() {
 #ifdef _WIN32
-    return _getch(); // Windows implementation using conio.h
+    return _getch();
 #else
     struct termios oldt, newt;
     tcgetattr(STDIN_FILENO, &oldt);
