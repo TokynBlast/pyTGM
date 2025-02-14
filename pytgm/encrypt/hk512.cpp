@@ -18,6 +18,8 @@ It is NOT designed for super secure encryption needs.
 #include <vector>
 #include <numeric>
 
+namespace py = pybind11
+
 std::string encode(const std::string& input) {
     const std::string base512_chars =
         "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
@@ -135,6 +137,8 @@ std::string decode(const std::string& data, const std::string& key) {
 }
 
 PYBIND11_MODULE(hk512, m) {
-    m.def("encode", &encode, "Encode a string in hk512");
-    m.def("decode", &decode, "Decode an hk512 string");
+    m.def("encode", &encode, "Encode a string in hk512",
+        py::arg("data"), py::arg("key"));
+    m.def("decode", &decode, "Decode an hk512 string",
+        py::arg("data"), py::arg("key"));
 }
