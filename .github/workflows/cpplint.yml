@@ -14,9 +14,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Create CMakeLists.txt if not exists
+      - name: Create CMakeLists.txt if not present
         run: |
-          # Write a minimal CMakeLists.txt in the repository root
+          # Create a minimal CMakeLists.txt that automatically includes all .cpp files in src/
           cat << 'EOF' > CMakeLists.txt
           cmake_minimum_required(VERSION 3.14)
           project(pyTGM)
@@ -25,17 +25,20 @@ jobs:
           set(CMAKE_CXX_STANDARD 14)
           set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-          # Find required packages
+          # Locate Python3 and pybind11
           find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
           find_package(pybind11 REQUIRED)
 
-          # Define the Python module target (adjust the source path as needed)
-          add_library(pyTGM MODULE src/pyTGM.cpp)
+          # Automatically collect all .cpp files in the src/ directory
+          file(GLOB SRC_FILES src/*.cpp)
 
-          # Link against pybind11 and Python3
+          # Define the Python module target using the collected source files
+          add_library(pyTGM MODULE \${SRC_FILES})
+
+          # Link against pybind11 and Python3 libraries
           target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
 
-          # Set target properties so the module has the correct name and extension
+          # Set properties to output a proper Python extension (.so file without lib prefix)
           set_target_properties(pyTGM PROPERTIES
               PREFIX ""
               SUFFIX ".so")
@@ -44,17 +47,16 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          # Install clang-tidy, Python development headers, pybind11 development files, and cmake.
           sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake
 
       - name: Configure Project and Generate compile_commands.json
         run: |
           mkdir -p build && cd build
-          # Use the repository root as the source directory
+          # Use the repository root as the source directory so CMake finds CMakeLists.txt
           cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 
-      - name: Run clang-tidy
+      - name: Run clang-tidy on all C++ files
         run: |
           cd build
-          # Run clang-tidy on C++ source files found in the repository.
-          clang-tidy -p . $(find .. -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \))
+          # Automatically find all .cpp, .cc, and .cxx files and run clang-tidy on them
+          find .. -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \) | xargs clang-tidy -p .
