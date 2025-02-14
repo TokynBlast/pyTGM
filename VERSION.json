@@ -21,7 +21,7 @@
     "pytgm/terminal/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
     "pytgm/encrypt/b64.py": "1d7924f5951b725fef7e9a954f84b351663dd95f9c4fa45685ca601ac9d73315",
-    "pytgm/encrypt/sha256.py": "b11737b35595b772182f00d5610d470f27c193870f49768beba67a0e591a89c2",
+    "pytgm/encrypt/sha256.py": "6c561602e32b0ac40a3bcb01b9b9ca9c92af6e4216306923b887b15263e68f74",
     "pytgm/sound.cpp": "f7b4f1aa42e4c50ac9ace2752d1cac1682bc17906a17552611a6ab4f1d748cc1",
     "pytgm/terminal/cls.cpp": "9bbbd5cc2e6136bbb2ae5b1bfd41e5afc595b391847053cf4034be7742736fc1",
     "pytgm/terminal/pos.cpp": "9013e858dedbb66f09994b19c4a57aea8f9ee91edb579f4ebd3f6f35417a5f0b",
