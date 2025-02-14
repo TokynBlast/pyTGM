@@ -42,7 +42,7 @@ from .file_mod import fm_line as line, rep as patt #pylint: disable=import-error
 from .sound import psound # pylint: disable= import-error
 
 # Graphics Imports
-from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky, click #pylint:disable=import-error
+from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky #pylint:disable=import-error
 
 # Online Imports
 from .local_server import server, client
