@@ -1,4 +1,4 @@
-name: C++ Lint
+name: clang-tidy
 
 on:
   push:
@@ -14,16 +14,47 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
+      - name: Create CMakeLists.txt if not exists
+        run: |
+          # Write a minimal CMakeLists.txt in the repository root
+          cat << 'EOF' > CMakeLists.txt
+          cmake_minimum_required(VERSION 3.14)
+          project(pyTGM)
+
+          # Set the C++ standard
+          set(CMAKE_CXX_STANDARD 14)
+          set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+          # Find required packages
+          find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+          find_package(pybind11 REQUIRED)
+
+          # Define the Python module target (adjust the source path as needed)
+          add_library(pyTGM MODULE src/pyTGM.cpp)
+
+          # Link against pybind11 and Python3
+          target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
+
+          # Set target properties so the module has the correct name and extension
+          set_target_properties(pyTGM PROPERTIES
+              PREFIX ""
+              SUFFIX ".so")
+          EOF
+
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-tidy python3-dev pybind11-dev
+          # Install clang-tidy, Python development headers, pybind11 development files, and cmake.
+          sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake
 
       - name: Configure Project and Generate compile_commands.json
         run: |
-          mkdir build && cd build
+          mkdir -p build && cd build
+          # Use the repository root as the source directory
           cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 
       - name: Run clang-tidy
         run: |
-          clang-tidy -p build $(find . -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \))
+          cd build
+          # Run clang-tidy on C++ source files found in the repository.
+          clang-tidy -p . $(find .. -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \))
