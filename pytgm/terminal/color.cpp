@@ -1,7 +1,9 @@
 #include <string>
 #include <sstream>
+#include <Python.h>
+#include <pybind11/pybind11.h>
 
-void color(const int r, const int g, const int b) {
+std::string color(const int r, const int g, const int b) {
     std::stringstream ss;
     ss << "\x1b[38;2;" << r << ";" << g << ";" << b << "m";
     return ss.str();
