@@ -15,8 +15,6 @@ It is NOT designed for super secure encryption needs.
 #include <algorithm>
 #include <sstream>
 
-namespace py = pybind11;
-
 #include <string>
 #include <unordered_map>
 
