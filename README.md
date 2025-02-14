@@ -7,8 +7,9 @@
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
-You may need Python3-dev. (Python.h)<br>
-You need Microsoft Visual Studio on Windows.
+You will also need Python.h to build.<br>
+You can get it from python3-dev<br><br>
+On windows, you will need Microsoft Visual Studio.<br>
 When setting up Python, enable these (If applicable):
 - Add Python to PATH
 - Customize installation > Development Tools
