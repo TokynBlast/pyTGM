@@ -26,15 +26,15 @@ class BuildExt(build_ext):
         os_type = sys()
         if os_type == "Windows":
             for ext in self.extensions:
-                ext.extra_compile_args = ["/std:c++latest", "/EHsc", "/bigobj"]
+                ext.extra_compile_args = ["/std:c++17", "/EHsc", "/bigobj"]
                 ext.extra_link_args = ["User32.lib"]
         elif os_type == "Linux":
             for ext in self.extensions:
-                ext.extra_compile_args = ["-std=c++11", "-O3", "-Wall", "-fPIC"]
+                ext.extra_compile_args = ["-std=c++17", "-O3", "-Wall", "-fPIC"]
                 ext.extra_link_args = []
         elif os_type == "Darwin":
             for ext in self.extensions:
-                ext.extra_compile_args = ["-std=c++11", "-O3", "-Wall", "-fPIC"]
+                ext.extra_compile_args = ["-std=c++17", "-O3", "-Wall", "-fPIC"]
                 ext.extra_link_args = []
         else:
             raise RuntimeError(f"Unsupported platform: {os_type}")
@@ -73,7 +73,7 @@ geky = Pybind11Extension(
 setup(
     name='pyTGM',
     version='5.0.0',
-    description='Terminal Game Maker',
+    description='Gamer maker contained in the terminal using C++ and Python',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
                       open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +  # pylint: disable=consider-using-with
                       open('CHANGELOG_NOTES.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with
