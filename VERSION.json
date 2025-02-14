@@ -7,7 +7,7 @@
   "build": 10,
   "bugs": {
     "Windows": {
-      "pytgm/sound.cpp": ".mp3 doesnt play",
+      "pytgm/sound.cpp": ".mp3 doesnt play"
     },
     "Linux": {},
     "macOS": {}
