@@ -14,9 +14,10 @@ It is NOT designed for super secure encryption needs.
 #include <iostream>
 #include <algorithm>
 #include <sstream>
-
 #include <string>
 #include <unordered_map>
+#include <vector>
+#include <numeric>
 
 std::string encode(const std::string& input) {
     const std::string base512_chars =
@@ -48,7 +49,6 @@ std::string encode(const std::string& input) {
     return output;
 }
 
-
 std::mt19937 gen;
 
 std::string decode(const std::string& data, const std::string& key) {
@@ -60,6 +60,35 @@ std::string decode(const std::string& data, const std::string& key) {
         oss << static_cast<char>(octal_value);
     }
     std::string b512_data = oss.str();
+
+    auto b12_reverse = [](const std::string& input) {
+        const std::string base512_chars =
+            "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
+            "↔▓]י5Rµח†₪Ζ/◄1⌂¿•Ꜣ☀Z╤.☺⌐±⊗╦!═♯ß2Ԫ⌂ªEﺎY=§∅↔8♫0ӘФ☼\"Tσ½↕6CL±≥!^≠ﺎ{↓G=∇"
+            "Y<~}Nѧ☼Ϟ۩ۈ↓☠٠Ѵ7÷U∩χΨ1ε3!↔ق4⊗+⊥£↕;=∗⇔1;2ע∴Κ@<α~Θ8<>\"8ִ5٨⊗⬤χ9↔ك↓Ωי◊↔"
+            "◦Ω↔ש⇔Ω⊥↔Φφ۞↔";
+
+        std::string output;
+        uint64_t buffer = 0;  // Accumulated bits
+        int bits_in_buffer = 0;
+
+        for (char c : input) {
+            size_t index = base512_chars.find(c);
+            if (index == std::string::npos) {
+                throw std::invalid_argument("Invalid character in Base512 input");
+            }
+
+            buffer = (buffer << 9) | index; // Add  9 bits
+            bits_in_buffer += 9;
+
+            while (bits_in_buffer >= 8) {
+                output.push_back(static_cast<char>((buffer >> (bits_in_buffer - 8)) & 0xFF)); // Extract 8 bits
+                bits_in_buffer -= 8;
+            }
+        }
+
+        return output;
+    };
 
     // Reverse Base512 to binary
     std::string bin_data = b12_reverse(b512_data);
