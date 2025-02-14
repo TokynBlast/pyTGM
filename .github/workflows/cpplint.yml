@@ -14,51 +14,43 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Create CMakeLists.txt if not present
-        run: |
-          # Write a minimal CMakeLists.txt at the repository root.
-          cat << EOF > CMakeLists.txt
-          cmake_minimum_required(VERSION 3.14)
-          project(pyTGM)
-      
-          set(CMAKE_CXX_STANDARD 14)
-          set(CMAKE_CXX_STANDARD_REQUIRED ON)
-      
-          find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-          find_package(pybind11 REQUIRED)
-      
-          # Recursively glob all C++ source files in the repository.
-          file(GLOB_RECURSE SRC_FILES
-            RELATIVE \${CMAKE_SOURCE_DIR}
-            CONFIGURE_DEPENDS
-            *.cpp
-            *.cc
-            *.cxx
-          )
-      
-          if(NOT SRC_FILES)
-            message(FATAL_ERROR "No C++ source files found!")
-          endif()
-      
-          add_library(pyTGM MODULE \${SRC_FILES})
-          target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
-          set_target_properties(pyTGM PROPERTIES PREFIX "" SUFFIX ".so")
-          EOF
-
-
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake
+          sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake ninja
+
+      - name: Create CMakeLists.txt if not present
+        run: |
+          cat << EOF > CMakeLists.txt
+          cmake_minimum_required(VERSION 3.14)
+          project(pyTGM)
+
+          set(CMAKE_CXX_STANDARD 14)
+          set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+          find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+          find_package(pybind11 REQUIRED)
+
+          # Recursively find all C++ source files
+          file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS *.cpp *.cc *.cxx)
+
+          if(NOT SRC_FILES)
+            message(FATAL_ERROR "No C++ source files found!")
+          endif()
+
+          add_library(pyTGM MODULE \${SRC_FILES})
+          target_include_directories(pyTGM PRIVATE \${pybind11_INCLUDE_DIRS})
+          target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
+
+          set_target_properties(pyTGM PROPERTIES PREFIX "" SUFFIX ".so")
+          EOF
 
       - name: Configure Project and Generate compile_commands.json
         run: |
           mkdir -p build && cd build
-          # Use the repository root as the source directory.
-          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -GNinja ..
 
       - name: Run clang-tidy on all C++ files
         run: |
           cd build
-          # Find all C++ files and run clang-tidy with the compile database.
           find .. -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \) | xargs clang-tidy -p .
