@@ -7,27 +7,53 @@
 #include <pybind11/pybind11.h>
 
 #ifdef _WIN32
-#include <conio.h> // For _getch() on Windows
+#include <windows.h>
 #else
 #include <fcntl.h> // For non-blocking input
 #endif
 
-std::string geky(int times = 1) {
+// Function to read a single character from standard input
+char getch() {
+#ifdef _WIN32
+    // Windows-specific implementation
+    HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+    DWORD mode;
+    GetConsoleMode(hStdin, &mode);
+    SetConsoleMode(hStdin, mode & ~ENABLE_LINE_INPUT & ~ENABLE_ECHO_INPUT);
+    char c;
+    ReadConsoleA(hStdin, &c, 1, nullptr, nullptr);
+    SetConsoleMode(hStdin, mode);
+    return c;
+#else
+    // Unix-like implementation
     struct termios old, newt;
     tcgetattr(STDIN_FILENO, &old);
     newt = old;
     newt.c_lflag &= ~(ICANON | ECHO);
     tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    char c;
+    read(STDIN_FILENO, &c, 1);
+    tcsetattr(STDIN_FILENO, TCSANOW, &old);
+    return c;
+#endif
+}
 
+std::string geky(int times = 1) {
     std::string result;
+    struct termios old, newt;
+
+    // Save the current terminal settings for cleanup
+    if (!isatty(STDIN_FILENO)) {
+        throw std::runtime_error("Standard input is not a terminal.");
+    }
+    tcgetattr(STDIN_FILENO, &old);
+    newt = old;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
     try {
         for (int i = 0; i < times; ++i) {
-            char c;
-#ifdef _WIN32
-            c = _getch(); // Use _getch() on Windows
-#else
-            read(STDIN_FILENO, &c, 1); // Use read() on Unix-like systems
-#endif
+            char c = getch();
             if (c == 27) { // Escape character
                 char seq[2];
                 read(STDIN_FILENO, seq, 2);
@@ -47,10 +73,11 @@ std::string geky(int times = 1) {
             }
         }
     } catch (...) {
-        // Handle any exceptions if necessary
-    } finally {
-        tcsetattr(STDIN_FILENO, TCSANOW, &old);
+        // No known errors yet...
     }
+
+    // Restore terminal settings
+    tcsetattr(STDIN_FILENO, TCSANOW, &old);
     return result;
 }
 
