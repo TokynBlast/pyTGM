@@ -1,5 +1,9 @@
 #include <string>
 #include <sstream>
+#include <pybind11/pybind11.h>
+#include <Python.h>
+
+namespace py = pybind11;
 
 std::string pos(const int x, const int y) -> std::string {
     std::stringstream ss;
