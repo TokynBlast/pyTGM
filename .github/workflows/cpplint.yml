@@ -16,33 +16,35 @@ jobs:
 
       - name: Create CMakeLists.txt if not present
         run: |
-          # Create a minimal CMakeLists.txt that automatically includes all .cpp files in src/
+          # Write a minimal CMakeLists.txt at the repository root.
+          # Ensure that no extra indentation is added.
           cat << 'EOF' > CMakeLists.txt
-          cmake_minimum_required(VERSION 3.14)
-          project(pyTGM)
+cmake_minimum_required(VERSION 3.14)
+project(pyTGM)
 
-          # Set the C++ standard
-          set(CMAKE_CXX_STANDARD 14)
-          set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-          # Locate Python3 and pybind11
-          find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-          find_package(pybind11 REQUIRED)
+find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+find_package(pybind11 REQUIRED)
 
-          # Automatically collect all .cpp files in the src/ directory
-          file(GLOB SRC_FILES src/*.cpp)
+# Recursively glob all C++ source files in the repository.
+file(GLOB_RECURSE SRC_FILES
+  RELATIVE ${CMAKE_SOURCE_DIR}
+  CONFIGURE_DEPENDS
+  *.cpp
+  *.cc
+  *.cxx
+)
 
-          # Define the Python module target using the collected source files
-          add_library(pyTGM MODULE \${SRC_FILES})
+if(NOT SRC_FILES)
+  message(FATAL_ERROR "No C++ source files found!")
+endif()
 
-          # Link against pybind11 and Python3 libraries
-          target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
-
-          # Set properties to output a proper Python extension (.so file without lib prefix)
-          set_target_properties(pyTGM PROPERTIES
-              PREFIX ""
-              SUFFIX ".so")
-          EOF
+add_library(pyTGM MODULE ${SRC_FILES})
+target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
+set_target_properties(pyTGM PROPERTIES PREFIX "" SUFFIX ".so")
+EOF
 
       - name: Install Dependencies
         run: |
@@ -52,11 +54,11 @@ jobs:
       - name: Configure Project and Generate compile_commands.json
         run: |
           mkdir -p build && cd build
-          # Use the repository root as the source directory so CMake finds CMakeLists.txt
+          # Use the repository root as the source directory.
           cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 
       - name: Run clang-tidy on all C++ files
         run: |
           cd build
-          # Automatically find all .cpp, .cc, and .cxx files and run clang-tidy on them
+          # Find all C++ files and run clang-tidy with the compile database.
           find .. -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \) | xargs clang-tidy -p .
