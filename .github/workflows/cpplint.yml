@@ -17,34 +17,34 @@ jobs:
       - name: Create CMakeLists.txt if not present
         run: |
           # Write a minimal CMakeLists.txt at the repository root.
-          # Ensure that no extra indentation is added.
-          cat << 'EOF' > CMakeLists.txt
-cmake_minimum_required(VERSION 3.14)
-project(pyTGM)
+          cat << EOF > CMakeLists.txt
+          cmake_minimum_required(VERSION 3.14)
+          project(pyTGM)
+      
+          set(CMAKE_CXX_STANDARD 14)
+          set(CMAKE_CXX_STANDARD_REQUIRED ON)
+      
+          find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+          find_package(pybind11 REQUIRED)
+      
+          # Recursively glob all C++ source files in the repository.
+          file(GLOB_RECURSE SRC_FILES
+            RELATIVE \${CMAKE_SOURCE_DIR}
+            CONFIGURE_DEPENDS
+            *.cpp
+            *.cc
+            *.cxx
+          )
+      
+          if(NOT SRC_FILES)
+            message(FATAL_ERROR "No C++ source files found!")
+          endif()
+      
+          add_library(pyTGM MODULE \${SRC_FILES})
+          target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
+          set_target_properties(pyTGM PROPERTIES PREFIX "" SUFFIX ".so")
+          EOF
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-find_package(pybind11 REQUIRED)
-
-# Recursively glob all C++ source files in the repository.
-file(GLOB_RECURSE SRC_FILES
-  RELATIVE ${CMAKE_SOURCE_DIR}
-  CONFIGURE_DEPENDS
-  *.cpp
-  *.cc
-  *.cxx
-)
-
-if(NOT SRC_FILES)
-  message(FATAL_ERROR "No C++ source files found!")
-endif()
-
-add_library(pyTGM MODULE ${SRC_FILES})
-target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
-set_target_properties(pyTGM PROPERTIES PREFIX "" SUFFIX ".so")
-EOF
 
       - name: Install Dependencies
         run: |
