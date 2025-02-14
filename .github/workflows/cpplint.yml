@@ -24,13 +24,14 @@ jobs:
 
     - name: Install Dependencies
       run: |
+        export DEBIAN_FRONTEND=noninteractive
+        echo 'tzdata tzdata/Areas select America' | debconf-set-selections
+        echo 'tzdata tzdata/Zones/America select Los_Angeles' | debconf-set-selections
         apt-get update
-        apt-get install -y software-properties-common
-        add-apt-repository ppa:deadsnakes/ppa
-        apt-get update
-        apt-get install -y python3.11 python3.11-dev clang-tidy
+        apt-get install -y tzdata python3.11-dev clang-tidy libpython3.11-dev
         python3.11 -m pip install --upgrade pip
         python3.11 -m pip install pybind11
+
 
 
     - name: Run clang-tidy
