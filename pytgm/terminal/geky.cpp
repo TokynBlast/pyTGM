@@ -12,76 +12,58 @@
 #include <fcntl.h>
 #endif
 
-// Function to read a single character from standard input
-char geky() {
-#ifdef _WIN32
-    return _getch();
-#else
-    struct termios oldt, newt;
-    tcgetattr(STDIN_FILENO, &oldt);
-    newt = oldt;
-    newt.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-    char c;
-    read(STDIN_FILENO, &c, 1);
-    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-    return c;
-#endif
-}
-
 std::string geky(int times = 1) {
     std::string result;
 
 #ifdef _WIN32
+    // Windows-specific key reading
     for (int i = 0; i < times; ++i) {
-        char c = getch();
-        if (c == 0 || c == -32) { // Handle special keys in Windows
-            c = getch();
+        char c = _getch();  // Read a single character
+        if (c == 0 || c == -32) {  // Handle special keys
+            c = _getch();  // Read the special key code
             switch (c) {
-                case 72: return "ArrowUp";
-                case 80: return "ArrowDown";
-                case 75: return "ArrowLeft";
-                case 77: return "ArrowRight";
+                case 72: result = "ArrowUp"; break;
+                case 80: result = "ArrowDown"; break;
+                case 75: result = "ArrowLeft"; break;
+                case 77: result = "ArrowRight"; break;
             }
+        } else {
+            result = c;  // Regular character
         }
-        return std::string(1, c);
     }
 #else
-    struct termios old, newt;
-    if (!isatty(STDIN_FILENO)) {
-        throw std::runtime_error("Standard input is not a terminal.");
-    }
-    tcgetattr(STDIN_FILENO, &old);
-    newt = old;
-    newt.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-    
-    try {
-        for (int i = 0; i < times; ++i) {
-            char c = getch();
-            if (c == 27) { // Handle arrow keys
-                char seq[2];
-                read(STDIN_FILENO, seq, 2);
-                if (seq[0] == '[') {
-                    switch (seq[1]) {
-                        case 'A': return "ArrowUp";
-                        case 'B': return "ArrowDown";
-                        case 'C': return "ArrowRight";
-                        case 'D': return "ArrowLeft";
-                    }
+    // Unix-like (Linux/macOS) key reading
+    for (int i = 0; i < times; ++i) {
+        struct termios oldt, newt;
+        tcgetattr(STDIN_FILENO, &oldt);
+        newt = oldt;
+        newt.c_lflag &= ~(ICANON | ECHO);  // Disable canonical mode and echo
+        tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+        char c;
+        read(STDIN_FILENO, &c, 1);
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+
+        if (c == 27) {  // Handle escape sequence for arrow keys
+            char seq[2];
+            read(STDIN_FILENO, seq, 2);
+            if (seq[0] == '[') {
+                switch (seq[1]) {
+                    case 'A': result = "ArrowUp"; break;
+                    case 'B': result = "ArrowDown"; break;
+                    case 'C': result = "ArrowRight"; break;
+                    case 'D': result = "ArrowLeft"; break;
                 }
-            } else {
-                return std::string(1, c);
             }
+        } else {
+            result += c;  // Regular character
         }
-    } catch (...) {}
-    
-    tcsetattr(STDIN_FILENO, TCSANOW, &old);
+    }
 #endif
+
     return result;
 }
 
 PYBIND11_MODULE(geky, m) {
     m.doc() = "Gets a single key input from the keyboard, a determinate number of times";
-    m.def("geky", &geky, "Gets a single key input", pybind11::arg("times"));
+    m.def("geky", &geky, "Gets a single key input", pybind11::arg("times") = 1);  // Default value for `times` is 1
 }
