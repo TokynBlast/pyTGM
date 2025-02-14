@@ -23,18 +23,40 @@ namespace py = pybind11;
 // Declaration of the random number generator
 std::mt19937 gen;
 
-std::string encode(const std::string& input) {
+std::string encode(const std::string& input, const std::string& key) {
     const std::string base512_chars =
         "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
         "↔▓]י5Rµח†₪Ζ/◄1⌂¿•Ꜣ☀Z╤.☺⌐±⊗╦!═♯ß2Ԫ⌂ªEﺎY=§∅↔8♫0ӘФ☼\"Tσ½↕6CL±≥!^≠ﺎ{↓G=∇"
         "Y<~}Nѧ☼Ϟ۩ۈ↓☠٠Ѵ7÷U∩χΨ1ε3!↔ق4⊗+⊥£↕;=∗⇔1;2ע∴Κ@<α~Θ8<>\"8ִ5٨⊗⬤χ9↔ك↓Ωי◊↔"
         "◦Ω↔ש⇔Ω⊥↔Φφ۞↔";
 
+    // Shuffle the input using the key
+    std::vector<size_t> indices(input.size());
+    std::iota(indices.begin(), indices.end(), 0);
+
+    // Seed the random number generator before shuffling
+    gen.seed(std::hash<std::string>{}(key));
+
+    std::shuffle(indices.begin(), indices.end(), gen);
+
+    std::string shuffled_input(input.size(), '\0');
+    for (size_t i = 0; i < indices.size(); ++i) {
+        shuffled_input[indices[i]] = input[i];
+    }
+
+    // Apply key-based transformation
+    std::string transformed_input = shuffled_input;
+    for (size_t i = 0; i < transformed_input.length(); ++i) {
+        transformed_input[i] = static_cast<char>(
+            (static_cast<int>(transformed_input[i]) + static_cast<int>(key[i % key.length()])) % 256);
+    }
+
+    // Encode the transformed input
     std::string output;
     uint64_t buffer = 0;  // Accumulated bits
     int bits_in_buffer = 0;
 
-    for (unsigned char c : input) {
+    for (unsigned char c : transformed_input) {
         buffer = (buffer << 8) | c; // Add 8 bits
         bits_in_buffer += 8;
 
