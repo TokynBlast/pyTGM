@@ -82,6 +82,6 @@ std::string geky(int times = 1) {
 }
 
 PYBIND11_MODULE(geky, m) {
-    m.doc() = "Gets a single key input";
+    m.doc() = "Gets a single key input from the keyboard, a determinate number of times";
     m.def("geky", &geky, "Gets a single key input", pybind11::arg("times"));
 }
