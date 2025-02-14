@@ -18,21 +18,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
-
-    - name: Install Dependencies
+    - name: Set Non-Interactive Mode
       run: |
         export DEBIAN_FRONTEND=noninteractive
         echo 'tzdata tzdata/Areas select America' | debconf-set-selections
         echo 'tzdata tzdata/Zones/America select Los_Angeles' | debconf-set-selections
+
+    - name: Install Dependencies
+      run: |
         apt-get update
-        apt-get install -y tzdata python3.11-dev clang-tidy libpython3.11-dev
-        python3.11 -m pip install --upgrade pip
-        python3.11 -m pip install pybind11
-
-
+        apt-get install -y tzdata python3.10 python3.10-dev clang-tidy libpython3.10-dev
+        python3.10 -m pip install --upgrade pip
+        python3.10 -m pip install pybind11
 
     - name: Run clang-tidy
       run: |
