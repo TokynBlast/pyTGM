@@ -1,10 +1,10 @@
+#include <pybind11/pybind11.h>
 #include <iostream>
 #include <string>
 #include <stdexcept>
 #include <termios.h>
 #include <unistd.h>
-#include <Python.h>
-#include <pybind11/pybind11.h>
+
 
 #ifdef _WIN32
 #include <windows.h>

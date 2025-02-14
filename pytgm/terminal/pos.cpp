@@ -1,7 +1,7 @@
+#include <pybind11/pybind11.h>
 #include <string>
 #include <sstream>
-#include <Python.h>
-#include <pybind11/pybind11.h>
+
 
 auto pos(const int x, const int y) -> std::string {
     std::stringstream ss;
