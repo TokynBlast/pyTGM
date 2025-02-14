@@ -141,7 +141,7 @@ std::string decode(const std::string& data, const std::string& key) {
 }
 
 PYBIND11_MODULE(hk512, m) {
-    m.doc("Used to encrypt things into an hk512 number");
+    m.doc() = "Used to encrypt things into an hk512 number";
     m.def("encode", &encode, "Encode data hk512",
         py::arg("data"), py::arg("key"));
     m.def("decode", &decode, "Decode an hk512 string",
