@@ -18,7 +18,7 @@ It is NOT designed for super secure encryption needs.
 #include <vector>
 #include <numeric>
 
-namespace py = pybind11
+namespace py = pybind11;
 
 std::string encode(const std::string& input) {
     const std::string base512_chars =
