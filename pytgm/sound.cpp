@@ -23,6 +23,8 @@
 
 #include <pybind11/pybind11.h>
 
+namespace py = pybind11;
+
 void psound(const char* filename) {
     #if defined(WIN)
         PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC);
