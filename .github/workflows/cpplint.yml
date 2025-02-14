@@ -3,7 +3,7 @@ name: C++ Lint
 on:
   push:
     paths:
-      - '*.cpp'
+      - pytgm/**/*.cpp
       - .github/workflows/cpplint.yml
     branches:
       - main
