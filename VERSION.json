@@ -30,6 +30,6 @@
     "pytgm/encrypt/hk512.cpp": "b40574fdb37ab083200cfddca68492d7274167c8a89897971c4bf79808317edf",
     "pytgm/terminal/geky.cpp": "e8293ffb610053cbb191d24054f8c1676e798963eb23d0ddd677df90b4e53556",
     "pytgm/pattern/rect.py": "df9253c16e1ff881be4c1e542092da0e1242b98035864ca819d2cb9b0388b630",
-    "pytgm/pattern/__init__.py": "30b44ec6edd9ec42a17355dc44d5b4355221ada12442b6df704bf253d37dff9a"
+    "pytgm/pattern/__init__.py": "c7bc31e9571c038e1eb27a435e7c688de95f283432c15b80155689ec847f79a3"
   }
 }
