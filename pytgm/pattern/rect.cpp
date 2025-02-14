@@ -3,7 +3,7 @@
 #include <iostream>
 #include <algorithm>
 
-namespace py = pybind11
+namespace py = pybind11;
 
 void rect(int width, int height, int time=1, const char* char=" ") {
     int total_steps = (height * (height + 1)) / 2 + (height * (height - 1)) / 2 + (std::max(width - height, 0) * height);
