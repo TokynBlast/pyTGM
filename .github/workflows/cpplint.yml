@@ -2,42 +2,28 @@ name: C++ Lint
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - pytgm/**
-      - .github/workflows/cpplint.yml
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
+  clang-tidy:
     runs-on: ubuntu-latest
-    container:
-      image: ubuntu:22.04
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Set Non-Interactive Mode and Preconfigure tzdata
-      run: |
-        export DEBIAN_FRONTEND=noninteractive
-        echo 'tzdata tzdata/Areas select America' | debconf-set-selections
-        echo 'tzdata tzdata/Zones/America select Los_Angeles' | debconf-set-selections
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-tidy python3-dev pybind11-dev
 
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.10
+      - name: Configure Project and Generate compile_commands.json
+        run: |
+          mkdir build && cd build
+          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 
-    - name: Install Dependencies
-      run: |
-        apt-get update
-        apt-get install -y tzdata python3.10-dev python3-pip clang-tidy libpython3.10-dev
-        # Confirm pip is available
-        python3.10 -m pip --version
-        python3.10 -m pip install --upgrade pip
-        python3.10 -m pip install pybind11
-
-    - name: Run clang-tidy
-      run: |
-        clang-tidy $(find . -name '*.cpp') --header-filter=.*/Python\.h$
+      - name: Run clang-tidy
+        run: |
+          clang-tidy -p build $(find . -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \))
