@@ -16,6 +16,7 @@ All versions before 4.0.0 had been lost in an accidental delete.
 - Changed file.fm_line to line
 - Changed file.rep to file.patt
 - Added pattern
+- Multiple bug fixes
 
 4.1.2 (January 6, 2025)
 -------------------------

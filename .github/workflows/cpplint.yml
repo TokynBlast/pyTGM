@@ -1,36 +1,57 @@
-name: C++ Lint
+name: clang-tidy
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - pytgm/**
-      - .github/workflows/cpplint.yml
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
+  clang-tidy:
     runs-on: ubuntu-latest
-    container:
-     image: python:3.11
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: 3-dev
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake ninja-build
 
-    - name: Install Dependencies
-      run: |
-        apt-get update
-        python -m pip install --upgrade pip
-        apt-get install -y clang-tidy
-        python -m pip install pybind11
-        apt-get install -y python3.11-dev
-        apt-get install -y libpython3.11-dev
 
-    - name: Run clang-tidy
-      run: |
-        clang-tidy $(find . -name '*.cpp') --header-filter=.*/Python\.h$
+      - name: Create CMakeLists.txt if not present
+        run: |
+          cat << EOF > CMakeLists.txt
+          cmake_minimum_required(VERSION 3.14)
+          project(pyTGM)
+
+          set(CMAKE_CXX_STANDARD 14)
+          set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+          find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+          find_package(pybind11 REQUIRED)
+
+          # Recursively find all C++ source files
+          file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS *.cpp *.cc *.cxx)
+
+          if(NOT SRC_FILES)
+            message(FATAL_ERROR "No C++ source files found!")
+          endif()
+
+          add_library(pyTGM MODULE \${SRC_FILES})
+          target_include_directories(pyTGM PRIVATE \${pybind11_INCLUDE_DIRS})
+          target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
+
+          set_target_properties(pyTGM PROPERTIES PREFIX "" SUFFIX ".so")
+          EOF
+
+      - name: Configure Project and Generate compile_commands.json
+        run: |
+          mkdir -p build && cd build
+          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -GNinja ..
+
+      - name: Run clang-tidy on all C++ files
+        run: |
+          cd build
+          find .. -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \) | xargs clang-tidy -p .
