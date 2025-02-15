@@ -5,7 +5,7 @@
 
 namespace py = pybind11;
 
-void rect(int width, int height, int time=1, const char* char=" ") {
+void rect(int width, int height, int time=1, const char* character=" ") {
     int total_steps = (height * (height + 1)) / 2 + (height * (height - 1)) / 2 + (std::max(width - height, 0) * height);
 
     for (int i = 0; i < height; ++i) {
@@ -20,5 +20,5 @@ void rect(int width, int height, int time=1, const char* char=" ") {
 PYBIND11_MODULE(rect, m) {
     m.doc() = "Clears the screen, by printing out a specific char, to make a clearing animation";
     m.def("rect", &rect, "Prints out a rect of a specified size, in an animated form",
-        py::arg("width"), py::arg("height"), py::arg("time")=1, py::arg("char")=" ");
+        py::arg("width"), py::arg("height"), py::arg("time")=1, py::arg("character")=" ");
 }
