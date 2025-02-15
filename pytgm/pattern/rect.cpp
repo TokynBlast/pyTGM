@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-#include <threads>
 #include <chrono>
 
 namespace py = pybind11;
