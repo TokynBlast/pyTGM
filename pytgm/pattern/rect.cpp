@@ -9,9 +9,9 @@ void rect(int width, int height, int time=1, const char* char=" ") {
     int total_steps = (height * (height + 1)) / 2 + (height * (height - 1)) / 2 + (std::max(width - height, 0) * height);
 
     for (int i = 0; i < height; ++i) {
-        line_length = std::min(++i, width);
+        int line_length = std::min(++i, width);
         for (int j = 0; j < line_length; ++j) {
-            std::cout << "\x1b[" << (j + 1) << ";" << (i-j+1) << "H" << char;
+            std::cout << "\x1b[" << (j + 1) << ";" << (i-j+1) << "H" << char << std::end;
         }
 
     }
