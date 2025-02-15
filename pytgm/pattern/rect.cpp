@@ -13,7 +13,7 @@ void rect(int width, int height, int time=100, const char* character=" ") {
         int line_length = std::min(++i, width);
         for (int j = 0; j < line_length; ++j) {
             std::cout << "\x1b[" << (j + 1) << ";" << (i-j+1) << "H" << character;
-            std::chrono::milliseconds(time);
+            std::chrono::milliseconds ms(time);
         }
 
     }
