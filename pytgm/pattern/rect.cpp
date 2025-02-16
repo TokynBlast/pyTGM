@@ -8,7 +8,7 @@ namespace py = pybind11;
 
 void rect(int width, int height, int time=100, const char* character=" ") {
     int tot_steps = (height * (height + 1)) / 2 + (height * (height - 1)) / 2 + (std::max(width - height, 0) * height);
-    tot_time = time / tot_steps
+    int tot_time = time / tot_steps
 
     for (int i = 0; i < height; ++i) {
         int line_length = std::min(++i, width);
