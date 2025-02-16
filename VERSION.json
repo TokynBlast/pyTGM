@@ -19,7 +19,7 @@
     "pytgm/file_mod.py": "f0cef65965a2db299f49992d8ee55e9b36c73a964d44f7fe7e307c18537e2490",
     "pytgm/encrypt/hk512.cpp": "a1bf005d284b3c60519a6375a1493d6937460e473d49a24884231477665ba24d",
     "pytgm/terminal/geky.cpp": "c6250fcc37b0967e05cbd991654bc40036d5137b9d12cb2357c2e463fcc70cea",
-    "pytgm/pattern/__init__.py": "6d83f4da3c591d4eed6b65c8d958390a7a9a98dc860c77dc94b9e655f97da7e0",
+    "pytgm/pattern/__init__.py": "7ed5ecbaaff345df6768ddafe9b5c45f5a4096b5777e439b44b8f82b12aeb89a",
     "pytgm/pattern/rect.cpp": "622bdd66a62e5d6d6483de4c572f5f32bf01a0cabf57e9a1e910491784e08b47",
     "pytgm/sound.cpp": "f7b4f1aa42e4c50ac9ace2752d1cac1682bc17906a17552611a6ab4f1d748cc1"
   }
