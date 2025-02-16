@@ -16,7 +16,7 @@ It is NOT designed for super secure encryption needs.
 
 namespace py = pybind11;
 
-std::mt19937 gen;
+std::mt19937 gen();
 
 const std::string base512_chars =
     "░↕&∑~MCT#♦╕4(ρ@¾*>≠▀[{K+5♫£\\6]>7♪؛⅛9`%♠ڦO:3S♦]ژ♣╫⊕*O(◦G₸}◙↓±X╝9☻▒:"
