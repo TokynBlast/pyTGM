@@ -12,6 +12,7 @@ It is NOT designed for super secure encryption needs.
 #include <vector>
 #include <unordered_map>
 #include <numeric>
+#include <algorithm>
 
 namespace py = pybind11;
 
