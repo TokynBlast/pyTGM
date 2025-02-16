@@ -27,7 +27,7 @@ void rect(int width, int height, int time=100, const char* character=" ") {
 
     for (int i = 0; i < height; ++i) {
         for (int j = i; j < height; ++j) {
-            std::cout << "\x1b[" << (j + 1) << ";" << (width - (j - i)) << "H" << character
+            std::cout << "\x1b[" << (j + 1) << ";" << (width - (j - i)) << "H" << character;
         }
     }
 }
