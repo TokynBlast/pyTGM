@@ -5,13 +5,6 @@
   "min_py_req": 3.13,
   "min_cpp_req": "C++17",
   "build": 11,
-  "bugs": {
-    "Windows": {
-      "pytgm/sound.cpp": ".mp3 doesnt play"
-    },
-    "Linux": {},
-    "macOS": {}
-  },
   "hashes": {
     "pytgm/terminal/__init__.py": "964a60b5ddcfa2d861fc0978591bd1531399c51b3674e0d0142fc04f02fd521f",
     "pytgm/encrypt/__init__.py": "d45a25c870dd356d71bd1b3a0c7e62842f025c2c199c6698b3d2269f362523e0",
@@ -27,6 +20,6 @@
     "pytgm/encrypt/hk512.cpp": "a1bf005d284b3c60519a6375a1493d6937460e473d49a24884231477665ba24d",
     "pytgm/terminal/geky.cpp": "c6250fcc37b0967e05cbd991654bc40036d5137b9d12cb2357c2e463fcc70cea",
     "pytgm/pattern/__init__.py": "8c3c3df4835801a5f0a08c8c3723828a33309b7b0f9d1bb7f30b2ad4b232c0e5",
-    "pytgm/pattern/rect.cpp": "cf01dbc62172202b1e5b27303f255e43b5b5df6fc8ccb4e61b18f78c2fb7cad5"
+    "pytgm/pattern/rect.cpp": "44bebac5030c6b4b5397c7ad9d1f4491142bd6198a77d33be638a7b50c8992d5"
   }
 }
