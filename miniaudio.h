@@ -26,14 +26,14 @@ extern "C" {
 
 #if defined(_MSC_VER) && !defined(__clang__)
     #pragma warning(push)
-    #pragma warning(disable:4201)   /* nonstandard extension used: nameless struct/union */
-    #pragma warning(disable:4214)   /* nonstandard extension used: bit field types other than int */
-    #pragma warning(disable:4324)   /* structure was padded due to alignment specifier */
+    #pragma warning(disable:4201)   // nonstandard extension used: nameless struct/union 
+    #pragma warning(disable:4214)   // nonstandard extension used: bit field types other than int 
+    #pragma warning(disable:4324)   // structure was padded due to alignment specifier
 #elif defined(__clang__) || (defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8)))
     #pragma GCC diagnostic push
-    #pragma GCC diagnostic ignored "-Wpedantic" /* For ISO C99 doesn't support unnamed structs/unions [-Wpedantic] */
+    #pragma GCC diagnostic ignored "-Wpedantic" //  For ISO C99 doesn't support unnamed structs/unions [-Wpedantic]
     #if defined(__clang__)
-        #pragma GCC diagnostic ignored "-Wc11-extensions"   /* anonymous unions are a C11 extension */
+        #pragma GCC diagnostic ignored "-Wc11-extensions"   // anonymous unions are a C11 extension
     #endif
 #endif
 
@@ -45,9 +45,9 @@ extern "C" {
     #define MA_SIZEOF_PTR   4
 #endif
 
-#include <stddef.h> /* For size_t. */
+#include <stddef.h> // For size_t
 
-/* Sized types. */
+// Sized types.
 #if defined(MA_USE_STDINT)
     #include <stdint.h>
     typedef int8_t   ma_int8;
@@ -82,7 +82,7 @@ extern "C" {
             #pragma GCC diagnostic pop
         #endif
     #endif
-#endif  /* MA_USE_STDINT */
+#endif  // MA_USE_STDINT
 
 #if MA_SIZEOF_PTR == 8
     typedef ma_uint64           ma_uintptr;
@@ -95,19 +95,13 @@ typedef ma_uint32   ma_bool32;
 #define MA_TRUE     1
 #define MA_FALSE    0
 
-/* These float types are not used universally by miniaudio. It's to simplify some macro expansion for atomic types. */
+// These float types are not used universally by miniaudio. It's to simplify some macro expansion for atomic types.
 typedef float       ma_float;
 typedef double      ma_double;
 
 typedef void* ma_handle;
 typedef void* ma_ptr;
 
-/*
-ma_proc is annoying because when compiling with GCC we get pendantic warnings about converting
-between `void*` and `void (*)()`. We can't use `void (*)()` with MSVC however, because we'll get
-warning C4191 about "type cast between incompatible function types". To work around this I'm going
-to use a different data type depending on the compiler.
-*/
 #if defined(__GNUC__)
 typedef void (*ma_proc)(void);
 #else
