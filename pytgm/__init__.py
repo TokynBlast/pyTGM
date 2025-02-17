@@ -8,9 +8,6 @@ It imports and exposes various modules and functionalities for:
 """
 
 __all__ = [
-    'file_mod',
-    'patt','line',
-
     'local_server',
     'server', 'client',
 
@@ -34,9 +31,6 @@ __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
 from pytgm import encrypt, file_mod, sound, terminal, local_server, pattern #pylint: disable=import-self
-
-# File Imports
-from .file_mod import fm_line as line, rep as patt #pylint: disable=import-error
 
 # Sound Imports
 from .sound import psound # pylint: disable= import-error

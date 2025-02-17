@@ -44,12 +44,6 @@ They can be combined with the library, to make the game even more powerful.
 
 # Features
 
-## File Operations
-```python
-file.line(name, line, text)           # Modify a single line of a file
-file.patt(name, pattern, replacement)     # Replace a pattern of text in a file
-```
-
 ## Terminal
 ```python
 # Clear screen
@@ -69,6 +63,9 @@ terminal.pos()
 
 # Keyboard Press Detection
 terminal.geky(times)
+
+# Systematically print a rect
+rect(width, height, time=3, character=" ")
 ```
 
 
