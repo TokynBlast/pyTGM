@@ -1,3 +1,4 @@
 # Languages used
 *.py linguist-language=Python
 *.cpp linguist-language=C++
+miniaudio.h -diff
