@@ -70,6 +70,12 @@ geky = Pybind11Extension(
     language="c++",
 )
 
+rect = Pybind11Extension(
+    name="pytgm.rect",
+    sources=["pytgm/pattern/rect.cpp"],
+    language="c++",
+)
+
 setup(
     name='pyTGM',
     version='5.0.0',
