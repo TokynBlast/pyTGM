@@ -55,7 +55,6 @@ All versions before 4.0.0 had been lost in an accidental delete.
 - Added __init__.py for an entry point
 - Moved __all__ and links to __init__.py
 - Made functions satic methods
-- Changed how random works
 - Updated LocalServer error message
 - Added a To_send variable to LocalServer
 - Removed autoplay from frequency
