@@ -65,7 +65,7 @@ terminal.UNDERLINE
 terminal.pos()
 
 # Keyboard Press Detection
-terminal.geky(times)
+terminal.geky(times=1)
 
 # Systematically print a rect
 rect(width, height, time=3, character=" ")
