@@ -31,7 +31,8 @@ with utilities for encryption, markup, mouse input, and much more.
 
 ## Bugs and Features
 To report a bug, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
-For feature request, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)
+For feature request, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)<br>
+You can also use bug report, to report a compile warning!
 
 ## Contributing
 All contributions are greatly appreciated.<br>
