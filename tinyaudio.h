@@ -2834,30 +2834,9 @@ This section contains the APIs for device playback and capture. Here is where yo
         #define MA_SUPPORT_DSOUND
         #define MA_SUPPORT_WINMM
 
-        /* Don't enable JACK here if compiling with Cosmopolitan. It'll be enabled in the Linux section below. */
         #if !defined(__COSMOPOLITAN__)
             #define MA_SUPPORT_JACK    /* JACK is technically supported on Windows, but I don't know how many people use it in practice... */
         #endif
-    #endif
-#endif
-#if defined(MA_UNIX) && !defined(MA_ORBIS) && !defined(MA_PROSPERO)
-    #if defined(MA_LINUX)
-        #if !defined(MA_ANDROID) && !defined(__COSMOPOLITAN__)   /* ALSA is not supported on Android. */
-            #define MA_SUPPORT_ALSA
-        #endif
-    #endif
-    #if !defined(MA_BSD) && !defined(MA_ANDROID) && !defined(MA_EMSCRIPTEN)
-        #define MA_SUPPORT_PULSEAUDIO
-        #define MA_SUPPORT_JACK
-    #endif
-    #if defined(__OpenBSD__)        /* <-- Change this to "#if defined(MA_BSD)" to enable sndio on all BSD flavors. */
-        #define MA_SUPPORT_SNDIO    /* sndio is only supported on OpenBSD for now. May be expanded later if there's demand. */
-    #endif
-    #if defined(__NetBSD__) || defined(__OpenBSD__)
-        #define MA_SUPPORT_AUDIO4   /* Only support audio(4) on platforms with known support. */
-    #endif
-    #if defined(__FreeBSD__) || defined(__DragonFly__)
-        #define MA_SUPPORT_OSS      /* Only support OSS on specific platforms with known support. */
     #endif
 #endif
 #if defined(MA_ANDROID)
@@ -3933,26 +3912,7 @@ struct ma_context
             ma_device_job_thread jobThread; /* For processing operations outside of the error callback, specifically device disconnections and rerouting. */
         } aaudio;
 #endif
-#ifdef MA_SUPPORT_OPENSL
-        struct
-        {
-            ma_handle libOpenSLES;
-            ma_handle SL_IID_ENGINE;
-            ma_handle SL_IID_AUDIOIODEVICECAPABILITIES;
-            ma_handle SL_IID_ANDROIDSIMPLEBUFFERQUEUE;
-            ma_handle SL_IID_RECORD;
-            ma_handle SL_IID_PLAY;
-            ma_handle SL_IID_OUTPUTMIX;
-            ma_handle SL_IID_ANDROIDCONFIGURATION;
-            ma_proc   slCreateEngine;
-        } opensl;
-#endif
-#ifdef MA_SUPPORT_WEBAUDIO
-        struct
-        {
-            int _unused;
-        } webaudio;
-#endif
+
 #ifdef MA_SUPPORT_NULL
         struct
         {
