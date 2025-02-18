@@ -76,7 +76,10 @@ rect(width, height, time=3, character=" ")
 Works across Windows, macOS, and Linux:
 ```python
 # Play audio file
-sound('../sounds/mysound.mp3')
+sound.play('../sounds/mysound.mp3')
+
+# Stop audio file
+sound.stop('../sound/mysound.wav')
 ```
 Currently, sound only plays mp3 and wav.
 
