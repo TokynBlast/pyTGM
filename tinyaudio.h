@@ -6017,13 +6017,8 @@ This is for preventing greying out of the implementation section.
 #define MINIAUDIO_IMPLEMENTATION
 #endif
 
-/************************************************************************************************************************************************************
-*************************************************************************************************************************************************************
+// IMPLEMENTATION
 
-IMPLEMENTATION
-
-*************************************************************************************************************************************************************
-************************************************************************************************************************************************************/
 #if defined(MINIAUDIO_IMPLEMENTATION) || defined(MA_IMPLEMENTATION)
 #ifndef miniaudio_c
 #define miniaudio_c
@@ -27798,109 +27793,6 @@ static ma_result ma_context_get_device_info__coreaudio(ma_context* pContext, ma_
             ma_free(pStreamDescriptions, &pContext->allocationCallbacks);
         }
     }
-#else
-    /* Mobile */
-    {
-        AudioComponentDescription desc;
-        AudioComponent component;
-        AudioUnit audioUnit;
-        OSStatus status;
-        AudioUnitScope formatScope;
-        AudioUnitElement formatElement;
-        AudioStreamBasicDescription bestFormat;
-        UInt32 propSize;
-
-        /* We want to ensure we use a consistent device name to device enumeration. */
-        if (pDeviceID != NULL && pDeviceID->coreaudio[0] != '\0') {
-            ma_bool32 found = MA_FALSE;
-            if (deviceType == ma_device_type_playback) {
-                NSArray *pOutputs = [[[AVAudioSession sharedInstance] currentRoute] outputs];
-                for (AVAudioSessionPortDescription* pPortDesc in pOutputs) {
-                    if (strcmp(pDeviceID->coreaudio, [pPortDesc.UID UTF8String]) == 0) {
-                        ma_AVAudioSessionPortDescription_to_device_info(pPortDesc, pDeviceInfo);
-                        found = MA_TRUE;
-                        break;
-                    }
-                }
-            } else {
-                NSArray *pInputs = [[[AVAudioSession sharedInstance] currentRoute] inputs];
-                for (AVAudioSessionPortDescription* pPortDesc in pInputs) {
-                    if (strcmp(pDeviceID->coreaudio, [pPortDesc.UID UTF8String]) == 0) {
-                        ma_AVAudioSessionPortDescription_to_device_info(pPortDesc, pDeviceInfo);
-                        found = MA_TRUE;
-                        break;
-                    }
-                }
-            }
-
-            if (!found) {
-                return MA_DOES_NOT_EXIST;
-            }
-        } else {
-            if (deviceType == ma_device_type_playback) {
-                ma_strncpy_s(pDeviceInfo->name, sizeof(pDeviceInfo->name), MA_DEFAULT_PLAYBACK_DEVICE_NAME, (size_t)-1);
-            } else {
-                ma_strncpy_s(pDeviceInfo->name, sizeof(pDeviceInfo->name), MA_DEFAULT_CAPTURE_DEVICE_NAME, (size_t)-1);
-            }
-        }
-
-
-        /*
-        Retrieving device information is more annoying on mobile than desktop. For simplicity I'm locking this down to whatever format is
-        reported on a temporary I/O unit. The problem, however, is that this doesn't return a value for the sample rate which we need to
-        retrieve from the AVAudioSession shared instance.
-        */
-        desc.componentType = kAudioUnitType_Output;
-        desc.componentSubType = kAudioUnitSubType_RemoteIO;
-        desc.componentManufacturer = kAudioUnitManufacturer_Apple;
-        desc.componentFlags = 0;
-        desc.componentFlagsMask = 0;
-
-        component = ((ma_AudioComponentFindNext_proc)pContext->coreaudio.AudioComponentFindNext)(NULL, &desc);
-        if (component == NULL) {
-            return MA_FAILED_TO_INIT_BACKEND;
-        }
-
-        status = ((ma_AudioComponentInstanceNew_proc)pContext->coreaudio.AudioComponentInstanceNew)(component, &audioUnit);
-        if (status != noErr) {
-            return ma_result_from_OSStatus(status);
-        }
-
-        formatScope   = (deviceType == ma_device_type_playback) ? kAudioUnitScope_Input : kAudioUnitScope_Output;
-        formatElement = (deviceType == ma_device_type_playback) ? MA_COREAUDIO_OUTPUT_BUS : MA_COREAUDIO_INPUT_BUS;
-
-        propSize = sizeof(bestFormat);
-        status = ((ma_AudioUnitGetProperty_proc)pContext->coreaudio.AudioUnitGetProperty)(audioUnit, kAudioUnitProperty_StreamFormat, formatScope, formatElement, &bestFormat, &propSize);
-        if (status != noErr) {
-            ((ma_AudioComponentInstanceDispose_proc)pContext->coreaudio.AudioComponentInstanceDispose)(audioUnit);
-            return ma_result_from_OSStatus(status);
-        }
-
-        ((ma_AudioComponentInstanceDispose_proc)pContext->coreaudio.AudioComponentInstanceDispose)(audioUnit);
-        audioUnit = NULL;
-
-        /* Only a single format is being reported for iOS. */
-        pDeviceInfo->nativeDataFormatCount = 1;
-
-        result = ma_format_from_AudioStreamBasicDescription(&bestFormat, &pDeviceInfo->nativeDataFormats[0].format);
-        if (result != MA_SUCCESS) {
-            return result;
-        }
-
-        pDeviceInfo->nativeDataFormats[0].channels = bestFormat.mChannelsPerFrame;
-
-        /*
-        It looks like Apple are wanting to push the whole AVAudioSession thing. Thus, we need to use that to determine device settings. To do
-        this we just get the shared instance and inspect.
-        */
-        @autoreleasepool {
-            AVAudioSession* pAudioSession = [AVAudioSession sharedInstance];
-            MA_ASSERT(pAudioSession != NULL);
-
-            pDeviceInfo->nativeDataFormats[0].sampleRate = (ma_uint32)pAudioSession.sampleRate;
-        }
-    }
-#endif
 
     (void)pDeviceInfo; /* Unused. */
     return MA_SUCCESS;
