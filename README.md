@@ -76,8 +76,9 @@ rect(width, height, time=3, character=" ")
 Works across Windows, macOS, and Linux:
 ```python
 # Play audio file
-psound('../sounds/mysound.mp3')
+sound('../sounds/mysound.mp3')
 ```
+Currently, sound only plays mp3 and wav.
 
 ## Local Server Support
 ```python
