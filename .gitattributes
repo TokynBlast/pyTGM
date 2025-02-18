@@ -1,4 +1,4 @@
 *.py linguist-language=Python
 *.cpp linguist-language=C++
-miniaudio.h linguist-vendored
-miniaudio.h -diff
+tinyudio.h linguist-vendored
+tinyaudio.h -diff
