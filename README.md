@@ -7,6 +7,8 @@
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
+For sound, you will need libsoundio (For now)<br>
+To install it, run the contents of setup.sh<br><br>
 You will also need Python.h to build.<br>
 You can get it from python3-dev<br><br>
 On windows, you will need Visual Studio 2017 or later.<br>
