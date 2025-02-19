@@ -86,15 +86,15 @@ Only the Author may create official new versions of this license. Modified versi
 
 ## 9. Void of Contract  
 
-This license remains in effect unless and until the User removes all copies of the Program and any associated Variations within their control. This includes:  
+This license remains in effect unless and until the User removes all copies of the Program and any associated Variations within their control. This includes:
 
-- Deleting the Program and any Variations from all devices the User owns or operates  
-- Removing any cloud-stored or online copies under the User’s control  
-- Closing or disassociating any accounts that distribute or maintain the Program  
+- Deleting the Program and any Variations from all devices the User owns or operates
+- Removing any cloud-stored or online copies under the User’s control
+- Closing or disassociating any accounts that distribute or maintain the Program
 
-This clause **does not require** the User to remove:  
+This clause **does not require** the User to remove:
 
-- Cached versions, backups, or archival copies outside their direct control  
-- Publicly available copies distributed by other parties  
+- Cached versions, backups, or archival copies outside their direct control
+- Publicly available copies distributed by other parties
 
-Once the Program and all Variations are removed as described above, the rights granted under this license no longer apply to the User.  
+Once the Program and all Variations are removed as described above, the rights granted under this license no longer apply to the User.
