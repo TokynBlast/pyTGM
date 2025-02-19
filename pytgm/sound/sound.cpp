@@ -25,7 +25,7 @@ namespace py = pybind11;
 
 void psound(const char* filename) {
     #if defined(WIN)
-        PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC);
+        PlaySound(TEXT(filename), NULL, SND_FILENAME | SND_ASYNC);
     
     #elif defined(__APPLE__)
         CFStringRef cfString = CFStringCreateWithCString(NULL, filename, kCFStringEncodingUTF8);
