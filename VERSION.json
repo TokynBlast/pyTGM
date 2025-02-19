@@ -20,6 +20,10 @@
     "pytgm/terminal/geky.cpp": "c6250fcc37b0967e05cbd991654bc40036d5137b9d12cb2357c2e463fcc70cea",
     "pytgm/pattern/__init__.py": "7ed5ecbaaff345df6768ddafe9b5c45f5a4096b5777e439b44b8f82b12aeb89a",
     "pytgm/pattern/rect.cpp": "622bdd66a62e5d6d6483de4c572f5f32bf01a0cabf57e9a1e910491784e08b47",
-    "pytgm/sound.cpp": "f7b4f1aa42e4c50ac9ace2752d1cac1682bc17906a17552611a6ab4f1d748cc1"
+    "pytgm/sound.cpp": "f7b4f1aa42e4c50ac9ace2752d1cac1682bc17906a17552611a6ab4f1d748cc1",
+    "pytgm/sound/__init__.py": "3cc0658e2b8115742fd5b6d3eb457acfc56ac1f2494108bcb0e9ad7307f7a346",
+    "pytgm/sound/sound.cpp": "f7b4f1aa42e4c50ac9ace2752d1cac1682bc17906a17552611a6ab4f1d748cc1",
+    "pytgm/sound/stop.cpp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pytgm/sound/start.cpp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }
 }
