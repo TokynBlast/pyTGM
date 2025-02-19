@@ -16,6 +16,7 @@ classifiers = [
     'License :: Other/Proprietary License',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.13',
+    'Programming Language :: C++ :: 17',
 ]
 
 class BuildExt(build_ext):
@@ -40,25 +41,31 @@ class BuildExt(build_ext):
             raise RuntimeError(f"Unsupported platform: {os_type}")
         super().build_extensions()
 
-play_sound_extension = Pybind11Extension(
-    name="pytgm.psound",
-    sources=["pytgm/psound.cpp"],
+play_sound = Pybind11Extension(
+    name="pytgm.sound.play",
+    sources=["pytgm/sound/start.cpp"],
     language="c++",
 )
 
-graphic_cls = Pybind11Extension(
+stop_sound = Pybind11Extension(
+    name="pytgm.sound.stop",
+    sources=["pytgm/sound/stop.cpp"],
+    language="c++",
+)
+
+cls = Pybind11Extension(
     name="pytgm.terminal.cls",
     sources=["pytgm/terminal/cls.cpp"],
     language="c++",
 )
 
-graphic_color = Pybind11Extension(
+color = Pybind11Extension(
     name="pytgm.terminal.color",
     sources=["pytgm/terminal/color.cpp"],
     language="c++",
 )
 
-graphic_pos = Pybind11Extension(
+pos = Pybind11Extension(
     name="pytgm.terminal.pos",
     sources=["pytgm/terminal/pos.cpp"],
     language="c++",
@@ -73,6 +80,12 @@ geky = Pybind11Extension(
 rect = Pybind11Extension(
     name="pytgm.rect",
     sources=["pytgm/pattern/rect.cpp"],
+    language="c++",
+)
+
+hk512 = Pybind11Extension(
+    name="pytgm.encrypt.hk512",
+    sources=["pytgm/ecrypt/hk512.cpp"],
     language="c++",
 )
 
@@ -92,7 +105,7 @@ setup(
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
     install_requires=[],
-    ext_modules=[play_sound_extension, graphic_cls, graphic_color, graphic_pos, geky],
+    ext_modules=[stop_sound, play_sound, cls, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
