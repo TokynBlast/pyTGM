@@ -23,7 +23,7 @@
 
 namespace py = pybind11;
 
-void psound(const char* filename) {
+void sound(const char* filename) {
     #if defined(WIN)
         PlaySound(TEXT(filename), NULL, SND_FILENAME | SND_ASYNC);
     
