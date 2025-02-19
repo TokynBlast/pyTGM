@@ -9,14 +9,14 @@ All versions before 4.0.0 had been lost in an accidental delete.
 - Converted graphics to C++
 - Converted geky to C++
 - Removed _WIN64
-- Combined terd and graphics into 'terminal'
-- Made, and added hk512
-- Changed pos to position
+- Combined terd & graphics -> terminal
+- Madehk512
+- Removed file
 - Removed click
 - Added rect
-- Removed file
 - Changed psound -> sound
-- Made sound use a modified miniaudio.h file
+- Changed pos -> position
+- Changed sound to use libsoundio
 - Multiple bug fixes
 
 4.1.2 (January 6, 2025)
