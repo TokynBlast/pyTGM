@@ -14,4 +14,5 @@ ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
 
 __all__ = ['geky',
-           'cls', 'color', 'pos', 'RESET', 'ITALIC', 'BOLD', 'UNDERLINE']
+           'cls', 'color', 'pos',
+           'RESET', 'ITALIC', 'BOLD', 'UNDERLINE']
