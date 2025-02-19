@@ -21,43 +21,40 @@ All versions before 4.0.0 had been lost in an accidental delete.
 
 4.1.2 (January 6, 2025)
 -------------------------
-- Changed some Python files to C++
-- Changed file_mod to Python
+- Changed some Python code -> C++
+- Restored file_mod as Python
 - Bug fixes
 
 4.1.1 (December 19, 2024)
 -------------------------
 - Forced warnings to occur
-- Added clarity to warnings
+- Added info to warnings
 - Moved b64 to encrypt
 - Added sha256
-- Changed how psound is imported
+- Bug fixes
 
 4.1.0 (December 18, 2024)
 -------------------------
-- Added *.txt to manifest.in 
-- Updated licence
 - Removed sound.generate()
-- Changed sound.play() to psound()
-- Changed mod_line() to fm_line()
-- Inserted dummy funcs for removed funcs
+- Changed sound.play() -> psound()
+- Changed mod_line() t-> fm_line()
+- Inserted warnings for depreciations
 - Bug fixes
 
 4.0.0 (December 17, 2024)
 -------------------------
-- Removed file.readChar
-- Major fixes to __all__ variable in main __init__
-- major change in file structure
+- FIRST TESTED AND USEABLE VERSION
+- Major change in file structure
 - Renamed getch to geky
 - Put getch inside class "terd"
 - Added a click detection function
-- Updated and fixed __all__
 - Added __init__.py for an entry point
-- Moved __all__ and links to __init__.py
+- Moved __all__ & links to __init__.py
 - Made functions satic methods
 - Updated LocalServer error message
-- Added a To_send variable to LocalServer
+- Added To_send var to LocalServer
 - Removed autoplay from frequency
-- Removed board and random
+- Removed board & random
+- Removed file.readChar
 - Added security hashes
-- Bug fixes
+- Multiple bug fixes
