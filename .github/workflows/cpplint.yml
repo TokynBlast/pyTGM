@@ -21,33 +21,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y clang-tidy python3-dev pybind11-dev cmake ninja-build
 
-
-      - name: Create CMakeLists.txt if not present
-        run: |
-          cat << EOF > CMakeLists.txt
-          cmake_minimum_required(VERSION 3.14)
-          project(pyTGM)
-
-          set(CMAKE_CXX_STANDARD 14)
-          set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-          find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-          find_package(pybind11 REQUIRED)
-
-          # Recursively find all C++ source files
-          file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS *.cpp *.cc *.cxx)
-
-          if(NOT SRC_FILES)
-            message(FATAL_ERROR "No C++ source files found!")
-          endif()
-
-          add_library(pyTGM MODULE \${SRC_FILES})
-          target_include_directories(pyTGM PRIVATE \${pybind11_INCLUDE_DIRS})
-          target_link_libraries(pyTGM PRIVATE pybind11::module Python3::Python)
-
-          set_target_properties(pyTGM PROPERTIES PREFIX "" SUFFIX ".so")
-          EOF
-
       - name: Configure Project and Generate compile_commands.json
         run: |
           mkdir -p build && cd build
