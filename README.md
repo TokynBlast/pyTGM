@@ -1,12 +1,9 @@
 # Workflow Status
 
+<!-- At some point, I will be adding a build bar -->
 | **Linting** | [![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml) | [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml) | [![Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)
 |-----------|----------|----------|----------|
 | **Security** | [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml) | [![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml) | |
-
-pyTGM is proud to use a modified version of miniaudio, tinyaudio!<br>
-It only has playback and stopping sound features!<br>
-[MAKING IT ONLY THAT IS STILL IN DEVELOPMENT!!]
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
