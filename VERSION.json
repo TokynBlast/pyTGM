@@ -8,7 +8,7 @@
   "hashes": {
     "pytgm/terminal/__init__.py": "0f2a9d4f13f59515555da1f20c2091aef243a38ca42d65bd49879b2ed9d5c1e7",
     "pytgm/encrypt/__init__.py": "d45a25c870dd356d71bd1b3a0c7e62842f025c2c199c6698b3d2269f362523e0",
-    "pytgm/__init__.py": "8df58fcd37eceff51c2e4005433a4310323d37c2ee203b568ce06b049222fa5d",
+    "pytgm/__init__.py": "476aeea6b09e3524b8abb0c6849fa4062382e7a22de7aa82e853398c8703cad3",
     "pytgm/terminal/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
     "pytgm/encrypt/b64.py": "1d7924f5951b725fef7e9a954f84b351663dd95f9c4fa45685ca601ac9d73315",
