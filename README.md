@@ -26,12 +26,12 @@ bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-
 # pyTGM (Python Terminal Game Maker)
 
 pyTGM is a simplified alternative to Pygame, focusing on ASCII and ANSI based game development, contained completley within the terminal,<br>
-with utilities for encryption, markup, mouse input, and much more.
+with utilities for encryption, markup, sound playing, servers, and much more.
 
 ## Bugs and Features
 To report a bug, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
 For feature request, go [here](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)<br>
-You can also use bug report, to report a compile warning!
+To report a compile error/warning, go [here](https://github.com/TokynBlast/pyTGM/issues/new?template=compile_report.md)
 
 ## Contributing
 All contributions are greatly appreciated.<br>
