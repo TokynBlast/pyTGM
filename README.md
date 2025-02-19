@@ -81,7 +81,9 @@ sound.play('../sounds/mysound.mp3')
 # Stop audio file
 sound.stop('../sound/mysound.wav')
 ```
-Currently, sound only plays mp3 and wav.
+> [!NOTE]
+> Sound is currently an experiment.
+> We are looking for a way to hopefully eventually make sound play, without dependencies!
 
 ## Local Server Support
 ```python
