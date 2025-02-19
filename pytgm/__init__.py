@@ -31,7 +31,7 @@ __download_url__ = 'https://pypi.org/tokynblast'
 __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-from . import encrypt, sound, terminal, local_server, pattern #pylint: disable=import-self
+from . import encrypt, sound, terminal, local_server, pattern
 
 # Sound Imports
 from .sound import start, stop # pylint: disable= import-error, no-name-in-module
