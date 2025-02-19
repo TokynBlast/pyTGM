@@ -21,7 +21,7 @@ jobs:
       - name: Generate SHA-256 hashes
         run: |
           # Find all Python files
-          find pytgm/ -type f \( -name '*.py' -o -name '*.cpp' \) -print0 | xargs -0 sha256sum > hashes.txt
+          find pytgm/ -type f \( -name '*.py' -o -name '*.cpp' -o -name 'setup.sh' -o -name 'setup.py' -o -name 'CMakeLists.txt' \) -print0 | xargs -0 sha256sum > hashes.txt
 
           # Ensure VERSION.json exists and has the 'hashes' object
           if [ ! -f VERSION.json ]; then
@@ -41,7 +41,7 @@ jobs:
       - name: Check for changes in VERSION.json and setup.py
         run: |
           if git diff --quiet --exit-code VERSION.json setup.py; then
-            echo "No changes to VERSION.json or setup.py, skipping commit."
+            echo "No changes to VERSION.json or any other places that have hashes, skipping commit."
             exit 0
           fi
 
@@ -50,5 +50,5 @@ jobs:
           git config --local user.name "TokynBlast"
           git config --local user.email "tokynblast@gmail.com"
           git add VERSION.json setup.py
-          git commit --allow-empty -m "Update SHA-256 hashes in VERSION.json and setup.py"
+          git commit --allow-empty -m "Update security hashes"
           git push
