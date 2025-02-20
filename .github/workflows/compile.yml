@@ -26,5 +26,7 @@ jobs:
         run: |
           mkdir -p build
           cd build
+          pybind11_DIR=$(python3 -m pybind11 --cmakedir)
+          cmake -Dpybind11_DIR=${pybind11_DIR} ..
           cmake ..
           make -j $(nproc)
