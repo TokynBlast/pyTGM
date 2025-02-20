@@ -13,14 +13,14 @@
     "pytgm/local_server.py": "72cfbdf7e8fba4c2cb1e53cf3a49d96827074824fda67d3278abb289498f260f",
     "pytgm/encrypt/b64.py": "1d7924f5951b725fef7e9a954f84b351663dd95f9c4fa45685ca601ac9d73315",
     "pytgm/encrypt/sha256.py": "6c561602e32b0ac40a3bcb01b9b9ca9c92af6e4216306923b887b15263e68f74",
-    "pytgm/terminal/cls.cpp": "9bbbd5cc2e6136bbb2ae5b1bfd41e5afc595b391847053cf4034be7742736fc1",
+    "pytgm/terminal/cls.cpp": "f9a60b5568d570ce763ad0fc2b632e18b08736f5cd937ebd924a1a82fbf16ec5",
     "pytgm/terminal/pos.cpp": "9013e858dedbb66f09994b19c4a57aea8f9ee91edb579f4ebd3f6f35417a5f0b",
     "pytgm/terminal/color.cpp": "a102b35b68729e50addc6cb9de72b051a4d157096a105868f512440cddda517f",
-    "pytgm/encrypt/hk512.cpp": "3f039f9337d81e6d962aeb059bbdcd787e46ff14b6d9a50a3d26060fd03d2dfb",
+    "pytgm/encrypt/hk512.cpp": "27b75a7f197327a4e9818b10f91141a3eb52ed7851e86efdb82f193a7b8b226a",
     "pytgm/terminal/geky.cpp": "c6250fcc37b0967e05cbd991654bc40036d5137b9d12cb2357c2e463fcc70cea",
     "pytgm/pattern/__init__.py": "7ed5ecbaaff345df6768ddafe9b5c45f5a4096b5777e439b44b8f82b12aeb89a",
     "pytgm/pattern/rect.cpp": "622bdd66a62e5d6d6483de4c572f5f32bf01a0cabf57e9a1e910491784e08b47",
-    "pytgm/sound.cpp": "3cf9a9154e9ec58df2984e2b54dd3a4f44e2ac94ca22a86adbfb1c8a4208de78",
+    "pytgm/sound.cpp": "e2510e0e2a79758a22d100db3e620ac28430e7f4a219225ca1891d0495e2b1e2",
     "pytgm/encrypt/b64.cpp": "78ecb9cb7b76326f80fb6db0fc10cd1e0bed44b7e5c2bf7691085d123c5cfe22"
   }
 }
