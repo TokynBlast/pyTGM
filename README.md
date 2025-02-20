@@ -78,14 +78,8 @@ rect(width, height, time=3, character=" ")
 Works across Windows, macOS, and Linux:
 ```python
 # Play audio file
-sound.play('../sounds/mysound.mp3')
-
-# Stop audio file
-sound.stop('../sound/mysound.wav')
+sound('../sounds/mysound.mp3')
 ```
-> [!NOTE]
-> Sound is currently an experiment.<br>
-> We are looking for a way to hopefully eventually make sound play, without dependencies!
 
 ## Local Server Support
 ```python
