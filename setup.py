@@ -83,9 +83,9 @@ setup(
     name='pyTGM',
     version='5.0.0',
     description='Game maker contained in the terminal using C++ and Python',
-    long_description=(open('README.md', encoding='utf-8').read().close() + '\n\n' +
-                      open('CHANGELOG.txt', encoding='utf-8').read().close() + '\n\n' + #pytlint: disable=consider-using-with
-                      open('CHANGELOG_NOTES.txt', encoding='utf-8').read().close()), #pytlint: disable=consider-using-with
+    long_description=(open('README.md', encoding='utf-8').read().close() + '\n\n' + # pylint: disable=consider-using-with
+                      open('CHANGELOG.txt', encoding='utf-8').read().close() + '\n\n' + #pylint: disable=consider-using-with line-too-long
+                      open('CHANGELOG_NOTES.txt', encoding='utf-8').read().close()), #pylint: disable=consider-using-with line-too-long
     long_description_content_type='text/markdown',
     url='https://github.com/TokynBlast/pyTGM',
     author='Tokyn Blast',
