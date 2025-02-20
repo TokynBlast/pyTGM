@@ -8,12 +8,21 @@ It imports and exposes various modules and functionalities for:
 """
 
 __all__ = [
-    'server',
+    'local_server',
+    'server', 'client',
+
     'encrypt',
+    'sha256', 'b64', 'hk512',
+
     'sound',
+
     'terminal',
+    'cls', 'color', 'pos',
+    'RESET', 'BOLD', 'UNDERLINE', 'ITALIC',
+    'geky',
+
     'pattern',
-    'sound'
+    'rect'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
@@ -21,4 +30,18 @@ __download_url__ = 'https://pypi.org/tokynblast'
 __bug_tracker_url__ = 'https://github.com/TokynBlast/pyTGM/issues'
 __changelog_url__ = 'https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt'
 
-from . import encrypt, sound, terminal, pattern, local_server as server #pylint: disable=import-self
+from pytgm import encrypt, sound, terminal, pattern, local_server as server #pylint: disable=import-self
+
+# Sound Imports
+from .sound import sound # pylint: disable= import-error
+
+# Graphics Imports
+from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky #pylint:disable=import-error
+
+# Online Imports
+from .server import server, client
+
+# Ecnrypt Imports
+from .encrypt import sha256, b64, hk512 # pylint:disable=no-name-in-module
+
+from .pattern import rect
