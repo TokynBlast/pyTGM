@@ -1,0 +1,25 @@
+name: Compile C++
+
+on:
+  push:
+    paths:
+      - pytgm/**/*.cpp
+      - .github/workflows/build.yml
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install g++
+        run: sudo apt-get install g++
+
+      - name: Install dependencies
+        run: sudo apt-get install wheel pybind11 setuptools
+
+      - name: Compile C++
+        run: g++ pytgm/**/*.cpp -o pytgm/pytgm
