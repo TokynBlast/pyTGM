@@ -28,6 +28,12 @@ Extra notes
 This version is the one I'm most proud of. It shows that I'm learning C++. Even though, not all of it was done by me.
 It also shows my dedecation.
 It's like seeing your child grow up. And yes. I do consider this my child, born of mind.
-I first sketched it out on a notepad. It had TONS 
+I first sketched it out on a notepad. It had TONS of extra stuff...
 Sadly though, this version took forever, because I took a break, to learn C# and Unity, to
-make a game called cool_man.exp
+make a game called cool_man.exp (Still in development!)
+And, I also lost interest in programming... for a week...
+Now, I can't stop programming!
+Also, I got a job to make a website, slowing development even MORE...
+
+I wonder what my guinea pigs think about it...
+They probably like it cause I'm around them more, and I clean their cage every couple of hours!
