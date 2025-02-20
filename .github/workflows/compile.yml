@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - pytgm/**/*.cpp
-      - .github/workflows/build.yml
+      - .github/workflows/compile.yml
     branches:
       - main
 
