@@ -50,7 +50,7 @@ void sound(const char* filename) {
 PYBIND11_MODULE(sound, m){
     m.doc() = "Sound playback and utility functions";  // Module docstring
 
-    m.def("psound", &psound, py::arg("filename"),
+    m.def("psound", &sound, py::arg("filename"),
           "Play a sound file.\n"
           "Args:\n"
           "    file (str): Path to the sound file.\n"
