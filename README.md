@@ -8,6 +8,9 @@
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
+All versions before 5.0.0 must be built from source.<br>
+macOS is still built from source<br><br>
+You will need pybind11, setuptools and wheel.<br>
 There are some things for building, that are needed, which can be removed afterwards.<br>
 Run setup.sh to install the materials for it.<br><br>
 You will also need Python.h to build.<br>
@@ -16,15 +19,6 @@ On windows, you will need Visual Studio 2017 or later.<br>
 When setting up Python, enable these (If applicable):
 - Add Python to PATH
 - Customize installation > Development Tools
-
-On macOS, you will need homebrew to install Python.<br>
-
-This library works, but is mostly untested...<br>
-macOS is 100% untested, and I mostly rely on reports, or testing.<br>
-Debugging takes a while, because most of this library is visuals...<br>
-
-<br>A setup.sh file is being setup!<br>
-Most of this section is pointless...<br>
 
 On Linux, your OS will change the command you need to run, I have curated a command, to detect the OS and install it:<br>
 ```
