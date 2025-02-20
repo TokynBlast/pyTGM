@@ -86,7 +86,7 @@ hk512 = Pybind11Extension(
 setup(
     name='pyTGM',
     version='5.0.0',
-    description='Gamer maker contained in the terminal using C++ and Python',
+    description='Game maker contained in the terminal using C++ and Python',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
                       open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +  # pylint: disable=consider-using-with
                       open('CHANGELOG_NOTES.txt', encoding='utf-8').read()), # pylint: disable=consider-using-with
@@ -99,7 +99,7 @@ setup(
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
     install_requires=[],
-    ext_modules=[stop_sound, play_sound, cls, color, pos, geky, rect, hk512],
+    ext_modules=[sound, sound, cls, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
