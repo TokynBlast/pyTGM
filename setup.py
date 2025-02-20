@@ -79,7 +79,7 @@ rect = Pybind11Extension(
 
 hk512 = Pybind11Extension(
     name="pytgm.encrypt.hk512",
-    sources=["pytgm/ecrypt/hk512.cpp"],
+    sources=["pytgm/encrypt/hk512.cpp"],
     language="c++",
 )
 
