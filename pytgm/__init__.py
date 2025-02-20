@@ -8,11 +8,12 @@ It imports and exposes various modules and functionalities for:
 """
 
 __all__ = [
-    'local_server',
+    'server',
     'encrypt',
     'sound',
     'terminal',
     'pattern',
+    'sound'
 ]
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
