@@ -35,8 +35,8 @@ elif command -v scoop >/dev/null; then
     [[ "$nin" =~ ^[Yy]$ ]] && scoop install ninja
 elif [[ "$OS" == "Windows_NT" ]]; then
     echo "No package manager detected. Install Python, CMake, and optionally Ninja manually from their official websites."
-    exit 1
+    exit 0
 else 
     echo "Unsupported package manager. Install Python dev headers, CMake, and optionally Ninja manually."
-    exit 1
+    exit 0
 fi
