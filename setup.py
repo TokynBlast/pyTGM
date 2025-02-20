@@ -1,7 +1,6 @@
 """Tells Python how to build the pytgm package"""
 
 import os
-import subprocess
 from platform import system as sys
 import shutil
 from setuptools import setup, find_packages
@@ -17,7 +16,7 @@ class BuildExt(build_ext):
             for ext in self.extensions:
                 ext.extra_compile_args = ["/std:c++17", "/EHsc", "/bigobj"]
                 ext.extra_link_args = ["User32.lib"]
-        elif os_type in ["Linux", "Darwin"]:  # MacOS is "Darwin"
+        elif os_type in ["Linux", "Darwin"]:
             for ext in self.extensions:
                 ext.extra_compile_args = ["-std=c++17", "-O3", "-Wall", "-fPIC"]
                 ext.extra_link_args = []
@@ -78,9 +77,9 @@ setup(
     name='pyTGM',
     version='5.0.0',
     description='Game maker contained in the terminal using C++ and Python',
-    long_description=(open('README.md', encoding='utf-8').read().close() + '\n\n' + # pylint: disable=consider-using-with
-                      open('CHANGELOG.txt', encoding='utf-8').read().close() + '\n\n' + #pylint: disable=consider-using-with line-too-long
-                      open('CHANGELOG_NOTES.txt', encoding='utf-8').read().close()), #pylint: disable=consider-using-with line-too-long
+    long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
+                      open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' + #pylint: disable=consider-using-with line-too-long
+                      open('CHANGELOG_NOTES.txt', encoding='utf-8').read()), #pylint: disable=consider-using-with line-too-long
     long_description_content_type='text/markdown',
     url='https://github.com/TokynBlast/pyTGM',
     author='Tokyn Blast',
