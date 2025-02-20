@@ -6,10 +6,21 @@ import shutil
 from setuptools import setup, find_packages
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
+require = []
+
+req_os = sys()
+if req_os == "Darwin":
+    require = ['pybind11==2.13.6', 'setuptools==75.8.0', 'wheel==0.45.1']
+else:
+    require = []
+
+del req_os
+
 class BuildExt(build_ext):
     """
     Determines the OS and sets up the Ninja build system.
     """
+
     def build_extensions(self):
         os_type = sys()
         if os_type == "Windows":
@@ -98,7 +109,7 @@ setup(
     ],
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=require,
     ext_modules=[sound, cls, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
