@@ -1,5 +1,6 @@
 # Workflow Status
 
+<!-- Eventually, it will be |linting|security|build| -->
 | **Linting** | [![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml) | [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml) | [![Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)
 |-----------|----------|----------|----------|
 | **Security** | [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml) | [![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml) | |
@@ -17,6 +18,13 @@ When setting up Python, enable these (If applicable):
 - Customize installation > Development Tools
 
 On macOS, you will need homebrew to install Python.<br>
+
+This library works, but is mostly untested...<br>
+macOS is 100% untested, and I mostly rely on reports, or testing.<br>
+Debugging takes a while, because most of this library is visuals...<br>
+
+<br>A setup.sh file is being setup!<br>
+Most of this section is pointless...<br>
 
 On Linux, your OS will change the command you need to run, I have curated a command, to detect the OS and install it:<br>
 ```
