@@ -35,6 +35,15 @@ And, I also lost interest in programming... for a week...
 Now, I can't stop programming!
 Also, I got a job to make a website, slowing development even MORE...
 
+I am also more keen on developing tools instead of game makers!
+But, this is still an AMAZING project, and it let's me learn C++ too!
+And, the plans are, that by 7.0.0 this is a 100% C++ library!
+Hopefully, by then, people also use it more!
+
+Because for some reason... PEOPLE JUST CLONE AND CLONE!!
+I've had a max of 178 clones and a minimum of 32 clones...
+THATS CRAZY!
+
 But now, low and behold... pyTGM 5.0.0!!
 The latest and greatest (As of Febuary 19th, 2025)
 
