@@ -1,6 +1,5 @@
 # Workflow Status
 
-<!-- At some point, I will be adding a build bar -->
 | **Linting** | [![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml) | [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml) | [![Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)
 |-----------|----------|----------|----------|
 | **Security** | [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml) | [![SHA256 Generate and Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml) | |
@@ -8,8 +7,8 @@
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
-For sound, you will need libsoundio (For now)<br>
-To install it, run the contents of setup.sh<br><br>
+There are some things for building, that are needed, which can be removed afterwards.<br>
+Run setup.sh to install the materials for it.<br><br>
 You will also need Python.h to build.<br>
 You can get it from python3-dev<br><br>
 On windows, you will need Visual Studio 2017 or later.<br>
