@@ -14,8 +14,5 @@ if(NOT SRC_FILES)
   message(FATAL_ERROR "No C++ source files found!")
 endif()
 
-# Add the pybind11 module
-pybind11_add_module(pyTGM MODULE ${SRC_FILES})
-
 # Link against Python and pybind11
 target_link_libraries(pyTGM PRIVATE Python3::Python pybind11::module)
