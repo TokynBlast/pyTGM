@@ -7,11 +7,6 @@ import shutil
 from setuptools import setup, find_packages
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
-# Run setup.sh before proceeding
-if os.path.exists("setup.sh"):
-    print("Running setup.sh...")
-    subprocess.run(["bash", "setup.sh"], check=True)
-
 class BuildExt(build_ext):
     """
     Determines the OS and sets up the Ninja build system.
