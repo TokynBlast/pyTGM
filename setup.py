@@ -43,43 +43,43 @@ class BuildExt(build_ext):
 
 # Define extensions
 sound = Pybind11Extension(
-    name="pytgm.sound",
+    name="pyTGM.sound",
     sources=["pytgm/sound.cpp"],
     language="c++",
 )
 
 cls = Pybind11Extension(
-    name="pytgm.terminal.cls",
+    name="pyTGM.terminal.cls",
     sources=["pytgm/terminal/cls.cpp"],
     language="c++",
 )
 
 color = Pybind11Extension(
-    name="pytgm.terminal.color",
+    name="pyTGM.terminal.color",
     sources=["pytgm/terminal/color.cpp"],
     language="c++",
 )
 
 pos = Pybind11Extension(
-    name="pytgm.terminal.pos",
+    name="pyTGM.terminal.pos",
     sources=["pytgm/terminal/pos.cpp"],
     language="c++",
 )
 
 geky = Pybind11Extension(
-    name="pytgm.terminal.geky",
+    name="pyTGM.terminal.geky",
     sources=["pytgm/terminal/geky.cpp"],
     language="c++",
 )
 
 rect = Pybind11Extension(
-    name="pytgm.rect",
+    name="pytTGM.rect",
     sources=["pytgm/pattern/rect.cpp"],
     language="c++",
 )
 
 hk512 = Pybind11Extension(
-    name="pytgm.encrypt.hk512",
+    name="pyTGM.encrypt.hk512",
     sources=["pytgm/encrypt/hk512.cpp"],
     language="c++",
 )
