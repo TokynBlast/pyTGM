@@ -1,6 +1,4 @@
-"""
-Imports all files needed for terd
-"""
+""" Imports all files needed for terminal """
 from .geky import geky  # pylint: disable=import-error
 
 from .color import color #pylint:disable=import-error
