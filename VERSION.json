@@ -21,6 +21,7 @@
     "pytgm/pattern/__init__.py": "7ed5ecbaaff345df6768ddafe9b5c45f5a4096b5777e439b44b8f82b12aeb89a",
     "pytgm/pattern/rect.cpp": "622bdd66a62e5d6d6483de4c572f5f32bf01a0cabf57e9a1e910491784e08b47",
     "pytgm/sound.cpp": "e2510e0e2a79758a22d100db3e620ac28430e7f4a219225ca1891d0495e2b1e2",
-    "pytgm/encrypt/b64.cpp": "dff7028d720b188039ee5e3bbcaf68eca954b8c79a63046c9f55179b58c24648"
+    "pytgm/encrypt/b64.cpp": "dff7028d720b188039ee5e3bbcaf68eca954b8c79a63046c9f55179b58c24648",
+    "-": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }
 }
