@@ -1,3 +1,5 @@
+#include <pybind11/pybind11.h>
+
 #ifdef _WIN32
     #define WIN
     #include <windows.h>
@@ -15,8 +17,6 @@
     #define linux_
     #include <cstdlib>
 #endif
-
-#include <pybind11/pybind11.h>
 
 #include <iostream>
 #include <string>
