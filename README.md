@@ -83,7 +83,7 @@ sound.play('../sounds/mysound.mp3')
 sound.stop('../sound/mysound.wav')
 ```
 > [!NOTE]
-> Sound is currently an experiment.
+> Sound is currently an experiment.<br>
 > We are looking for a way to hopefully eventually make sound play, without dependencies!
 
 ## Local Server Support
