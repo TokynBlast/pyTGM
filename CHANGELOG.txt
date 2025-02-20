@@ -16,7 +16,8 @@ All versions before 4.0.0 had been lost in an accidental delete.
 - Added rect
 - Changed psound -> sound
 - Changed pos -> position
-- Changed sound to use libsoundio
+- Attmept at a sound fix
+- Made a setup.sh
 - Multiple bug fixes
 
 4.1.2 (January 6, 2025)
