@@ -7,17 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find Python3 and pybind11 packages
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
-find_package(pybind11 REQUIRED)
-if (NOT pybind11_FOUND)
-    execute_process(
-        COMMAND apt install python3-pybind11 --cmakedir
-        OUTPUT_VARIABLE pybind11_DIR
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-    )
-    set(pybind11_DIR ${pybind11_DIR} CACHE PATH "Path to pybind11 CMake files")
-    find_package(pybind11 REQUIRED)
-endif()
-
+pybind11_DIR=$(python3 -m pybind11 --cmakedir)
+cmake -Dpybind11_DIR=${pybind11_DIR} ..
 
 # Recursively find all C++ source files
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS *.cpp *.cc *.cxx)
