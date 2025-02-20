@@ -1,7 +1,6 @@
 NOTES:
-4.0.1 - 4.0.6 either don't build, and as such are not included.
-They either removed or added click or had 'Import fixes'
-All versions before 4.0.0 had been lost in an accidental delete.
+4.0.1 - 4.0.6 don't build, and as such are not included.
+All versions before 4.0.0 had been lost in an accidental deletion.
 
 5.0.0 (Feburary , 2025)
 -------------------------
