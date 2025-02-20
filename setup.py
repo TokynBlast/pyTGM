@@ -98,7 +98,10 @@ setup(
     classifiers=classifiers,
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=['pybind11==2.13.6',
+                      'setuptools==75.8.0',
+                      'wheel==0.45.1'
+                     ],
     ext_modules=[sound, sound, cls, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
