@@ -41,15 +41,9 @@ class BuildExt(build_ext):
             raise RuntimeError(f"Unsupported platform: {os_type}")
         super().build_extensions()
 
-play_sound = Pybind11Extension(
-    name="pytgm.sound.play",
-    sources=["pytgm/sound/start.cpp"],
-    language="c++",
-)
-
-stop_sound = Pybind11Extension(
-    name="pytgm.sound.stop",
-    sources=["pytgm/sound/stop.cpp"],
+sound = Pybind11Extension(
+    name="pytgm.sound",
+    sources=["pytgm/sound.cpp"],
     language="c++",
 )
 
