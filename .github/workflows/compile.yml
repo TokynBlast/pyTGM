@@ -5,7 +5,7 @@ on:
     paths:
       - pytgm/**/*.cpp
       - .github/workflows/compile.yml
-      - CmakeLists.txt
+      - CMakeLists.txt
     branches:
       - main
 
@@ -16,13 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install g++
-        run: sudo apt-get install g++
-
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
-          sudo apt-get install python3 python3-pip
-          pip install wheel pybind11 setuptools
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip python3-dev cmake g++
+          pip install pybind11
 
-      - name: Compile C++
-        run: g++ -std=c++17 pytgm/**/*.cpp -o pytgm/pytgm
+      - name: Configure and Build
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          make
