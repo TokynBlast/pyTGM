@@ -119,8 +119,8 @@ encrypt.sha256(text)
 
 ### hk512:
 ```python
-exncrypt.hk512.encode(data, key)
-exncrypt.hk512.decode(data, key)
+encrypt.hk512.encode(data, key)
+encrypt.hk512.decode(data, key)
 ```
 
 ## Links
