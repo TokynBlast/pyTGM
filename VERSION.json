@@ -20,6 +20,7 @@
     "pytgm/terminal/geky.cpp": "c6250fcc37b0967e05cbd991654bc40036d5137b9d12cb2357c2e463fcc70cea",
     "pytgm/pattern/__init__.py": "7ed5ecbaaff345df6768ddafe9b5c45f5a4096b5777e439b44b8f82b12aeb89a",
     "pytgm/pattern/rect.cpp": "622bdd66a62e5d6d6483de4c572f5f32bf01a0cabf57e9a1e910491784e08b47",
-    "pytgm/sound.cpp": "3cf9a9154e9ec58df2984e2b54dd3a4f44e2ac94ca22a86adbfb1c8a4208de78"
+    "pytgm/sound.cpp": "3cf9a9154e9ec58df2984e2b54dd3a4f44e2ac94ca22a86adbfb1c8a4208de78",
+    "pytgm/encrypt/b64.cpp": "78ecb9cb7b76326f80fb6db0fc10cd1e0bed44b7e5c2bf7691085d123c5cfe22"
   }
 }
