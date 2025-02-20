@@ -1,8 +1,4 @@
 // Copyright TokynBlast
-/*
-HexKey-512 is an encryption designed for pyTGM.
-It is NOT designed for super secure encryption needs.
-*/
 
 #include <pybind11/pybind11.h>
 #include <random>
