@@ -22,6 +22,7 @@ More and more is coming to C++
 Not all of it is done by me. Like file.
 I tried to convert it to C++, but I'm just not advanced enough yet. I hope, that one day, I can improve it though.
 Eventually, I hope there is a community of programmers, who show their appreciation, and help improve it, or give ideas, if they can.
+I prefer to make tools, not games, but, this is an easier way to introduce yourself to programming!
 
 Extra notes
 -----------
@@ -45,7 +46,7 @@ I've had a max of 178 clones and a minimum of 32 clones...
 THATS CRAZY!
 
 But now, low and behold... pyTGM 5.0.0!!
-The latest and greatest (As of Febuary 19th, 2025)
+The latest and greatest (As of Febuary th, 2025)
 
 I wonder what my guinea pigs think about it...
 They probably like it cause I'm around them more, and I clean their cage every couple of hours!
