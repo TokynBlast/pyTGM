@@ -5,6 +5,7 @@ on:
     paths:
       - pytgm/**/*.cpp
       - .github/workflows/cpplint.yml
+      - CmakeLists.txt
     branches:
       - main
 
