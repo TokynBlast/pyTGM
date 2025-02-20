@@ -21,7 +21,7 @@ elif command -v choco >/dev/null; then
 elif command -v scoop >/dev/null; then
     scoop install python cmake
 elif [[ "$OS" == "Windows_NT" ]]; then
-    echo "Your on Windows!\nPlease install Python dev and CMake manually."
+    echo "No package manager detected. Install Python and CMake manually from their official websites."
     exit 1
 else 
     echo "Unsupported package manager. Install Python dev headers and CMake manually."
