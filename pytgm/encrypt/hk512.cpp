@@ -33,7 +33,7 @@ std::string encode(const std::string& input, const std::string& key) {
         shuffled_input[indices[i]] = input[i];
     }
 
-    // Step 2: Apply key-based transformation (original addition method)
+    // Step 2: Apply key-based transformation
     std::string transformed_input = shuffled_input;
     for (size_t i = 0; i < transformed_input.length(); ++i) {
         transformed_input[i] = static_cast<char>(
@@ -86,7 +86,7 @@ std::string decode(const std::string& data, const std::string& key) {
         }
     }
 
-    // Step 2: Reverse key-based transformation (original subtraction method)
+    // Step 2: Reverse key-based transformation
     for (size_t i = 0; i < bin_data.length(); ++i) {
         bin_data[i] = static_cast<char>(
             (static_cast<int>(bin_data[i]) - static_cast<int>(key[i % key.length()]) + 256) % 256);
