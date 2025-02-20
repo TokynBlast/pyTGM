@@ -39,7 +39,7 @@ from .sound import sound # pylint: disable= import-error
 from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky #pylint:disable=import-error
 
 # Online Imports
-from .server import server, client
+from .local_server import server, client
 
 # Ecnrypt Imports
 from .encrypt import sha256, b64, hk512 # pylint:disable=no-name-in-module
