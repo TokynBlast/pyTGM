@@ -1,11 +1,4 @@
-"""
-This is the init file for the pyTGM library.
-
-It imports and exposes various modules and functionalities for:
-- File handling
-- Graphics rendering
-- Local server operations
-"""
+""" The init file for the pyTGM library. """
 
 __all__ = [
     'local_server',
