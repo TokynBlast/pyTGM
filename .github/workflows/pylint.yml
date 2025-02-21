@@ -1,4 +1,4 @@
-name: Build, Generate Stubs, and Lint
+name: Pylint
 
 on:
   push:
