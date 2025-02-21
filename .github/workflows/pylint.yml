@@ -9,6 +9,7 @@ on:
       - "**/*.cpp"
       - "CMakeLists.txt"
       - ".github/workflows/pyTGM.yml"
+      - ".pylintrc"
 
 jobs:
   build-and-lint:
