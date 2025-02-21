@@ -1,4 +1,4 @@
-"""Tells Python how to build the pytgm package"""
+"""Tells Python how to build the pyTGM package"""
 
 import os
 from platform import system as sys
@@ -43,44 +43,44 @@ class BuildExt(build_ext):
 
 # Define extensions
 sound = Pybind11Extension(
-    name="pytgm.sound",
-    sources=["pytgm/sound.cpp"],
+    name="pyTGM.sound",
+    sources=["pyTGM/sound.cpp"],
     language="c++",
 )
 
 cls = Pybind11Extension(
-    name="pytgm.terminal.clear",
-    sources=["pytgm/terminal/clear.cpp"],
+    name="pyTGM.terminal.clear",
+    sources=["pyTGM/terminal/clear.cpp"],
     language="c++",
 )
 
 color = Pybind11Extension(
-    name="pytgm.terminal.color",
-    sources=["pytgm/terminal/color.cpp"],
+    name="pyTGM.terminal.color",
+    sources=["pyTGM/terminal/color.cpp"],
     language="c++",
 )
 
 pos = Pybind11Extension(
-    name="pytgm.terminal.pos",
-    sources=["pytgm/terminal/pos.cpp"],
+    name="pyTGM.terminal.pos",
+    sources=["pyTGM/terminal/pos.cpp"],
     language="c++",
 )
 
 geky = Pybind11Extension(
-    name="pytgm.terminal.geky",
-    sources=["pytgm/terminal/geky.cpp"],
+    name="pyTGM.terminal.geky",
+    sources=["pyTGM/terminal/geky.cpp"],
     language="c++",
 )
 
 rect = Pybind11Extension(
-    name="pytgm.rect",
-    sources=["pytgm/pattern/rect.cpp"],
+    name="pyTGM.rect",
+    sources=["pyTGM/pattern/rect.cpp"],
     language="c++",
 )
 
 hk512 = Pybind11Extension(
-    name="pytgm.encrypt.hk512",
-    sources=["pytgm/encrypt/hk512.cpp"],
+    name="pyTGM.encrypt.hk512",
+    sources=["pyTGM/encrypt/hk512.cpp"],
     language="c++",
 )
 
