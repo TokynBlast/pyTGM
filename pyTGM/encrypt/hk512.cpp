@@ -8,8 +8,6 @@
 #include <numeric>
 #include <algorithm>
 
-namespace py = pybind11;
-
 std::mt19937 gen;
 
 const std::string base512_chars =
@@ -107,6 +105,6 @@ std::string decode(const std::string& data, const std::string& key) {
 // **PYBIND11 MODULE**
 PYBIND11_MODULE(hk512, m) {
     m.doc() = "HexKey-512 Encoding/Decoding";
-    m.def("encode", &encode, "Encode data with hk512", py::arg("data"), py::arg("key"));
-    m.def("decode", &decode, "Decode an hk512 string", py::arg("data"), py::arg("key"));
+    m.def("encode", &encode, "Encode data with hk512", pybind11::arg("data"), pybind11::arg("key"));
+    m.def("decode", &decode, "Decode an hk512 string", pybind11::arg("data"), pybind11::arg("key"));
 }

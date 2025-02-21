@@ -21,8 +21,6 @@
 #include <iostream>
 #include <string>
 
-namespace py = pybind11;
-
 void sound(const char* filename) {
     #if defined(WIN)
         PlaySound(TEXT(filename), NULL, SND_FILENAME | SND_ASYNC);
@@ -50,7 +48,7 @@ void sound(const char* filename) {
 PYBIND11_MODULE(sound, m){
     m.doc() = "Sound playback and utility functions";  // Module docstring
 
-    m.def("psound", &sound, py::arg("filename"),
+    m.def("psound", &sound, pybind11::arg("filename"),
           "Play a sound file.\n"
           "Args:\n"
           "    file (str): Path to the sound file.\n"

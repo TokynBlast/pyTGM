@@ -25,11 +25,11 @@ class BuildExt(build_ext):
         os_type = sys()
         if os_type == "Windows":
             for ext in self.extensions:
-                ext.extra_compile_args = ["/std:c++17", "/EHsc", "/bigobj"]
+                ext.extra_compile_args = ["/std:c++11", "/EHsc", "/bigobj"]
                 ext.extra_link_args = ["User32.lib"]
         elif os_type in ["Linux", "Darwin"]:
             for ext in self.extensions:
-                ext.extra_compile_args = ["-std=c++17", "-O3", "-Wall", "-fPIC"]
+                ext.extra_compile_args = ["-std=c++11", "-O3", "-Wall", "-fPIC"]
                 ext.extra_link_args = []
 
         # Use Ninja if available

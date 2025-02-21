@@ -4,8 +4,6 @@
 #include <algorithm>
 #include <chrono>
 
-namespace py = pybind11;
-
 void rect(int width, int height, int time=100, const char* character=" ") {
     int tot_steps = (height * (height + 1)) / 2 + (height * (height - 1)) / 2 + (std::max(width - height, 0) * height);
     int tot_time = time / tot_steps;
@@ -35,5 +33,5 @@ void rect(int width, int height, int time=100, const char* character=" ") {
 PYBIND11_MODULE(rect, m) {
     m.doc() = "Clears the screen, by printing out a specific char, to make a clearing animation";
     m.def("rect", &rect, "Prints out a rect of a specified size, in an animated form",
-        py::arg("width"), py::arg("height"), py::arg("time")=100, py::arg("character")=" ");
+        pybind11::arg("width"), pybind11::arg("height"), pybind11::arg("time")=100, pybind11::arg("character")=" ");
 }

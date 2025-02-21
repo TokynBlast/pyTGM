@@ -2,8 +2,6 @@
 #include <string>
 #include <sstream>
 
-namespace py = pybind11;
-
 std::string color(const int r, const int g, const int b) {
     std::stringstream ss;
     ss << "\x1b[38;2;" << r << ";" << g << ";" << b << "m";
@@ -13,5 +11,5 @@ std::string color(const int r, const int g, const int b) {
 PYBIND11_MODULE(color, m) {
     m.doc() = "Returns a color in ANSI formatting";
     m.def("color", &color, "Returns a color in ANSI formatting",
-        py::arg("r"), py::arg("g"), py::arg("b"));
+        pybind11::arg("r"), pybind11::arg("g"), pybind11::arg("b"));
 }

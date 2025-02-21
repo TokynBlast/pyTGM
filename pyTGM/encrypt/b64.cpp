@@ -7,8 +7,6 @@
 #include <stdexcept>
 #include <bitset>
 
-namespace py = pybind11;
-
 class Table {
 public:
     // Default base64 table (using a raw string literal to avoid excessive escaping)
@@ -95,16 +93,16 @@ std::string decode(const std::string &text) {
 PYBIND11_MODULE(custom_b64, m) {
     m.doc() = "This module is used for encoding and decoding in base64. A custom table can also be set.";
 
-    py::class_<Table>(m, "Table")
+    pybind11::class_<Table>(m, "Table")
         .def_static("gen", &Table::gen,
-                   py::arg("chars") = "",
-                   py::arg("times") = 1,
+                   pybind11::arg("chars") = "",
+                   pybind11::arg("times") = 1,
                    "Generates a new table by shuffling the given table or the default table.")
         .def_static("reset", &Table::reset,
                    "Resets the table to the default value.");
 
-    m.def("encode", &encode, py::arg("text"),
+    m.def("encode", &encode, pybind11::arg("text"),
           "Encodes inputted data in base64, using the table variable.");
-    m.def("decode", &decode, py::arg("text"),
+    m.def("decode", &decode, pybind11::arg("text"),
           "Decodes encoded data in base64, using the table variable.");
 }
