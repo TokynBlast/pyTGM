@@ -118,6 +118,6 @@ setup(
     ext_modules=[sound, cls, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
-    package_dir={"pytgm": "pyTGM"},
+    package_dir={"pytgm": "pytgm"},
     platforms=["Windows", "Linux", "MacOS"],
 )
