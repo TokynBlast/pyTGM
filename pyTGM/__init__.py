@@ -1,4 +1,4 @@
-""" The init file for the pyTGM library. """
+""" The init file for the pyTGM library """
 
 __all__ = [
     'local_server',
@@ -29,7 +29,7 @@ from pytgm import encrypt, sound, terminal, pattern, local_server as server #pyl
 from .sound import sound # pylint: disable= import-error
 
 # Graphics Imports
-from .terminal import cls, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky #pylint:disable=import-error
+from .terminal import clear, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky #pylint:disable=import-error
 
 # Online Imports
 from .local_server import server, client
