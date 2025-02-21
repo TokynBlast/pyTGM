@@ -1,9 +1,4 @@
 """ Imports all files needed for terminal """
-from .geky import geky  # pylint: disable=import-error
-
-from .color import color #pylint:disable=import-error
-from .cls import cls #pylint:disable=import-error
-from .pos import pos #pylint:disable=import-error
 
 RESET = "\x1b[0m"
 
@@ -14,3 +9,8 @@ UNDERLINE = '\x1b[4m'
 __all__ = ['geky',
            'cls', 'color', 'pos',
            'RESET', 'ITALIC', 'BOLD', 'UNDERLINE']
+
+def __getattr__(name):
+    if name in __all__:
+        return __import__(f"pyTGM.terminal.{name}", fromlist=[name])
+    raise AttributeError(f"module {__name__} has no attribute {name}")
