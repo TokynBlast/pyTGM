@@ -1,9 +1,7 @@
 """Tells Python how to build the pyTGM package"""
 
-import os
 from platform import system as sys
-import shutil
-from setuptools import setup, find_packages
+from setuptools import setup#, find_packages
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
 require = []
@@ -18,7 +16,7 @@ del req_os
 
 class BuildExt(build_ext):
     """
-    Determines the OS and sets up the Ninja build system.
+    Determines the OS and sets the build params
     """
 
     def build_extensions(self):
@@ -31,14 +29,6 @@ class BuildExt(build_ext):
             for ext in self.extensions:
                 ext.extra_compile_args = ["-std=c++11", "-O3", "-Wall", "-fPIC"]
                 ext.extra_link_args = []
-
-        # Use Ninja if available
-        if shutil.which("ninja"):
-            print("Using Ninja build system")
-            os.environ["CMAKE_GENERATOR"] = "Ninja"
-        else:
-            print("Ninja not found, falling back to default build system.")
-
         super().build_extensions()
 
 # Define extensions
@@ -105,7 +95,7 @@ setup(
         'License :: Other/Proprietary License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.13',
-        'Programming Language :: C++ :: 17',
+        'Programming Language :: C++ :: 11',
     ],
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=['pyTGM',
