@@ -1,4 +1,5 @@
 #include <pybind11/pybind11.h>
+#include <string>
 
 #ifdef _WIN32
     #define WIN
@@ -46,12 +47,12 @@ void sound(const char* filename) {
 };
 
 PYBIND11_MODULE(sound, m){
-    m.doc() = "Sound playback and utility functions";  // Module docstring
+    m.doc() = "Sound playback and utility functions";
 
-    m.def("psound", &sound, pybind11::arg("filename"),
+    m.def("sound", &sound, pybind11::arg("filename"),
           "Play a sound file.\n"
           "Args:\n"
           "    file (str): Path to the sound file.\n"
           "Returns:\n"
-          "    str: Optional error message, or None if successful.");
+          "    str: Error message, or None if successful.");
 };
