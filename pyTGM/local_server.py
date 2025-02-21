@@ -10,9 +10,7 @@ import threading
 
 @staticmethod
 def server(host: str = 'localhost', port: int = 5000) -> None:
-    """
-    Starts a multithreaded server to handle client connections.
-    """
+    """ Starts a multithreaded server to handle client connections """
     def server_():
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.bind((host, port))
@@ -21,9 +19,7 @@ def server(host: str = 'localhost', port: int = 5000) -> None:
         clients = []
 
         def handle_client(client_socket):
-            """
-            Handles communication with a single client.
-            """
+            """ Handles communication with a single client """
             while True:
                 try:
                     message = client_socket.recv(1024)
@@ -36,9 +32,7 @@ def server(host: str = 'localhost', port: int = 5000) -> None:
                     break
 
         def receive():
-            """
-            Accepts incoming client connections.
-            """
+            """ Accepts incoming client connections."""
             while True:
                 client_socket, address = server_socket.accept()
                 print(f"Connected with {address}")
@@ -55,16 +49,12 @@ def server(host: str = 'localhost', port: int = 5000) -> None:
 
 @staticmethod
 def client(message: str, host: str, port: int) -> None:
-    """
-    Connects to a server and sends a message.
-    """
+    """ Connects to a server and sends a message """
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((host, port))
 
     def receive():
-        """
-        Receives messages from the server.
-        """
+        """ Receives messages from the server """
         messages = []
         while True:
             try:
@@ -77,9 +67,7 @@ def client(message: str, host: str, port: int) -> None:
         return messages
 
     def write():
-        """
-        Sends a message to the server.
-        """
+        """ Sends a message to the server """
         while True:
             if message:
                 client_socket.send(message.encode('ascii'))
