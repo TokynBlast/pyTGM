@@ -49,8 +49,8 @@ sound = Pybind11Extension(
 )
 
 cls = Pybind11Extension(
-    name="pytgm.terminal.cls",
-    sources=["pytgm/terminal/cls.cpp"],
+    name="pytgm.terminal.clear",
+    sources=["pytgm/terminal/clear.cpp"],
     language="c++",
 )
 
