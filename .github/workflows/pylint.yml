@@ -27,24 +27,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install cmake pybind11 setuptools wheel pylint pybind11-stubgen
 
-      - name: Build C++ extension via CMake
+      - name: Compile C++ extension via CMake
         run: |
           mkdir -p build && cd build
           pybind11_DIR=$(python -m pybind11 --cmakedir)
-          cmake -Dpybind11_DIR=${pybind11_DIR} ..
-          cmake --build . --parallel
+          cmake -Dpybind11_DIR=${pybind11_DIR} -DCMAKE_BUILD_TYPE=Release ..
+          cmake --build . --config Release --parallel
 
-      - name: Make built module importable
+      - name: Install built module
         run: |
           mkdir -p built_module
           cp build/pyTGM*.so built_module/
           echo "PYTHONPATH=$PYTHONPATH:$(pwd)/built_module" >> $GITHUB_ENV
 
-      - name: Generate stubs for the pyTGM module
+      - name: Generate stubs for pyTGM module
         run: |
           pybind11-stubgen pyTGM -o stubs
           echo "PYTHONPATH=$PYTHONPATH:$(pwd)/stubs" >> $GITHUB_ENV
 
-      - name: Run pylint on Python files
+      - name: Run pylint
         run: |
           pylint $(git ls-files '*.py')
