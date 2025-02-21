@@ -30,6 +30,7 @@ class BuildExt(build_ext):
                 ext.extra_compile_args = ["-std=c++11", "-O3", "-Wall", "-fPIC"]
                 ext.extra_link_args = []
         super().build_extensions()
+        del os_type
 
 # Define extensions
 sound = Pybind11Extension(
