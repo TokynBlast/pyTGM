@@ -3,8 +3,8 @@ project(pyTGM)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(PYBIND11_CPP_STANDARD 11)
 
-# Find Python3 and pybind11 packages
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 find_package(pybind11 REQUIRED)
 
@@ -18,5 +18,5 @@ endif()
 # Create the Python module target using pybind11
 pybind11_add_module(pyTGM MODULE ${SRC_FILES})
 
-# Link against Python and pybind11 libraries (pybind11_add_module already does some linking)
+# Link against Python (pybind11_add_module already handles linking for pybind11)
 target_link_libraries(pyTGM PRIVATE Python3::Python)
