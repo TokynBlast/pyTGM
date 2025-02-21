@@ -10,7 +10,7 @@ __all__ = [
     'sound',
 
     'terminal',
-    'cls', 'color', 'pos',
+    'clear', 'color', 'pos',
     'RESET', 'BOLD', 'UNDERLINE', 'ITALIC',
     'geky',
 
@@ -29,7 +29,7 @@ from pytgm import encrypt, sound, terminal, pattern, local_server as server #pyl
 from .sound import sound # pylint: disable= import-error
 
 # Graphics Imports
-from .terminal import clear, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky #pylint:disable=import-error
+from .terminal import clear, color, pos, RESET, BOLD, ITALIC, UNDERLINE, geky #pylint:disable=import-error no-name-in-module
 
 # Online Imports
 from .local_server import server, client
