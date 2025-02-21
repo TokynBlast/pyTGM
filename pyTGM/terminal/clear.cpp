@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <iostream>
 
-int cls() {
+int clear() {
     #ifdef _WIN32
         #include <windows.h>
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -23,7 +23,7 @@ int cls() {
     return 0;
 }
 
-PYBIND11_MODULE(cls, m) {
+PYBIND11_MODULE(clear, m) {
     m.doc() = "Clears the screen";
-    m.def("cls", &cls, "Clears the terminal screen");
+    m.def("clear", &clear, "Clears the terminal screen");
 }
