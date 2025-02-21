@@ -43,43 +43,43 @@ class BuildExt(build_ext):
 
 # Define extensions
 sound = Pybind11Extension(
-    name="pyTGM.sound",
+    name="pytgm.sound",
     sources=["pytgm/sound.cpp"],
     language="c++",
 )
 
 cls = Pybind11Extension(
-    name="pyTGM.terminal.cls",
+    name="pytgm.terminal.cls",
     sources=["pytgm/terminal/cls.cpp"],
     language="c++",
 )
 
 color = Pybind11Extension(
-    name="pyTGM.terminal.color",
+    name="pytgm.terminal.color",
     sources=["pytgm/terminal/color.cpp"],
     language="c++",
 )
 
 pos = Pybind11Extension(
-    name="pyTGM.terminal.pos",
+    name="pytgm.terminal.pos",
     sources=["pytgm/terminal/pos.cpp"],
     language="c++",
 )
 
 geky = Pybind11Extension(
-    name="pyTGM.terminal.geky",
+    name="pytgm.terminal.geky",
     sources=["pytgm/terminal/geky.cpp"],
     language="c++",
 )
 
 rect = Pybind11Extension(
-    name="pytTGM.rect",
+    name="pytgm.rect",
     sources=["pytgm/pattern/rect.cpp"],
     language="c++",
 )
 
 hk512 = Pybind11Extension(
-    name="pyTGM.encrypt.hk512",
+    name="pytgm.encrypt.hk512",
     sources=["pytgm/encrypt/hk512.cpp"],
     language="c++",
 )
@@ -108,16 +108,11 @@ setup(
         'Programming Language :: C++ :: 17',
     ],
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
-    packages=['pytgm',
-              'pytgm.terminal',
-              'pytgm.encrypt',
-              'pytgm.pattern',
-              'sound',
-              'local_server'],
+    packages=find_packages(where='pytgm'),
+    package_dir={'': 'pytgm'},
     install_requires=require,
     ext_modules=[sound, cls, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
-    package_dir={"pytgm": "pyTGM"},
     platforms=["Windows", "Linux", "MacOS"],
 )
