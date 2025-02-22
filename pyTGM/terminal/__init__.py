@@ -7,10 +7,18 @@ ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
 
 __all__ = ['geky',
-           'cls', 'color', 'pos',
+           'clear', 'color', 'pos',
            'RESET', 'ITALIC', 'BOLD', 'UNDERLINE']
 
+from geky import *
+from clear import *
+from color import *
+from pos import *
+
+
+'''
 def __getattr__(name):
     if name in __all__:
         return __import__(f"pyTGM.terminal.{name}", fromlist=[name])
     raise AttributeError(f"module {__name__} has no attribute {name}")
+'''
