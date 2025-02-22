@@ -39,7 +39,7 @@ sound = Pybind11Extension(
     language="c++",
 )
 
-cls = Pybind11Extension(
+clear = Pybind11Extension(
     name="pyTGM.terminal.clear",
     sources=["pyTGM/terminal/clear.cpp"],
     language="c++",
@@ -104,7 +104,7 @@ setup(
               'pyTGM.pattern',
               'pyTGM.terminal'],
     install_requires=require,
-    ext_modules=[sound, cls, color, pos, geky, rect, hk512],
+    ext_modules=[sound, clear, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
