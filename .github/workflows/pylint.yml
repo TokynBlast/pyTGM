@@ -8,13 +8,13 @@ on:
       - "**/*.py"
       - "**/*.cpp"
       - "pyTGM/**"
-      - ".github/workflows/pylint.yml"
+      - "CMakeLists.txt"
+      - ".github/workflows/pyTGM.yml"
 
 jobs:
   compile-and-lint:
     runs-on: ubuntu-latest
     env:
-      # Set variables to point to our workspace subdirectories
       BUILT_MODULE: ${{ github.workspace }}/built_module
       STUBS: ${{ github.workspace }}/stubs
     steps:
@@ -31,28 +31,34 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade pybind11 pybind11-stubgen setuptools wheel pylint
 
-      - name: Compile C++ extension with g++
+      - name: Build C++ extensions via CMake
         run: |
-          mkdir -p built_module
-          # Find all .cpp files under the pyTGM folder
-          SOURCES=$(find pyTGM -type f -name '*.cpp')
-          echo "Compiling sources: $SOURCES"
-          # Compile all sources into one shared library
-          g++ -O3 -Wall -shared -std=c++17 -fPIC $(python -m pybind11 --includes) $SOURCES -o built_module/pyTGM$(python3-config --extension-suffix)
-          echo "Built module:"
-          ls -la built_module/
+          mkdir -p build && cd build
+          pybind11_DIR=$(python -m pybind11 --cmakedir)
+          # Configure CMake; your CMakeLists.txt should have separate targets for each module
+          cmake -Dpybind11_DIR=${pybind11_DIR} -DCMAKE_BUILD_TYPE=Release ..
+          cmake --build . --config Release --parallel
+          # Copy all shared libraries (*.so) from the build directory into built_module
+          mkdir -p "${{ env.BUILT_MODULE }}"
+          find . -type f -name '*.so' -exec cp {} "${{ env.BUILT_MODULE }}" \;
+          echo "Built modules:"
+          ls -la "${{ env.BUILT_MODULE }}"
 
-      - name: Generate stubs for pyTGM module
+      - name: Generate stubs for each module
         env:
-          PYTHONPATH: ${{ github.workspace }}/built_module
+          PYTHONPATH: ${{ env.BUILT_MODULE }}
         run: |
-          echo "PYTHONPATH for stubgen is: $PYTHONPATH"
-          pybind11-stubgen pyTGM -o stubs
+          mkdir -p "${{ env.STUBS }}"
+          # List of modules to generate stubs for. Adjust as needed.
+          for mod in pyTGM pyTGM_encrypt pyTGM_pattern pyTGM_terminal; do
+              echo "Generating stub for module: $mod"
+              pybind11-stubgen $mod -o "${{ env.STUBS }}"
+          done
           echo "Stubs generated:"
-          ls -la stubs/
+          ls -la "${{ env.STUBS }}"
 
       - name: Run pylint on Python files
         env:
-          PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs
+          PYTHONPATH: ${{ env.BUILT_MODULE }}:${{ env.STUBS }}
         run: |
           pylint $(git ls-files '*.py')
