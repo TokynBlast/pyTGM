@@ -41,14 +41,11 @@ jobs:
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/pattern"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
-          
-          pwd
-          echo "\n\n\n\n"
+
           ls
-          echo "\n\n\n\n"
 
           # The following is generatedby a tool
-          cp encrypt/hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
+          cp hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
           cp b64.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
           cp rect.o "${{ github.workspace }}/built_module/pyTGM/pattern/"
           cp clear.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
@@ -58,7 +55,6 @@ jobs:
           cp sound.o "${{ github.workspace }}/built_module/pyTGM/"
 
           # The rest is not by a tool
-          echo "Built modules:"
           find "${{ github.workspace }}/built_module" -type f -name '*.o'
 
       - name: Generate stubs for each module
