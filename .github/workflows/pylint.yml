@@ -41,18 +41,16 @@ jobs:
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/pattern"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
-          
-          ls
 
           # The following is generatedby a tool
-          cp build/encrypt/hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
-          cp build/b64.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
-          cp build/rect.o "${{ github.workspace }}/built_module/pyTGM/pattern/"
-          cp build/clear.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp build/color.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp build/geky.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp build/pos.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp build/sound.o "${{ github.workspace }}/built_module/pyTGM/"
+          cp encrypt/hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
+          cp b64.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
+          cp rect.o "${{ github.workspace }}/built_module/pyTGM/pattern/"
+          cp clear.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp color.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp geky.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp pos.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp sound.o "${{ github.workspace }}/built_module/pyTGM/"
 
           # The rest is not by a tool
           echo "Built modules:"
