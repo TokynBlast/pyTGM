@@ -41,6 +41,11 @@ jobs:
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/pattern"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
+          
+          pwd
+          echo "\n\n\n\n"
+          ls
+          echo "\n\n\n\n"
 
           # The following is generatedby a tool
           cp encrypt/hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
