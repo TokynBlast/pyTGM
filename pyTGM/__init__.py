@@ -1,6 +1,7 @@
-""" The init file for the pyTGM library """
+""" The init file for the pyTGM library 
 
-"""__all__ = [
+
+__all__ = [
     'local_server',
     'server', 'client',
 
@@ -17,11 +18,11 @@
     'pattern',
     'rect'
 ]"""
-
-__all__ = ['local_server', 'sound']
-
 from local_server import *
 from sound import *
+__all__ = ['local_server', 'sound']
+
+
 
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'

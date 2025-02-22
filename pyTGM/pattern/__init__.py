@@ -1,9 +1,9 @@
 """ Exposes all patterns and animations """
+from rect import *
+
 
 __all__ = ['rect']
 
-
-from rect import *
 
 '''
 def __getattr__(name):

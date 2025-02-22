@@ -1,20 +1,21 @@
 """ Imports all files needed for terminal """
 
-RESET = "\x1b[0m"
-
-BOLD = '\x1b[1m'
-ITALIC = '\x1b[3m'
-UNDERLINE = '\x1b[4m'
-
-__all__ = ['geky',
-           'clear', 'color', 'pos',
-           'RESET', 'ITALIC', 'BOLD', 'UNDERLINE']
-
 from geky import *
 from clear import *
 from color import *
 from pos import *
 
+
+
+__all__ = ['geky',
+           'clear', 'color', 'pos',
+           'RESET', 'ITALIC', 'BOLD', 'UNDERLINE']
+
+RESET = "\x1b[0m"
+
+BOLD = '\x1b[1m'
+ITALIC = '\x1b[3m'
+UNDERLINE = '\x1b[4m'
 
 '''
 def __getattr__(name):
