@@ -1,3 +1,0 @@
-[MASTER]
-extension-pkg-whitelist=pyTGM
-unsafe-load-any-extensions=yes
