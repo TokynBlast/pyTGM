@@ -43,7 +43,7 @@ jobs:
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
 
           # The following is generatedby a tool
-          cp build/hk512.so "${{ github.workspace }}/built_module/pyTGM/encrypt/"
+          cp build/encrypt/hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
           cp build/b64.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
           cp build/rect.o "${{ github.workspace }}/built_module/pyTGM/pattern/"
           cp build/clear.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
