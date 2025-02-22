@@ -10,6 +10,7 @@ on:
       - "pyTGM/**"
       - "CMakeLists.txt"
       - ".github/workflows/pylint.yml"
+      - ".pylintrc"
 
 jobs:
   compile-and-lint:
