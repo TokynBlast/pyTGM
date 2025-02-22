@@ -1,4 +1,4 @@
-name: Pylint
+name: Build, Generate Stubs, and Lint
 
 on:
   push:
@@ -35,30 +35,38 @@ jobs:
         run: |
           mkdir -p build && cd build
           pybind11_DIR=$(python -m pybind11 --cmakedir)
-          # Configure CMake; your CMakeLists.txt should have separate targets for each module
           cmake -Dpybind11_DIR=${pybind11_DIR} -DCMAKE_BUILD_TYPE=Release ..
           cmake --build . --config Release --parallel
-          # Copy all shared libraries (*.so) from the build directory into built_module
-          mkdir -p "${{ env.BUILT_MODULE }}"
-          find . -type f -name '*.so' -exec cp {} "${{ env.BUILT_MODULE }}" \;
+          # Create a folder structure matching the package:
+          mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
+          mkdir -p "${{ github.workspace }}/built_module/pyTGM/pattern"
+          mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
+          # The following is generatedby a tool:
+          cp build/hk512.o "${ github.workspace }/built_module/pyTGM/encrypt/"
+          cp build/b64.o "${ github.workspace }/built_module/pyTGM/encrypt/"
+          cp build/rect.o "${ github.workspace }/built_module/pyTGM/pattern/"
+          cp build/clear.o "${ github.workspace }/built_module/pyTGM/terminal/"
+          cp build/color.o "${ github.workspace }/built_module/pyTGM/terminal/"
+          cp build/geky.o "${ github.workspace }/built_module/pyTGM/terminal/"
+          cp build/pos.o "${ github.workspace }/built_module/pyTGM/terminal/"
+          cp build/sound.o "${ github.workspace }/built_module/pyTGM/"
           echo "Built modules:"
-          ls -la "${{ env.BUILT_MODULE }}"
+          find "${{ github.workspace }}/built_module" -type f -name '*.o'
 
       - name: Generate stubs for each module
         env:
-          PYTHONPATH: ${{ env.BUILT_MODULE }}
+          PYTHONPATH: ${{ github.workspace }}/built_module
         run: |
-          mkdir -p "${{ env.STUBS }}"
-          # List of modules to generate stubs for. Adjust as needed.
-          for mod in pyTGM pyTGM_encrypt pyTGM_pattern pyTGM_terminal; do
+          mkdir -p "${{ github.workspace }}/stubs"
+          for mod in pyTGM.encrypt.hk512 pyTGM.pattern.pattern pyTGM.terminal.terminal; do
               echo "Generating stub for module: $mod"
-              pybind11-stubgen $mod -o "${{ env.STUBS }}"
+              pybind11-stubgen $mod -o "${{ github.workspace }}/stubs"
           done
           echo "Stubs generated:"
-          ls -la "${{ env.STUBS }}"
+          ls -la "${{ github.workspace }}/stubs"
 
       - name: Run pylint on Python files
         env:
-          PYTHONPATH: ${{ env.BUILT_MODULE }}:${{ env.STUBS }}
+          PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs
         run: |
           pylint $(git ls-files '*.py')
