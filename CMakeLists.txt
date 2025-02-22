@@ -17,7 +17,7 @@ pybind11_add_module(hk512 MODULE
 target_link_libraries(hk512 PRIVATE Python3::Python)
 set_target_properties(hk512 PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
 
 
@@ -28,7 +28,7 @@ pybind11_add_module(b64 MODULE
 target_link_libraries(b64 PRIVATE Python3::Python)
 set_target_properties(b64 PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
 
 
@@ -39,7 +39,7 @@ pybind11_add_module(rect MODULE
 target_link_libraries(rect PRIVATE Python3::Python)
 set_target_properties(rect PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
 
 
@@ -50,7 +50,7 @@ pybind11_add_module(clear MODULE
 target_link_libraries(clear PRIVATE Python3::Python)
 set_target_properties(clear PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
 
 
@@ -61,7 +61,7 @@ pybind11_add_module(color MODULE
 target_link_libraries(color PRIVATE Python3::Python)
 set_target_properties(color PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
 
 
@@ -72,7 +72,7 @@ pybind11_add_module(geky MODULE
 target_link_libraries(geky PRIVATE Python3::Python)
 set_target_properties(geky PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
 
 
@@ -83,7 +83,7 @@ pybind11_add_module(pos MODULE
 target_link_libraries(pos PRIVATE Python3::Python)
 set_target_properties(pos PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
 
 
@@ -94,5 +94,5 @@ pybind11_add_module(sound MODULE
 target_link_libraries(sound PRIVATE Python3::Python)
 set_target_properties(sound PROPERTIES
     PREFIX ""
-    SUFFIX ".o"
+    SUFFIX ".so"
 )
