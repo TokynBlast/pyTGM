@@ -9,7 +9,7 @@ on:
       - "**/*.cpp"
       - "pyTGM/**"
       - "CMakeLists.txt"
-      - ".github/workflows/pyTGM.yml"
+      - ".github/workflows/pylint.yml"
 
 jobs:
   compile-and-lint:
