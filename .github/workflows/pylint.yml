@@ -68,6 +68,8 @@ jobs:
           echo "Stubs generated:"
           ls -la "${{ github.workspace }}/stubs"
 
+          ls
+
       - name: Run pylint on Python files
         env:
           PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs
