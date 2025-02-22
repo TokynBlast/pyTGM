@@ -1,4 +1,4 @@
-name: Build, Generate Stubs, and Lint
+name: Pylint
 
 on:
   push:
@@ -41,6 +41,8 @@ jobs:
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/pattern"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
+          
+          ls
 
           # The following is generatedby a tool
           cp build/encrypt/hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
