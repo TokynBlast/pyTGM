@@ -90,7 +90,7 @@ std::string decode(const std::string &text) {
     return decoded;
 }
 
-PYBIND11_MODULE(custom_b64, m) {
+PYBIND11_MODULE(b64, m) {
     m.doc() = "This module is used for encoding and decoding in base64. A custom table can also be set.";
 
     pybind11::class_<Table>(m, "Table")
