@@ -41,15 +41,18 @@ jobs:
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/pattern"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
-          # The following is generatedby a tool:
-          cp build/hk512.o "${ github.workspace }/built_module/pyTGM/encrypt/"
-          cp build/b64.o "${ github.workspace }/built_module/pyTGM/encrypt/"
-          cp build/rect.o "${ github.workspace }/built_module/pyTGM/pattern/"
-          cp build/clear.o "${ github.workspace }/built_module/pyTGM/terminal/"
-          cp build/color.o "${ github.workspace }/built_module/pyTGM/terminal/"
-          cp build/geky.o "${ github.workspace }/built_module/pyTGM/terminal/"
-          cp build/pos.o "${ github.workspace }/built_module/pyTGM/terminal/"
-          cp build/sound.o "${ github.workspace }/built_module/pyTGM/"
+
+          # The following is generatedby a tool
+          cp build/hk512.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
+          cp build/b64.o "${{ github.workspace }}/built_module/pyTGM/encrypt/"
+          cp build/rect.o "${{ github.workspace }}/built_module/pyTGM/pattern/"
+          cp build/clear.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp build/color.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp build/geky.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp build/pos.o "${{ github.workspace }}/built_module/pyTGM/terminal/"
+          cp build/sound.o "${{ github.workspace }}/built_module/pyTGM/"
+
+          # The rest is not by a tool
           echo "Built modules:"
           find "${{ github.workspace }}/built_module" -type f -name '*.o'
 
@@ -58,7 +61,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/built_module
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
-          for mod in pyTGM.encrypt.hk512 pyTGM.pattern.pattern pyTGM.terminal.terminal; do
+          for mod in pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.pattern.rect pyTGM.terminal.geky pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.pos; do
               echo "Generating stub for module: $mod"
               pybind11-stubgen $mod -o "${{ github.workspace }}/stubs"
           done
