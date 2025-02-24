@@ -12,7 +12,7 @@ ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
 
 
-def __getattr__(name):
-    if name in __all__:
-        return __import__(f"pytgm.terminal.{name}", fromlist=[name])
-    raise AttributeError(f"module {__name__} has no attribute {name}")
+import pyTGM.terminal.geky as geky
+import pyTGM.terminal.clear as clear
+import pyTGM.terminal.color as color
+import pyTGM.terminal.pos as pos
