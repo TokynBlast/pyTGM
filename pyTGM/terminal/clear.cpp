@@ -23,7 +23,7 @@ int clear() {
     return 0;
 }
 
-PYBIND11_MODULE(clear, m) {
+PYBIND11_MODULE(pyTGM.terminal.clear, m) {
     m.doc() = "Clears the screen";
     m.def("clear", &clear, "Clears the terminal screen");
 }

@@ -8,7 +8,7 @@ std::string color(const int r, const int g, const int b) {
     return ss.str();
 }
 
-PYBIND11_MODULE(color, m) {
+PYBIND11_MODULE(pyTGM.terminal.color, m) {
     m.doc() = "Returns a color in ANSI formatting";
     m.def("color", &color, "Returns a color in ANSI formatting",
         pybind11::arg("r"), pybind11::arg("g"), pybind11::arg("b"));

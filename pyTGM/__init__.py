@@ -20,7 +20,8 @@ __all__ = [
 ]"""
 from . import sound
 from . import local_server as server
-__all__ = ['server', 'sound']
+from . import rect
+__all__ = ['server', 'sound', 'rect']
 
 
 
