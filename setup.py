@@ -76,7 +76,7 @@ hk512 = Pybind11Extension(
 )
 
 setup(
-    name='pytgm',
+    name='pyTGM',
     version='5.0.0',
     description='Game maker contained in the terminal using C++ and Python',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
