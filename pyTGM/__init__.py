@@ -18,8 +18,8 @@ __all__ = [
     'pattern',
     'rect'
 ]"""
-import local_server as server
-from sound import *
+from . import local_server as server
+from . import sound
 __all__ = ['server', 'sound']
 
 
