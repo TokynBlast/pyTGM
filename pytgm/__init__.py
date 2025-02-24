@@ -18,11 +18,14 @@ __all__ = [
     'pattern',
     'rect'
 ]"""
-from . import sound
-from . import local_server as server
-from . import rect
+
 __all__ = ['server', 'sound', 'rect']
 
+
+def __getattr__(name):
+    if name in __all__:
+        return __import__(f"pytgm.{name}", fromlist=[name])
+    raise AttributeError(f"module {__name__} has no attribute {name}")
 
 
 
