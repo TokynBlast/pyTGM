@@ -34,49 +34,49 @@ class BuildExt(build_ext):
 
 # Define extensions
 sound = Pybind11Extension(
-    name="pyTGM.sound",
-    sources=["pyTGM/sound.cpp"],
+    name="pytgm.sound",
+    sources=["pytgm/sound.cpp"],
     language="c++",
 )
 
 clear = Pybind11Extension(
-    name="pyTGM.terminal.clear",
-    sources=["pyTGM/terminal/clear.cpp"],
+    name="pytgm.terminal.clear",
+    sources=["pytgm/terminal/clear.cpp"],
     language="c++",
 )
 
 color = Pybind11Extension(
-    name="pyTGM.terminal.color",
-    sources=["pyTGM/terminal/color.cpp"],
+    name="pytgm.terminal.color",
+    sources=["pytgm/terminal/color.cpp"],
     language="c++",
 )
 
 pos = Pybind11Extension(
-    name="pyTGM.terminal.pos",
-    sources=["pyTGM/terminal/pos.cpp"],
+    name="pytgm.terminal.pos",
+    sources=["pytgm/terminal/pos.cpp"],
     language="c++",
 )
 
 geky = Pybind11Extension(
-    name="pyTGM.terminal.geky",
-    sources=["pyTGM/terminal/geky.cpp"],
+    name="pytgm.terminal.geky",
+    sources=["pytgm/terminal/geky.cpp"],
     language="c++",
 )
 
 rect = Pybind11Extension(
-    name="pyTGM.rect",
-    sources=["pyTGM/pattern/rect.cpp"],
+    name="pytgm.rect",
+    sources=["pytgm/pattern/rect.cpp"],
     language="c++",
 )
 
 hk512 = Pybind11Extension(
-    name="pyTGM.encrypt.hk512",
-    sources=["pyTGM/encrypt/hk512.cpp"],
+    name="pytgm.encrypt.hk512",
+    sources=["pytgm/encrypt/hk512.cpp"],
     language="c++",
 )
 
 setup(
-    name='pyTGM',
+    name='pytgm',
     version='5.0.0',
     description='Game maker contained in the terminal using C++ and Python',
     long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
@@ -99,10 +99,10 @@ setup(
         'Programming Language :: C++ :: 11',
     ],
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
-    packages=['pyTGM',
-              'pyTGM.encrypt',
-              'pyTGM.pattern',
-              'pyTGM.terminal'],
+    packages=['pytgm',
+              'pytgm.encrypt',
+              'pytgm.pattern',
+              'pytgm.terminal'],
     install_requires=require,
     ext_modules=[sound, clear, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
