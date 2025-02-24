@@ -8,7 +8,7 @@ auto pos(const int x, const int y) -> std::string {
     return ss.str();
 }
 
-PYBIND11_MODULE(pyTGM.terminal.pos, m) {
+PYBIND11_MODULE(pos, m) {
     m.doc() = "Places the cursor at a specified point within the terminal";
     m.def("pos", &pos, "Places the cursor at a specified point",
         pybind11::arg("x"), pybind11::arg("y"));

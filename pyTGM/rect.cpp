@@ -30,7 +30,7 @@ void rect(int width, int height, int time=100, const char* character=" ") {
     }
 }
 
-PYBIND11_MODULE(pyTGM.rect, m) {
+PYBIND11_MODULE(rect, m) {
     m.doc() = "Clears the screen, by printing out a specific char, to make a clearing animation";
     m.def("rect", &rect, "Prints out a rect of a specified size, in an animated form",
         pybind11::arg("width"), pybind11::arg("height"), pybind11::arg("time")=100, pybind11::arg("character")=" ");

@@ -63,7 +63,7 @@ std::string geky(int times = 1) {
     return result;
 }
 
-PYBIND11_MODULE(pyTGM.terminal.geky, m) {
+PYBIND11_MODULE(geky, m) {
     m.doc() = "Gets a single key input from the keyboard, a determinate number of times";
     m.def("geky", &geky, "Gets a single key input", pybind11::arg("times") = 1);
 }
