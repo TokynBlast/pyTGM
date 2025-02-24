@@ -14,8 +14,7 @@ __all__ = [
     'clear', 'color', 'pos',
     'RESET', 'BOLD', 'UNDERLINE', 'ITALIC',
     'geky',
-
-    'pattern',
+    
     'rect'
 ]"""
 
