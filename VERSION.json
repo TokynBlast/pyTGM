@@ -6,7 +6,7 @@
   "min_cpp_req": "C++17",
   "build": 11,
   "hashes": {
-    "pytgm/terminal/__init__.py": "1aa8d8578a0939ee4e876fe98e7aac2738a5cc76ed322ffa7e30dffd947c920d",
+    "pytgm/terminal/__init__.py": "5f864b02e10e121259f44f8c4ff8ccc3f60342ede6f9a16f5c6e170538e4a75e",
     "pytgm/encrypt/__init__.py": "29b69ec91f98d6f1c9854b4b5541cbc6edc9cea658b2dd14bc53787ba03d32e6",
     "pytgm/__init__.py": "69d92ac8412a3f3fc482135018b8767ca5cf145d12a113eead660b2dc306a1ca",
     "pytgm/terminal/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
