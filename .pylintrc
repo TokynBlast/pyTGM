@@ -1,3 +1,3 @@
 [MASTER]
-init-hook='import sys; sys.path.insert(0, "/home/runner/work/pyTGM/built_module")'
+init-hook='import sys; sys.path.insert(0, "/home/runner/work/pytgm/built_module")'
 extension-pkg-whitelist=hk512,b64,rect,geky,clear,color,pos,sound
