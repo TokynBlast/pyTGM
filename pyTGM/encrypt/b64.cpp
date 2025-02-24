@@ -12,7 +12,7 @@ public:
     // Default base64 table (using a raw string literal to avoid excessive escaping)
     static std::string table_;
 
-    /// Generates a new table by shuffling the provided table (or the default if empty)
+    // Generates a new table by shuffling the provided table (or the default if empty)
     static std::string gen(const std::string &chars="", int times = 1) {
         std::string b64table = chars.empty() ? table_ : chars;
         std::vector<char> b64list(b64table.begin(), b64table.end());
@@ -24,7 +24,7 @@ public:
         return std::string(b64list.begin(), b64list.end());
     }
 
-    /// Resets the table to the default value.
+    // Resets the table to the default value.
     static void reset() {
         table_ = R"(ABCDEFGHIJKL MNOPQRSTUVWXYZabcdefghijk lmnopqrstuvwxyz1234567890?!@#$%^& *()_+-=[]{}\|/,.<>~`;:'")";
     }
