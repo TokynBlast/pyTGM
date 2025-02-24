@@ -3,7 +3,7 @@
   "release_date": " Feburary , 2025",
   "pytgm_release": "March 15, 2024",
   "min_py_req": 3.13,
-  "min_cpp_req": "C++11",
+  "min_cpp_req": "C++17",
   "build": 11,
   "hashes": {
     "pytgm/terminal/__init__.py": "1aa8d8578a0939ee4e876fe98e7aac2738a5cc76ed322ffa7e30dffd947c920d",

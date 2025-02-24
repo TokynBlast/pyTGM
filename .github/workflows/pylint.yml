@@ -60,7 +60,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/built_module
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
-          for mod in pytgm pytgm.encrypt.sha256 pytgm.sound pytgm.encrypt pytgm.encrypt.hk512 pytgm.encrypt.b64 pytgm.rect pytgm.terminal pytgm.terminal.clear pytgm.terminal.color pytgm.terminal.geky pytgm.terminal.pos; do
+          for mod in pytgm  pytgm.sound pytgm.encrypt pytgm.encrypt.hk512 pytgm.encrypt.b64 pytgm.rect pytgm.terminal pytgm.terminal.clear pytgm.terminal.color pytgm.terminal.geky pytgm.terminal.pos; do
               echo "Generating stub for module: $mod"
               pybind11-stubgen $mod -o "${{ github.workspace }}/stubs"
           done
