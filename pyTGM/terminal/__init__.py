@@ -1,10 +1,6 @@
 """ Imports all files needed for terminal """
 
-from geky import *
-from clear import *
-from color import *
-from pos import *
-
+from . import geky, clear, color, pos
 
 
 __all__ = ['geky',

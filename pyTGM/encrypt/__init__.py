@@ -2,8 +2,6 @@
 Exposes ecryptions
 """
 
-from b64 import *
-from hk512 import *
-from sha256 import *
+from . import b64, hk512, sha256
 
 __all__ = ['hk512', 'b64', 'sha256']

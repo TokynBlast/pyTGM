@@ -1,5 +1,6 @@
 """ Exposes all patterns and animations """
-from rect import *
+
+from . import rect
 
 
 __all__ = ['rect']
