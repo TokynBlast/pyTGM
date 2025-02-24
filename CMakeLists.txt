@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 project(pyTGM)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(PYBIND11_CPP_STANDARD 11)
+set(PYBIND11_CPP_STANDARD 17)
 
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 find_package(pybind11 REQUIRED)
