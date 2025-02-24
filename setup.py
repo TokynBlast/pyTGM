@@ -65,7 +65,7 @@ geky = Pybind11Extension(
 
 rect = Pybind11Extension(
     name="pytgm.rect",
-    sources=["pytgm/pattern/rect.cpp"],
+    sources=["pytgm/rect.cpp"],
     language="c++",
 )
 
@@ -101,7 +101,6 @@ setup(
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=['pytgm',
               'pytgm.encrypt',
-              'pytgm.pattern',
               'pytgm.terminal'],
     install_requires=require,
     ext_modules=[sound, clear, color, pos, geky, rect, hk512],

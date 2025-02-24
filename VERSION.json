@@ -18,11 +18,8 @@
     "pytgm/terminal/color.cpp": "2fd0cf9187b25a7275310a52b966d0e428e6d616b13c7d2477762153469ba5e4",
     "pytgm/encrypt/hk512.cpp": "f46db9e5a2b3c41d227b27c409078d766c55565215e859ce6da3d77793aadcc8",
     "pytgm/terminal/geky.cpp": "c6250fcc37b0967e05cbd991654bc40036d5137b9d12cb2357c2e463fcc70cea",
-    "pytgm/pattern/__init__.py": "7ed5ecbaaff345df6768ddafe9b5c45f5a4096b5777e439b44b8f82b12aeb89a",
-    "pytgm/pattern/rect.cpp": "622bdd66a62e5d6d6483de4c572f5f32bf01a0cabf57e9a1e910491784e08b47",
     "pytgm/sound.cpp": "d9507ae220530de524b30d7a657a4f63329929ede5bf96d21831f793602d4a50",
     "pytgm/encrypt/b64.cpp": "d5c74565180ee965232180a83e430f15eb72249adcd1c47a755be4c0ae9e8c37",
-    "-": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "pytgm/terminal/clear.cpp": "6c975e7da7a3c9f210f08ba37d0456adb94441e91a9d1905b243f440a8d5f655",
     "pytgm/rect.cpp": "fafac624b0d058e6f1e901111e0a30c51d18e5b220a5f99345f91c980e10f6a2"
   }

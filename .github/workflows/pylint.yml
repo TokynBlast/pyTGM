@@ -40,18 +40,17 @@ jobs:
           cmake --build . --config Release --parallel
           # Create a folder structure matching the package:
           mkdir -p "${{ github.workspace }}/built_module/pytgm/encrypt"
-          mkdir -p "${{ github.workspace }}/built_module/pytgm/pattern"
           mkdir -p "${{ github.workspace }}/built_module/pytgm/terminal"
 
           # The following is generatedby a tool
           cp hk512.so "${{ github.workspace }}/built_module/pytgm/encrypt/"
           cp b64.so "${{ github.workspace }}/built_module/pytgm/encrypt/"
-          cp rect.so "${{ github.workspace }}/built_module/pytgm/pattern/"
           cp clear.so "${{ github.workspace }}/built_module/pytgm/terminal/"
           cp color.so "${{ github.workspace }}/built_module/pytgm/terminal/"
           cp geky.so "${{ github.workspace }}/built_module/pytgm/terminal/"
           cp pos.so "${{ github.workspace }}/built_module/pytgm/terminal/"
           cp sound.so "${{ github.workspace }}/built_module/pytgm/"
+          cp rect.so "${{ github.workspace }}/built_module/pytgm/"
 
           # The rest is not by a tool
           find "${{ github.workspace }}/built_module" -type f -name '*.so'
@@ -61,7 +60,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/built_module
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
-          for mod in pytgm pytgm.sound pytgm.encrypt pytgm.encrypt.hk512 pytgm.encrypt.b64 pytgm.pattern pytgm.pattern.rect pytgm.terminal pytgm.terminal.clear pytgm.terminal.color pytgm.terminal.geky pytgm.terminal.pos; do
+          for mod in pytgm pytgm.sound pytgm.encrypt pytgm.encrypt.hk512 pytgm.encrypt.b64 pytgm.rect pytgm.terminal pytgm.terminal.clear pytgm.terminal.color pytgm.terminal.geky pytgm.terminal.pos; do
               echo "Generating stub for module: $mod"
               pybind11-stubgen $mod -o "${{ github.workspace }}/stubs"
           done
