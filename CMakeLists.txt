@@ -35,7 +35,7 @@ set_target_properties(b64 PROPERTIES
 
 
 pybind11_add_module(rect MODULE
-    pyTGM/pattern/rect.cpp
+    pyTGM/rect.cpp
 )
 
 target_link_libraries(rect PRIVATE Python3::Python)
