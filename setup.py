@@ -108,4 +108,6 @@ setup(
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
+    include_package_data=True,
+    data_files=[('', ['setup.py'])],
 )
