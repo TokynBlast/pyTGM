@@ -1,2 +1,2 @@
 global-include *.py *.cpp *.json *.txt *.md *.sh setup.py
-exclude .github/** .gitattributes
+exclude .github/** .gitattributes .pylintrc
