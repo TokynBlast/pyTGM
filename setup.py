@@ -34,44 +34,44 @@ class BuildExt(build_ext):
 
 # Define extensions
 sound = Pybind11Extension(
-    name="pytgm.sound",
-    sources=["pytgm/sound.cpp"],
+    name="pyTGM.sound",
+    sources=["pyTGM/sound.cpp"],
     language="c++",
 )
 
 clear = Pybind11Extension(
-    name="pytgm.terminal.clear",
-    sources=["pytgm/terminal/clear.cpp"],
+    name="pyTGM.terminal.clear",
+    sources=["pyTGM/terminal/clear.cpp"],
     language="c++",
 )
 
 color = Pybind11Extension(
-    name="pytgm.terminal.color",
-    sources=["pytgm/terminal/color.cpp"],
+    name="pyTGM.terminal.color",
+    sources=["pyTGM/terminal/color.cpp"],
     language="c++",
 )
 
 pos = Pybind11Extension(
-    name="pytgm.terminal.pos",
-    sources=["pytgm/terminal/pos.cpp"],
+    name="pyTGM.terminal.pos",
+    sources=["pyTGM/terminal/pos.cpp"],
     language="c++",
 )
 
 geky = Pybind11Extension(
-    name="pytgm.terminal.geky",
-    sources=["pytgm/terminal/geky.cpp"],
+    name="pyTGM.terminal.geky",
+    sources=["pyTGM/terminal/geky.cpp"],
     language="c++",
 )
 
 rect = Pybind11Extension(
-    name="pytgm.rect",
-    sources=["pytgm/rect.cpp"],
+    name="pyTGM.rect",
+    sources=["pyTGM/rect.cpp"],
     language="c++",
 )
 
 hk512 = Pybind11Extension(
-    name="pytgm.encrypt.hk512",
-    sources=["pytgm/encrypt/hk512.cpp"],
+    name="pyTGM.encrypt.hk512",
+    sources=["pyTGM/encrypt/hk512.cpp"],
     language="c++",
 )
 
@@ -98,7 +98,7 @@ setup(
         'Programming Language :: Python :: 3.13',
         'Programming Language :: C++ :: 17',
     ],
-    keywords='game, game maker, terminal, tools, pytgm, terminal input',
+    keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
     packages=['pyTGM',
               'pyTGM.encrypt',
               'pyTGM.terminal'],
