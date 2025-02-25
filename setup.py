@@ -96,7 +96,7 @@ setup(
         'License :: Other/Proprietary License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.13',
-        'Programming Language :: C++ :: 11',
+        'Programming Language :: C++ :: 17',
     ],
     keywords='game, game maker, terminal, tools, pytgm, terminal input',
     packages=['pytgm',
