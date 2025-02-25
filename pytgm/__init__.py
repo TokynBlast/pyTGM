@@ -1,22 +1,4 @@
-""" The init file for the pyTGM library 
-
-
-__all__ = [
-    'local_server',
-    'server', 'client',
-
-    'encrypt',
-    'sha256', 'b64', 'hk512',
-
-    'sound',
-
-    'terminal',
-    'clear', 'color', 'pos',
-    'RESET', 'BOLD', 'UNDERLINE', 'ITALIC',
-    'geky',
-    
-    'rect'
-]"""
+""" The init file for the pyTGM library """
 
 __all__ = ['server', 'sound', 'rect']
 
