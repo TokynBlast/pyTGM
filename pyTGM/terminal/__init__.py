@@ -12,7 +12,7 @@ ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
 
 
-import pytgm.terminal.geky as geky
-import pytgm.terminal.clear as clear
-import pytgm.terminal.color as color
-import pytgm.terminal.pos as pos
+import pyTGM.terminal.geky as geky
+import pyTGM.terminal.clear as clear
+import pyTGM.terminal.color as color
+import pyTGM.terminal.pos as pos

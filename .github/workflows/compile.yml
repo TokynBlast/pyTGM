@@ -3,7 +3,7 @@ name: Compile C++
 on:
   push:
     paths:
-      - pytgm/**/*.cpp
+      - pyTGM/**/*.cpp
       - .github/workflows/compile.yml
       - CMakeLists.txt
     branches:

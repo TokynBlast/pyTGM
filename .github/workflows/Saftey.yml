@@ -2,7 +2,7 @@ name: Safety Check
 on:
   push:
     paths:
-      - pytgm/**/*.py
+      - pyTGM/**/*.py
       - .github/workflows/Saftey.yml
     branches:
       - main

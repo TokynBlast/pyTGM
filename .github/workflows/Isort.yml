@@ -2,7 +2,7 @@ name: Isort
 on:
   push:
     paths:
-      - pytgm/**/*.py
+      - pyTGM/**/*.py
       - .github/workflows/Isort.yml
     branches:
       - main

@@ -5,7 +5,7 @@ __all__ = ['server', 'sound', 'rect']
 
 def __getattr__(name):
     if name in __all__:
-        return __import__(f"pytgm.{name}", fromlist=[name])
+        return __import__(f"pyTGM.{name}", fromlist=[name])
     raise AttributeError(f"module {__name__} has no attribute {name}")
 
 

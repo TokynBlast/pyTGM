@@ -117,8 +117,8 @@ encrypt.hk512.decode(data, key)
 ```
 
 ## Links
-- [Homepage](https://pytgm.tokynblast.space/home)
-- [Documentation](https://pytgm.tokynblast.space/documentation/use)
+- [Homepage](https://pyTGM.tokynblast.space/home)
+- [Documentation](https://pyTGM.tokynblast.space/documentation/use)
 - [Source Code](https://github.com/TokynBlast/pyTGM/tree/main)
 - [Bug Tracker](https://github.com/TokynBlast/pyTGM/issues)
 - [Changelog](https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt)
