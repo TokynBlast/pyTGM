@@ -1,7 +1,7 @@
 """Tells Python how to build the pyTGM package"""
 
 from platform import system as sys
-from setuptools import setup#, find_packages
+from setuptools import setup, find_packages
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
 require = []
@@ -99,9 +99,7 @@ setup(
         'Programming Language :: C++ :: 17',
     ],
     keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
-    packages=['pyTGM',
-              'pyTGM.encrypt',
-              'pyTGM.terminal'],
+    packages=find_packages(),
     install_requires=require,
     ext_modules=[sound, clear, color, pos, geky, rect, hk512],
     cmdclass={"build_ext": BuildExt},
