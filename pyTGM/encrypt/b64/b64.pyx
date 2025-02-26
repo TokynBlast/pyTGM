@@ -4,21 +4,19 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "b64.hpp":
-    cpp_string encode(const cpp_string& input, const cpp_string& key)
-    cpp_string decode(const cpp_string& data, const cpp_string& key)
+    cpp_string encode(const cpp_string &text)
+    cpp_string decode(const cpp_string &text)
 
-def py_encode(str input, str key):
-    """ Encodes the input string using the provided key """
-    cdef cpp_string in_str = input
-    cdef cpp_string key_str = key
-    cdef cpp_string result = encode(in_str, key_str)
+def py_encode(str text):
+    """ Encodes the given text using the custom base64 scheme """
+    cdef cpp_string cpp_text = text
+    cdef cpp_string result = encode(cpp_text)
     return result
 
-def py_decode(str data, str key):
-    """ Decodes the data string using the provided key """
-    cdef cpp_string data_str = data
-    cdef cpp_string key_str = key
-    cdef cpp_string result = decode(data_str, key_str)
+def py_decode(str text):
+    """ Decodes text encoded with the custom base64 scheme """
+    cdef cpp_string cpp_text = text
+    cdef cpp_string result = decode(cpp_text)
     return result
 
 encode = py_encode
