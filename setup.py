@@ -4,13 +4,13 @@ import os
 import sys
 import platform
 import subprocess
+from Cython.Build import cythonize
 from platform import system as sys_
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extension
 from setuptools.command.build_ext import build_ext
-from pybind11.setup_helpers import Pybind11Extension
 
 if sys_() == "Darwin":
-    require = ['pybind11==2.13.6', 'setuptools==75.8.0', 'wheel==0.45.1']
+    require = ['cython==3.0.12', 'setuptools>=66.1.1', 'wheel==0.45.1']
 else:
     require = []
 
@@ -51,50 +51,50 @@ class BuildExt(build_ext):
 
 repo_root = os.path.abspath(".")
 
-# pybind11 extensions
-sound = Pybind11Extension(
+# Cython extensions
+geky = Extension(
+        name="pyTGM.terminal.geky",
+        sources=["pyTGM/terminal/geky/geky.pyx", "pyTGM/terminal/geky/geky.cpp"],
+        language="c++",
+        include_dirs=[os.getcwd()],
+    )
+
+sound = Extension(
     name="pyTGM.sound",
     sources=["pyTGM/sound.cpp"],
     language="c++",
 )
 sound.sourcedir = repo_root
 
-clear = Pybind11Extension(
+clear = Extension(
     name="pyTGM.terminal.clear",
     sources=["pyTGM/terminal/clear.cpp"],
     language="c++",
 )
 clear.sourcedir = repo_root
 
-color = Pybind11Extension(
+color = Extension(
     name="pyTGM.terminal.color",
     sources=["pyTGM/terminal/color.cpp"],
     language="c++",
 )
 color.sourcedir = repo_root
 
-pos = Pybind11Extension(
+pos = Extension(
     name="pyTGM.terminal.pos",
     sources=["pyTGM/terminal/pos.cpp"],
     language="c++",
 )
 pos.sourcedir = repo_root
 
-geky = Pybind11Extension(
-    name="pyTGM.terminal.geky",
-    sources=["pyTGM/terminal/geky.cpp"],
-    language="c++",
-)
-geky.sourcedir = repo_root
-
-rect = Pybind11Extension(
+rect = Extension(
     name="pyTGM.rect",
     sources=["pyTGM/rect.cpp"],
     language="c++",
 )
 rect.sourcedir = repo_root
 
-hk512 = Pybind11Extension(
+hk512 = Extension(
     name="pyTGM.encrypt.hk512",
     sources=["pyTGM/encrypt/hk512.cpp"],
     language="c++",
@@ -129,10 +129,8 @@ setup(
     keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
     packages=find_packages(),
     install_requires=require,
-    ext_modules=[sound, clear, color, pos, geky, rect, hk512],
+    ext_modules=cythonize([sound, clear, color, pos, geky, rect, hk512]),
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
-    include_package_data=True,
-    data_files=[('', ['setup.py'])],
 )
