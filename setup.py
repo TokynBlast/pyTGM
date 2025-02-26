@@ -61,45 +61,52 @@ geky = Extension(
 
 sound = Extension(
     name="pyTGM.sound",
-    sources=["pyTGM/sound.cpp"],
+    sources=["pyTGM/sound/sound.cpp","pyTGM/sound/sound.pyx"],
     language="c++",
+    include_dirs=[os.getcwd()],
 )
-sound.sourcedir = repo_root
 
 clear = Extension(
     name="pyTGM.terminal.clear",
-    sources=["pyTGM/terminal/clear.cpp"],
+    sources=["pyTGM/terminal/clear/clear.cpp", "pyTGM/terminal/clear/clear.pyx"],
     language="c++",
+    include_dirs=[os.getcwd()],
 )
-clear.sourcedir = repo_root
 
 color = Extension(
     name="pyTGM.terminal.color",
-    sources=["pyTGM/terminal/color.cpp"],
+    sources=["pyTGM/terminal/color/color.cpp", "pyTGM/terminal/color/color.pyx"],
     language="c++",
+    include_dirs=[os.getcwd()],
 )
-color.sourcedir = repo_root
 
 pos = Extension(
     name="pyTGM.terminal.pos",
-    sources=["pyTGM/terminal/pos.cpp"],
+    sources=["pyTGM/terminal/pos/pos.cpp", "pyTGM/terminal/pos/pos.pyx"],
     language="c++",
+    include_dirs=[os.getcwd()],
 )
-pos.sourcedir = repo_root
 
 rect = Extension(
     name="pyTGM.rect",
-    sources=["pyTGM/rect.cpp"],
+    sources=["pyTGM/rect/rect.cpp", "pyTGM/rect/rect.pyx"],
     language="c++",
+    include_dirs=[os.getcwd()],
 )
-rect.sourcedir = repo_root
 
 hk512 = Extension(
     name="pyTGM.encrypt.hk512",
-    sources=["pyTGM/encrypt/hk512.cpp"],
+    sources=["pyTGM/encrypt/hk512/hk512.cpp", "pyTGM/encrypt/hk512/hk512.pyx"],
     language="c++",
+    include_dirs=[os.getcwd()],
 )
-hk512.sourcedir = repo_root
+
+b64 = Extension(
+    name="pyTGM.encrypt.hk512",
+    sources=["pyTGM/encrypt/b64/b64.cpp", "pyTGM/encrypt/b64/b64.pyx"],
+    language="c++",
+    include_dirs=[os.getcwd()],
+)
 
 setup(
     name='pyTGM',
@@ -129,7 +136,7 @@ setup(
     keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
     packages=find_packages(),
     install_requires=require,
-    ext_modules=cythonize([sound, clear, color, pos, geky, rect, hk512]),
+    ext_modules=cythonize([sound, clear, color, pos, geky, rect, hk512, b64]),
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
