@@ -1,4 +1,4 @@
-#include <pybind11/pybind11.h>
+#include "clear.hpp"
 #include <iostream>
 
 int clear() {
@@ -21,9 +21,4 @@ int clear() {
     #endif
 
     return 0;
-}
-
-PYBIND11_MODULE(clear, m) {
-    m.doc() = "Clears the screen";
-    m.def("clear", &clear, "Clears the terminal screen");
 }
