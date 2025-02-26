@@ -9,7 +9,6 @@
     "pyTGM/terminal/__init__.py": "5f864b02e10e121259f44f8c4ff8ccc3f60342ede6f9a16f5c6e170538e4a75e",
     "pyTGM/encrypt/__init__.py": "e2460cbfd44dfd260b0e3bc9f290605a977a3289b391cc83e76b3f62a2e8fb82",
     "pyTGM/__init__.py": "9cbf2bac71e48279411fc1c6c747d208e5cbe635f217101225daae84c45620c9",
-    "pyTGM/terminal/geky.py": "7c831d369a8b7acfb57d766c30372fe0fcfe93cf74bbbccd2173cdc1185f90fd",
     "pyTGM/local_server.py": "a1d8eb2fffa07a438fe4806ac2d451059367fa8ec22fb48a10007cf3fc2c4208",
     "pyTGM/encrypt/b64.py": "1d7924f5951b725fef7e9a954f84b351663dd95f9c4fa45685ca601ac9d73315",
     "pyTGM/encrypt/sha256.py": "6c561602e32b0ac40a3bcb01b9b9ca9c92af6e4216306923b887b15263e68f74",
@@ -17,11 +16,11 @@
     "pyTGM/terminal/pos.cpp": "9013e858dedbb66f09994b19c4a57aea8f9ee91edb579f4ebd3f6f35417a5f0b",
     "pyTGM/terminal/color.cpp": "2fd0cf9187b25a7275310a52b966d0e428e6d616b13c7d2477762153469ba5e4",
     "pyTGM/encrypt/hk512.cpp": "f46db9e5a2b3c41d227b27c409078d766c55565215e859ce6da3d77793aadcc8",
-    "pyTGM/terminal/geky.cpp": "c6250fcc37b0967e05cbd991654bc40036d5137b9d12cb2357c2e463fcc70cea",
     "pyTGM/sound.cpp": "d9507ae220530de524b30d7a657a4f63329929ede5bf96d21831f793602d4a50",
     "pyTGM/encrypt/b64.cpp": "d5c74565180ee965232180a83e430f15eb72249adcd1c47a755be4c0ae9e8c37",
     "pyTGM/terminal/clear.cpp": "6c975e7da7a3c9f210f08ba37d0456adb94441e91a9d1905b243f440a8d5f655",
     "pyTGM/rect.cpp": "fafac624b0d058e6f1e901111e0a30c51d18e5b220a5f99345f91c980e10f6a2",
-    "pyTGM/terminal/geky/geky.cpp": "8dc979c1a081fdd2ca0b1af4c8c4e8eebdbd255a8d1d9c4d2010b236fe8c5b35"
+    "pyTGM/terminal/geky/geky.cpp": "8dc979c1a081fdd2ca0b1af4c8c4e8eebdbd255a8d1d9c4d2010b236fe8c5b35",
+    "pyTGM/terminal/geky/geky.hpp": ""
   }
 }
