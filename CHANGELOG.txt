@@ -20,6 +20,7 @@ This only shows upto 20 versions at a time.
 - Attmept at a sound fix
 - Made a setup.sh
 - cls -> clear
+- Pybind11 -> Cython
 - Multiple bug fixes
 
 4.1.2 (January 6, 2025)
