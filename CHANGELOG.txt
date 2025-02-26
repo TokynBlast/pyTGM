@@ -7,9 +7,10 @@ This only shows upto 20 versions at a time.
 5.0.0 (Feburary , 2025)
 -------------------------
 - Removed depreciations
-- terminal -> C++
-- geky -> C++
-- b64 -> C++
+- Converted the following to C++:
+  terminal
+  geky
+  b64
 - Removed _WIN64
 - terd + graphics -> terminal
 - Made hk512
