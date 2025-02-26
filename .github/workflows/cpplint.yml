@@ -20,7 +20,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-tidy python3-dev cmake ninja-build cython
+          sudo apt-get install -y clang-tidy python3-dev cmake ninja-build cython3
 
       - name: Configure Project and Generate compile_commands.json
         run: |
@@ -30,4 +30,4 @@ jobs:
       - name: Run clang-tidy on all C++ files
         run: |
           cd build
-          find .. -type f \( -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' \) | xargs clang-tidy -p .
+          find .. -type f \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p .
