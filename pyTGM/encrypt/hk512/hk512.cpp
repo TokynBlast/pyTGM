@@ -1,4 +1,4 @@
-#include <pybind11/pybind11.h>
+#include "hk512.hpp"
 #include <random>
 #include <string>
 #include <bitset>
@@ -100,10 +100,4 @@ std::string decode(const std::string& data, const std::string& key) {
     }
 
     return original_data;
-}
-
-PYBIND11_MODULE(hk512, m) {
-    m.doc() = "HexKey-512 Encoding/Decoding";
-    m.def("encode", &encode, "Encode data with hk512", pybind11::arg("data"), pybind11::arg("key"));
-    m.def("decode", &decode, "Decode an hk512 string", pybind11::arg("data"), pybind11::arg("key"));
 }
