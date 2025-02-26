@@ -3,15 +3,19 @@ NOTES:
 All versions before 4.0.0 had been lost in an accidental deletion.
 This only shows upto 20 versions at a time.
 
+Key:
+->: to
++: and
+
 
 5.0.0 (Feburary , 2025)
 -------------------------
 - Removed depreciations
-- Converted the following to C++:
-  terminal
-  geky
-  b64
-- Removed _WIN64
+- C++ conversions:
+     terminal
+     geky
+     b64
+- Removed _WIN64 references
 - terd + graphics -> terminal
 - Made hk512
 - Removed click & file
