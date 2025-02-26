@@ -25,6 +25,8 @@
     "pyTGM/terminal/clear/clear.hpp": "8e115b1e1ceafe3790293dc3626c79e6db794c65b351f17f5d59393156977cdf",
     "pyTGM/terminal/clear/clear.cpp": "56deb447d8fd91e76873ddf0f8a515f4528032562c7f406272d1208e4c80095c",
     "pyTGM/terminal/color/color.cpp": "b0a9adf4d0fe87ad0bdf12d61df274e2e34cc3d75e0b3bfca6346f22c8af6ecb",
-    "pyTGM/terminal/color/color.hpp": "06ebee322de2b17e0fc44afbd04f0a57891ad3fd0e1f1a4ea1aed09343731e60"
+    "pyTGM/terminal/color/color.hpp": "06ebee322de2b17e0fc44afbd04f0a57891ad3fd0e1f1a4ea1aed09343731e60",
+    "pyTGM/terminal/pos/pos.hpp": "f93341e6c0ca44651e1783e6b7cd7fbf1253035f855374afa0f4dd888935f66f",
+    "pyTGM/terminal/pos/pos.cpp": "3f5847449e637703032ab264b3c838e7f38aceada925ea7fc50e08926eeb0ecb"
   }
 }
