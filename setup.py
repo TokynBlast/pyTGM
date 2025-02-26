@@ -34,7 +34,7 @@ class BuildExt(build_ext):
 
 # Define extensions
 sound = Pybind11Extension(
-    name="pyTGM.sound",
+    name="sound",
     sources=["pyTGM/sound.cpp"],
     language="c++",
 )
