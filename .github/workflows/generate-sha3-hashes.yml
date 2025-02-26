@@ -21,7 +21,7 @@ jobs:
       - name: Generate SHA-256 hashes
         run: |
           # Find all Python files
-          find pyTGM/ -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.hpp' -o -name '../setup-linux.sh' -o -name '../setup-win.sh' -o -name '../setup-mac.sh' -o -name '../setup.py' -o -name '../CMakeLists.txt' \) -print0 | xargs -0 sha256sum > hashes.txt
+          find pyTGM/ -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.pyx' -o -name '../setup.sh' -o -name '../setup.py' -o -name '../CMakeLists.txt' \) -print0 | xargs -0 sha256sum > hashes.txt
 
           # Ensure VERSION.json exists and has the 'hashes' object
           if [ ! -f VERSION.json ]; then
