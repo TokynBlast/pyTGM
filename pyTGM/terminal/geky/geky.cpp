@@ -1,4 +1,5 @@
-#include <pybind11/pybind11.h>
+#include "geky.hpp"
+
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -61,9 +62,4 @@ std::string geky(int times = 1) {
 #endif
 
     return result;
-}
-
-PYBIND11_MODULE(geky, m) {
-    m.doc() = "Gets a single key input from the keyboard, a determinate number of times";
-    m.def("geky", &geky, "Gets a single key input", pybind11::arg("times") = 1);
 }
