@@ -16,13 +16,21 @@ This function may one day come back, if mouse clicks are standard, or if I find 
 My other option is a ton of advanced calulations, getting temrinal character size, mouse input, area of terminal
 and, figuring out where the mouse click was.
 
-Concersion to C++
+Conversion to C++
 -----------------
 More and more is coming to C++
 Not all of it is done by me. Like file.
 I tried to convert it to C++, but I'm just not advanced enough yet. I hope, that one day, I can improve it though.
 Eventually, I hope there is a community of programmers, who show their appreciation, and help improve it, or give ideas, if they can.
 I prefer to make tools, not games, but, this is an easier way to introduce yourself to programming!
+
+Conversion to Cython
+--------------------
+I didn't REALLY want to do this, but, pybind11 was giving errors, and I never noticed...
+Not untill WAY later in 5.0.0 development. Now, I have to go through the pain of conversion,
+and the scary... FILE SIZE EXPANSION!! (It truly is scary...)
+But, if it works, it has to be done.
+
 
 Extra notes
 -----------
