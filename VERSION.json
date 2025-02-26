@@ -29,6 +29,8 @@
     "pyTGM/terminal/pos/pos.hpp": "f93341e6c0ca44651e1783e6b7cd7fbf1253035f855374afa0f4dd888935f66f",
     "pyTGM/terminal/pos/pos.cpp": "3f5847449e637703032ab264b3c838e7f38aceada925ea7fc50e08926eeb0ecb",
     "pyTGM/encrypt/hk512/hk512.hpp": "7d50ba3b0119630179f1a9ed524bc32a61f0505d7044a2bc82345892c9173a2b",
-    "pyTGM/encrypt/hk512/hk512.cpp": "6919ab63ad0ac1256a908f64b672916c7412846508a87b377d72d28bad9639e2"
+    "pyTGM/encrypt/hk512/hk512.cpp": "6919ab63ad0ac1256a908f64b672916c7412846508a87b377d72d28bad9639e2",
+    "pyTGM/encrypt/b64/b64.cpp": "99b2bbc56c21b1d8ecc6ad0cba5afcd514dc370138c7857957be3c79726b9be3",
+    "pyTGM/encrypt/b64/b64.hpp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }
 }
