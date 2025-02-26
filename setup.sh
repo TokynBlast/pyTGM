@@ -1,7 +1,7 @@
 # Build pyTGM
 
 if !command -v python3 >/dev/null; then
-    echo "Python3 is not installed."
+    echo "Python 3 is not installed."
 else
     if !command -v pip list cython wheel setuptools >/dev/null; then
         echo "One of the following:\n     wheel\n     setuptools\n     cython\nis not installed.\nPython will install it automatically.\n\n"
