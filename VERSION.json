@@ -28,7 +28,7 @@
     "pyTGM/terminal/clear/clear.pyx": "60db029d61fe336a48f77bf616195aaa4ed1f45d29f28d7fe91c7dcbf4a97920",
     "pyTGM/sound.cpp": "d9507ae220530de524b30d7a657a4f63329929ede5bf96d21831f793602d4a50",
     "pyTGM/encrypt/sha256.py": "6c561602e32b0ac40a3bcb01b9b9ca9c92af6e4216306923b887b15263e68f74",
-    "pyTGM/encrypt/b64/b64.pyx": "737d88d006146178aba8e65d1dc4137ebfa4cb56b513a9c9cf6543efdea45630",
+    "pyTGM/encrypt/b64/b64.pyx": "099c97b3220aaa6048bbcf8a675b18c6585579ad4cfbb007007670df9135a4d8",
     "pyTGM/encrypt/hk512/hk512.pyx": "b93bf32a28f41f1b4998128378860ac450d609f920c9aeea9acafe4d4fdd0c98",
     "pyTGM/rect.cpp": "fafac624b0d058e6f1e901111e0a30c51d18e5b220a5f99345f91c980e10f6a2"
   }
