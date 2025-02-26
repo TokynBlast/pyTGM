@@ -1,87 +1,115 @@
-"""Tells Python how to build the pyTGM package"""
+""" Builds the pyTGM package """
 
-from platform import system as sys
+import os
+import sys
+import platform
+import subprocess
+from platform import system as sys_
 from setuptools import setup, find_packages
-from pybind11.setup_helpers import Pybind11Extension, build_ext
+from setuptools.command.build_ext import build_ext
+from pybind11.setup_helpers import Pybind11Extension
 
-require = []
-
-req_os = sys()
-if req_os == "Darwin":
+if sys_() == "Darwin":
     require = ['pybind11==2.13.6', 'setuptools==75.8.0', 'wheel==0.45.1']
 else:
     require = []
 
-del req_os
 
 class BuildExt(build_ext):
-    """
-    Determines the OS and sets the build params
-    """
+    def run(self):
+        try:
+            subprocess.check_output(['cmake', '--version'])
+        except OSError:
+            raise RuntimeError("CMake must be installed to build this package")
+        for ext in self.extensions:
+            self.build_extension(ext)
 
-    def build_extensions(self):
-        os_type = sys()
-        if os_type == "Windows":
-            for ext in self.extensions:
-                ext.extra_compile_args = ["/std:c++17", "/EHsc", "/bigobj"]
-                ext.extra_link_args = ["User32.lib"]
-        elif os_type in ["Linux", "Darwin"]:
-            for ext in self.extensions:
-                ext.extra_compile_args = ["-std=c++17", "-O3", "-Wall", "-fPIC"]
-                ext.extra_link_args = []
-        super().build_extensions()
-        del os_type
+    def build_extension(self, ext):
+        extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
+        cfg = 'Debug' if self.debug else 'Release'
+        cmake_args = [
+            f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}',
+            f'-DPYTHON_EXECUTABLE={sys.executable}',
+            f'-DCMAKE_BUILD_TYPE={cfg}'
+        ]
+        build_args = []
+        if platform.system() == "Windows":
+            cmake_args += [f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{cfg.upper()}={extdir}']
+            if sys.maxsize > 2**32:
+                cmake_args += ['-A', 'x64']
+            build_args += ['--', '/m']
+        else:
+            build_args += ['--', '-j2']
 
-# Define extensions
+        build_temp = self.build_temp
+        if not os.path.exists(build_temp):
+            os.makedirs(build_temp)
+
+        # Run CMake
+        subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=build_temp)
+        subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=build_temp)
+
+repo_root = os.path.abspath(".")
+
+# pybind11 extensions
 sound = Pybind11Extension(
-    name="sound",
+    name="pyTGM.sound",
     sources=["pyTGM/sound.cpp"],
     language="c++",
 )
+sound.sourcedir = repo_root
 
 clear = Pybind11Extension(
     name="pyTGM.terminal.clear",
     sources=["pyTGM/terminal/clear.cpp"],
     language="c++",
 )
+clear.sourcedir = repo_root
 
 color = Pybind11Extension(
     name="pyTGM.terminal.color",
     sources=["pyTGM/terminal/color.cpp"],
     language="c++",
 )
+color.sourcedir = repo_root
 
 pos = Pybind11Extension(
     name="pyTGM.terminal.pos",
     sources=["pyTGM/terminal/pos.cpp"],
     language="c++",
 )
+pos.sourcedir = repo_root
 
 geky = Pybind11Extension(
     name="pyTGM.terminal.geky",
     sources=["pyTGM/terminal/geky.cpp"],
     language="c++",
 )
+geky.sourcedir = repo_root
 
 rect = Pybind11Extension(
     name="pyTGM.rect",
     sources=["pyTGM/rect.cpp"],
     language="c++",
 )
+rect.sourcedir = repo_root
 
 hk512 = Pybind11Extension(
     name="pyTGM.encrypt.hk512",
     sources=["pyTGM/encrypt/hk512.cpp"],
     language="c++",
 )
+hk512.sourcedir = repo_root
 
 setup(
     name='pyTGM',
     version='5.0.0',
     description='Game maker contained in the terminal using C++ and Python',
-    long_description=(open('README.md', encoding='utf-8').read() + '\n\n' + # pylint: disable=consider-using-with
-                      open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' + #pylint: disable=consider-using-with line-too-long
-                      open('CHANGELOG_NOTES.txt', encoding='utf-8').read()), #pylint: disable=consider-using-with line-too-long
+    long_description=(
+        open('README.md', encoding='utf-8').read() + '\n\n' +
+        open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +
+        open('CHANGELOG_NOTES.txt', encoding='utf-8').read()
+    ),
     long_description_content_type='text/markdown',
     url='https://github.com/TokynBlast/pyTGM',
     author='Tokyn Blast',
