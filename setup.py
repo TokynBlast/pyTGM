@@ -10,7 +10,7 @@ from setuptools import setup, find_packages, Extension
 from setuptools.command.build_ext import build_ext
 
 if sys_() == "Darwin":
-    require = ['cython==3.0.12', 'setuptools>=66.1.1', 'wheel==0.45.1']
+    require = ['cython>=3.0.12', 'setuptools>=66.1.1', 'wheel>=0.45.1']
 else:
     require = []
 
