@@ -54,53 +54,56 @@ class BuildExt(build_ext):
         subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=build_temp)
 
 # Cython extensions
-geky = Extension(
-        name="pyTGM.terminal.geky",
-        sources=["pyTGM/terminal/geky/geky.pyx", "pyTGM/terminal/geky/geky.cpp"],
+
+extend = [
+    Extension(
+            name="pyTGM.terminal.geky",
+            sources=["pyTGM/terminal/geky/geky.pyx", "pyTGM/terminal/geky/geky.cpp"],
+            include_dirs=[os.getcwd()],
+        ),
+
+    Extension(
+        name="pyTGM.sound",
+        sources=["pyTGM/sound/sound.cpp","pyTGM/sound/sound.pyx"],
+        include_dirs=[os.getcwd()],
+    ),
+
+    Extension(
+        name="pyTGM.terminal.clear",
+        sources=["pyTGM/terminal/clear/clear.cpp", "pyTGM/terminal/clear/clear.pyx"],
+        include_dirs=[os.getcwd()],
+    ),
+
+    Extension(
+        name="pyTGM.terminal.color",
+        sources=["pyTGM/terminal/color/color.cpp", "pyTGM/terminal/color/color.pyx"],
+        include_dirs=[os.getcwd()],
+    ),
+
+    Extension(
+        name="pyTGM.terminal.pos",
+        sources=["pyTGM/terminal/pos/pos.cpp", "pyTGM/terminal/pos/pos.pyx"],
+        include_dirs=[os.getcwd()],
+    ),
+
+    Extension(
+        name="pyTGM.rect",
+        sources=["pyTGM/rect/rect.cpp", "pyTGM/rect/rect.pyx"],
+        include_dirs=[os.getcwd()],
+    ),
+
+    Extension(
+        name="pyTGM.encrypt.hk512",
+        sources=["pyTGM/encrypt/hk512/hk512.cpp", "pyTGM/encrypt/hk512/hk512.pyx"],
+        include_dirs=[os.getcwd()],
+    ),
+
+    Extension(
+        name="pyTGM.encrypt.hk512",
+        sources=["pyTGM/encrypt/b64/b64.cpp", "pyTGM/encrypt/b64/b64.pyx"],
         include_dirs=[os.getcwd()],
     )
-
-sound = Extension(
-    name="pyTGM.sound",
-    sources=["pyTGM/sound/sound.cpp","pyTGM/sound/sound.pyx"],
-    include_dirs=[os.getcwd()],
-)
-
-clear = Extension(
-    name="pyTGM.terminal.clear",
-    sources=["pyTGM/terminal/clear/clear.cpp", "pyTGM/terminal/clear/clear.pyx"],
-    include_dirs=[os.getcwd()],
-)
-
-color = Extension(
-    name="pyTGM.terminal.color",
-    sources=["pyTGM/terminal/color/color.cpp", "pyTGM/terminal/color/color.pyx"],
-    include_dirs=[os.getcwd()],
-)
-
-pos = Extension(
-    name="pyTGM.terminal.pos",
-    sources=["pyTGM/terminal/pos/pos.cpp", "pyTGM/terminal/pos/pos.pyx"],
-    include_dirs=[os.getcwd()],
-)
-
-rect = Extension(
-    name="pyTGM.rect",
-    sources=["pyTGM/rect/rect.cpp", "pyTGM/rect/rect.pyx"],
-    include_dirs=[os.getcwd()],
-)
-
-hk512 = Extension(
-    name="pyTGM.encrypt.hk512",
-    sources=["pyTGM/encrypt/hk512/hk512.cpp", "pyTGM/encrypt/hk512/hk512.pyx"],
-    include_dirs=[os.getcwd()],
-)
-
-b64 = Extension(
-    name="pyTGM.encrypt.hk512",
-    sources=["pyTGM/encrypt/b64/b64.cpp", "pyTGM/encrypt/b64/b64.pyx"],
-    include_dirs=[os.getcwd()],
-)
+]
 
 setup(
     name='pyTGM',
@@ -130,7 +133,7 @@ setup(
     keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
     packages=find_packages(),
     install_requires=require,
-    ext_modules=cythonize(sound, clear, color, pos, geky, rect, hk512, b64),
+    ext_modules=cythonize(extend),
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
