@@ -1,6 +1,3 @@
-#include <pybind11/pybind11.h>
-#include <string>
-
 #ifdef _WIN32
     #define WIN
     #include <windows.h>
@@ -22,7 +19,7 @@
 #include <iostream>
 #include <string>
 
-void sound(const char* filename) {
+int sound(const char* filename) {
     #if defined(WIN)
         PlaySound(TEXT(filename), NULL, SND_FILENAME | SND_ASYNC);
     
@@ -43,16 +40,7 @@ void sound(const char* filename) {
         std::system(command.c_str());
     #else
         std::cerr << "Sound playback not supported on this platform." << std::endl;
+        return 1;
     #endif
-};
-
-PYBIND11_MODULE(sound, m){
-    m.doc() = "Sound playback and utility functions";
-
-    m.def("sound", &sound, pybind11::arg("filename"),
-          "Play a sound file.\n"
-          "Args:\n"
-          "    file (str): Path to the sound file.\n"
-          "Returns:\n"
-          "    str: Error message, or None if successful.");
+    return 0;
 };
