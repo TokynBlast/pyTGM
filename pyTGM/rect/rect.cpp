@@ -1,4 +1,4 @@
-#include <pybind11/pybind11.h>
+#include "rect.hpp"
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -28,10 +28,4 @@ void rect(int width, int height, int time=100, const char* character=" ") {
             std::cout << "\x1b[" << (j + 1) << ";" << (width - (j - i)) << "H" << character;
         }
     }
-}
-
-PYBIND11_MODULE(rect, m) {
-    m.doc() = "Clears the screen, by printing out a specific char, to make a clearing animation";
-    m.def("rect", &rect, "Prints out a rect of a specified size, in an animated form",
-        pybind11::arg("width"), pybind11::arg("height"), pybind11::arg("time")=100, pybind11::arg("character")=" ");
 }
