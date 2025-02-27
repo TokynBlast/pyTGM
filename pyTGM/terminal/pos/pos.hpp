@@ -1,4 +1,4 @@
-#ifndef
+#ifndef POS_HPP
 #define POS_HPP
 
 #include <string>
