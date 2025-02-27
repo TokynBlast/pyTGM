@@ -136,7 +136,7 @@ setup(
     keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
     packages=find_packages(),
     install_requires=require,
-    ext_modules=cythonize([sound, clear, color, pos, geky, rect, hk512, b64]),
+    ext_modules=cythonize(sound, clear, color, pos, geky, rect, hk512, b64),
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
