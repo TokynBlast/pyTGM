@@ -21,6 +21,10 @@ class BuildExt(build_ext):
             subprocess.check_output(['cmake', '--version'])
         except OSError:
             raise RuntimeError("CMake must be installed to build this package")
+        try:
+            subprocess.check_output(['cython3', '--version'])
+        except OSError:
+            raise RuntimeError("Cython must be installed to build this package")
         for ext in self.extensions:
             self.build_extension(ext)
 
@@ -48,8 +52,6 @@ class BuildExt(build_ext):
         # Run CMake
         subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=build_temp)
         subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=build_temp)
-
-repo_root = os.path.abspath(".")
 
 # Cython extensions
 geky = Extension(
