@@ -55,63 +55,55 @@ repo_root = os.path.abspath(".")
 geky = Extension(
         name="pyTGM.terminal.geky",
         sources=["pyTGM/terminal/geky/geky.pyx", "pyTGM/terminal/geky/geky.cpp"],
-        language="c++",
         include_dirs=[os.getcwd()],
     )
 
 sound = Extension(
     name="pyTGM.sound",
     sources=["pyTGM/sound/sound.cpp","pyTGM/sound/sound.pyx"],
-    language="c++",
     include_dirs=[os.getcwd()],
 )
 
 clear = Extension(
     name="pyTGM.terminal.clear",
     sources=["pyTGM/terminal/clear/clear.cpp", "pyTGM/terminal/clear/clear.pyx"],
-    language="c++",
     include_dirs=[os.getcwd()],
 )
 
 color = Extension(
     name="pyTGM.terminal.color",
     sources=["pyTGM/terminal/color/color.cpp", "pyTGM/terminal/color/color.pyx"],
-    language="c++",
     include_dirs=[os.getcwd()],
 )
 
 pos = Extension(
     name="pyTGM.terminal.pos",
     sources=["pyTGM/terminal/pos/pos.cpp", "pyTGM/terminal/pos/pos.pyx"],
-    language="c++",
     include_dirs=[os.getcwd()],
 )
 
 rect = Extension(
     name="pyTGM.rect",
     sources=["pyTGM/rect/rect.cpp", "pyTGM/rect/rect.pyx"],
-    language="c++",
     include_dirs=[os.getcwd()],
 )
 
 hk512 = Extension(
     name="pyTGM.encrypt.hk512",
     sources=["pyTGM/encrypt/hk512/hk512.cpp", "pyTGM/encrypt/hk512/hk512.pyx"],
-    language="c++",
     include_dirs=[os.getcwd()],
 )
 
 b64 = Extension(
     name="pyTGM.encrypt.hk512",
     sources=["pyTGM/encrypt/b64/b64.cpp", "pyTGM/encrypt/b64/b64.pyx"],
-    language="c++",
     include_dirs=[os.getcwd()],
 )
 
 setup(
     name='pyTGM',
     version='5.0.0',
-    description='Game maker contained in the terminal using C++ and Python',
+    description='A game development library, for the terminal!',
     long_description=(
         open('README.md', encoding='utf-8').read() + '\n\n' +
         open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +
