@@ -30,6 +30,9 @@
     "pyTGM/encrypt/sha256.py": "6c561602e32b0ac40a3bcb01b9b9ca9c92af6e4216306923b887b15263e68f74",
     "pyTGM/encrypt/b64/b64.pyx": "099c97b3220aaa6048bbcf8a675b18c6585579ad4cfbb007007670df9135a4d8",
     "pyTGM/encrypt/hk512/hk512.pyx": "b93bf32a28f41f1b4998128378860ac450d609f920c9aeea9acafe4d4fdd0c98",
-    "pyTGM/rect.cpp": "fafac624b0d058e6f1e901111e0a30c51d18e5b220a5f99345f91c980e10f6a2"
+    "pyTGM/rect.cpp": "fafac624b0d058e6f1e901111e0a30c51d18e5b220a5f99345f91c980e10f6a2",
+    "pyTGM/sound/sound.pyx": "e6f8d8d1a19a179a8cad75668fc8764669d22d8c6aab85c43cdc02856ea1fc3d",
+    "pyTGM/sound/sound.hpp": "26f0686efd1019047a68bc5c1eccf0803dc5ad3dcf97a90b9ec331b6997bc872",
+    "pyTGM/sound/sound.cpp": "3013a61bc053808ea91810eca51b021362b76207dc8770052698e82369e92ee8"
   }
 }
