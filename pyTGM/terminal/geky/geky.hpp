@@ -1,4 +1,4 @@
-#infndef GEKY_HPP
+#ifndef GEKY_HPP
 #define GEKY_HPP
 
 #include <string>

@@ -1,4 +1,4 @@
-#infndef COLOR_HPP
+#ifndef COLOR_HPP
 #define COLOR_HPP
 
 #include <string>
