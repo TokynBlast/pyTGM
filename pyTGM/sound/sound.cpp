@@ -1,3 +1,5 @@
+#include "sound.hpp"
+
 #ifdef _WIN32
     #define WIN
     #include <windows.h>
