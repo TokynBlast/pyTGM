@@ -12,7 +12,7 @@
     "pyTGM/local_server.py": "a1d8eb2fffa07a438fe4806ac2d451059367fa8ec22fb48a10007cf3fc2c4208",
     "pyTGM/terminal/geky/geky.cpp": "8dc979c1a081fdd2ca0b1af4c8c4e8eebdbd255a8d1d9c4d2010b236fe8c5b35",
     "pyTGM/terminal/geky/geky.hpp": "994f94525f39983a2d334f2753d5e819397bfa8f7d875e34b19fbda14cce26cf",
-    "pyTGM/terminal/clear/clear.hpp": "8e115b1e1ceafe3790293dc3626c79e6db794c65b351f17f5d59393156977cdf",
+    "pyTGM/terminal/clear/clear.hpp": "0bddfce3ceed7c5565aad98663a2b13aea19ba1c9bf88a406169ca8e197b1d0c",
     "pyTGM/terminal/clear/clear.cpp": "56deb447d8fd91e76873ddf0f8a515f4528032562c7f406272d1208e4c80095c",
     "pyTGM/terminal/color/color.cpp": "b0a9adf4d0fe87ad0bdf12d61df274e2e34cc3d75e0b3bfca6346f22c8af6ecb",
     "pyTGM/terminal/color/color.hpp": "06ebee322de2b17e0fc44afbd04f0a57891ad3fd0e1f1a4ea1aed09343731e60",
