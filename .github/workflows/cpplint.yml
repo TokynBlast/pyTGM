@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - pyTGM/**/*.cpp
+      - pyTGM/**/*.hpp
       - .github/workflows/cpplint.yml
       - CMakeLists.txt
     branches:
