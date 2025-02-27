@@ -9,39 +9,29 @@
     "pyTGM/terminal/__init__.py": "5f864b02e10e121259f44f8c4ff8ccc3f60342ede6f9a16f5c6e170538e4a75e",
     "pyTGM/encrypt/__init__.py": "e2460cbfd44dfd260b0e3bc9f290605a977a3289b391cc83e76b3f62a2e8fb82",
     "pyTGM/__init__.py": "9cbf2bac71e48279411fc1c6c747d208e5cbe635f217101225daae84c45620c9",
-
     "pyTGM/local_server.py": "a1d8eb2fffa07a438fe4806ac2d451059367fa8ec22fb48a10007cf3fc2c4208",
-
     "pyTGM/encrypt/sha256.py": "6c561602e32b0ac40a3bcb01b9b9ca9c92af6e4216306923b887b15263e68f74",
-
     "pyTGM/terminal/geky/geky.cpp": "8dc979c1a081fdd2ca0b1af4c8c4e8eebdbd255a8d1d9c4d2010b236fe8c5b35",
-    "pyTGM/terminal/geky/geky.hpp": "994f94525f39983a2d334f2753d5e819397bfa8f7d875e34b19fbda14cce26cf",
+    "pyTGM/terminal/geky/geky.hpp": "7cac0532ed1e269e0254cb6d53cfd608031ded8b22df771b1ae63eab2751522c",
     "pyTGM/terminal/geky/geky.pyx": "3127fab797c41a5a9653d1059ee37c6b5321b34185ed296dc7e4312618bd3321",
-
     "pyTGM/terminal/clear/clear.hpp": "0bddfce3ceed7c5565aad98663a2b13aea19ba1c9bf88a406169ca8e197b1d0c",
     "pyTGM/terminal/clear/clear.cpp": "56deb447d8fd91e76873ddf0f8a515f4528032562c7f406272d1208e4c80095c",
     "pyTGM/terminal/clear/clear.pyx": "60db029d61fe336a48f77bf616195aaa4ed1f45d29f28d7fe91c7dcbf4a97920",
-
     "pyTGM/terminal/color/color.cpp": "b0a9adf4d0fe87ad0bdf12d61df274e2e34cc3d75e0b3bfca6346f22c8af6ecb",
-    "pyTGM/terminal/color/color.hpp": "06ebee322de2b17e0fc44afbd04f0a57891ad3fd0e1f1a4ea1aed09343731e60",
+    "pyTGM/terminal/color/color.hpp": "077ef7bb183629ee41d62428f8fd1c9d223ab4eca7fd4ff84d5e99f19f1f8309",
     "pyTGM/terminal/color/color.pyx": "34d7436dd93bd3a22102072de5480a2311319c16bf691ca7ed7cb99fe410d217",
-
-    "pyTGM/terminal/pos/pos.hpp": "f93341e6c0ca44651e1783e6b7cd7fbf1253035f855374afa0f4dd888935f66f",
+    "pyTGM/terminal/pos/pos.hpp": "fa9d2b1b3878032140fd2d8aae94f5f44bf89898ceec0937baaaa7ff3164859e",
     "pyTGM/terminal/pos/pos.cpp": "3f5847449e637703032ab264b3c838e7f38aceada925ea7fc50e08926eeb0ecb",
     "pyTGM/terminal/pos/pos.pyx": "dc9327fef3bc6cac82b618b50ef3cef90d3c9ac34e4feb08d57f0948f72d2457",
-
     "pyTGM/encrypt/hk512/hk512.hpp": "7d50ba3b0119630179f1a9ed524bc32a61f0505d7044a2bc82345892c9173a2b",
     "pyTGM/encrypt/hk512/hk512.cpp": "6919ab63ad0ac1256a908f64b672916c7412846508a87b377d72d28bad9639e2",
     "pyTGM/encrypt/hk512/hk512.pyx": "b93bf32a28f41f1b4998128378860ac450d609f920c9aeea9acafe4d4fdd0c98",
-
     "pyTGM/encrypt/b64/b64.cpp": "99b2bbc56c21b1d8ecc6ad0cba5afcd514dc370138c7857957be3c79726b9be3",
     "pyTGM/encrypt/b64/b64.hpp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "pyTGM/encrypt/b64/b64.pyx": "099c97b3220aaa6048bbcf8a675b18c6585579ad4cfbb007007670df9135a4d8",
-
     "pyTGM/sound/sound.pyx": "e6f8d8d1a19a179a8cad75668fc8764669d22d8c6aab85c43cdc02856ea1fc3d",
     "pyTGM/sound/sound.hpp": "26f0686efd1019047a68bc5c1eccf0803dc5ad3dcf97a90b9ec331b6997bc872",
     "pyTGM/sound/sound.cpp": "ad66440ca894727505c942f1ee575ad93afd528c5b8e78177c046faae6e27448",
-    
     "pyTGM/rect/rect.hpp": "36641b396ca1d2ca45e95547a96ffbcb6561eb076b0e17759783eb3c51e04cab",
     "pyTGM/rect/rect.pyx": "a064738bb5852a2d0b1fc0d701755698d67c8faf416f0c8920dd2749b6059825",
     "pyTGM/rect/rect.cpp": "35f66f034f8cf75a66eee68c4330896d760722aee60f2a1939fa1dc52c0438bd"
