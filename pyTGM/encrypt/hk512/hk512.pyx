@@ -9,17 +9,21 @@ cdef extern from "hk512.hpp":
 
 def py_encode(str input, str key):
     """ Encodes the input string using the provided key """
-    cdef cpp_string in_str = input
-    cdef cpp_string key_str = key
+    cdef bytes input_bytes = input.encode('utf-8')
+    cdef bytes key_bytes = key.encode('utf-8')
+    cdef cpp_string in_str = input_bytes
+    cdef cpp_string key_str = key_bytes
     cdef cpp_string result = encode(in_str, key_str)
-    return result
+    return result.decode('utf-8')
 
 def py_decode(str data, str key):
     """ Decodes the data string using the provided key """
-    cdef cpp_string data_str = data
-    cdef cpp_string key_str = key
+    cdef bytes data_bytes = data.encode('utf-8')
+    cdef bytes key_bytes = key.encode('utf-8')
+    cdef cpp_string data_str = data_bytes
+    cdef cpp_string key_str = key_bytes
     cdef cpp_string result = decode(data_str, key_str)
-    return result
+    return result.decode('utf-8')
 
 encode = py_encode
 decode = py_decode
