@@ -1,4 +1,4 @@
-#infndef CLEAR_HPP
+#ifndef CLEAR_HPP
 #define CLEAR_HPP
 
 int clear();
