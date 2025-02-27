@@ -20,10 +20,11 @@ Key:
 - Made hk512
 - Removed click & file
 - Added rect
+- Added INVIS
 - Changed psound -> sound
 - Changed pos -> position
-- Attmept at a sound fix
-- Made a setup.sh
+- Fixed sound
+- Made setup.sh
 - cls -> clear
 - Pybind11 -> Cython
 - Multiple bug fixes

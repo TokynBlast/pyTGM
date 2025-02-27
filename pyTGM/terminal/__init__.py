@@ -14,4 +14,4 @@ RESET = "\x1b[0m"
 BOLD = '\x1b[1m'
 ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
-INVSIBLE = '\x1b[8m'
+INVIS = '\x1b[8m'
