@@ -19,8 +19,7 @@ Key:
 - terd + graphics -> terminal
 - Made hk512
 - Removed click & file
-- Added rect
-- Added INVIS
+- Added rect, INVIS, and BLINK
 - Changed psound -> sound
 - Changed pos -> position
 - Fixed sound
