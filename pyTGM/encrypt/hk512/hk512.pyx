@@ -7,7 +7,7 @@ cdef extern from "hk512.hpp":
     cpp_string encode(const cpp_string& input, const cpp_string& key)
     cpp_string decode(const cpp_string& data, const cpp_string& key)
 
-def py_encode(str input, str key):
+def encode(str input, str key):
     """ Encodes the input string using the provided key """
     cdef bytes input_bytes = input.encode('utf-8')
     cdef bytes key_bytes = key.encode('utf-8')
@@ -16,7 +16,7 @@ def py_encode(str input, str key):
     cdef cpp_string result = encode(in_str, key_str)
     return result.decode('utf-8')
 
-def py_decode(str data, str key):
+def decode(str data, str key):
     """ Decodes the data string using the provided key """
     cdef bytes data_bytes = data.encode('utf-8')
     cdef bytes key_bytes = key.encode('utf-8')
@@ -24,6 +24,3 @@ def py_decode(str data, str key):
     cdef cpp_string key_str = key_bytes
     cdef cpp_string result = decode(data_str, key_str)
     return result.decode('utf-8')
-
-encode = py_encode
-decode = py_decode
