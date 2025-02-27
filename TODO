@@ -1,0 +1,13 @@
+- [Bug]      [Version]
+
+- Convert Pybind11 to Cython    [5]
+- Cythonize server              [6]
+- Add tests                     [6]
+- Fix sound on Windows          [6]
+- Add more shapes               [7]
+- .cpp + .hpp -> .hpp           [8]
+- Add sound generation          [10]
+- Add volume adjustment         [15]
+
+- Compile pyTGM for macOS       [N/A]
+- Fix github Actions            [N/A]
