@@ -1,5 +1,9 @@
 """ Imports all files needed for terminal """
 
+from . import geky
+from . import clear
+from . import color
+from . import pos
 
 __all__ = ['geky',
            'clear', 'color', 'pos',
@@ -10,9 +14,4 @@ RESET = "\x1b[0m"
 BOLD = '\x1b[1m'
 ITALIC = '\x1b[3m'
 UNDERLINE = '\x1b[4m'
-
-
-import pyTGM.terminal.geky as geky
-import pyTGM.terminal.clear as clear
-import pyTGM.terminal.color as color
-import pyTGM.terminal.pos as pos
+INVSIBLE = '\x1b[8m'
