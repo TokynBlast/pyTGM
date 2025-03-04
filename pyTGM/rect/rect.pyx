@@ -7,5 +7,3 @@ cdef extern from "rect.hpp"
 def py_rect(int width, int height, int time=100, str character=" ")
     """ Prints a rectangle to the sreen """
     rect(witdth, height, time, character)
-
-py_rect = rect
