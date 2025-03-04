@@ -30,11 +30,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade Cython setuptools wheel pylint mypy
 
+      - name: Temporarily disable Cython regeneration for rect module
+        run: |
+          if [ -f pyTGM/rect/rect.pyx ]; then
+              mv pyTGM/rect/rect.pyx pyTGM/rect/rect.pyx.ignore
+          fi
+
       - name: Build Cython extensions without generating new C++ files
         env:
           SKIP_CYTHON: "1"
         run: |
           python setup.py build_ext --inplace --verbose
+          if [ -f pyTGM/rect/rect.pyx.ignore ]; then
+              mv pyTGM/rect/rect.pyx.ignore pyTGM/rect/rect.pyx
+          fi
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/hk512"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/b64"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/clear"
