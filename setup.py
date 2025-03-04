@@ -14,6 +14,21 @@ if sys_() == "Darwin":
 else:
     require = []
 
+try:
+    from Cython.Build import cythonize
+    USE_CYTHON = True
+except ImportError:
+    USE_CYTHON = False
+
+def get_ext_source(module_name, pyx_path, cpp_path):
+    if os.path.exists(cpp_path):
+        print(f"Using pre-generated C++ file for {module_name}: {cpp_path}")
+        return cpp_path
+    elif USE_CYTHON:
+        print(f"Cythonizing {pyx_path} for {module_name}")
+        return pyx_path
+    else:
+        raise RuntimeError(f"Cython is required to compile module {module_name}.")
 
 class BuildExt(build_ext):
     def run(self):
@@ -105,6 +120,9 @@ extend = [
     )
 ]
 
+if USE_CYTHON:
+    extensions = cythonize(extend, language_level=3, annotate=False)
+
 setup(
     name='pyTGM',
     version='5.0.0',
@@ -133,7 +151,7 @@ setup(
     keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
     packages=find_packages(),
     install_requires=require,
-    ext_modules=cythonize(module_list=extend),
+    ext_modules=extend,
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
