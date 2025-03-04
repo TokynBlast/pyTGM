@@ -7,6 +7,8 @@ on:
     paths:
       - "**/*.py"
       - "**/*.cpp"
+      - "**/*.hpp"
+      - "**/*.pyx"
       - "pyTGM/**"
       - "CMakeLists.txt"
       - ".github/workflows/pylint.yml"
