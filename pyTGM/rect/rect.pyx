@@ -6,4 +6,4 @@ cdef extern from "rect.hpp":
 
 def py_rect(int width, int height, int time, str character):
     """ Prints a rectangle to the sreen """
-    rect(witdth, height, time, character)
+    rect(width, height, time, character)
