@@ -2,8 +2,8 @@
 # distutils: language = c++
 
 cdef extern from "rect.hpp":
-    void rect(int width, int height, int time=100, const char* character=" ")
+    void rect(int width, int height, int time, const char* character)
 
-def py_rect(int width, int height, int time=100, str character=" "):
+def py_rect(int width, int height, int time, str character):
     """ Prints a rectangle to the sreen """
     rect(witdth, height, time, character)
