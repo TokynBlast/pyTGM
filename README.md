@@ -47,8 +47,9 @@ Once we know it's working and safe, somebody will merge the request!
 # Suggestions
 You don't always need everything for this library.
 Some things, like a beep can be used with \a
-These are called escape sequences.
-They can be combined with the library, to make the game even more powerful.
+These are called escape sequences./n
+They can be combined with the library, to make the game even more powerful./n
+In fact, that's what pyTGM does! It just provides an easier interface, to interact with these escape sequences!
 
 # Features
 
@@ -65,9 +66,6 @@ terminal.RESET             # Reset color
 terminal.BOLD
 terminal.ITALIC
 terminal.UNDERLINE
-
-# Placing the cursor at a pair of coordinates
-terminal.pos()
 
 # Keyboard Press Detection
 terminal.geky(times=1)
