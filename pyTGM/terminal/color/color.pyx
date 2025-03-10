@@ -4,11 +4,11 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "color.hpp":
-    cpp_string color(const int r, const in g, const int b)
+    cpp_string color(const int r, const int g, const int b)
 
-def py_color(int times=1):
+def py_color(int r, int g, int b):
     """ Gives an ANSI escape code for a color """
-    cdef cpp_string s = geky(times)
-    return s
+    cdef cpp_string result = color(r, g, b)
+    return result.decode('utf-8')
 
 color = py_color

@@ -3,6 +3,23 @@
 
 from libcpp.string cimport string as cpp_string
 
-cpdef extern from "hk512.hpp":
+cdef extern from "hk512.hpp":
     cpp_string encode(const cpp_string& input, const cpp_string& key)
     cpp_string decode(const cpp_string& data, const cpp_string& key)
+
+def py_encode(str input_text, str key):
+    """ Encodes the input text using HK512 encryption """
+    cdef cpp_string cpp_input = input_text.encode('utf-8')
+    cdef cpp_string cpp_key = key.encode('utf-8')
+    cdef cpp_string result = encode(cpp_input, cpp_key)
+    return result.decode('utf-8')
+
+def py_decode(str data, str key):
+    """ Decodes HK512 encrypted text """
+    cdef cpp_string cpp_data = data.encode('utf-8')
+    cdef cpp_string cpp_key = key.encode('utf-8')
+    cdef cpp_string result = decode(cpp_data, cpp_key)
+    return result.decode('utf-8')
+
+encode = py_encode
+decode = py_decode
