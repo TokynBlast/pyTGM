@@ -36,6 +36,9 @@ jobs:
           rm -f pyTGM/**/*.so
           find . -type d -name "__pycache__" -exec rm -r {} +
           find . -type f -name "*.pyc" -delete
+          rm -f pyTGM/encrypt/hk512/*.cpp
+          rm -f pyTGM/encrypt/hk512/*.so
+          rm -f pyTGM/encrypt/hk512/*.html
 
       - name: Build Cython extensions
         env:
