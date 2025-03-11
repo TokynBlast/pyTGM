@@ -32,9 +32,9 @@
     "pyTGM/sound/sound.pyx": "da796cb2b81cf479b6ba5468eaeeeee08301050bfb4d90cbd0b1c278e4bce271",
     "pyTGM/sound/sound.hpp": "26f0686efd1019047a68bc5c1eccf0803dc5ad3dcf97a90b9ec331b6997bc872",
     "pyTGM/sound/sound.cpp": "ad66440ca894727505c942f1ee575ad93afd528c5b8e78177c046faae6e27448",
-    "pyTGM/rect/rect.hpp": "36641b396ca1d2ca45e95547a96ffbcb6561eb076b0e17759783eb3c51e04cab",
-    "pyTGM/rect/rect.pyx": "23ea2f2372482bd6b465c6c6ea2ba4734de756dc49119a5e315cc0e8d94ac455",
-    "pyTGM/rect/rect.cpp": "35f66f034f8cf75a66eee68c4330896d760722aee60f2a1939fa1dc52c0438bd",
+    "pyTGM/rect/rect.hpp": "0cae247d851676a4c25d77d08cad7268002402a92e3e3d0aecb11e587d093edb",
+    "pyTGM/rect/rect.pyx": "b30f983409758dd4d3fc38b30ce827a55fd1f6afd56a31be3b2fc8fcc57978c8",
+    "pyTGM/rect/rect.cpp": "8bda5bf07bba5f0ec47017f7e3379794df78508717872ef88976f53e7e9e546e",
     "pyTGM/encrypt/hk512/hk512_.cpp": "6919ab63ad0ac1256a908f64b672916c7412846508a87b377d72d28bad9639e2"
   }
 }
