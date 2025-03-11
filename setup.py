@@ -49,6 +49,11 @@ class BuildExt(build_ext):
 
         sourcedir = os.path.abspath(os.path.dirname(__file__))
 
+        print(f"Building extension: {ext.name}")
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"Source directory: {sourcedir}")
+        print(f"Extension directory: {extdir}")
+
         cmake_args = [
             f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}',
             f'-DPYTHON_EXECUTABLE={sys.executable}',
