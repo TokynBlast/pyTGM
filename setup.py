@@ -172,5 +172,5 @@ setup(
     ext_modules=extend,
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
-    platforms=["Windows", "Linux", "MacOS"],
+    platforms=["Windows", "Linux", "MacOS"]
 )
