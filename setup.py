@@ -30,10 +30,15 @@ def get_ext_source(module_name, pyx_path, cpp_path):
     else:
         raise RuntimeError(f"Cython is required to compile module {module_name}.")
 
+def normalize_path(*paths):
+    """Normalize path relative to package root"""
+    return os.path.join("pyTGM", *paths)
+
 def check_sources(sources):
     root_dir = os.path.dirname(os.path.abspath(__file__))
     for source in sources:
         full_path = os.path.join(root_dir, source)
+        print(f"Checking for source file: {full_path}")
         if not os.path.exists(full_path):
             raise RuntimeError(f"Source file not found: {full_path}")
 
@@ -98,13 +103,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.geky",
         sources=[
-            os.path.join("terminal", "geky", "geky.pyx"),
-            os.path.join("terminal", "geky", "geky.cpp")
+            normalize_path("terminal", "geky", "geky.pyx"),
+            normalize_path("terminal", "geky", "geky.cpp")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "terminal", "geky"),
-            os.path.join(os.getcwd(), "pyTGM", "terminal", "geky")
+            normalize_path("terminal", "geky"),
         ],
         language="c++",
     ),
@@ -112,13 +116,12 @@ extend = [
     Extension(
         name="pyTGM.sound",
         sources=[
-            os.path.join("pyTGM", "sound", "sound.cpp"),
-            os.path.join("pyTGM", "sound", "sound.pyx")
+            normalize_path("sound", "sound.cpp"),
+            normalize_path("sound", "sound.pyx")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "sound"),
-            os.path.join(os.getcwd(), "pyTGM", "sound")
+            normalize_path("sound"),
         ],
         language="c++",
     ),
@@ -126,13 +129,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.clear",
         sources=[
-            os.path.join("pyTGM", "terminal", "clear", "clear.cpp"),
-            os.path.join("pyTGM", "terminal", "clear", "clear.pyx")
+            normalize_path("terminal", "clear", "clear.cpp"),
+            normalize_path("terminal", "clear", "clear.pyx")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "terminal", "clear"),
-            os.path.join(os.getcwd(), "pyTGM", "terminal", "clear")
+            normalize_path("terminal", "clear"),
         ],
         language="c++",
     ),
@@ -140,13 +142,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.color",
         sources=[
-            os.path.join("pyTGM", "terminal", "color", "color.cpp"),
-            os.path.join("pyTGM", "terminal", "color", "color.pyx")
+            normalize_path("terminal", "color", "color.cpp"),
+            normalize_path("terminal", "color", "color.pyx")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "terminal", "color"),
-            os.path.join(os.getcwd(), "pyTGM", "terminal", "color")
+            normalize_path("terminal", "color"),
         ],
         language="c++",
     ),
@@ -154,13 +155,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.pos",
         sources=[
-            os.path.join("pyTGM", "terminal", "pos", "pos.cpp"),
-            os.path.join("pyTGM", "terminal", "pos", "pos.pyx")
+            normalize_path("terminal", "pos", "pos.cpp"),
+            normalize_path("terminal", "pos", "pos.pyx")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "terminal", "pos"),
-            os.path.join(os.getcwd(), "pyTGM", "terminal", "pos")
+            normalize_path("terminal", "pos"),
         ],
         language="c++",
     ),
@@ -168,13 +168,12 @@ extend = [
     Extension(
         name="pyTGM.rect",
         sources=[
-            os.path.join("pyTGM", "rect", "rect.cpp"),
-            os.path.join("pyTGM", "rect", "rect.pyx")
+            normalize_path("rect", "rect.cpp"),
+            normalize_path("rect", "rect.pyx")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "rect"),
-            os.path.join(os.getcwd(), "pyTGM", "rect")
+            normalize_path("rect"),
         ],
         language="c++",
     ),
@@ -182,13 +181,12 @@ extend = [
     Extension(
         name="pyTGM.encrypt.hk512",
         sources=[
-            os.path.join("pyTGM", "encrypt", "hk512", "hk512.cpp"),
-            os.path.join("pyTGM", "encrypt", "hk512", "hk512.pyx")
+            normalize_path("encrypt", "hk512", "hk512.cpp"),
+            normalize_path("encrypt", "hk512", "hk512.pyx")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "encrypt", "hk512"),
-            os.path.join(os.getcwd(), "pyTGM", "encrypt", "hk512")
+            normalize_path("encrypt", "hk512"),
         ],
         language="c++",
     ),
@@ -196,13 +194,12 @@ extend = [
     Extension(
         name="pyTGM.encrypt.b64",
         sources=[
-            os.path.join("pyTGM", "encrypt", "b64", "b64.cpp"),
-            os.path.join("pyTGM", "encrypt", "b64", "b64.pyx")
+            normalize_path("encrypt", "b64", "b64.cpp"),
+            normalize_path("encrypt", "b64", "b64.pyx")
         ],
         include_dirs=[
             os.getcwd(),
-            os.path.join("pyTGM", "encrypt", "b64"),
-            os.path.join(os.getcwd(), "pyTGM", "encrypt", "b64")
+            normalize_path("encrypt", "b64"),
         ],
         language="c++",
     )
