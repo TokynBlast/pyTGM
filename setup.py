@@ -143,7 +143,7 @@ if USE_CYTHON:
 setup(
     name='pyTGM',
     version='5.0.0',
-    description='A game development library, for the terminal!',
+    description='A terminal-based game development library!',
     long_description=(
         open('README.md', encoding='utf-8').read() + '\n\n' +
         open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +
