@@ -47,7 +47,6 @@ class BuildExt(build_ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cfg = 'Debug' if self.debug else 'Release'
 
-        # Get source directory from the first source file
         sourcedir = os.path.abspath(os.path.dirname(ext.sources[0]))
 
         cmake_args = [
