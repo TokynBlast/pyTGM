@@ -47,8 +47,8 @@ class BuildExt(build_ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cfg = 'Debug' if self.debug else 'Release'
 
-        # Use the parent directory as the source directory
-        sourcedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        # Use the current directory as the source directory
+        sourcedir = os.path.abspath(os.path.dirname(__file__))
 
         print(f"Building extension: {ext.name}")
         print(f"Current working directory: {os.getcwd()}")
@@ -172,5 +172,5 @@ setup(
     ext_modules=extend,
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
-    platforms=["Windows", "Linux", "MacOS"]
+    platforms=["Windows", "Linux", "MacOS"],
 )
