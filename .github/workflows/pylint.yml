@@ -32,18 +32,21 @@ jobs:
 
       - name: Clean build files
         run: |
-          rm -f pyTGM/**/*.cpp
-          rm -f pyTGM/**/*.so
+          # Remove all build artifacts for HK512
+          rm -rf pyTGM/encrypt/hk512/*.cpp
+          rm -rf pyTGM/encrypt/hk512/*.so
+          rm -rf pyTGM/encrypt/hk512/*.html
+          rm -rf pyTGM/encrypt/hk512/*.c
+          # Remove general Python cache files
           find . -type d -name "__pycache__" -exec rm -r {} +
           find . -type f -name "*.pyc" -delete
-          rm -f pyTGM/encrypt/hk512/*.cpp
-          rm -f pyTGM/encrypt/hk512/*.so
-          rm -f pyTGM/encrypt/hk512/*.html
 
       - name: Build Cython extensions
         env:
           SKIP_CYTHON: "1"
         run: |
+          # Ensure clean state for HK512
+          touch pyTGM/encrypt/hk512/hk512.pyx
           python setup.py build_ext --inplace --verbose
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/hk512"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/b64"
