@@ -22,11 +22,7 @@ foreach(entry ${MODULES})
     set(mod_name ${CMAKE_MATCH_1})
     set(mod_dir ${CMAKE_MATCH_2})
 
-    if(${entry} MATCHES "pyTGM/encrypt/hk512")
-    set(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}_.cpp")
-    else()
-        set(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}.cpp")
-    endif()
+    set(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}.cpp")
     add_library(${mod_name} SHARED ${module_cpp})
 
     target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
