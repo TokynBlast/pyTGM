@@ -47,7 +47,8 @@ class BuildExt(build_ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cfg = 'Debug' if self.debug else 'Release'
 
-        sourcedir = os.path.abspath(os.path.dirname(__file__))
+        # Use the parent directory as the source directory
+        sourcedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
         print(f"Building extension: {ext.name}")
         print(f"Current working directory: {os.getcwd()}")
@@ -73,8 +74,17 @@ class BuildExt(build_ext):
         if not os.path.exists(build_temp):
             os.makedirs(build_temp)
 
-        subprocess.check_call(['cmake', sourcedir] + cmake_args, cwd=build_temp)
-        subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=build_temp)
+        try:
+            subprocess.check_call(['cmake', sourcedir] + cmake_args, cwd=build_temp)
+        except subprocess.CalledProcessError as e:
+            print(f"Error running cmake: {e.output}")
+            raise
+
+        try:
+            subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=build_temp)
+        except subprocess.CalledProcessError as e:
+            print(f"Error building with cmake: {e.output}")
+            raise
 
 # Cython extensions
 
