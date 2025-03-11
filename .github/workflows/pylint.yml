@@ -61,7 +61,7 @@ jobs:
           cp pyTGM/sound/sound.so "${{ github.workspace }}/built_module/pyTGM/"
           cp pyTGM/rect/rect.so "${{ github.workspace }}/built_module/pyTGM/"
 
-      - name: Generate stubs and run pylint
+      - name: Generate stubs & run pylint
         env:
           PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs
         run: |
