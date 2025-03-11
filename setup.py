@@ -117,7 +117,7 @@ extend = [
     ),
 
     Extension(
-        name="pyTGM.encrypt.hk512",
+        name="pyTGM.encrypt.b64",
         sources=["pyTGM/encrypt/b64/b64.cpp", "pyTGM/encrypt/b64/b64.pyx"],
         include_dirs=[os.getcwd()],
     )
