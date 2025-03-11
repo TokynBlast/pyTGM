@@ -2,7 +2,7 @@
 # distutils: language = c++
 
 cdef extern from "sound.hpp":
-    int sound_(const char* filename) "sound"
+    int sound_(const char* filename)
 
 def sound(str filename):
     """ Plays a sound file """

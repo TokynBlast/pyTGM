@@ -4,8 +4,8 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "hk512.hpp":
-    cpp_string encode_(const cpp_string& input, const cpp_string& key) "encode"
-    cpp_string decode_(const cpp_string& data, const cpp_string& key) "decode"
+    cpp_string encode_(const cpp_string& input, const cpp_string& key)
+    cpp_string decode_(const cpp_string& data, const cpp_string& key)
 
 def encode(str input_text, str key):
     """ Encodes the input text using HK512 encryption """

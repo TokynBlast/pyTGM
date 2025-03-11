@@ -4,7 +4,7 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "pos.hpp":
-    cpp_string pos_(const int x, const int y) "pos"
+    cpp_string pos_(const int x, const int y)
 
 def pos(int x, int y):
     """ Places the terminal cursor at a specified point """

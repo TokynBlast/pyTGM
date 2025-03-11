@@ -2,7 +2,7 @@
 # distutils: language = c++
 
 cdef extern from "clear.hpp":
-    int clear_() "clear"
+    int clear_()
 
 def clear():
     """ Clears terminal screen """

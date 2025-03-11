@@ -4,7 +4,7 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "rect.hpp":
-    void rect_(int width, int height, int time, const char* character) "rect"
+    void rect_(int width, int height, int time, const char* character)
 
 def rect(int width, int height, int time=100, str character=" "):
     """ Prints a rectangle to the screen """
