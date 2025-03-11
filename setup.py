@@ -46,12 +46,17 @@ class BuildExt(build_ext):
     def build_extension(self, ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cfg = 'Debug' if self.debug else 'Release'
+
+        # Get source directory from the first source file
+        sourcedir = os.path.abspath(os.path.dirname(ext.sources[0]))
+
         cmake_args = [
             f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}',
             f'-DPYTHON_EXECUTABLE={sys.executable}',
             f'-DCMAKE_BUILD_TYPE={cfg}'
         ]
         build_args = []
+
         if platform.system() == "Windows":
             cmake_args += [f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{cfg.upper()}={extdir}']
             if sys.maxsize > 2**32:
@@ -64,8 +69,7 @@ class BuildExt(build_ext):
         if not os.path.exists(build_temp):
             os.makedirs(build_temp)
 
-        # Run CMake
-        subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=build_temp)
+        subprocess.check_call(['cmake', sourcedir] + cmake_args, cwd=build_temp)
         subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=build_temp)
 
 # Cython extensions
