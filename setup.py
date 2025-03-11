@@ -32,7 +32,7 @@ def get_ext_source(module_name, pyx_path, cpp_path):
 
 def normalize_path(*paths):
     """Normalize path relative to package root"""
-    return os.path.join("pyTGM", *paths)
+    return os.path.join(*paths)
 
 def check_sources(sources):
     root_dir = os.path.dirname(os.path.abspath(__file__))
