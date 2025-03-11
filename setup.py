@@ -47,7 +47,7 @@ class BuildExt(build_ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cfg = 'Debug' if self.debug else 'Release'
 
-        sourcedir = os.path.abspath(os.path.dirname(ext.sources[0]))
+        sourcedir = os.path.abspath(os.path.dirname(__file__))
 
         cmake_args = [
             f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}',
