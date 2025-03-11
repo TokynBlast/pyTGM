@@ -4,7 +4,7 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "geky.hpp":
-    cpp_string geky_ "geky" (int times=1)
+    cpp_string geky_ "geky" (int times)
 
 cpdef str geky(int times=1):
     """ Reads key input(s) and returns an RGB string """
