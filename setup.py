@@ -81,7 +81,7 @@ class BuildExt(build_ext):
 extend = [
     Extension(
             name="pyTGM.terminal.geky",
-            sources=["pyTGM/terminal/geky/geky.pyx", "pyTGM/terminal/geky/geky.cpp"],
+            sources=["terminal/geky/geky.pyx", "terminal/geky/geky.cpp"],
             include_dirs=[os.getcwd()],
         ),
 
