@@ -227,7 +227,7 @@ setup(
         'Programming Language :: Python :: 3.13',
         'Programming Language :: C++ :: 17',
     ],
-    keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
+    keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input, pygame alternative',
     packages=find_packages(),
     install_requires=require,
     ext_modules=extensions,
