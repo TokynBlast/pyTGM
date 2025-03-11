@@ -25,7 +25,7 @@
     "pyTGM/terminal/pos/pos.pyx": "4fafe3d452ef63870bf49b9a2bb99db8d6d7b688976b15c96984a12ec7682f97",
     "pyTGM/encrypt/hk512/hk512.hpp": "7d50ba3b0119630179f1a9ed524bc32a61f0505d7044a2bc82345892c9173a2b",
     "pyTGM/encrypt/hk512/hk512.cpp": "6919ab63ad0ac1256a908f64b672916c7412846508a87b377d72d28bad9639e2",
-    "pyTGM/encrypt/hk512/hk512.pyx": "9b9c0ac8523228f1f2127114e8b871aa1c1ac4101b05d1e349a8040883a967a9",
+    "pyTGM/encrypt/hk512/hk512.pyx": "295f56b566b0177c7e3b3363bd972517800385acf206eef2b2f6b4be1405ba86",
     "pyTGM/encrypt/b64/b64.cpp": "99b2bbc56c21b1d8ecc6ad0cba5afcd514dc370138c7857957be3c79726b9be3",
     "pyTGM/encrypt/b64/b64.hpp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "pyTGM/encrypt/b64/b64.pyx": "099c97b3220aaa6048bbcf8a675b18c6585579ad4cfbb007007670df9135a4d8",
