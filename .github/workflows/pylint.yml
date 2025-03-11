@@ -32,22 +32,23 @@ jobs:
 
       - name: Clean build files
         run: |
-          # Remove all build artifacts for HK512
-          rm -rf pyTGM/encrypt/hk512/*.cpp
-          rm -rf pyTGM/encrypt/hk512/*.so
-          rm -rf pyTGM/encrypt/hk512/*.html
-          rm -rf pyTGM/encrypt/hk512/*.c
-          # Remove general Python cache files
-          find . -type d -name "__pycache__" -exec rm -r {} +
+          # Clean all Cython-generated files
+          find pyTGM -type f \( -name "*.cpp" -o -name "*.c" -o -name "*.so" -o -name "*.html" \) -delete
+          # Remove Python cache files
+          find . -type d -name "__pycache__" -exec rm -rf {} +
           find . -type f -name "*.pyc" -delete
+          # Clean build directories
+          rm -rf build/ dist/ *.egg-info/
 
       - name: Build Cython extensions
         env:
           SKIP_CYTHON: "1"
         run: |
-          # Ensure clean state for HK512
-          touch pyTGM/encrypt/hk512/hk512.pyx
+          # Ensure all .pyx files exist
+          find pyTGM -name "*.pyx" -exec touch {} +
           python setup.py build_ext --inplace --verbose
+
+          # Create module directories
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/hk512"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/b64"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/clear"
@@ -55,6 +56,7 @@ jobs:
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/geky"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/pos"
 
+          # Copy compiled modules
           cp pyTGM/encrypt/hk512/hk512.so "${{ github.workspace }}/built_module/pyTGM/encrypt/"
           cp pyTGM/encrypt/b64/b64.so "${{ github.workspace }}/built_module/pyTGM/encrypt/"
           cp pyTGM/terminal/clear/clear.so "${{ github.workspace }}/built_module/pyTGM/terminal/"
