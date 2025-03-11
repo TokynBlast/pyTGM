@@ -5,6 +5,7 @@ on:
     paths:
       - pyTGM/**/*.cpp
       - pyTGM/**/*.hpp
+      - pyTGM/**/*.pyx
       - .github/workflows/compile.yml
       - CMakeLists.txt
     branches:
@@ -13,21 +14,39 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
 
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.13"
+
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3 python3-pip python3-dev cmake g++ ninja-build
-          pip install pybind11
+          sudo apt-get install -y python3-dev cmake g++ ninja-build
+          python -m pip install --upgrade pip
+          pip install --upgrade Cython setuptools wheel
+
+      - name: Clean build files
+        run: |
+          # Clean all Cython-generated files
+          find pyTGM -type f \( -name "*.cpp" -o -name "*.c" -o -name "*.so" -o -name "*.html" \) -delete
+          # Remove Python cache files
+          find . -type d -name "__pycache__" -exec rm -rf {} +
+          find . -type f -name "*.pyc" -delete
+          # Clean build directories
+          rm -rf build/ dist/ *.egg-info/
 
       - name: Configure and Build
         run: |
           mkdir -p build
           cd build
-          pybind11_DIR=$(python3 -m pybind11 --cmakedir)
-          cmake -Dpybind11_DIR=${pybind11_DIR} ..
           cmake ..
-          make -j $(nproc)
+          cmake --build . --config Release -j $(nproc)
+          cd ..
+          python setup.py build_ext --inplace
