@@ -34,7 +34,6 @@
     "pyTGM/sound/sound.cpp": "7fc900286aec4985c679d56877f90f5bc5f90329287c486f421e43d2637eafbc",
     "pyTGM/rect/rect.hpp": "0cae247d851676a4c25d77d08cad7268002402a92e3e3d0aecb11e587d093edb",
     "pyTGM/rect/rect.pyx": "77c8317036c3c67786f931ded33b451fd1c28a755559959c0df7ffc8d2865595",
-    "pyTGM/rect/rect.cpp": "8bda5bf07bba5f0ec47017f7e3379794df78508717872ef88976f53e7e9e546e",
-    "pyTGM/encrypt/hk512/hk512_.cpp": "6919ab63ad0ac1256a908f64b672916c7412846508a87b377d72d28bad9639e2"
+    "pyTGM/rect/rect.cpp": "8bda5bf07bba5f0ec47017f7e3379794df78508717872ef88976f53e7e9e546e"
   }
 }
