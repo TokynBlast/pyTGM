@@ -7,14 +7,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
 set(MODULES
-    "hk512:pyTGM/encrypt/hk512"
-    "b64:pyTGM/encrypt/b64"
-    "rect:pyTGM/rect"
-    "clear:pyTGM/terminal/clear"
-    "color:pyTGM/terminal/color"
-    "geky:pyTGM/terminal/geky"
-    "pos:pyTGM/terminal/pos"
-    "sound:pyTGM/sound"
+    "hk512:encrypt/hk512"
+    "b64:encrypt/b64"
+    "rect:rect"
+    "clear:terminal/clear"
+    "color:terminal/color"
+    "geky:terminal/geky"
+    "pos:terminal/pos"
+    "sound:sound"
 )
 
 foreach(entry ${MODULES})
