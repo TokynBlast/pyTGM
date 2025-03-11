@@ -30,6 +30,11 @@ def get_ext_source(module_name, pyx_path, cpp_path):
     else:
         raise RuntimeError(f"Cython is required to compile module {module_name}.")
 
+def check_sources(sources):
+    for source in sources:
+        if not os.path.exists(source):
+            raise RuntimeError(f"Source file not found: {source}")
+
 class BuildExt(build_ext):
     def run(self):
         try:
@@ -127,18 +132,45 @@ extend = [
     Extension(
         name="pyTGM.encrypt.hk512",
         sources=["pyTGM/encrypt/hk512/hk512.cpp", "pyTGM/encrypt/hk512/hk512.pyx"],
-        include_dirs=[os.getcwd()],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/encrypt/hk512",
+            os.path.join(os.getcwd(), "pyTGM/encrypt/hk512")
+        ],
+        language="c++",
     ),
 
     Extension(
         name="pyTGM.encrypt.b64",
         sources=["pyTGM/encrypt/b64/b64.cpp", "pyTGM/encrypt/b64/b64.pyx"],
-        include_dirs=[os.getcwd()],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/encrypt/b64",
+            os.path.join(os.getcwd(), "pyTGM/encrypt/b64")
+        ],
+        language="c++",
     )
 ]
 
+for extension in extend:
+    check_sources(extension.sources)
+
 if USE_CYTHON:
-    extensions = cythonize(extend, language_level=3, annotate=False)
+    try:
+        extensions = cythonize(
+            extend,
+            language_level=3,
+            annotate=False,
+            compiler_directives={
+                'language_level': '3',
+                'embedsignature': True
+            }
+        )
+    except Exception as e:
+        print(f"Cythonize failed: {str(e)}")
+        raise
+else:
+    extensions = extend
 
 setup(
     name='pyTGM',
@@ -168,7 +200,7 @@ setup(
     keywords='game, game maker, terminal, tools, pyTGM, pytgm, terminal input',
     packages=find_packages(),
     install_requires=require,
-    ext_modules=extend,
+    ext_modules=extensions,
     cmdclass={"build_ext": BuildExt},
     python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
