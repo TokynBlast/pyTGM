@@ -22,7 +22,7 @@ foreach(entry ${MODULES})
     set(mod_name ${CMAKE_MATCH_1})
     set(mod_dir ${CMAKE_MATCH_2})
 
-    selt(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}.cpp")
+    set(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}.cpp")
 
     if(EXISTS ${module_cpp})
         add_library(${mod_name} SHARED ${module_cpp})

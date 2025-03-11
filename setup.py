@@ -47,7 +47,6 @@ class BuildExt(build_ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cfg = 'Debug' if self.debug else 'Release'
 
-        # Use the current directory as the source directory
         sourcedir = os.path.abspath(os.path.dirname(__file__))
 
         print(f"Building extension: {ext.name}")
