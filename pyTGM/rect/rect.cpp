@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <chrono>
 
-void rect(int width, int height, int time, const char* character) {
+void rect_(int width, int height, int time, const char* character) {
     int tot_steps = (height * (height + 1)) / 2 + (height * (height - 1)) / 2 + (std::max(width - height, 0) * height);
     int tot_time = time / tot_steps;
 

@@ -4,11 +4,9 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "rect.hpp":
-    void rect(int width, int height, int time, const char* character)
+    void rect_(int width, int height, int time, const char* character) "rect"
 
-def py_rect(int width, int height, int time=100, str character=" "):
+def rect(int width, int height, int time=100, str character=" "):
     """ Prints a rectangle to the screen """
     cdef bytes encoded_char = character.encode('utf-8')
-    rect(width, height, time, encoded_char)
-
-rect = py_rect
+    rect_(width, height, time, encoded_char)
