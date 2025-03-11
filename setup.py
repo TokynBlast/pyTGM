@@ -98,8 +98,8 @@ extend = [
     Extension(
         name="pyTGM.terminal.geky",
         sources=[
-            os.path.join("pyTGM", "terminal", "geky", "geky.pyx"),
-            os.path.join("pyTGM", "terminal", "geky", "geky.cpp")
+            os.path.join("terminal", "geky", "geky.pyx"),
+            os.path.join("terminal", "geky", "geky.cpp")
         ],
         include_dirs=[
             os.getcwd(),
