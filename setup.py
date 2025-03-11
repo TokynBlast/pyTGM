@@ -35,8 +35,11 @@ def normalize_path(*paths):
     return os.path.join(*paths)
 
 def check_sources(sources):
+    """Check if source files exist"""
     root_dir = os.path.dirname(os.path.abspath(__file__))
     for source in sources:
+        if not source.startswith("pyTGM/"):
+            source = os.path.join("pyTGM", source)
         full_path = os.path.join(root_dir, source)
         print(f"Checking for source file: {full_path}")
         if not os.path.exists(full_path):
@@ -103,12 +106,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.geky",
         sources=[
-            normalize_path("terminal", "geky", "geky.pyx"),
-            normalize_path("terminal", "geky", "geky.cpp")
+            "pyTGM/terminal/geky/geky.pyx",
+            "pyTGM/terminal/geky/geky.cpp"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("terminal", "geky"),
+            "pyTGM/terminal/geky",
         ],
         language="c++",
     ),
@@ -116,12 +119,12 @@ extend = [
     Extension(
         name="pyTGM.sound",
         sources=[
-            normalize_path("sound", "sound.cpp"),
-            normalize_path("sound", "sound.pyx")
+            "pyTGM/sound/sound.cpp",
+            "pyTGM/sound/sound.pyx"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("sound"),
+            "pyTGM/sound",
         ],
         language="c++",
     ),
@@ -129,12 +132,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.clear",
         sources=[
-            normalize_path("terminal", "clear", "clear.cpp"),
-            normalize_path("terminal", "clear", "clear.pyx")
+            "pyTGM/terminal/clear/clear.cpp",
+            "pyTGM/terminal/clear/clear.pyx"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("terminal", "clear"),
+            "pyTGM/terminal/clear",
         ],
         language="c++",
     ),
@@ -142,12 +145,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.color",
         sources=[
-            normalize_path("terminal", "color", "color.cpp"),
-            normalize_path("terminal", "color", "color.pyx")
+            "pyTGM/terminal/color/color.cpp",
+            "pyTGM/terminal/color/color.pyx"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("terminal", "color"),
+            "pyTGM/terminal/color",
         ],
         language="c++",
     ),
@@ -155,12 +158,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.pos",
         sources=[
-            normalize_path("terminal", "pos", "pos.cpp"),
-            normalize_path("terminal", "pos", "pos.pyx")
+            "pyTGM/terminal/pos/pos.cpp",
+            "pyTGM/terminal/pos/pos.pyx"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("terminal", "pos"),
+            "pyTGM/terminal/pos",
         ],
         language="c++",
     ),
@@ -168,12 +171,12 @@ extend = [
     Extension(
         name="pyTGM.rect",
         sources=[
-            normalize_path("rect", "rect.cpp"),
-            normalize_path("rect", "rect.pyx")
+            "pyTGM/rect/rect.cpp",
+            "pyTGM/rect/rect.pyx"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("rect"),
+            "pyTGM/rect",
         ],
         language="c++",
     ),
@@ -181,12 +184,12 @@ extend = [
     Extension(
         name="pyTGM.encrypt.hk512",
         sources=[
-            normalize_path("encrypt", "hk512", "hk512.cpp"),
-            normalize_path("encrypt", "hk512", "hk512.pyx")
+            "pyTGM/encrypt/hk512/hk512.cpp",
+            "pyTGM/encrypt/hk512/hk512.pyx"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("encrypt", "hk512"),
+            "pyTGM/encrypt/hk512",
         ],
         language="c++",
     ),
@@ -194,12 +197,12 @@ extend = [
     Extension(
         name="pyTGM.encrypt.b64",
         sources=[
-            normalize_path("encrypt", "b64", "b64.cpp"),
-            normalize_path("encrypt", "b64", "b64.pyx")
+            "pyTGM/encrypt/b64/b64.cpp",
+            "pyTGM/encrypt/b64/b64.pyx"
         ],
         include_dirs=[
             os.getcwd(),
-            normalize_path("encrypt", "b64"),
+            "pyTGM/encrypt/b64",
         ],
         language="c++",
     )
