@@ -33,17 +33,6 @@ jobs:
           sudo apt-get install -y cython3
           python -m pip install --upgrade pip
           pip install --upgrade Cython setuptools wheel pylint mypy
-
-      - name: Clean build files
-        run: |
-          # Clean all Cython-generated files
-          find pyTGM -type f \( -name "*.cpp" -o -name "*.c" -o -name "*.so" -o -name "*.html" \) -delete
-          # Remove Python cache files
-          find . -type d -name "__pycache__" -exec rm -rf {} +
-          find . -type f -name "*.pyc" -delete
-          # Clean build directories
-          rm -rf build/ dist/ *.egg-info/
-
       - name: Build Cython extensions
         env:
           SKIP_CYTHON: "1"
