@@ -22,16 +22,21 @@ foreach(entry ${MODULES})
     set(mod_name ${CMAKE_MATCH_1})
     set(mod_dir ${CMAKE_MATCH_2})
 
-    set(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}.cpp")
-    add_library(${mod_name} SHARED ${module_cpp})
+    selt(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}.cpp")
 
-    target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
-    target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
+    if(EXISTS ${module_cpp})
+        add_library(${mod_name} SHARED ${module_cpp})
 
-    set_target_properties(${mod_name} PROPERTIES
-        PREFIX ""
-        SUFFIX ".so"
-    )
+        target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
+        target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
+
+        set_target_properties(${mod_name} PROPERTIES
+            PREFIX ""
+            SUFFIX ".so"
+        )
+    else()
+        message(WARNING "Source file for module ${mod_name} not found: ${module_cpp}")
+    endif()
 endforeach()
 
 message(STATUS "Cython Extensions Generated for these modules:")
