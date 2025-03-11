@@ -9,6 +9,7 @@ on:
       - "CMakeLists.txt"
       - ".github/workflows/pylint.yml"
       - ".pylintrc"
+      - "setup.py"
 
 jobs:
   compile-and-lint:
