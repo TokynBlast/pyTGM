@@ -1,6 +1,6 @@
 #ifndef CLEAR_HPP
 #define CLEAR_HPP
 
-int clear();
+int clear_();
 
 #endif

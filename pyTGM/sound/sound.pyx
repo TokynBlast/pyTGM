@@ -2,14 +2,12 @@
 # distutils: language = c++
 
 cdef extern from "sound.hpp":
-    int sound(const char* filename)
+    int sound_(const char* filename) "sound"
 
-def py_sound(str filename):
+def sound(str filename):
     """ Plays a sound file """
     cdef bytes encoded_filename = filename.encode('utf-8')
-    cdef int result = sound(encoded_filename)
+    cdef int result = sound_(encoded_filename)
     if result != 0:
         raise RuntimeError("Failed to play sound")
     return result
-
-sound = py_sound

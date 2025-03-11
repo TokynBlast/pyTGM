@@ -2,6 +2,6 @@
 #define COLOR_HPP
 
 #include <string>
-std::string color(const int r, const int g, const int b);
+std::string color_(const int r, const int g, const int b);
 
 #endif

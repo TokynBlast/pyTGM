@@ -3,6 +3,6 @@
 
 #include <string>
 
-auto pos(const int x, const int y) -> std::string;
+auto pos_(const int x, const int y) -> std::string;
 
 #endif

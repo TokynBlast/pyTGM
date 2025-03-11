@@ -2,13 +2,10 @@
 # distutils: language = c++
 
 cdef extern from "clear.hpp":
-    int clear()
+    int clear_() "clear"
 
-def py_clear():
+def clear():
     """ Clears terminal screen """
-    cdef int result = clear()
+    cdef int result = clear_()
     if result == 1:
-        print("Couldn't clear the terminal.\nThis is likely the terminal or pyTGM.")
-        
-
-clear = py_clear
+        print("Couldn't clear the terminal.\nThis is likely not the fault of pyTGM.")

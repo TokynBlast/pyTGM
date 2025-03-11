@@ -1,7 +1,7 @@
 #include "clear.hpp"
 #include <iostream>
 
-int clear() {
+int clear_() {
     #ifdef _WIN32
         #include <windows.h>
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

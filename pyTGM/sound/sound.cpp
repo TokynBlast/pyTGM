@@ -21,7 +21,7 @@
 #include <iostream>
 #include <string>
 
-int sound(const char* filename) {
+int sound_(const char* filename) {
     #if defined(WIN)
         PlaySound(TEXT(filename), NULL, SND_FILENAME | SND_ASYNC);
     

@@ -13,7 +13,7 @@
 #include <fcntl.h>
 #endif
 
-std::string geky(int times) {
+std::string geky_(int times) {
     std::string result;
 
 #ifdef _WIN32

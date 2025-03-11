@@ -3,6 +3,6 @@
 
 #include <string>
 
-std::string geky(int times=1);
+std::string geky_(int times=1);
 
 #endif
