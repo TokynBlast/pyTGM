@@ -2,9 +2,9 @@
 # distutils: language = c++
 
 cdef extern from "sound.hpp":
-    int sound_(const char* filename)
+    int sound_ "sound" (const char* filename)
 
-def sound(str filename):
+cpdef int sound(str filename):
     """ Plays a sound file """
     cdef bytes encoded_filename = filename.encode('utf-8')
     cdef int result = sound_(encoded_filename)

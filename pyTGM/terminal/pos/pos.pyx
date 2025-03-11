@@ -4,9 +4,9 @@
 from libcpp.string cimport string as cpp_string
 
 cdef extern from "pos.hpp":
-    cpp_string pos_(const int x, const int y)
+    cpp_string pos_ "pos" (const int x, const int y)
 
-def pos(int x, int y):
+cpdef str pos(int x, int y):
     """ Places the terminal cursor at a specified point """
     cdef cpp_string s = pos_(x, y)
-    return s
+    return s.decode('utf-8')
