@@ -94,39 +94,69 @@ class BuildExt(build_ext):
 
 extend = [
     Extension(
-            name="pyTGM.terminal.geky",
-            sources=["pyTGM/terminal/geky/geky.pyx", "pyTGM/terminal/geky/geky.cpp"],
-            include_dirs=[os.getcwd()],
-        ),
+        name="pyTGM.terminal.geky",
+        sources=["pyTGM/terminal/geky/geky.pyx", "pyTGM/terminal/geky/geky.cpp"],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/terminal/geky",
+            os.path.join(os.getcwd(), "pyTGM/terminal/geky")
+        ],
+        language="c++",
+    ),
 
     Extension(
         name="pyTGM.sound",
-        sources=["pyTGM/sound/sound.cpp","pyTGM/sound/sound.pyx"],
-        include_dirs=[os.getcwd()],
+        sources=["pyTGM/sound/sound.cpp", "pyTGM/sound/sound.pyx"],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/sound",
+            os.path.join(os.getcwd(), "pyTGM/sound")
+        ],
+        language="c++",
     ),
 
     Extension(
         name="pyTGM.terminal.clear",
         sources=["pyTGM/terminal/clear/clear.cpp", "pyTGM/terminal/clear/clear.pyx"],
-        include_dirs=[os.getcwd()],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/terminal/clear",
+            os.path.join(os.getcwd(), "pyTGM/terminal/clear")
+        ],
+        language="c++",
     ),
 
     Extension(
         name="pyTGM.terminal.color",
         sources=["pyTGM/terminal/color/color.cpp", "pyTGM/terminal/color/color.pyx"],
-        include_dirs=[os.getcwd()],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/terminal/color",
+            os.path.join(os.getcwd(), "pyTGM/terminal/color")
+        ],
+        language="c++",
     ),
 
     Extension(
         name="pyTGM.terminal.pos",
         sources=["pyTGM/terminal/pos/pos.cpp", "pyTGM/terminal/pos/pos.pyx"],
-        include_dirs=[os.getcwd()],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/terminal/pos",
+            os.path.join(os.getcwd(), "pyTGM/terminal/pos")
+        ],
+        language="c++",
     ),
 
     Extension(
         name="pyTGM.rect",
         sources=["pyTGM/rect/rect.cpp", "pyTGM/rect/rect.pyx"],
-        include_dirs=[os.getcwd()],
+        include_dirs=[
+            os.getcwd(),
+            "pyTGM/rect",
+            os.path.join(os.getcwd(), "pyTGM/rect")
+        ],
+        language="c++",
     ),
 
     Extension(
