@@ -30,6 +30,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade Cython setuptools wheel pylint mypy
 
+      - name: Clean build files
+        run: |
+          rm -f pyTGM/**/*.cpp
+          rm -f pyTGM/**/*.so
+          find . -type d -name "__pycache__" -exec rm -r {} +
+          find . -type f -name "*.pyc" -delete
+
       - name: Build Cython extensions
         env:
           SKIP_CYTHON: "1"
@@ -51,23 +58,12 @@ jobs:
           cp pyTGM/sound/sound.so "${{ github.workspace }}/built_module/pyTGM/"
           cp pyTGM/rect/rect.so "${{ github.workspace }}/built_module/pyTGM/"
 
-          find "${{ github.workspace }}/built_module" -type f -name '*.so'
-
-      - name: Generate stubs for each module
-        env:
-          PYTHONPATH: ${{ github.workspace }}/built_module
-        run: |
-          mkdir -p "${{ github.workspace }}/stubs"
-          for mod in pyTGM pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
-              echo "Generating stub for module: $mod"
-              stubgen $mod -o "${{ github.workspace }}/stubs"
-          done
-          echo "Stubs generated:"
-          ls -la "${{ github.workspace }}/stubs"
-          ls
-
-      - name: Run pylint on Python files
+      - name: Generate stubs and run pylint
         env:
           PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs
         run: |
+          mkdir -p "${{ github.workspace }}/stubs"
+          for mod in pyTGM pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
+              stubgen $mod -o "${{ github.workspace }}/stubs"
+          done
           pylint $(git ls-files '*.py')
