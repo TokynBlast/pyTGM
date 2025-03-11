@@ -16,6 +16,7 @@ jobs:
     env:
       BUILT_MODULE: ${{ github.workspace }}/built_module
       STUBS: ${{ github.workspace }}/stubs
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,6 +28,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y cython3
           python -m pip install --upgrade pip
           pip install --upgrade Cython setuptools wheel pylint mypy
 
@@ -44,6 +47,8 @@ jobs:
         env:
           SKIP_CYTHON: "1"
         run: |
+          # Create symbolic link for cython3
+          sudo ln -s $(which cython) /usr/local/bin/cython3
           # Ensure all .pyx files exist
           find pyTGM -name "*.pyx" -exec touch {} +
           python setup.py build_ext --inplace --verbose
