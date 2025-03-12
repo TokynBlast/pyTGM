@@ -126,17 +126,13 @@ if geky_pyx:
     print(f"Found geky.pyx at: {geky_pyx}")
 else:
     print("geky.pyx not found in project directory")
+    extensions_files = [
+        "geky", "sound", "clear", "color", "pos", "rect", "hk512", "b64"
+    ]
 
-extensions_files = {
-    "geky": ["geky.pyx", "geky.cpp"],
-    "sound": ["sound.pyx", "sound.cpp"],
-    "clear": ["clear.pyx", "clear.cpp"],
-    "color": ["color.pyx", "color.cpp"],
-    "pos": ["pos.pyx", "pos.cpp"],
-    "rect": ["rect.pyx", "rect.cpp"],
-    "hk512": ["hk512.pyx", "hk512.cpp"],
-    "b64": ["b64.pyx", "b64.cpp"]
-}
+    extensions_files = {
+        module: [f"{module}.pyx", f"{module}.cpp"] for module in extensions_files
+    }
 
 found_files = {}
 for module, files in extensions_files.items():
@@ -161,8 +157,7 @@ for module, files in extensions_files.items():
              else f"pyTGM.{module}",
         sources=source_files,
         include_dirs=[
-            os.getcwd(),
-            "..",
+            os.path.dirname(os.getcwd())
         ],
         language="c++"
     )
