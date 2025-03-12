@@ -49,16 +49,40 @@ def find_file(filename, search_path="."):
     for root, _, files in os.walk(abs_search_path):
         if filename in files:
             found_path = os.path.join(root, filename)
-            return os.path.relpath(found_path, abs_search_path)
+            rel_path = os.path.relpath(found_path, abs_search_path)
+            # Fix path to ensure single pyTGM prefix
+            parts = rel_path.split(os.sep)
+            if parts.count('pyTGM') > 1:
+                # Remove extra pyTGM occurrences
+                new_parts = []
+                seen_pytgm = False
+                for part in parts:
+                    if part == 'pyTGM':
+                        if not seen_pytgm:
+                            seen_pytgm = True
+                            new_parts.append(part)
+                    else:
+                        new_parts.append(part)
+                rel_path = os.path.join(*new_parts)
+            return rel_path
     return None
 
 def get_absolute_path(path):
     """Convert relative path to absolute path"""
     if path is None:
         return None
-    # Remove extra pyTGM from path if present
-    if path.startswith('pyTGM/'):
-        path = path.replace('pyTGM/pyTGM/', '', 1)
+    parts = path.split(os.sep)
+    if parts.count('pyTGM') > 2:
+        new_parts = []
+        seen_pytgm = False
+        for part in parts:
+            if part == 'pyTGM':
+                if not seen_pytgm:
+                    seen_pytgm = True
+                    new_parts.append(part)
+            else:
+                new_parts.append(part)
+        path = os.path.join(*new_parts)
     return os.path.abspath(os.path.join(os.getcwd(), path))
 
 class BuildExt(build_ext):
