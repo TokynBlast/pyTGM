@@ -81,7 +81,7 @@ jobs:
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
 
-          pip install -e .
+          pip install setup.py --inplace --verbose
 
           python -m mypy.stubgen pyTGM -o "${{ github.workspace }}/stubs"
 
