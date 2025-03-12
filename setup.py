@@ -60,7 +60,7 @@ def get_absolute_path(path):
     if path is None:
         return None
     # Remove extra pyTGM from path if present
-    if path.startswith('pyTGM/pyTGM/'):
+    if path.startswith('pyTGM/'):
         path = path.replace('pyTGM/pyTGM/', 'pyTGM/', 1)
     return os.path.abspath(os.path.join(os.getcwd(), path))
 
