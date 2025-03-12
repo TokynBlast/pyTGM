@@ -120,16 +120,33 @@ if geky_pyx:
 else:
     print("geky.pyx not found in project directory")
 
+extensions_files = {
+    "geky": ["geky.pyx", "geky.cpp"],
+    "sound": ["sound.pyx", "sound.cpp"],
+    "clear": ["clear.pyx", "clear.cpp"],
+    "color": ["color.pyx", "color.cpp"],
+    "pos": ["pos.pyx", "pos.cpp"],
+    "rect": ["rect.pyx", "rect.cpp"],
+    "hk512": ["hk512.pyx", "hk512.cpp"],
+    "b64": ["b64.pyx", "b64.cpp"]
+}
+
+found_files = {}
+for module, files in extensions_files.items():
+    found_files[module] = [find_file(f) for f in files]
+    if None in found_files[module]:
+        print(f"Warning: Some files for {module} module not found")
+
 extend = [
     Extension(
         name="pyTGM.terminal.geky",
         sources=[
-            "terminal/geky/geky.pyx",
-            "terminal/geky/geky.cpp"
+            found_files["geky"][0],  # pyx file
+            found_files["geky"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "terminal/geky",
+            os.path.dirname(found_files["geky"][0])
         ],
         language="c++",
     ),
@@ -137,12 +154,12 @@ extend = [
     Extension(
         name="pyTGM.sound",
         sources=[
-            "sound/sound.cpp",
-            "sound/sound.pyx"
+            found_files["sound"][0],  # pyx file
+            found_files["sound"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "sound",
+            os.path.dirname(found_files["sound"][0])
         ],
         language="c++",
     ),
@@ -150,12 +167,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.clear",
         sources=[
-            "terminal/clear/clear.cpp",
-            "terminal/clear/clear.pyx"
+            found_files["clear"][0],  # pyx file
+            found_files["clear"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "terminal/clear",
+            os.path.dirname(found_files["clear"][0])
         ],
         language="c++",
     ),
@@ -163,12 +180,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.color",
         sources=[
-            "terminal/color/color.cpp",
-            "terminal/color/color.pyx"
+            found_files["color"][0],  # pyx file
+            found_files["color"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "terminal/color",
+            os.path.dirname(found_files["color"][0])
         ],
         language="c++",
     ),
@@ -176,12 +193,12 @@ extend = [
     Extension(
         name="pyTGM.terminal.pos",
         sources=[
-            "terminal/pos/pos.cpp",
-            "terminal/pos/pos.pyx"
+            found_files["pos"][0],  # pyx file
+            found_files["pos"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "terminal/pos",
+            os.path.dirname(found_files["pos"][0])
         ],
         language="c++",
     ),
@@ -189,12 +206,12 @@ extend = [
     Extension(
         name="pyTGM.rect",
         sources=[
-            "rect/rect.cpp",
-            "rect/rect.pyx"
+            found_files["rect"][0],  # pyx file
+            found_files["rect"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "rect",
+            os.path.dirname(found_files["rect"][0])
         ],
         language="c++",
     ),
@@ -202,12 +219,12 @@ extend = [
     Extension(
         name="pyTGM.encrypt.hk512",
         sources=[
-            "encrypt/hk512/hk512.cpp",
-            "encrypt/hk512/hk512.pyx"
+            found_files["hk512"][0],  # pyx file
+            found_files["hk512"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "encrypt/hk512",
+            os.path.dirname(found_files["hk512"][0])
         ],
         language="c++",
     ),
@@ -215,19 +232,21 @@ extend = [
     Extension(
         name="pyTGM.encrypt.b64",
         sources=[
-            "encrypt/b64/b64.cpp",
-            "encrypt/b64/b64.pyx"
+            found_files["b64"][0],  # pyx file
+            found_files["b64"][1]   # cpp file
         ],
         include_dirs=[
             os.getcwd(),
-            "encrypt/b64",
+            os.path.dirname(found_files["b64"][0])
         ],
         language="c++",
     )
 ]
 
 for extension in extend:
+    print(f"\nChecking sources for extension: {extension.name}")
     check_sources(extension.sources)
+    print(f"Include dirs: {extension.include_dirs}")
 
 if USE_CYTHON:
     try:
