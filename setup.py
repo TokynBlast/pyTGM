@@ -57,6 +57,12 @@ def find_file(filename, search_path="."):
     print(f"Could not find {filename}")
     return None
 
+def get_absolute_path(path):
+    """Convert relative path to absolute path"""
+    if path is None:
+        return None
+    return os.path.abspath(os.path.join(os.getcwd(), path))
+
 class BuildExt(build_ext):
     def run(self):
         try:
@@ -137,111 +143,29 @@ for module, files in extensions_files.items():
     if None in found_files[module]:
         print(f"Warning: Some files for {module} module not found")
 
-extend = [
-    Extension(
-        name="pyTGM.terminal.geky",
-        sources=[
-            found_files["geky"][0],  # pyx file
-            found_files["geky"][1]   # cpp file
-        ],
+extend = []
+for module, files in extensions_files.items():
+    source_files = [get_absolute_path(f) for f in found_files[module]]
+    
+    # Verify all source files exist
+    if None in source_files or not all(os.path.exists(f) for f in source_files):
+        print(f"Warning: Skipping {module} - some source files missing")
+        continue
+        
+    include_path = os.path.dirname(source_files[0])
+    
+    extension = Extension(
+        name=f"pyTGM.encrypt.{module}" if module in ["b64", "hk512"] 
+             else f"pyTGM.terminal.{module}" if module in ["geky", "clear", "color", "pos"]
+             else f"pyTGM.{module}",
+        sources=source_files,
         include_dirs=[
             os.getcwd(),
-            os.path.dirname(found_files["geky"][0])
+            include_path
         ],
-        language="c++",
-    ),
-
-    Extension(
-        name="pyTGM.sound",
-        sources=[
-            found_files["sound"][0],  # pyx file
-            found_files["sound"][1]   # cpp file
-        ],
-        include_dirs=[
-            os.getcwd(),
-            os.path.dirname(found_files["sound"][0])
-        ],
-        language="c++",
-    ),
-
-    Extension(
-        name="pyTGM.terminal.clear",
-        sources=[
-            found_files["clear"][0],  # pyx file
-            found_files["clear"][1]   # cpp file
-        ],
-        include_dirs=[
-            os.getcwd(),
-            os.path.dirname(found_files["clear"][0])
-        ],
-        language="c++",
-    ),
-
-    Extension(
-        name="pyTGM.terminal.color",
-        sources=[
-            found_files["color"][0],  # pyx file
-            found_files["color"][1]   # cpp file
-        ],
-        include_dirs=[
-            os.getcwd(),
-            os.path.dirname(found_files["color"][0])
-        ],
-        language="c++",
-    ),
-
-    Extension(
-        name="pyTGM.terminal.pos",
-        sources=[
-            found_files["pos"][0],  # pyx file
-            found_files["pos"][1]   # cpp file
-        ],
-        include_dirs=[
-            os.getcwd(),
-            os.path.dirname(found_files["pos"][0])
-        ],
-        language="c++",
-    ),
-
-    Extension(
-        name="pyTGM.rect",
-        sources=[
-            found_files["rect"][0],  # pyx file
-            found_files["rect"][1]   # cpp file
-        ],
-        include_dirs=[
-            os.getcwd(),
-            os.path.dirname(found_files["rect"][0])
-        ],
-        language="c++",
-    ),
-
-    Extension(
-        name="pyTGM.encrypt.hk512",
-        sources=[
-            found_files["hk512"][0],  # pyx file
-            found_files["hk512"][1]   # cpp file
-        ],
-        include_dirs=[
-            os.getcwd(),
-            os.path.dirname(found_files["hk512"][0])
-        ],
-        language="c++",
-    ),
-
-    Extension(
-        name="pyTGM.encrypt.b64",
-        sources=[
-            found_files["b64"][0],  # pyx file
-            found_files["b64"][1]   # cpp file
-        ],
-        include_dirs=[
-            os.getcwd(),
-            os.path.dirname(found_files["b64"][0])
-        ],
-        language="c++",
+        language="c++"
     )
-]
+    extend.append(extension)
 
 for extension in extend:
     print(f"\nChecking sources for extension: {extension.name}")
@@ -260,7 +184,8 @@ if USE_CYTHON:
             }
         )
     except Exception as e:
-        print(f"Cythonize failed: {str(e)}")
+        print(f"Cythonize failed for files: {[ext.sources for ext in extend]}")
+        print(f"Error: {str(e)}")
         raise
 else:
     extensions = extend
