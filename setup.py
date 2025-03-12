@@ -45,6 +45,13 @@ def check_sources(sources):
         if not os.path.exists(full_path):
             raise RuntimeError(f"Source file not found: {full_path}")
 
+def find_file(filename, search_path="."):
+    """Search for a file in the given path and all subdirectories"""
+    for root, _, files in os.walk(search_path):
+        if filename in files:
+            return os.path.join(root, filename)
+    return None
+
 class BuildExt(build_ext):
     def run(self):
         try:
@@ -101,6 +108,12 @@ class BuildExt(build_ext):
             raise
 
 # Cython extensions
+
+geky_pyx = find_file("geky.pyx")
+if geky_pyx:
+    print(f"Found geky.pyx at: {geky_pyx}")
+else:
+    print("geky.pyx not found in project directory")
 
 extend = [
     Extension(
