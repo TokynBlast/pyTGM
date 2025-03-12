@@ -48,7 +48,7 @@ jobs:
             mkdir -p "pyTGM/$dir"
             find . -path "*/$dir/*" -type f \( -name "*.pyx" -o -name "*.cpp" -o -name "*.hpp" \) -exec cp {} "pyTGM/$dir/" \;
           done
-          
+
           echo "Files after copy:"
           ls -R pyTGM/
 
@@ -75,11 +75,11 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
-          for mod in pyTGM pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
-              if [[ "$mod" == "pyTGM" ]]; then
-                stubgen $mod -o "${{ github.workspace }}/stubs"
-              else
-                stubgen $mod -m $mod -o "${{ github.workspace }}/stubs"
-              fi
+
+          stubgen pyTGM -o "${{ github.workspace }}/stubs"
+
+          for mod in pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
+              module_file=$(echo "$mod" | sed 's/\./\//g')
+              stubgen -m $mod -o "${{ github.workspace }}/stubs"
           done
           pylint $(git ls-files '*.py')
