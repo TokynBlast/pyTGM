@@ -1,2 +1,3 @@
 global-include *.py *.cpp *.json *.txt *.md *.sh pyTGM/** *.hpp *.pyx *.so
 exclude .github/** .gitattributes .pylintrc
+recursive-include pyTGM *.pyx *.cpp *.hpp
