@@ -42,11 +42,16 @@ jobs:
           mkdir -p pyTGM/{encrypt/{b64,hk512},terminal/{clear,color,geky,pos},sound,rect}
 
           echo "Source locations:"
-          find . -name "*.pyx" -o -name "*.cpp"
+          find . -name "*.pyx" -o -name "*.cpp" -o -name "*.hpp"
 
           for dir in encrypt/b64 encrypt/hk512 terminal/clear terminal/color terminal/geky terminal/pos sound rect; do
             mkdir -p "pyTGM/$dir"
-            find . -path "*/$dir/*" -type f \( -name "*.pyx" -o -name "*.cpp" -o -name "*.hpp" \) -exec cp {} "pyTGM/$dir/" \;
+            find . -path "*/$dir/*" -type f \( -name "*.pyx" -o -name "*.cpp" -o -name "*.hpp" \) -print0 | while IFS= read -r -d $'\0' file; do
+              dest="pyTGM/$dir/$(basename "$file")"
+              if [ ! -e "$dest" ] || ! cmp -s "$file" "$dest"; then
+                cp "$file" "$dest"
+              fi
+            done
           done
 
           echo "Files after copy:"
