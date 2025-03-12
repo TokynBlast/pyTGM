@@ -49,41 +49,28 @@ def find_file(filename, search_path="."):
     for root, _, files in os.walk(abs_search_path):
         if filename in files:
             found_path = os.path.join(root, filename)
-            rel_path = os.path.relpath(found_path, abs_search_path)
-            # Fix path to ensure single pyTGM prefix
-            parts = rel_path.split(os.sep)
-            if parts.count('pyTGM') > 1:
-                # Remove extra pyTGM occurrences
-                new_parts = []
-                seen_pytgm = False
-                for part in parts:
-                    if part == 'pyTGM':
-                        if not seen_pytgm:
-                            seen_pytgm = True
-                            new_parts.append(part)
-                    else:
-                        new_parts.append(part)
-                rel_path = os.path.join(*new_parts)
+            # Get path relative to current directory
+            rel_path = os.path.relpath(found_path, os.getcwd())
+            # Ensure path starts with single pyTGM
+            if 'pyTGM' in rel_path:
+                parts = rel_path.split(os.sep)
+                idx = parts.index('pyTGM')
+                rel_path = os.path.join('pyTGM', *parts[idx + 1:])
+            print(f"Found: {rel_path}")
             return rel_path
     return None
 
 def get_absolute_path(path):
-    """Convert relative path to absolute path"""
     if path is None:
         return None
-    parts = path.split(os.sep)
-    if parts.count('pyTGM') > 1:
-        new_parts = []
-        seen_pytgm = False
-        for part in parts:
-            if part == 'pyTGM':
-                if not seen_pytgm:
-                    seen_pytgm = True
-                    new_parts.append(part)
-            else:
-                new_parts.append(part)
-        path = os.path.join(*new_parts)
-    return os.path.abspath(os.path.join(os.getcwd(), path))
+    # Convert to absolute path
+    abs_path = os.path.abspath(path)
+    # Ensure single pyTGM prefix
+    if 'pyTGM' in abs_path:
+        parts = abs_path.split(os.sep)
+        idx = parts.index('pyTGM')
+        abs_path = os.path.join(os.getcwd(), 'pyTGM', *parts[idx + 1:])
+    return abs_path
 
 class BuildExt(build_ext):
     def run(self):
