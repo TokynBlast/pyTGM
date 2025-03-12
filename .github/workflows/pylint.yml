@@ -77,14 +77,17 @@ jobs:
 
       - name: Generate stubs & run pylint
         env:
-          PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs
+          PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs:${{ github.workspace }}
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
 
-          stubgen pyTGM -o "${{ github.workspace }}/stubs"
+          pip install -e .
 
+          python -m mypy.stubgen pyTGM -o "${{ github.workspace }}/stubs"
+
+          # Generate stubs for submodules
           for mod in pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
-              module_file=$(echo "$mod" | sed 's/\./\//g')
-              stubgen -m $mod -o "${{ github.workspace }}/stubs"
+              python -m mypy.stubgen -m "$mod" -o "${{ github.workspace }}/stubs"
           done
+
           pylint $(git ls-files '*.py')
