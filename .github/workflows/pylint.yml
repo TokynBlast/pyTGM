@@ -37,47 +37,36 @@ jobs:
         env:
           SKIP_CYTHON: "1"
         run: |
-          # Create symbolic link for cython3
           sudo ln -s $(which cython) /usr/local/bin/cython3
 
-          # Create directory structure
           mkdir -p pyTGM/{encrypt/{b64,hk512},terminal/{clear,color,geky,pos},sound,rect}
 
-          # Copy source files from their original locations
-          cp -r encrypt/b64/* pyTGM/encrypt/b64/
-          cp -r encrypt/hk512/* pyTGM/encrypt/hk512/
-          cp -r terminal/clear/* pyTGM/terminal/clear/
-          cp -r terminal/color/* pyTGM/terminal/color/
-          cp -r terminal/geky/* pyTGM/terminal/geky/
-          cp -r terminal/pos/* pyTGM/terminal/pos/
-          cp -r sound/* pyTGM/sound/
-          cp -r rect/* pyTGM/rect/
+          echo "Source locations:"
+          find . -name "*.pyx" -o -name "*.cpp"
+
+          for dir in encrypt/b64 encrypt/hk512 terminal/clear terminal/color terminal/geky terminal/pos sound rect; do
+            mkdir -p "pyTGM/$dir"
+            find . -path "*/$dir/*" -type f \( -name "*.pyx" -o -name "*.cpp" -o -name "*.hpp" \) -exec cp {} "pyTGM/$dir/" \;
+          done
           
-          # Build extensions
+          echo "Files after copy:"
+          ls -R pyTGM/
+
           python setup.py build_ext --inplace --verbose
 
-          # Create output directories
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
+          mkdir -p "built_module/pyTGM/"{encrypt,terminal}
 
-          # Copy compiled modules if they exist
-          for module in \
-            "encrypt/hk512/hk512.so:encrypt/" \
-            "encrypt/b64/b64.so:encrypt/" \
-            "terminal/clear/clear.so:terminal/" \
-            "terminal/color/color.so:terminal/" \
-            "terminal/geky/geky.so:terminal/" \
-            "terminal/pos/pos.so:terminal/" \
-            "sound/sound.so:." \
-            "rect/rect.so:."; do
-            SRC=${module%:*}
-            DEST=${module#*:}
-            if [ -f "pyTGM/$SRC" ]; then
-              cp "pyTGM/$SRC" "${{ github.workspace }}/built_module/pyTGM/$DEST"
-            else
-              echo "Warning: $SRC not found"
-            fi
-          done
+          find pyTGM -name "*.so" -exec bash -c '
+            for f; do
+              if [[ $f == *"/encrypt/"* ]]; then
+                cp "$f" "built_module/pyTGM/encrypt/"
+              elif [[ $f == *"/terminal/"* ]]; then
+                cp "$f" "built_module/pyTGM/terminal/"
+              else
+                cp "$f" "built_module/pyTGM/"
+              fi
+            done
+          ' bash {} +
 
       - name: Generate stubs & run pylint
         env:
