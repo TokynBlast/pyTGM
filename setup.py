@@ -31,11 +31,9 @@ def get_ext_source(module_name, pyx_path, cpp_path):
         raise RuntimeError(f"Cython is required to compile module {module_name}.")
 
 def normalize_path(*paths):
-    """Normalize path relative to package root"""
     return os.path.join(*paths)
 
 def check_sources(sources):
-    """Check if source files exist"""
     root_dir = os.path.dirname(os.path.abspath(__file__))
     for source in sources:
         full_path = os.path.join(root_dir, source)
