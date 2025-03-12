@@ -133,7 +133,7 @@ extensions_files = [
 
 
 extensions_files = {
-    module: [f"{module}.pyx", f"{module}.cpp"] for module in extensions_files
+    module: [f"{module}.pyx", f"{module}.cpp", f"{module}.hpp"] for module in extensions_files
 }
 
 found_files = {}
@@ -144,10 +144,10 @@ for module, files in extensions_files.items():
 
 extend = []
 for module, files in extensions_files.items():
-    source_files = [get_absolute_path(f) for f in found_files[module]]
+    source_files = [f for f in [get_absolute_path(f) for f in found_files[module]] if f is not None]
     
     # Verify all source files exist
-    if None in source_files or not all(os.path.exists(f) for f in source_files):
+    if not source_files or not all(os.path.exists(f) for f in source_files):
         print(f"Warning: Skipping {module} - some source files missing")
         continue
         
