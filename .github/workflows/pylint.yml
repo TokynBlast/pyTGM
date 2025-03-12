@@ -54,7 +54,7 @@ jobs:
 
           python setup.py build_ext --inplace --verbose
 
-          mkdir -p "built_module/pyTGM/"{encrypt,terminal}
+          mkdir -p "built_module/pyTGM/"{encrypt,terminal,sound}
 
           find pyTGM -name "*.so" -exec bash -c '
             for f; do
@@ -62,6 +62,8 @@ jobs:
                 cp "$f" "built_module/pyTGM/encrypt/"
               elif [[ $f == *"/terminal/"* ]]; then
                 cp "$f" "built_module/pyTGM/terminal/"
+              elif [[ $f == *"/sound/"* ]]; then
+                cp "$f" "built_module/pyTGM/sound/"
               else
                 cp "$f" "built_module/pyTGM/"
               fi
