@@ -162,7 +162,6 @@ for module, files in extensions_files.items():
         sources=source_files,
         include_dirs=[
             os.getcwd(),
-            os.path.join(os.getcwd(), 'pyTGM')
         ],
         language="c++"
     )
