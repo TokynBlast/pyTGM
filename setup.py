@@ -59,6 +59,9 @@ def get_absolute_path(path):
     """Convert relative path to absolute path"""
     if path is None:
         return None
+    # Remove extra pyTGM from path if present
+    if path.startswith('pyTGM/pyTGM/'):
+        path = path.replace('pyTGM/pyTGM/', 'pyTGM/', 1)
     return os.path.abspath(os.path.join(os.getcwd(), path))
 
 class BuildExt(build_ext):
@@ -159,7 +162,7 @@ for module, files in extensions_files.items():
         sources=source_files,
         include_dirs=[
             os.getcwd(),
-            include_path
+            os.path.join(os.getcwd(), 'pyTGM')
         ],
         language="c++"
     )
