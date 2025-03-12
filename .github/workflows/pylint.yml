@@ -39,17 +39,17 @@ jobs:
         run: |
           # Create symbolic link for cython3
           sudo ln -s $(which cython) /usr/local/bin/cython3
-          # Ensure all .pyx files exist
-          find pyTGM -name "*.pyx" -exec touch {} +
+
+          mkdir -p pyTGM/{encrypt/{b64,hk512},terminal/{clear,color,geky,pos},sound,rect}
+
+          for module in encrypt/b64 encrypt/hk512 terminal/clear terminal/color terminal/geky terminal/pos sound rect; do
+            touch pyTGM/$module/*.pyx
+          done
+          
           python setup.py build_ext --inplace --verbose
 
-          # Create module directories
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/hk512"
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt/b64"
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/clear"
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/color"
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/geky"
-          mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal/pos"
+          mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
+          mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
 
           # Copy compiled modules
           cp pyTGM/encrypt/hk512/hk512.so "${{ github.workspace }}/built_module/pyTGM/encrypt/"
