@@ -133,11 +133,6 @@ extensions_files = [
     "geky", "sound", "clear", "color", "pos", "rect", "hk512", "b64"
 ]
 
-geky_pyx = find_file("geky.pyx")
-if geky_pyx:
-    print(f"Found: {geky_pyx}")
-else:
-    print("geky.pyx missing")
 
 extensions_files = {
     module: [f"{module}.pyx", f"{module}.cpp"] for module in extensions_files
@@ -166,7 +161,8 @@ for module, files in extensions_files.items():
              else f"pyTGM.{module}",
         sources=source_files,
         include_dirs=[
-            os.path.dirname(os.getcwd())
+            os.getcwd(),
+            os.path.join(os.getcwd(), 'pyTGM')
         ],
         language="c++"
     )
