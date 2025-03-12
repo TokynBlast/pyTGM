@@ -44,15 +44,12 @@ def check_sources(sources):
             raise RuntimeError(f"Source file not found: {full_path}")
 
 def find_file(filename, search_path="."):
-    """Search for a file in the given path and all subdirectories"""
     abs_search_path = os.path.abspath(search_path)
-    print(f"Searching for {filename} in {abs_search_path}")
+    print(f"Looking for: {filename}")
     for root, _, files in os.walk(abs_search_path):
         if filename in files:
             found_path = os.path.join(root, filename)
-            print(f"Found {filename} at: {found_path}")
             return os.path.relpath(found_path, abs_search_path)
-    print(f"Could not find {filename}")
     return None
 
 def get_absolute_path(path):
@@ -121,24 +118,25 @@ class BuildExt(build_ext):
 
 # Cython extensions
 
+extensions_files = [
+    "geky", "sound", "clear", "color", "pos", "rect", "hk512", "b64"
+]
+
 geky_pyx = find_file("geky.pyx")
 if geky_pyx:
-    print(f"Found geky.pyx at: {geky_pyx}")
+    print(f"Found: {geky_pyx}")
 else:
-    print("geky.pyx not found in project directory")
-    extensions_files = [
-        "geky", "sound", "clear", "color", "pos", "rect", "hk512", "b64"
-    ]
+    print("geky.pyx missing")
 
-    extensions_files = {
-        module: [f"{module}.pyx", f"{module}.cpp"] for module in extensions_files
-    }
+extensions_files = {
+    module: [f"{module}.pyx", f"{module}.cpp"] for module in extensions_files
+}
 
 found_files = {}
 for module, files in extensions_files.items():
     found_files[module] = [find_file(f) for f in files]
     if None in found_files[module]:
-        print(f"Warning: Some files for {module} module not found")
+        print(f"Missing files for: {module}")
 
 extend = []
 for module, files in extensions_files.items():
