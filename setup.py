@@ -131,10 +131,11 @@ extensions_files = [
     "geky", "sound", "clear", "color", "pos", "rect", "hk512", "b64"
 ]
 
-
 extensions_files = {
     module: [f"{module}.pyx", f"{module}.cpp", f"{module}.hpp"] for module in extensions_files
 }
+
+extensions_files["geky"].append("geky.pyd")
 
 found_files = {}
 for module, files in extensions_files.items():
