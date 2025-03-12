@@ -38,8 +38,6 @@ def check_sources(sources):
     """Check if source files exist"""
     root_dir = os.path.dirname(os.path.abspath(__file__))
     for source in sources:
-        if not source.startswith(""):
-            source = os.path.join("pyTGM", source)
         full_path = os.path.join(root_dir, source)
         print(f"Checking for source file: {full_path}")
         if not os.path.exists(full_path):
