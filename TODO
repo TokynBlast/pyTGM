@@ -1,6 +1,5 @@
 - [Bug]                         [Latest Version]
 
-- Convert Pybind11 to Cython    [5]
 - Cythonize server              [6]
 - Add tests                     [6]
 - Fix sound on Windows          [6]
@@ -11,3 +10,4 @@
 - Write BLINK for all terminals [N/A]
 - Compile pyTGM for macOS       [N/A]
 - Fix github Actions            [N/A]
+- Shorten setup.py              [N/A]
