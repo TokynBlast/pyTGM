@@ -76,6 +76,10 @@ jobs:
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
           for mod in pyTGM pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
-              stubgen $mod -o "${{ github.workspace }}/stubs"
+              if [[ "$mod" == "pyTGM" ]]; then
+                stubgen $mod -o "${{ github.workspace }}/stubs"
+              else
+                stubgen $mod -m $mod -o "${{ github.workspace }}/stubs"
+              fi
           done
           pylint $(git ls-files '*.py')
