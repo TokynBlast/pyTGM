@@ -72,7 +72,7 @@ def get_absolute_path(path):
     if path is None:
         return None
     parts = path.split(os.sep)
-    if parts.count('pyTGM') > 2:
+    if parts.count('pyTGM') > 1:
         new_parts = []
         seen_pytgm = False
         for part in parts:
