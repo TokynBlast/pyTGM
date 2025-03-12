@@ -47,9 +47,14 @@ def check_sources(sources):
 
 def find_file(filename, search_path="."):
     """Search for a file in the given path and all subdirectories"""
-    for root, _, files in os.walk(search_path):
+    abs_search_path = os.path.abspath(search_path)
+    print(f"Searching for {filename} in {abs_search_path}")
+    for root, _, files in os.walk(abs_search_path):
         if filename in files:
-            return os.path.join(root, filename)
+            found_path = os.path.join(root, filename)
+            print(f"Found {filename} at: {found_path}")
+            return os.path.relpath(found_path, abs_search_path)
+    print(f"Could not find {filename}")
     return None
 
 class BuildExt(build_ext):
