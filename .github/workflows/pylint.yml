@@ -40,26 +40,44 @@ jobs:
           # Create symbolic link for cython3
           sudo ln -s $(which cython) /usr/local/bin/cython3
 
+          # Create directory structure
           mkdir -p pyTGM/{encrypt/{b64,hk512},terminal/{clear,color,geky,pos},sound,rect}
 
-          for module in encrypt/b64 encrypt/hk512 terminal/clear terminal/color terminal/geky terminal/pos sound rect; do
-            touch pyTGM/$module/*.pyx
-          done
+          # Copy source files from their original locations
+          cp -r encrypt/b64/* pyTGM/encrypt/b64/
+          cp -r encrypt/hk512/* pyTGM/encrypt/hk512/
+          cp -r terminal/clear/* pyTGM/terminal/clear/
+          cp -r terminal/color/* pyTGM/terminal/color/
+          cp -r terminal/geky/* pyTGM/terminal/geky/
+          cp -r terminal/pos/* pyTGM/terminal/pos/
+          cp -r sound/* pyTGM/sound/
+          cp -r rect/* pyTGM/rect/
           
+          # Build extensions
           python setup.py build_ext --inplace --verbose
 
+          # Create output directories
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/encrypt"
           mkdir -p "${{ github.workspace }}/built_module/pyTGM/terminal"
 
-          # Copy compiled modules
-          cp pyTGM/encrypt/hk512/hk512.so "${{ github.workspace }}/built_module/pyTGM/encrypt/"
-          cp pyTGM/encrypt/b64/b64.so "${{ github.workspace }}/built_module/pyTGM/encrypt/"
-          cp pyTGM/terminal/clear/clear.so "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp pyTGM/terminal/color/color.so "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp pyTGM/terminal/geky/geky.so "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp pyTGM/terminal/pos/pos.so "${{ github.workspace }}/built_module/pyTGM/terminal/"
-          cp pyTGM/sound/sound.so "${{ github.workspace }}/built_module/pyTGM/"
-          cp pyTGM/rect/rect.so "${{ github.workspace }}/built_module/pyTGM/"
+          # Copy compiled modules if they exist
+          for module in \
+            "encrypt/hk512/hk512.so:encrypt/" \
+            "encrypt/b64/b64.so:encrypt/" \
+            "terminal/clear/clear.so:terminal/" \
+            "terminal/color/color.so:terminal/" \
+            "terminal/geky/geky.so:terminal/" \
+            "terminal/pos/pos.so:terminal/" \
+            "sound/sound.so:." \
+            "rect/rect.so:."; do
+            SRC=${module%:*}
+            DEST=${module#*:}
+            if [ -f "pyTGM/$SRC" ]; then
+              cp "pyTGM/$SRC" "${{ github.workspace }}/built_module/pyTGM/$DEST"
+            else
+              echo "Warning: $SRC not found"
+            fi
+          done
 
       - name: Generate stubs & run pylint
         env:
