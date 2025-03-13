@@ -152,9 +152,9 @@ for module, files in extensions_files.items():
         print(f"Warning: Skipping {module} - some source files missing")
         continue
     include_path = os.path.dirname(source_files[0])
-    
+
     extension = Extension(
-        name=f"pyTGM.encrypt.{module}" if module in ["b64", "hk512"] 
+        name=f"pyTGM.encrypt.{module}" if module in ["b64", "hk512"]
              else f"pyTGM.terminal.{module}" if module in ["geky", "clear", "color", "pos"]
              else f"pyTGM.{module}",
         sources=source_files,
@@ -219,6 +219,6 @@ setup(
     install_requires=require,
     ext_modules=extensions,
     cmdclass={"build_ext": BuildExt},
-    python_requires=">=3.13",
+    python_requires=">=3.12",
     platforms=["Windows", "Linux", "MacOS"],
 )
