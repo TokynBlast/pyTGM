@@ -42,21 +42,35 @@ def check_sources(sources):
             raise RuntimeError(f"Source file not found: {full_path}")
 
 def find_file(filename, search_path="."):
-    abs_search_path = os.path.abspath(search_path)
-    print(f"Looking for: {filename}")
-    for root, _, files in os.walk(abs_search_path):
-        if filename in files:
-            found_path = os.path.join(root, filename)
-            # Get path relative to current directory
-            rel_path = os.path.relpath(found_path, os.getcwd())
-            # Ensure path starts with single pyTGM
-            if 'pyTGM' in rel_path:
-                parts = rel_path.split(os.sep)
-                idx = parts.index('pyTGM')
-                rel_path = os.path.join('pyTGM', *parts[idx + 1:])
-            print(f"Found: {rel_path}")
-            return rel_path
+    search_path = os.path.abspath(search_path)
+    current_dir = search_path
+    last_dir = None  # The directory we just fully searched
+    while True:
+        print(f"Searching for {filename} in {current_dir} (ignoring {last_dir})")
+        # Walk the current directory
+        for root, dirs, files in os.walk(current_dir):
+            # At the top level of current_dir, remove the directory we already searched.
+            if last_dir and os.path.abspath(root) == current_dir:
+                dirs[:] = [d for d in dirs if os.path.abspath(os.path.join(root, d)) != last_dir]
+            if filename in files:
+                found_path = os.path.join(root, filename)
+                # Get a relative path (adjust if you want it to start with 'pyTGM')
+                rel_path = os.path.relpath(found_path, os.getcwd())
+                if 'pyTGM' in rel_path:
+                    parts = rel_path.split(os.sep)
+                    idx = parts.index('pyTGM')
+                    rel_path = os.path.join('pyTGM', *parts[idx+1:])
+                print(f"Found: {rel_path}")
+                return rel_path
+        # File was not found in current_dir; move up one level
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:  # We have reached the filesystem root
+            break
+        # Remember the directory we just searched so we skip it in the parent's search.
+        last_dir = current_dir
+        current_dir = parent
     return None
+
 
 def get_absolute_path(path):
     if path is None:
@@ -134,8 +148,6 @@ extensions_files = [
 extensions_files = {
     module: [f"{module}.pyx", f"{module}.cpp", f"{module}.hpp"] for module in extensions_files
 }
-
-extensions_files["geky"].append("geky.pyd")
 
 found_files = {}
 for module, files in extensions_files.items():
@@ -219,6 +231,6 @@ setup(
     install_requires=require,
     ext_modules=extensions,
     cmdclass={"build_ext": BuildExt},
-    python_requires=">=3.12",
+    python_requires=">=3.13",
     platforms=["Windows", "Linux", "MacOS"],
 )
