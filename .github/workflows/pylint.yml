@@ -79,6 +79,11 @@ jobs:
           pip uninstall mypy -y
           pip install --force-reinstall --no-cache-dir mypy
 
+      - name: Generate Stubs
+        run: |
+          python -m mypy.stubgen --help
+
+
 
       - name: Generate stubs & run pylint
         env:
