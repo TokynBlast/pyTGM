@@ -32,7 +32,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y cython3
           python -m pip install --upgrade pip
-          pip install --upgrade Cython setuptools wheel pylint stubgen
+          pip install --upgrade Cython setuptools wheel pylint mypy
       - name: Build Cython extensions
         env:
           SKIP_CYTHON: "1"
