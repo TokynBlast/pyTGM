@@ -162,7 +162,7 @@ for module, files in extensions_files.items():
     source_files = [get_absolute_path(f) for f in found_files_filtered]
 
     if not source_files or not all(os.path.exists(f) for f in source_files):
-        print(f"Warning: Skipping {module} - some source files missing")
+        print(f"Warning: Skipping {module} - some source files missing:\n   {source_files}\n\n\n")
         continue
     include_path = os.path.dirname(source_files[0])
 
