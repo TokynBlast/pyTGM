@@ -75,6 +75,9 @@ jobs:
             done
           ' bash {} +
 
+      - name: cat test
+        run: cat /home/runner/work/pyTGM/pyTGM/sound/sound.hpp
+
       - name: Generate stubs & run pylint
         env:
           PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs:${{ github.workspace }}
