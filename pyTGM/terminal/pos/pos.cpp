@@ -1,6 +1,6 @@
 #include "pos.hpp"
 #include <string>
-#include <sstream> 
+#include <sstream>
 
 auto pos_(const int x, const int y) -> std::string {
     std::stringstream ss;

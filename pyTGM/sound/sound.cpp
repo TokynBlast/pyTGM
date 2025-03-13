@@ -24,7 +24,7 @@
 int sound_(const char* filename) {
     #if defined(WIN)
         PlaySound(TEXT(filename), NULL, SND_FILENAME | SND_ASYNC);
-    
+
     #elif defined(__APPLE__)
         CFStringRef cfString = CFStringCreateWithCString(NULL, filename, kCFStringEncodingUTF8);
         CFURLRef soundURL = CFURLCreateWithFileSystemPath(NULL, cfString, kCFURLPOSIXPathStyle, false);
@@ -34,7 +34,6 @@ int sound_(const char* filename) {
         CFRelease(soundURL);
         CFRelease(cfString);
 
-    
     #elif defined(__linux__)
         std::string command = "aplay -q ";
         command += filename;
