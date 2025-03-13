@@ -74,6 +74,10 @@ jobs:
               fi
             done
           ' bash {} +
+      - name: Verify stubgen and MyPy
+        run: |
+          stubgen --help
+          mypy --version
 
       - name: Generate stubs & run pylint
         env:
