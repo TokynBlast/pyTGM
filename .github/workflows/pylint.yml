@@ -81,7 +81,7 @@ jobs:
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
 
-          pip install setup.py --verbose
+          pip install .
 
 
           # Generate stubs for submodules
