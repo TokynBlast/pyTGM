@@ -76,7 +76,7 @@ jobs:
           ' bash {} +
 
       - name: cat test
-        run: cat /home/runner/work/pyTGM/pyTGM/sound/sound.hpp
+        run: cat /home/runner/work/pyTGM/sound/sound.hpp
 
       - name: Generate stubs & run pylint
         env:
