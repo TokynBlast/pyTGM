@@ -50,4 +50,4 @@ jobs:
           cmake ..
           cmake --build . --config Release -j $(nproc)
           cd ..
-          python setup.py build_ext --inplace
+          python setup.py build_ext

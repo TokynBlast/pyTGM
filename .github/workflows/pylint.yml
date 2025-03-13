@@ -57,7 +57,7 @@ jobs:
           echo "Files after copy:"
           ls -R pyTGM/
 
-          python setup.py build_ext --inplace --verbose
+          python setup.py build_ext
 
           mkdir -p "built_module/pyTGM/"{encrypt,terminal,sound}
 
@@ -81,9 +81,8 @@ jobs:
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
 
-          pip install setup.py --inplace --verbose
+          pip install setup.py --verbose
 
-          python -m mypy.stubgen pyTGM -o "${{ github.workspace }}/stubs"
 
           # Generate stubs for submodules
           for mod in pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
