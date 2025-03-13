@@ -76,15 +76,14 @@ def find_file(filename, search_path="."):
 def get_absolute_path(path):
     if path is None:
         return None
-    abs_path = os.path.abspath(path)
+    if os.path.isabs(path):
+        return path
     cwd = os.getcwd()
-    if abs_path.startswith(cwd):
-        return abs_path
-    if 'pyTGM' in abs_path:
-        parts = abs_path.split(os.sep)
-        idx = parts.index('pyTGM')
-        abs_path = os.path.join(cwd, *parts[idx:])
-    return abs_path
+    prefix = "pyTGM" + os.sep
+    if cwd.endswith("pyTGM") and path.startswith(prefix):
+        path = path[len(prefix):]
+    return os.path.join(cwd, path)
+
 
 
 class BuildExt(build_ext):
