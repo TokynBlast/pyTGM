@@ -69,6 +69,7 @@ def find_file(filename, search_path="."):
         # Remember the directory we just searched so we skip it in the parent's search.
         last_dir = current_dir
         current_dir = parent
+    print(f"NONE for {filename}")
     return None
 
 
