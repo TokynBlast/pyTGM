@@ -74,10 +74,6 @@ jobs:
               fi
             done
           ' bash {} +
-      - name: Verify stubgen and MyPy
-        run: |
-          stubgen --help
-          mypy --version
 
       - name: Generate stubs & run pylint
         env:
@@ -85,12 +81,25 @@ jobs:
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
 
-          pip install .
+          submodules=(
+            "pyTGM.sound"
+            "pyTGM.encrypt"
+            "pyTGM.encrypt.hk512"
+            "pyTGM.encrypt.b64"
+            "pyTGM.rect"
+            "pyTGM.terminal"
+            "pyTGM.terminal.clear"
+            "pyTGM.terminal.color"
+            "pyTGM.terminal.geky"
+            "pyTGM.terminal.pos"
+          )
+          echo "submodules=${submodules[*]}" >> $GITHUB_ENV
 
-
-          # Generate stubs for submodules
-          for mod in pyTGM.sound pyTGM.encrypt pyTGM.encrypt.hk512 pyTGM.encrypt.b64 pyTGM.rect pyTGM.terminal pyTGM.terminal.clear pyTGM.terminal.color pyTGM.terminal.geky pyTGM.terminal.pos; do
-              python -m mypy.stubgen -m "$mod" -o "${{ github.workspace }}/stubs"
+          for mod in ${{ env.submodules }}; do
+            echo "Generating stubs for $mod"
+            stubgen -m "$mod" -o "${{ github.workspace }}/stubs"
           done
+
+          pip install .
 
           pylint $(git ls-files '*.py')
