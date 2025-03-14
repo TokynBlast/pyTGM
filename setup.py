@@ -77,7 +77,7 @@ def get_relative_path(path):
     if path is None:
         return None
     abs_path = os.path.abspath(path)
-    return os.path.relpath(abs_path, os.getcwd())
+    return os.path.relpath('.', abs_path, os.getcwd())
 
 
 
