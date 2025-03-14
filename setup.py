@@ -14,21 +14,13 @@ if sys_() == "Darwin":
 else:
     require = []
 
-try:
-    from Cython.Build import cythonize
-    USE_CYTHON = True
-except ImportError:
-    USE_CYTHON = False
 
 def get_ext_source(module_name, pyx_path, cpp_path):
     if os.path.exists(cpp_path):
         print(f"Using pre-generated C++ file for {module_name}: {cpp_path}")
         return cpp_path
-    elif USE_CYTHON:
-        print(f"Cythonizing {pyx_path} for {module_name}")
-        return pyx_path
-    else:
-        raise RuntimeError(f"Cython is required to compile module {module_name}.")
+    print(f"Cythonizing {pyx_path} for {module_name}")
+    return pyx_path
 
 def normalize_path(*paths):
     return os.path.join(*paths)
@@ -191,23 +183,20 @@ for extension in extend:
     check_sources(extension.sources)
     print(f"Include dirs: {extension.include_dirs}")
 
-if USE_CYTHON:
-    try:
-        extensions = cythonize(
-            extend,
-            language_level=3,
-            annotate=False,
-            compiler_directives={
-                'language_level': '3',
-                'embedsignature': True
-            }
-        )
-    except Exception as e:
-        print(f"Cythonize failed for files: {[ext.sources for ext in extend]}")
-        print(f"Error: {str(e)}")
-        raise
-else:
-    extensions = extend
+try:
+    extensions = cythonize(
+        extend,
+        language_level=3,
+        annotate=False,
+        compiler_directives={
+            'language_level': '3',
+            'embedsignature': True
+        }
+    )
+except Exception as e:
+    print(f"Cythonize failed for files: {[ext.sources for ext in extend]}")
+    print(f"Error: {str(e)}")
+    raise
 
 setup(
     name='pyTGM',
