@@ -17,20 +17,12 @@ set(MODULES
     "sound:sound"
 )
 
-execute_process(
-    COMMAND pwd
-    OUTPUT_VARIABLE PWD_VAR
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-)
-
-message(STATUS "/n/n/nCurrent working directory: ${PWD_VAR}/n/n/n")
-
 foreach(entry ${MODULES})
     string(REPLACE ":" ";" entry_list ${entry})
     list(GET entry_list 0 mod_name)
     list(GET entry_list 1 mod_dir)
 
-    set(module_cpp "./pyTGM/${mod_dir}/${mod_name}.cpp")
+    set(module_cpp "../pyTGM/${mod_dir}/${mod_name}.cpp")
 
     if(EXISTS "${module_cpp}")
         add_library(${mod_name} SHARED "${module_cpp}")
