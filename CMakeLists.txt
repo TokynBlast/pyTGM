@@ -23,21 +23,24 @@ foreach(entry ${MODULES})
     set(mod_dir ${CMAKE_MATCH_2})
 
     # Build the module path as a relative path.
-    set(module_cpp "./${mod_dir}/${mod_name}.cpp")
+    set(module_cpp "${mod_dir}/${mod_name}.cpp")
 
-    if(EXISTS "./${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
-        add_library(${mod_name} SHARED "./${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
-
-        target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
-        target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
-
-        set_target_properties(${mod_name} PROPERTIES
-            PREFIX ""
-            SUFFIX ".so"
-        )
-    else()
-        message(WARNING "Source file for module ${mod_name} not found: ${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
+    # Instead of failing or warning outright if the file doesn't exist,
+    # mark it as GENERATED so that CMake will allow it.
+    if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
+        message(WARNING "Source file for module ${mod_name} not found at configuration time: ${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
+        set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}" PROPERTIES GENERATED TRUE)
     endif()
+
+    add_library(${mod_name} SHARED "${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
+
+    target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
+    target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
+
+    set_target_properties(${mod_name} PROPERTIES
+        PREFIX ""
+        SUFFIX ".so"
+    )
 endforeach()
 
 message(STATUS "Cython Extensions Generated for these modules:")
