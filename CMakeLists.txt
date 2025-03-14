@@ -17,6 +17,20 @@ set(MODULES
     "sound:sound"
 )
 
+execute_process(
+    COMMAND pwd
+    COMMAND echo "/n/n/n"
+    COMMAND ls
+    COMMAND echo "/n/n/n"
+    COMMAND cd ..
+    COMMAND echo "/n/n/n"
+    COMMAND ls
+    OUTPUT_VARIABLE PWD_VAR
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+message(STATUS "/n/n/nCurrent working directory: ${PWD_VAR}/n/n/n")
+
 foreach(entry ${MODULES})
     string(REPLACE ":" ";" entry_list ${entry})
     list(GET entry_list 0 mod_name)
