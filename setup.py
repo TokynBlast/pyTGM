@@ -159,19 +159,25 @@ for module, files in extensions_files.items():
 
 extend = []
 for module, files in extensions_files.items():
-    found_files_filtered = [f for f in found_files[module] if f is not None]
-    source_files = [get_relative_path(f) for f in found_files_filtered]
-
-    if not source_files or not all(os.path.exists(f) for f in source_files):
-        print(f"Warning: Skipping {module} - some source files missing:\n   {source_files}\n\n\n")
+    found = [find_file(f) for f in files]
+    source_file = None
+    if found[1] is not None:
+        source_file = get_relative_path(found[1])
+    elif found[0] is not None:
+        source_file = get_relative_path(found[0])
+    else:
+        print(f"Warning: Skipping {module} - no source file found")
         continue
-    include_path = os.path.dirname(source_files[0])
+    if found[2] is None:
+        print(f"Warning: Header file for {module} not found.")
 
     extension = Extension(
-        name=f"pyTGM.encrypt.{module}" if module in ["b64", "hk512"]
-             else f"pyTGM.terminal.{module}" if module in ["geky", "clear", "color", "pos"]
-             else f"pyTGM.{module}",
-        sources=source_files,
+        name=(
+            f"pyTGM.encrypt.{module}" if module in ["b64", "hk512"]
+            else f"pyTGM.terminal.{module}" if module in ["geky", "clear", "color", "pos"]
+            else f"pyTGM.{module}"
+        ),
+        sources=[source_file],
         include_dirs=[
             os.getcwd(),
             os.path.join(os.getcwd(), 'pyTGM')
