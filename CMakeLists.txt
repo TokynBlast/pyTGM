@@ -23,7 +23,7 @@ foreach(entry ${MODULES})
     set(mod_dir ${CMAKE_MATCH_2})
 
     # Build the module path as a relative path.
-    set(module_cpp "./${mod_dir}/${mod_name}.cpp")
+    set(module_cpp "./pyTGM/${mod_dir}/${mod_name}.cpp")
 
     if(EXISTS "${module_cpp}")
         add_library(${mod_name} SHARED "${module_cpp}")
