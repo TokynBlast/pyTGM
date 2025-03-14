@@ -23,7 +23,7 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-message(STATUS "Current working directory: ${PWD_VAR}")
+message(STATUS "/n/n/nCurrent working directory: ${PWD_VAR}/n/n/n")
 
 foreach(entry ${MODULES})
     string(REPLACE ":" ";" entry_list ${entry})
