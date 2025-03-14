@@ -18,12 +18,11 @@ set(MODULES
 )
 
 foreach(entry ${MODULES})
-    string(REGEX MATCH "([^:]+):(.*)" _ ${entry})
-    set(mod_name ${CMAKE_MATCH_1})
-    set(mod_dir ${CMAKE_MATCH_2})
+    string(REPLACE ":" ";" entry_list ${entry})
+    list(GET entry_list 0 mod_name)
+    list(GET entry_list 1 mod_dir)
 
-    # Build the module path as a relative path.
-    set(module_cpp "./${mod_dir}/${mod_name}.cpp")
+    set(module_cpp "./pyTGM/${mod_dir}/${mod_name}.cpp")
 
     if(EXISTS "${module_cpp}")
         add_library(${mod_name} SHARED "${module_cpp}")
@@ -36,12 +35,13 @@ foreach(entry ${MODULES})
             SUFFIX ".so"
         )
     else()
-        message(WARNING "Source file for module ${mod_name} not found: ${module_cpp}\n")
+        message(WARNING "Source file for module '${mod_name}' not found: ${module_cpp}")
     endif()
 endforeach()
 
-message(STATUS "Cython Extensions Generated for these modules:")
+message(STATUS "C++ modules being built:")
 foreach(entry ${MODULES})
-    string(REGEX MATCH "([^:]+):" _ ${entry})
-    message(STATUS "  ${CMAKE_MATCH_1}")
+    string(REPLACE ":" ";" entry_list ${entry})
+    list(GET entry_list 0 mod_name)
+    message(STATUS "  ${mod_name}")
 endforeach()
