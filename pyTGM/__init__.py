@@ -1,7 +1,8 @@
 """ The init file for the pyTGM library """
 
-__all__ = ['server', 'sound', 'rect']
+from .local_server import server, client
 
+__all__ = ['server', 'client', 'sound', 'rect']
 
 def __getattr__(name):
     if name in __all__:
