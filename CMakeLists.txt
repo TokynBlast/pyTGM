@@ -17,6 +17,14 @@ set(MODULES
     "sound:sound"
 )
 
+execute_process(
+    COMMAND pwd
+    OUTPUT_VARIABLE PWD_VAR
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+message(STATUS "Current working directory: ${PWD_VAR}")
+
 foreach(entry ${MODULES})
     string(REPLACE ":" ";" entry_list ${entry})
     list(GET entry_list 0 mod_name)
