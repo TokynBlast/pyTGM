@@ -29,6 +29,11 @@ jobs:
           mkdir -p build && cd build
           cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -GNinja ..
 
+      - name: cat/pwd test
+        run: |
+          pwd
+          cat ./pyTGM/sound/sound.hpp
+
       - name: Run clang-tidy on C++ files
         run: |
           cd build
