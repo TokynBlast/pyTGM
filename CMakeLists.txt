@@ -22,7 +22,7 @@ foreach(entry ${MODULES})
     list(GET entry_list 0 mod_name)
     list(GET entry_list 1 mod_dir)
 
-    set(module_cpp "../pyTGM/${mod_dir}/${mod_name}.cpp")
+    set(module_cpp "../${mod_dir}/${mod_name}.cpp")
 
     if(EXISTS "${module_cpp}")
         add_library(${mod_name} SHARED "${module_cpp}")
