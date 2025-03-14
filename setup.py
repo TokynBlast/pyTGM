@@ -76,8 +76,12 @@ def find_file(filename, search_path="."):
 def get_relative_path(path):
     if path is None:
         return None
-    abs_path = os.path.abspath(path)
-    return os.path.relpath('.', abs_path, os.getcwd())
+    base = os.getcwd()
+    rel_path = os.path.relpath(os.path.abspath(path), base)
+    if not rel_path.startswith("./"):
+        rel_path = "./" + rel_path
+    return rel_path
+
 
 
 
