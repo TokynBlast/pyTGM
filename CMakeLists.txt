@@ -22,10 +22,11 @@ foreach(entry ${MODULES})
     set(mod_name ${CMAKE_MATCH_1})
     set(mod_dir ${CMAKE_MATCH_2})
 
-    set(module_cpp "${CMAKE_CURRENT_SOURCE_DIR}/${mod_dir}/${mod_name}.cpp")
+    # Build the module path as a relative path.
+    set(module_cpp "${mod_dir}/${mod_name}.cpp")
 
-    if(EXISTS ${module_cpp})
-        add_library(${mod_name} SHARED ${module_cpp})
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
+        add_library(${mod_name} SHARED "${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
 
         target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
         target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
@@ -35,7 +36,7 @@ foreach(entry ${MODULES})
             SUFFIX ".so"
         )
     else()
-        message(WARNING "Source file for module ${mod_name} not found: ${module_cpp}")
+        message(WARNING "Source file for module ${mod_name} not found: ${CMAKE_CURRENT_SOURCE_DIR}/${module_cpp}")
     endif()
 endforeach()
 
