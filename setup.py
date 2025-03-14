@@ -73,16 +73,12 @@ def find_file(filename, search_path="."):
     return None
 
 
-def get_absolute_path(path):
+def get_relative_path(path):
     if path is None:
         return None
-    if os.path.isabs(path):
-        return path
-    cwd = os.getcwd()
-    prefix = "pyTGM" + os.sep
-    if cwd.endswith("pyTGM") and path.startswith(prefix):
-        path = path[len(prefix):]
-    return os.path.join(cwd, path)
+    abs_path = os.path.abspath(path)
+    return os.path.relpath(abs_path, os.getcwd())
+
 
 
 
@@ -160,7 +156,7 @@ for module, files in extensions_files.items():
 extend = []
 for module, files in extensions_files.items():
     found_files_filtered = [f for f in found_files[module] if f is not None]
-    source_files = [get_absolute_path(f) for f in found_files_filtered]
+    source_files = [get_relative_path(f) for f in found_files_filtered]
 
     if not source_files or not all(os.path.exists(f) for f in source_files):
         print(f"Warning: Skipping {module} - some source files missing:\n   {source_files}\n\n\n")
