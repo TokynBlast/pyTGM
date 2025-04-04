@@ -4,8 +4,8 @@ import os
 import sys
 import platform
 import subprocess
-from Cython.Build import cythonize
 from platform import system as sys_
+from Cython.Build import cythonize
 from setuptools import setup, find_packages, Extension
 from setuptools.command.build_ext import build_ext
 
