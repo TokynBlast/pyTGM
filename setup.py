@@ -79,6 +79,7 @@ def get_relative_path(path):
 
 
 class BuildExt(build_ext):
+    """Builds the extensions written in C++, to work with Python"""
     def run(self):
         try:
             subprocess.check_output(['cmake', '--version'])
