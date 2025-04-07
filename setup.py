@@ -38,10 +38,10 @@ def find_file(filename, search_path="."):
     last_dir = None
     while True:
         print(f"Searching for {filename} in {current_dir} (ignoring {last_dir})")
-        for root, dirs, file_list in os.walk(current_dir):  # Renamed from 'files' to 'file_list'
+        for root, dirs, files_in_dir in os.walk(current_dir):
             if last_dir and os.path.abspath(root) == current_dir:
                 dirs[:] = [d for d in dirs if os.path.abspath(os.path.join(root, d)) != last_dir]
-            if filename in file_list:
+            if filename in files_in_dir:
                 found_path = os.path.join(root, filename)
                 rel_path = os.path.relpath(found_path, os.getcwd())
                 if 'pyTGM' in rel_path:
