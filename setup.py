@@ -74,12 +74,21 @@ class BuildExt(build_ext):
             subprocess.check_output(['cmake', '--version'])
         except OSError as exc:
             raise RuntimeError("CMake must be installed to build this package") from exc
-        try:
-            subprocess.check_output(['cython3', '--version'])
-        except OSError as exc:
-            raise RuntimeError("Cython must be installed to build this package") from exc
+
+        cython_found = False
+        for cython_cmd in (['cython3', '--version'], ['cython', '--version']):
+            try:
+                subprocess.check_output(cython_cmd)
+                cython_found = True
+                break
+            except (OSError, subprocess.CalledProcessError):
+                continue
+        if not cython_found:
+            raise RuntimeError("Cython must be installed to build this package (neither 'cython3' nor 'cython' was found)")
+    
         for ext in self.extensions:
             self.build_extension(ext)
+
 
     def build_extension(self, ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
