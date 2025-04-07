@@ -85,7 +85,7 @@ class BuildExt(build_ext):
                 continue
         if not cython_found:
             raise RuntimeError("Cython must be installed to build this package (neither 'cython3' nor 'cython' was found)")
-    
+
         for ext in self.extensions:
             self.build_extension(ext)
 
