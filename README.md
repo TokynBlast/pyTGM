@@ -13,7 +13,7 @@
 To install, run ```pip install pyTGM```<br>
 All versions before 5.0.0 must be built from source.<br>
 macOS is still built from source<br><br>
-You will need pybind11, setuptools and wheel.<br>
+You will need cmake, setuptools and wheel.<br>
 There are some things for building, that are needed, which can be removed afterwards.<br>
 Run setup.sh to install the materials for it.<br><br>
 You will also need Python.h to build.<br>
