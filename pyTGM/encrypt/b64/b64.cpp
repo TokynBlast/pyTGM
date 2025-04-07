@@ -6,28 +6,25 @@
 #include <stdexcept>
 #include <bitset>
 
-class Table {
-public:
-    // Default base64 table (using a raw string literal to avoid excessive escaping)
-    static std::string table_;
+// Default base64 table (using a raw string literal to avoid excessive escaping)
+static std::string table_;
 
-    // Generates a new table by shuffling the provided table (or the default if empty)
-    static std::string gen(const std::string &chars="", int times = 1) {
-        std::string b64table = chars.empty() ? table_ : chars;
-        std::vector<char> b64list(b64table.begin(), b64table.end());
-        std::random_device rd;
-        std::mt19937 g(rd());
-        for (int i = 0; i < times; i++) {
-            std::shuffle(b64list.begin(), b64list.end(), g);
-        }
-        return std::string(b64list.begin(), b64list.end());
+// Generates a new table by shuffling the provided table (or the default if empty)
+static std::string gen(const std::string &chars="", int times = 1) {
+    std::string b64table = chars.empty() ? table_ : chars;
+    std::vector<char> b64list(b64table.begin(), b64table.end());
+    std::random_device rd;
+    std::mt19937 g(rd());
+    for (int i = 0; i < times; i++) {
+        std::shuffle(b64list.begin(), b64list.end(), g);
     }
+    return std::string(b64list.begin(), b64list.end());
+}
 
-    // Resets the table to the default value.
-    static void reset() {
-        table_ = R"(ABCDEFGHIJKL MNOPQRSTUVWXYZabcdefghijk lmnopqrstuvwxyz1234567890?!@#$%^& *()_+-=[]{}\|/,.<>~`;:'")";
-    }
-};
+// Resets the table to the default value.
+static void reset() {
+    table_ = R"(ABCDEFGHIJKL MNOPQRSTUVWXYZabcdefghijk lmnopqrstuvwxyz1234567890?!@#$%^& *()_+-=[]{}\|/,.<>~`;:'")";
+}
 
 // Initialize the static table_ member with the default value.
 std::string Table::table_ = R"(ABCDEFGHIJKL MNOPQRSTUVWXYZabcdefghijk lmnopqrstuvwxyz1234567890?!@#$%^& *()_+-=[]{}\|/,.<>~`;:'")";
