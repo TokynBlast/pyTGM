@@ -224,6 +224,6 @@ setup(
     install_requires=require,
     ext_modules=extensions,
     cmdclass={"build_ext": BuildExt},
-    python_requires=">=3.13",
+    python_requires=">=3.11",
     platforms=["Windows", "Linux", "MacOS"],
 )
