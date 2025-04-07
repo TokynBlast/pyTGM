@@ -7,7 +7,7 @@
 | **Build** |[![Compile C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
 
 > [!warning]
-> The source code is going under some heavy development./nWhile it is, most of the time there will just be errors.
+> The source code is going under some heavy development.<br>While it is, most of the time there will just be errors.
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
