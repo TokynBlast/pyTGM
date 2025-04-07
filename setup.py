@@ -14,7 +14,6 @@ if sys_() == "Darwin":
 else:
     require = []
 
-
 def get_ext_source(module_name, pyx_path, cpp_path):
     if os.path.exists(cpp_path):
         print(f"Using pre-generated C++ file for {module_name}: {cpp_path}")
@@ -36,34 +35,28 @@ def check_sources(sources):
 def find_file(filename, search_path="."):
     search_path = os.path.abspath(search_path)
     current_dir = search_path
-    last_dir = None  # The directory we just fully searched
+    last_dir = None
     while True:
         print(f"Searching for {filename} in {current_dir} (ignoring {last_dir})")
-        # Walk the current directory
-        for root, dirs, files in os.walk(current_dir):
-            # At the top level of current_dir, remove the directory we already searched.
+        for root, dirs, file_list in os.walk(current_dir):  # Renamed from 'files' to 'file_list'
             if last_dir and os.path.abspath(root) == current_dir:
                 dirs[:] = [d for d in dirs if os.path.abspath(os.path.join(root, d)) != last_dir]
-            if filename in files:
+            if filename in file_list:
                 found_path = os.path.join(root, filename)
-                # Get a relative path (adjust if you want it to start with 'pyTGM')
                 rel_path = os.path.relpath(found_path, os.getcwd())
                 if 'pyTGM' in rel_path:
                     parts = rel_path.split(os.sep)
                     idx = parts.index('pyTGM')
-                    rel_path = os.path.join('pyTGM', *parts[idx+1:])
+                    rel_path = os.path.join('pyTGM', *parts[idx + 1:])
                 print(f"Found: {rel_path}")
                 return rel_path
-        # File was not found in current_dir; move up one level
         parent = os.path.dirname(current_dir)
-        if parent == current_dir:  # We have reached the filesystem root
+        if parent == current_dir:
             break
-        # Remember the directory we just searched so we skip it in the parent's search.
         last_dir = current_dir
         current_dir = parent
     print(f"NONE for {filename}")
     return None
-
 
 def get_relative_path(path):
     if path is None:
@@ -74,28 +67,23 @@ def get_relative_path(path):
         rel_path = "./" + rel_path
     return rel_path
 
-
-
-
-
 class BuildExt(build_ext):
     """Builds the extensions written in C++, to work with Python"""
     def run(self):
         try:
             subprocess.check_output(['cmake', '--version'])
-        except OSError:
-            raise RuntimeError("CMake must be installed to build this package")
+        except OSError as exc:
+            raise RuntimeError("CMake must be installed to build this package") from exc
         try:
             subprocess.check_output(['cython3', '--version'])
-        except OSError:
-            raise RuntimeError("Cython must be installed to build this package")
+        except OSError as exc:
+            raise RuntimeError("Cython must be installed to build this package") from exc
         for ext in self.extensions:
             self.build_extension(ext)
 
     def build_extension(self, ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cfg = 'Debug' if self.debug else 'Release'
-
         sourcedir = os.path.abspath(os.path.dirname(__file__))
 
         print(f"Building extension: {ext.name}")
@@ -136,23 +124,21 @@ class BuildExt(build_ext):
 
 # Cython extensions
 
-extensions_files = [
-    "geky", "sound", "clear", "color", "pos", "rect", "hk512", "b64"
-]
-
 extensions_files = {
-    module: [f"{module}.pyx", f"{module}.cpp", f"{module}.hpp"] for module in extensions_files
+    module: [f"{module}.pyx", f"{module}.cpp", f"{module}.hpp"] for module in [
+        "b64", "hk512", "geky", "clear", "color", "pos"
+    ]
 }
 
 found_files = {}
-for module, files in extensions_files.items():
-    found_files[module] = [find_file(f) for f in files]
+for module, file_list in extensions_files.items():  # Renamed from 'files'
+    found_files[module] = [find_file(f) for f in file_list]
     if None in found_files[module]:
         print(f"Missing files for: {module}")
 
 extend = []
-for module, files in extensions_files.items():
-    found = [find_file(f) for f in files]
+for module, file_list in extensions_files.items():  # Renamed from 'files'
+    found = [find_file(f) for f in file_list]
     source_file = None
     if found[1] is not None:
         source_file = get_relative_path(found[1])
