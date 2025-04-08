@@ -31,8 +31,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake build-essential
-          python -m pip install --upgrade pip
-          pip install nanobind setuptools wheel pylint mypy stubgen
+          python -m pip install --upgrade pip nanobind setuptools wheel pylint mypy stubgen
 
       - name: Build C++ extensions
         run: |
