@@ -24,12 +24,19 @@ I tried to convert it to C++, but I'm just not advanced enough yet. I hope, that
 Eventually, I hope there is a community of programmers, who show their appreciation, and help improve it, or give ideas, if they can.
 I prefer to make tools, not games, but, this is an easier way to introduce yourself to programming!
 
-Conversion to Cython
---------------------
-I didn't REALLY want to do this, but, pybind11 was giving errors, and I never noticed...
-Not untill WAY later in 5.0.0 development. Now, I have to go through the pain of conversion,
-and the scary... FILE SIZE EXPANSION!! (It truly is scary...)
-But, if it works, it has to be done.
+Conversion to nanobind
+----------------------
+This conversion has gone through three attempts...
+Cmake is the only consitent thing.
+It has made me genuinley consider handing this off to somebody, or just archiving pyTGM...
+BUT, because I have new found love for programming, and my interest are begining to broaden again, I have decided to continue.
+kore daisuki. It translates to "I love this"
+Programming is my passion.
+Tech is my love.
+I will never think of giving my baby (pyTGM) up EVER again.
+I enjoy having software people interact with and use.
+Programming is who I am.
+I have a new-found passion for this. More than can be described in the words I have available to me...
 
 
 Extra notes
@@ -54,7 +61,28 @@ I've had a max of 178 clones and a minimum of 32 clones...
 THATS CRAZY!
 
 But now, low and behold... pyTGM 5.0.0!!
-The latest and greatest (As of Febuary th, 2025)
+The latest and greatest (As of 2025)!
 
 I wonder what my guinea pigs think about it...
 They probably like it cause I'm around them more, and I clean their cage every couple of hours!
+
+I also don't modify the extra notes, so it acts more as a timeline, and less of a summary.
+Or atleast.. I usually don't.
+I love to program. It is who I am. The abstract of it.
+The difference from spoken language and programming language.
+They are different.
+Language is stuck as it is. Innefficient, so our feeble minds can understand the slow processing of sounds.
+It truly is an interesting thing...
+Technology, language, the brain, AI, and programming.
+The computer understands mov 0xf4001 as a command. The average non-programming brain doesn't.
+The human brain, and other animal brains take time to process, to connect.
+We are just a giant powerful LLM.
+To program is to fix what is broken and improve what you %500 know what you're doing.
+Not %100, %500. Or you'll break it.
+Even then, programming isn't as hard as people think it is.
+It's projects like these that people meet, and then they determine this is how all code is...
+But, you build up to this, and this has been in development for nearly 2 years now, and its on v5,
+because I was looking for a way to make it more efficient, more practical and more useful.
+
+Because in practice, there's a lot that people wouldn't really use, or have a simpler way to do it,
+nativley in Python.
