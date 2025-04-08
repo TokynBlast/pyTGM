@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - pyTGM/**/*.cpp
-      - pyTGM/**/*.hpp
-      - pyTGM/**/*.pyx
       - .github/workflows/compile.yml
       - CMakeLists.txt
       - setup.py
