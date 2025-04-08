@@ -30,8 +30,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y python3-dev cmake g++ ninja-build
-          python -m pip install --upgrade pip
-          pip install --upgrade nanobind setuptools wheel
+          python -m pip install --upgrade pip nanobind
+          pip install --upgrade setuptools wheel
 
       - name: Configure and Build
         run: |
