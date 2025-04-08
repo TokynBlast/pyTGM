@@ -22,7 +22,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-tidy python3-dev cmake ninja-build cython3
+          sudo apt-get install -y clang-tidy python3-dev cmake ninja-build nanobind
 
       - name: Configure Project and Generate compile_commands.json
         run: |

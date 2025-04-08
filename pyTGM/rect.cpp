@@ -1,10 +1,11 @@
 #include "rect.hpp"
+#include <nanobind/nanobind.h>
 #include <string>
 #include <iostream>
 #include <algorithm>
 #include <chrono>
 
-void rect_(int width, int height, int time, const char* character) {
+void rect(int width, int height, int time=100, const char* character=" ") {
     int tot_steps = (height * (height + 1)) / 2 + (height * (height - 1)) / 2 + (std::max(width - height, 0) * height);
     int tot_time = time / tot_steps;
 

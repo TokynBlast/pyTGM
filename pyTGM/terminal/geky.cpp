@@ -1,5 +1,7 @@
 #include "geky.hpp"
 
+#include <nanobind/nanobind.h>
+
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -13,7 +15,7 @@
 #include <fcntl.h>
 #endif
 
-std::string geky_(int times) {
+std::string geky(int times = 1) {
     std::string result;
 
 #ifdef _WIN32

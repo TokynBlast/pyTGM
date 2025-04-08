@@ -7,7 +7,7 @@ from . import pos
 
 __all__ = ['geky',
            'clear', 'color', 'pos',
-           'RESET', 'ITALIC', 'BOLD', 'UNDERLINE']
+           'RESET', 'ITALIC', 'BOLD', 'UNDERLINE', 'INVIS', 'BLINK']
 
 RESET = "\x1b[0m"
 

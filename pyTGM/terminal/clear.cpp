@@ -1,7 +1,8 @@
 #include "clear.hpp"
+#include <nanobind/nanobind.h>
 #include <iostream>
 
-int clear_() {
+int clear() {
     #ifdef _WIN32
         #include <windows.h>
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

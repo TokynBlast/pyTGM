@@ -1,4 +1,5 @@
 #include "sound.hpp"
+#include <nanobind/nanobind.h>
 
 #ifdef _WIN32
     #define WIN
@@ -21,7 +22,7 @@
 #include <iostream>
 #include <string>
 
-int sound_(const char* filename) {
+int sound(const char* filename) {
     #if defined(WIN)
         PlaySound(TEXT(filename), NULL, SND_FILENAME | SND_ASYNC);
 

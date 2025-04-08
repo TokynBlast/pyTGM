@@ -1,7 +1,7 @@
 - [Bug]                         [Latest Version]
 
 - Make setup.py use ./ paths    [5]
-- Cythonize server              [6]
+- Convert server/client -> C++  [6]
 - Add tests                     [6]
 - Fix sound on Windows          [6]
 - Add more shapes               [7]
