@@ -22,8 +22,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y clang-tidy python3-dev cmake ninja-build python3-pip
-          pip3 install nanobind
-          python3 -m nanobind.setup_helpers build_ext --inplace
+          python3 -m pip install --upgrade pip
+          python3 -m pip install nanobind
 
       - name: Configure Project and Generate compile_commands.json
         run: |
@@ -33,4 +33,5 @@ jobs:
       - name: Run clang-tidy on C++ files
         run: |
           cd build
-          find .. -type f \( -name '*.cpp' \) | xargs clang-tidy -p .
+          NANOBIND_INCLUDES=$(python3 -c "import nanobind; print(nanobind.include_dir())")
+          find .. -type f \( -name '*.cpp' \) | xargs clang-tidy -p . --extra-arg="-I$NANOBIND_INCLUDES"
