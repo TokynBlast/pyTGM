@@ -28,7 +28,7 @@ jobs:
       - name: Configure Project and Generate compile_commands.json
         run: |
           mkdir -p build
-          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -GNinja ..
+          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -GNinja .
 
       - name: Run clang-tidy on C++ files
         run: |
