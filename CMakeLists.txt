@@ -19,15 +19,16 @@ endif()
 
 find_package(Python 3.8 COMPONENTS Interpreter ${DEV_MODULE} REQUIRED)
 
+# Define modules with their direct paths
 set(MODULES
-    "hk512:encrypt/hk512"
-    "b64:encrypt/b64"
-    "rect:rect"
-    "clear:terminal/clear"
-    "color:terminal/color"
-    "geky:terminal/geky"
-    "pos:terminal/pos"
-    "sound:sound"
+    "hk512:encrypt/hk512.cpp"
+    "b64:encrypt/b64.cpp"
+    "rect:rect.cpp"
+    "clear:terminal/clear.cpp"
+    "color:terminal/color.cpp"
+    "geky:terminal/geky.cpp"
+    "pos:terminal/pos.cpp"
+    "sound:sound.cpp"
 )
 
 execute_process(
@@ -35,15 +36,12 @@ execute_process(
   OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE nanobind_ROOT)
 find_package(nanobind CONFIG REQUIRED)
 
-
 foreach(entry ${MODULES})
     string(REPLACE ":" ";" entry_list ${entry})
     list(GET entry_list 0 mod_name)
-    list(GET entry_list 1 mod_dir)
+    list(GET entry_list 1 module_cpp)
 
-    set(module_cpp "./../${mod_dir}/${mod_name}.cpp")
-
-    if(EXISTS "${module_cpp}")
+    if(EXISTS "pyTGM/${module_cpp}")
         add_library(${mod_name} SHARED "${module_cpp}")
 
         target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
