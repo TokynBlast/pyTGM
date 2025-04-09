@@ -36,24 +36,31 @@ execute_process(
   OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE nanobind_ROOT)
 find_package(nanobind CONFIG REQUIRED)
 
+message(STATUS "Current working directory: ${CMAKE_CURRENT_SOURCE_DIR}")
+file(GLOB ALL_FILES "${CMAKE_CURRENT_SOURCE_DIR}")
+message(STATUS "Available files/folders:")
+foreach(F ${ALL_FILES})
+  message(STATUS "  ${F}")
+endforeach()
+
 foreach(entry ${MODULES})
-    string(REPLACE ":" ";" entry_list ${entry})
-    list(GET entry_list 0 mod_name)
-    list(GET entry_list 1 module_cpp)
+  string(REPLACE ":" ";" entry_list ${entry})
+  list(GET entry_list 0 mod_name)
+  list(GET entry_list 1 module_cpp)
 
-    if(EXISTS "pyTGM/${module_cpp}")
-        add_library(${mod_name} SHARED "${module_cpp}")
+  if(EXISTS "pyTGM/${module_cpp}")
+    add_library(${mod_name} SHARED "${module_cpp}")
 
-        target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
-        target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
+    target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
+    target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
 
-        set_target_properties(${mod_name} PROPERTIES
-            PREFIX ""
-            SUFFIX ".so"
-        )
-    else()
-        message(WARNING "Source file for module '${mod_name}' not found: ${module_cpp}")
-    endif()
+    set_target_properties(${mod_name} PROPERTIES
+      PREFIX ""
+      SUFFIX ".so"
+    )
+  else()
+    message(WARNING "Source file for module '${mod_name}' not found: pyTGM/${module_cpp}")
+  endif()
 endforeach()
 
 message(STATUS "C++ modules being built:")
