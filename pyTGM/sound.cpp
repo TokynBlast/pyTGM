@@ -1,4 +1,3 @@
-#include "sound.hpp"
 #include <nanobind/nanobind.h>
 
 #ifdef _WIN32

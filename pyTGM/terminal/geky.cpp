@@ -1,5 +1,3 @@
-#include "geky.hpp"
-
 #include <nanobind/nanobind.h>
 
 #include <iostream>

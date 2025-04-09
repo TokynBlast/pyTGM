@@ -1,4 +1,3 @@
-#include "rect.hpp"
 #include <nanobind/nanobind.h>
 #include <string>
 #include <iostream>

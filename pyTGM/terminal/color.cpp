@@ -1,4 +1,3 @@
-#include "color.hpp"
 #include <nanobind/nanobind.h>
 #include <string>
 #include <sstream>
