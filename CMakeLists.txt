@@ -36,11 +36,14 @@ execute_process(
   OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE nanobind_ROOT)
 find_package(nanobind CONFIG REQUIRED)
 
-message(STATUS "Current working directory: ${CMAKE_CURRENT_SOURCE_DIR}")
 file(GLOB ALL_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*")
-message(STATUS "Available files/folders:")
+message(STATUS "Available files and directories:")
 foreach(F ${ALL_FILES})
-  message(STATUS "  ${F}")
+  if(IS_DIRECTORY ${F})
+    message(STATUS "  [DIR] ${F}")
+  else()
+    message(STATUS "  [FILE] ${F}")
+  endif()
 endforeach()
 
 foreach(entry ${MODULES})
