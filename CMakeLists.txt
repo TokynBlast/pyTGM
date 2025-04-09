@@ -37,7 +37,7 @@ execute_process(
 find_package(nanobind CONFIG REQUIRED)
 
 message(STATUS "Current working directory: ${CMAKE_CURRENT_SOURCE_DIR}")
-file(GLOB ALL_FILES "${CMAKE_CURRENT_SOURCE_DIR}")
+file(GLOB ALL_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*")
 message(STATUS "Available files/folders:")
 foreach(F ${ALL_FILES})
   message(STATUS "  ${F}")
