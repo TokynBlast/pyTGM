@@ -51,8 +51,8 @@ foreach(entry ${MODULES})
   list(GET entry_list 0 mod_name)
   list(GET entry_list 1 module_cpp)
 
-  if(EXISTS "${module_cpp}")
-    add_library(${mod_name} SHARED "${module_cpp}")
+  if(EXISTS "pyTGM/${module_cpp}")
+    add_library(${mod_name} SHARED "pyTGM/${module_cpp}")
 
     target_include_directories(${mod_name} PRIVATE ${Python3_INCLUDE_DIRS})
     target_link_libraries(${mod_name} PRIVATE ${Python3_LIBRARIES})
