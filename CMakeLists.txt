@@ -36,7 +36,7 @@ execute_process(
   OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE nanobind_ROOT)
 find_package(nanobind CONFIG REQUIRED)
 
-file(GLOB ALL_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*")
+file(GLOB ALL_FILES "${CMAKE_CURRENT_SOURCE_DIR}/pyTGM/*")
 message(STATUS "Available files and directories:")
 foreach(F ${ALL_FILES})
   if(IS_DIRECTORY ${F})
