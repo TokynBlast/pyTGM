@@ -1,9 +1,9 @@
 """ Imports all files needed for terminal """
 
-from pyTGM.terminal import geky
-from pyTGM.terminal import clear
-from pyTGM.terminal import color
-from pyTGM.terminal import pos
+from . import geky
+from . import clear
+from . import color
+from . import pos
 
 __all__ = ['geky',
            'clear', 'color', 'pos',
