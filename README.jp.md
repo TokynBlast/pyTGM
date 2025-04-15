@@ -1,10 +1,10 @@
 # Workflow Status
 
 <!-- Eventually, will be |linting|security|築く|です -->
-| **Linting** | [![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml) | [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml) | [![Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)
+| **《Linting》** | [![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml) | [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml) | [![Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)
 |-----------|----------|----------|----------|
-| **Security** | [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml) | [![SHA256 Generate そして Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml) | |
-| **築く** |[![築く C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
+| **《Security》** | [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml) | [![SHA256 Generate そして Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml) | |
+| **《築く》** |[![《築く》 C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
 
 > [!warning]
 > それsource code under heavy developmentです。<br>most 時間 errorsです.
@@ -44,10 +44,10 @@ feature [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=
 
 ## Contributing
 Contributions appreciated。<br>
-To 築く contribution、 築く branch[ここ](https://github.com/TokynBlast/pyTGM/branches)<br>
+To 築く contribution、築くbranch[《ここ》](https://github.com/TokynBlast/pyTGM/branches)<br>
 Then、そして/remove、to improve！<br>
 我々・証・それcode safeそしてworking。<br>
-or、あげますmake donation！[ここ](https://github.com/sponsors/TokynBlast)<br>
+or、あげますmake donation！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
 ありがとう！
 
 # Suggestions
