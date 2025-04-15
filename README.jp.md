@@ -38,9 +38,9 @@ pyTGM simple alternative Pygame, priority ASCII そして ANSI game development,
 has encryption、markup、sound playing、servers、またmore。
 
 ## Bugs・そして・Features
-bug [ここ](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
-feature [ここ](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)<br>
-築くerror/warning、[ここ](https://github.com/TokynBlast/pyTGM/issues/new?template=compile_report.md)
+bug [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
+feature [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)<br>
+築くerror/warning、[《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?template=compile_report.md)
 
 ## Contributing
 Contributions appreciated。<br>
