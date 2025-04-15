@@ -7,22 +7,21 @@
 | **《築く》** |[![《築く》 C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
 
 > [!warning]
-> それsource code under heavy developmentです。<br>most 時間 errorsです.
+> それsourceコードunder heavy developmentです。<br>most時間errorsです.
 
 > [!warning]
-> わたし学ぶ日本語。<br>和文たぶんミス！<br>Heavy use of「・」is for 僕 そして・あなた
+> わたし学ぶ日本語。<br>和文たぶんミス！<br>Heavy use of「・」for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ style
 
 ## Installing
-run ```pip install pyTGM``` install<br>
-before 5.0.0 must be from source。<br>
-あなた need cmake、 setuptools、 wheel<br>
+走る ```pip install pyTGM```<br>
+before 5.0.0要らます、築くsource。<br>
+あなた need cmake、setuptools、wheel<br>
 また Python.h<br>
-あなた can get it from python3-dev<br><br>
-macOS 築く from sourceです<br><br>
-some things can be　remove after 築く<br>
-Run ```setup.sh```　to install the materials for です。<br><br>
+あなた can get from python3-devです<br><br>
+macOS要らます・築くfrom sourceです<br>
+走る ```setup.sh``` to install the materials for です。<br><br>
 
-windows need Visual Studio 2017 or later。<br>
+windows要らますVisual Studio 2017 or later。<br>
 for Python、enable:
 - Add Python to PATH
 - Customize installation > Development Tools
@@ -35,7 +34,7 @@ bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-
 # pyTGM【Python・Terminal・Game・Maker】
 
 pyTGM simple alternative Pygame, priority ASCII そして ANSI game development, contained in terminal、です<br>
-has encryption、markup、sound playing、servers、またmore。
+has encryption、markup、sound playing、servers、また・もっと。
 
 ## Bugs・そして・Features
 bug [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
@@ -45,27 +44,27 @@ feature [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=
 ## Contributing
 Contributions appreciated。<br>
 To 築く contribution、築くbranch[《ここ》](https://github.com/TokynBlast/pyTGM/branches)<br>
-Then、そして/remove、to improve！<br>
-我々・証・それcode safeそしてworking。<br>
-or、あげますmake donation！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
+Then、add/remove、to improve！<br>
+我々・証・それコードsafeそしてworking。<br>
+or、あげます送る¥！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
 ありがとう！
 
 # Suggestions
 あなたいいえalways need everything。
-```\a``` can築くbeep、called an escape sequencesです。<br>
-The libraryそして　more escape sequences can combine for more control！
+```\a``` can築くbeep、それ逃sequencesです。<br>
+図書館そして・もっと逃sequences共もっとcontrol！
 pyTGM uses them！pyTGM simple interface forです。
 
-# Features
+# 特色
 
 ## Terminal
 ```python
 # Clear screen
 terminal.cls()
 
-# Color text (RGB)
+# 色 text (red, green, 青)
 terminal.color(0, 255, 0)  # Green text
-terminal.RESET             # Reset color
+terminal.RESET             # Reset色
 
 # Markup
 terminal.BOLD
@@ -87,9 +86,9 @@ rect(width, height, time=3, character=" ")
 sound('../sounds/mysound.mp3')
 ```
 
-## 網・Server・Support
+## 網・Support <!--Find a way to say "server"-->
 ```python
-# Start serverそしてclient (PORT, message)
+# Start 網そしてclient (PORT, message)
 LocalServer(1080, {'てと':((243,332), 57)})
 ```
 受ける・example:
@@ -99,7 +98,7 @@ LocalServer(1080, {'てと':((243,332), 57)})
 
 ## Encryption
 
-### b64:
+### ブ64:
 ```python
 # Set the table
 encrypt.b64.Table.table = 'あいうえお...わをん...12...90...!@..._+'
@@ -109,14 +108,14 @@ encrypt.b64.Table.generate('あいうえお...わをん...12...90...!@..._+', 32
 encrypt.b64.encode(text) # encode
 encrypt.b64.decode(text) # decode
 ```
-when setting table、must have the characters in the inputです！
+時間setting table、要らますcharacters in the inputです！
 Extra characters increase securityそしてsize of output.
 ```python
 encrypt.sha256(text)
 ```
 
 
-### hk512:
+### フク512:
 ```python
 encrypt.hk512.encode(data, key)
 encrypt.hk512.decode(data, key)
@@ -125,7 +124,7 @@ encrypt.hk512.decode(data, key)
 ## Links
 - [Homepage](https://pyTGM.tokynblast.space/home)
 - [Documentation](https://pyTGM.tokynblast.space/documentation/use)
-- [Source Code](https://github.com/TokynBlast/pyTGM/tree/main)
+- [Source・コード](https://github.com/TokynBlast/pyTGM/tree/main)
 - [Bug Tracker](https://github.com/TokynBlast/pyTGM/issues)
 - [Changelog](https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt)
 
