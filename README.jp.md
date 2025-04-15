@@ -14,7 +14,7 @@
 
 ## Installing
 run ```pip install pyTGM``` install<br>
-before 5.0.0 must be  from source。<br>
+before 5.0.0 must be from source。<br>
 あなた need cmake、 setuptools、 wheel<br>
 また Python.h<br>
 あなた can get it from python3-dev<br><br>
@@ -81,7 +81,7 @@ rect(width, height, time=3, character=" ")
 
 
 ## Sound Support
-Work・ウィンドウズ、マック、リナックス:
+共・ウィンドウズ、マック、リナックス:
 ```python
 # Play audio file
 sound('../sounds/mysound.mp3')
