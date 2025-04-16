@@ -10,7 +10,7 @@
 > それsourceコードunder developmentです。<br>most時間errorsです.
 
 > [!warning]
-> わたし学ぶ日本語。<br>和文たぶんミス！<br>use of「・」for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ柄。<br>くヘルプださい。僕ミス
+> わたし学ぶ日本語。<br>和文たぶんミス！<br>「・」is for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ柄。<br>くヘルプださい。僕ミス
 
 ## Installing
 走る ```pip install pyTGM```<br>
@@ -19,7 +19,7 @@ before 5.0.0要らます、築くsource。<br>
 また ```Python.h```<br>
 あなたできるget from python3-devです<br><br>
 macOS要らます・築くfrom sourceです<br>
-走る ```setup.sh``` to install the materials for です。<br><br>
+走る ```setup.sh``` to install materials forです。<br><br>
 
 windows要らますVisual Studio 2017 or later。<br>
 for Python、enable:
@@ -31,9 +31,9 @@ for Python、enable:
 bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel elif command -v pacman >/dev/null; then sudo pacman -Sy --noconfirm python elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel elif command -v brew >/dev/null; then brew install python elif command -v pkg >/dev/null; then sudo pkg install -y python elif command -v emerge >/dev/null; then sudo emerge --ask dev-lang/python elif command -v apk >/dev/null; then sudo apk add --no-cache python3-dev else echo "Unsupported package manager. Install Python dev headers manually." exit 1 fi'
 ```
 
-# pyTGM【Python・Terminal・Game・Maker】
+# ピトグム【Python・Terminal・遊び・生み出す】
 
-pyTGM simple alternative Pygame, priority ASCII そして ANSI game development, contained in terminal、です<br>
+ピトグムsimple alternative to Pygame, focus on ASCIIそしてANSI遊び生み出す, contained中terminal、です<br>
 has encryption、markup、sound playing、servers、また・もっと。
 
 ## Bugs・そして・Features
@@ -41,19 +41,19 @@ bug [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&lab
 feature [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)<br>
 築くerror/warning、[《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?template=compile_report.md)
 
-## Contributing
-contributions appreciated。<br>
+## 養う
+養うappreciated。<br>
 to築くcontribution、築くbranch[《ここ》](https://github.com/TokynBlast/pyTGM/branches)<br>
-then、add/remove、to improve！<br>
+then、add/remove、to 養う！<br>
 我々・証・それコードsafeそしてworking。<br>
-or、あげます送る¥！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
+or、養う！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
 ありがとう！
 
 # Suggestions
 あなたいいえalways need everything。
 ```\a```できる築くbeep、それ逃sequencesです。<br>
 図書館そして・もっと逃sequences共もっとcontrol！
-pyTGM uses them！pyTGM simple interface forです。
+ピトグムuses them！ピトグムsimple interface forです。
 
 # 特色
 
@@ -62,8 +62,8 @@ pyTGM uses them！pyTGM simple interface forです。
 # Clear screen
 terminal.cls()
 
-# 色 text (red, green, 青)
-terminal.color(0, 255, 0)  # Green text
+# 色 text (赤, green, 青)
+terminal.color(0, 255, 0)  # (R, G, B)
 terminal.RESET             # Reset色
 
 # Markup
@@ -100,7 +100,7 @@ LocalServer(1080, {'てと':((243,332), 57)})
 
 ### ブ64:
 ```python
-# Set table
+# Set 一覧表
 encrypt.b64.Table.table = 'あいうえお...わをん...12...90...!@..._+'
 encrypt.b64.Table.generate('あいうえお...わをん...12...90...!@..._+', 32)  # (table: str, times: int)
 
@@ -108,7 +108,7 @@ encrypt.b64.Table.generate('あいうえお...わをん...12...90...!@..._+', 32
 encrypt.b64.encode(text) # encode
 encrypt.b64.decode(text) # decode
 ```
-時間setting table、要らますcharacters in the inputです！
+時間setting table、要らますcharacters中inputです！
 Extra字increase securityそしてsize of output.
 ```python
 encrypt.sha256(text)
@@ -123,7 +123,7 @@ encrypt.hk512.decode(data, key)
 
 ## Links
 - [Homepage](https://pyTGM.tokynblast.space/home)
-- [Documentation](https://pyTGM.tokynblast.space/documentation/use)
+- [手引書](https://pyTGM.tokynblast.space/documentation/use)
 - [Source・コード](https://github.com/TokynBlast/pyTGM/tree/main)
 - [Bug Tracker](https://github.com/TokynBlast/pyTGM/issues)
 - [Changelog](https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt)
