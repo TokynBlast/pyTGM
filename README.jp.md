@@ -86,7 +86,7 @@ rect(width, height, time=3, character=" ")
 sound('../sounds/mysound.mp3')
 ```
 
-## 網・Support <!--Find a way to say "server"　or a word used for it by Japanese dev-->
+## 網 <!--Find a way to say "server"　or a word used for it by Japanese dev-->
 ```python
 # Start 網そしてclient (PORT, message)
 LocalServer(1080, {'てと':((243,332), 57)})
@@ -108,7 +108,7 @@ encrypt.b64.Table.generate('あいうえお...わをん...12...90...!@..._+', 32
 encrypt.b64.encode(text) # encode
 encrypt.b64.decode(text) # decode
 ```
-時間setting table、要らますcharacters中inputです！
+時間setting table、要らます字中inputです！
 Extra字increase securityそしてsize of output.
 ```python
 encrypt.sha256(text)
@@ -130,3 +130,6 @@ encrypt.hk512.decode(data, key)
 
 ## License
 pyTGM licensed under Bspace, by Tokyn Blast/ときゆ/tokiyu.
+
+
+「木を隠すなら森の中」
