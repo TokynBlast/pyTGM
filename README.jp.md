@@ -10,14 +10,14 @@
 > それsourceコードunder developmentです。<br>most時間errorsです.
 
 > [!warning]
-> わたし学ぶ日本語。<br>和文たぶんミス！<br>use of「・」for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ style
+> わたし学ぶ日本語。<br>和文たぶんミス！<br>use of「・」for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ柄。<br>くヘルプださい。僕ミス
 
 ## Installing
 走る ```pip install pyTGM```<br>
 before 5.0.0要らます、築くsource。<br>
-あなた need cmake、setuptools、wheel<br>
-また Python.h<br>
-あなた can get from python3-devです<br><br>
+あなた要らます ```cmake、setuptools、wheel```<br>
+また ```Python.h```<br>
+あなたできるget from python3-devです<br><br>
 macOS要らます・築くfrom sourceです<br>
 走る ```setup.sh``` to install the materials for です。<br><br>
 
@@ -42,16 +42,16 @@ feature [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=
 築くerror/warning、[《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?template=compile_report.md)
 
 ## Contributing
-Contributions appreciated。<br>
-To 築く contribution、築くbranch[《ここ》](https://github.com/TokynBlast/pyTGM/branches)<br>
-Then、add/remove、to improve！<br>
+contributions appreciated。<br>
+to築くcontribution、築くbranch[《ここ》](https://github.com/TokynBlast/pyTGM/branches)<br>
+then、add/remove、to improve！<br>
 我々・証・それコードsafeそしてworking。<br>
 or、あげます送る¥！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
 ありがとう！
 
 # Suggestions
 あなたいいえalways need everything。
-```\a``` can築くbeep、それ逃sequencesです。<br>
+```\a```できる築くbeep、それ逃sequencesです。<br>
 図書館そして・もっと逃sequences共もっとcontrol！
 pyTGM uses them！pyTGM simple interface forです。
 
@@ -86,7 +86,7 @@ rect(width, height, time=3, character=" ")
 sound('../sounds/mysound.mp3')
 ```
 
-## 網・Support <!--Find a way to say "server"-->
+## 網・Support <!--Find a way to say "server"　or a word used for it by Japanese dev-->
 ```python
 # Start 網そしてclient (PORT, message)
 LocalServer(1080, {'てと':((243,332), 57)})
@@ -100,16 +100,16 @@ LocalServer(1080, {'てと':((243,332), 57)})
 
 ### ブ64:
 ```python
-# Set the table
+# Set table
 encrypt.b64.Table.table = 'あいうえお...わをん...12...90...!@..._+'
 encrypt.b64.Table.generate('あいうえお...わをん...12...90...!@..._+', 32)  # (table: str, times: int)
 
-# Encodeそしてdecode
+# Encode・そして・decode
 encrypt.b64.encode(text) # encode
 encrypt.b64.decode(text) # decode
 ```
 時間setting table、要らますcharacters in the inputです！
-Extra characters increase securityそしてsize of output.
+Extra字increase securityそしてsize of output.
 ```python
 encrypt.sha256(text)
 ```
