@@ -7,10 +7,10 @@
 | **《築く》** |[![《築く》 C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
 
 > [!warning]
-> それsourceコードunder heavy developmentです。<br>most時間errorsです.
+> それsourceコードunder developmentです。<br>most時間errorsです.
 
 > [!warning]
-> わたし学ぶ日本語。<br>和文たぶんミス！<br>Heavy use of「・」for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ style
+> わたし学ぶ日本語。<br>和文たぶんミス！<br>use of「・」for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ style
 
 ## Installing
 走る ```pip install pyTGM```<br>
