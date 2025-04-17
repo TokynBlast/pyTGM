@@ -31,11 +31,4 @@ jobs:
           cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -GNinja .
 
       - name: Run clang-tidy on C++ files
-        run: |
-          cd build
-          NANOBIND_INCLUDES=$(python3 -c "import nanobind; print(nanobind.include_dir())")
-          PYTHON_INCLUDES=$(python3-config --includes | tr ' ' '\n' | grep "^-I" | sed 's/^-I//' | grep -v "/usr/include/python3.12")
-          # Prepare include arguments for clang-tidy
-          INCLUDE_ARGS=$(echo $PYTHON_INCLUDES | xargs -I{} echo --extra-arg="-I{}" | tr '\n' ' ')
-          find ../pyTGM -type f \( -name '*.cpp' \) | xargs -I{} clang-tidy -p . {} \
-            --extra-arg="-I$NANOBIND_INCLUDES" $INCLUDE_ARGS
+        run: (cd build && NANOBIND_INCLUDES=$(python3 -c "import nanobind; print(nanobind.include_dir())") && PYTHON_INCLUDES=$(python3-config --includes | tr ' ' '\n' | grep "^-I" | sed 's/^-I//' | grep -v "/usr/include/python3.12") && INCLUDE_ARGS=$(echo $PYTHON_INCLUDES | xargs -I{} echo --extra-arg="-I{}" | tr '\n' ' ') && find ../pyTGM -type f \( -name '*.cpp' \) | xargs -I{} clang-tidy -p . {} --extra-arg="-I$NANOBIND_INCLUDES" $INCLUDE_ARGS)
