@@ -9,6 +9,8 @@
 > [!warning]
 > The source code is going under some heavy development.<br>While it is, most of the time there will just be errors.
 
+![日本語](htps://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-blue?style=flat-square&link=https%3A%2F%2Fgithub.com%2FTokynBlast%2FpyTGM%2Fblob%2Fmain%2FREADME.jp.md)
+
 ## Installing
 To install, run ```pip install pyTGM```<br>
 All versions before 5.0.0 must be built from source.<br>
