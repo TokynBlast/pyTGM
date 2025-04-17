@@ -33,8 +33,22 @@ jobs:
       - name: Run clang-tidy on C++ files
         run: |
           cd build
+          echo "Running clang-tidy linting process..."
+          
+          # Determine NANOBIND Includes
           NANOBIND_INCLUDES=$(python3 -c "import nanobind; print(nanobind.include_dir())")
+          echo "NANOBIND_INCLUDES: $NANOBIND_INCLUDES"
+
+          # Determine Python Includes
           PYTHON_INCLUDES=$(python3-config --includes | tr ' ' '\n' | grep "^-I" | sed 's/^-I//' | grep -v "/usr/include/python3.12")
+          echo "PYTHON_INCLUDES: $PYTHON_INCLUDES"
+
+          # Prepare Include Arguments for clang-tidy
           INCLUDE_ARGS=$(echo $PYTHON_INCLUDES | xargs -I{} echo --extra-arg="-I{}" | tr '\n' ' ')
+          echo "INCLUDE_ARGS: $INCLUDE_ARGS"
+
+          # Run clang-tidy and collect errors
           find ../pyTGM -type f \( -name '*.cpp' \) | xargs -I{} clang-tidy -p . {} \
             --extra-arg="-I$NANOBIND_INCLUDES" $INCLUDE_ARGS || true
+
+          echo "clang-tidy process finished."
