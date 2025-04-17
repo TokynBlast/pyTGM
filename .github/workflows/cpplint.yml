@@ -35,5 +35,7 @@ jobs:
           cd build
           NANOBIND_INCLUDES=$(python3 -c "import nanobind; print(nanobind.include_dir())")
           PYTHON_INCLUDES=$(python3-config --includes | tr ' ' '\n' | grep "^-I" | sed 's/^-I//')
+          # Prepare include arguments for clang-tidy
+          PYTHON_EXTRA_ARGS=$(echo $PYTHON_INCLUDES | xargs -I{} echo --extra-arg="-I{}" | tr '\n' ' ')
           find ../pyTGM -type f \( -name '*.cpp' \) | xargs -I{} clang-tidy -p . {} \
-            --extra-arg="-I$NANOBIND_INCLUDES" $(echo $PYTHON_INCLUDES | xargs -I{} echo --extra-arg="-I{}")
+            --extra-arg="-I$NANOBIND_INCLUDES" $PYTHON_EXTRA_ARGS
