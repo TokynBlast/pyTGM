@@ -41,7 +41,7 @@
     "pyTGM/terminal/clear.cpp": "8b80060bfa8f06f3ac04abac48b2aebec3b2bc033af62c28ad63659b9b33b422",
     "pyTGM/sound.cpp": "84a5d4e4c201be34040c7e4a86b5d10d31fb3425fb8e5e92820cc13588357c96",
     "pyTGM/encrypt/hk512.cpp": "f3ab0e39052fd6427c7ded47a5f552c45cc8420e884abd37824e32809008d1bd",
-    "pyTGM/encrypt/b64.cpp": "28043dbe1a5de732ad6a772c92f8bca61531ad0d0f2d65b755170b02f3c12eea",
+    "pyTGM/encrypt/b64.cpp": "44dac76022fb99162acf37fa2ea2b8cb800ecc437a388e924c807d9691e10afe",
     "pyTGM/rect.cpp": "527ead335c1e5e3e23e8ee7009531e3416f0e6260325b0782dba17f1f623df8c"
   }
 }
