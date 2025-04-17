@@ -26,7 +26,7 @@ public:
     static void reset() {
         table_ = R"(ABCDEFGHIJKL MNOPQRSTUVWXYZabcdefghijk lmnopqrstuvwxyz1234567890?!@#$%^& *()_+-=[]{}\|/,.<>~`;:'")";
     }
-}
+};
 
 // Initialize the static table_ member with the default value.
 std::string Table::table_ = R"(ABCDEFGHIJKL MNOPQRSTUVWXYZabcdefghijk lmnopqrstuvwxyz1234567890?!@#$%^& *()_+-=[]{}\|/,.<>~`;:'")";
