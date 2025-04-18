@@ -32,8 +32,6 @@ jobs:
 
       - name: Run clang-tidy on C++ files
         run: |
-                - name: Run clang-tidy on C++ files
-        run: |
           cd build
           echo "Running clang-tidy linting process..."
           
