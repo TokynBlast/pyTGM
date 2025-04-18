@@ -30,25 +30,43 @@ jobs:
           sudo apt-get install -y python3-dev cmake g++ ninja-build
           python -m pip install --upgrade pip nanobind
           pip install --upgrade setuptools wheel
-      - name: Run clang-tidy on C++ files
+     name: Compile C++
+
+on:
+  push:
+    paths:
+      - pyTGM/**/*.cpp
+      - .github/workflows/compile.yml
+      - CMakeLists.txt
+      - setup.py
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.13"
+
+      - name: Install Dependencies
         run: |
-          set -e  # Exit immediately if any command fails
+          sudo apt-get update
+          sudo apt-get install -y python3-dev cmake g++ ninja-build
+          python -m pip install --upgrade pip nanobind
+          pip install --upgrade setuptools wheel
+      - name: Configure and Build
+        run: |
+          mkdir -p build
           cd build
-          echo "Running clang-tidy linting process..."
-          
-          # Determine NANOBIND Includes
-          NANOBIND_INCLUDES=$(python3 -c "import nanobind; print(nanobind.include_dir())")
-          echo "NANOBIND_INCLUDES: $NANOBIND_INCLUDES"
-
-          # Determine Python Includes
-          PYTHON_INCLUDES=$(python3-config --includes | tr ' ' '\n' | grep "^-I" | sed 's/^-I//')
-          echo "PYTHON_INCLUDES: $PYTHON_INCLUDES"
-
-          # Prepare Complete Include Arguments for clang-tidy
-          INCLUDE_ARGS=$(echo $PYTHON_INCLUDES $NANOBIND_INCLUDES | xargs -I{} echo --extra-arg="-I{}" | tr '\n' ' ')
-          echo "INCLUDE_ARGS: $INCLUDE_ARGS"
-
-          # Run clang-tidy
-          find ../pyTGM -type f \( -name '*.cpp' \) | xargs -I{} clang-tidy -p . {} $INCLUDE_ARGS || true
-
-          echo "clang-tidy process finished."
+          cmake ..
+          cmake --build . --config Release -j $(nproc)
+          cd ..
+          python setup.py build_ext
