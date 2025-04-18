@@ -30,38 +30,6 @@ jobs:
           sudo apt-get install -y python3-dev cmake g++ ninja-build
           python -m pip install --upgrade pip nanobind
           pip install --upgrade setuptools wheel
-     name: Compile C++
-
-on:
-  push:
-    paths:
-      - pyTGM/**/*.cpp
-      - .github/workflows/compile.yml
-      - CMakeLists.txt
-      - setup.py
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-      PYTHONPATH: ${{ github.workspace }}
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.13"
-
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-dev cmake g++ ninja-build
-          python -m pip install --upgrade pip nanobind
-          pip install --upgrade setuptools wheel
       - name: Configure and Build
         run: |
           mkdir -p build
