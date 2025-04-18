@@ -10,15 +10,15 @@
 > それsourceコードunder developmentです。<br>most時間errorsです.
 
 > [!warning]
-> わたし学ぶ日本語。<br>和文たぶんミス！<br>「・」is for僕そして・あなた<br>そして・ジスブ・鬼マークドーン <br>いいえ柄。<br>くヘルプださい。僕ミス
+> 私は日本語を学んている。<br>和文たぶんミス！<br>「・」is for僕そしてお兄ちゃん<br>そして・ジスブ・鬼マークドーン <br>いいえ柄。<br>くヘルプださい。僕ミス
 
 ## Installing
 走る ```pip install pyTGM```<br>
 before 5.0.0要らます、築くsource。<br>
-あなた要らます ```cmake、setuptools、wheel```<br>
+お兄ちゃん要らます ```cmake、setuptools、wheel```<br>
 また ```Python.h```<br>
-あなたできるget from python3-devです<br><br>
-macOS要らます・築くfrom sourceです<br>
+お兄ちゃんできるget from python3-devです<br><br>
+macOS築くfrom sourceです<br>
 走る ```setup.sh``` to install materials forです。<br><br>
 
 windows要らますVisual Studio 2017 or later。<br>
@@ -50,7 +50,7 @@ or、養う！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
 ありがとう！
 
 # Suggestions
-あなたいいえalways need everything。
+お兄ちゃんはいいえalways need everything。
 ```\a```できる築くbeep、それ逃sequencesです。<br>
 図書館そして・もっと逃sequences共もっとcontrol！
 ピトグムuses them！ピトグムsimple interface forです。
