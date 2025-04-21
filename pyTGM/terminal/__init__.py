@@ -1,8 +1,5 @@
 """ Imports all files needed for terminal """
 
-from . import clear
-from . import color
-from . import pos
 
 __all__ = ['geky',
            'clear', 'color', 'pos',
