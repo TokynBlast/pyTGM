@@ -1,5 +1,5 @@
 #include <nanobind/nanobind.h>
-
+#include <nanobind/stl/string.h>
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -13,6 +13,8 @@
 #include <fcntl.h>
 #endif
 
+namespace nb = nanobind;
+
 std::string geky(int times = 1) {
     std::string result;
 
@@ -23,10 +25,11 @@ std::string geky(int times = 1) {
         if (c == 0 || c == -32) {  // Handle special keys
             c = _getch();  // Read the special key code
             switch (c) {
-                case 72: result = "ArrowUp"; break;
-                case 80: result = "ArrowDown"; break;
-                case 75: result = "ArrowLeft"; break;
-                case 77: result = "ArrowRight"; break;
+            case 72: result = "ArrowUp"; break;
+            case 80: result = "ArrowDown"; break;
+            case 75: result = "ArrowLeft"; break;
+            case 77: result = "ArrowRight"; break;
+            default: result = "Unknown"; break;
             }
         } else {
             result = c;  // Regular character
@@ -49,10 +52,11 @@ std::string geky(int times = 1) {
             read(STDIN_FILENO, seq, 2);
             if (seq[0] == '[') {
                 switch (seq[1]) {
-                    case 'A': result = "ArrowUp"; break;
-                    case 'B': result = "ArrowDown"; break;
-                    case 'C': result = "ArrowRight"; break;
-                    case 'D': result = "ArrowLeft"; break;
+                case 'A': result = "ArrowUp"; break;
+                case 'B': result = "ArrowDown"; break;
+                case 'C': result = "ArrowRight"; break;
+                case 'D': result = "ArrowLeft"; break;
+                default: result = "Unknown"; break;
                 }
             }
         } else {
@@ -62,4 +66,13 @@ std::string geky(int times = 1) {
 #endif
 
     return result;
+}
+
+// Nanobind module definition
+NB_MODULE(geky, m) {
+    m.doc() = "Code for geky";
+
+    m.def("geky", &geky, nb::arg("times") = 1,
+        "Reads user input from the terminal. Returns strings for arrow keys or "
+        "the character pressed. 'times' specifies how many inputs to read.");
 }
