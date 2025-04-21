@@ -8,6 +8,7 @@ on:
       - "pyTGM/**"
       - "CMakeLists.txt"
       - ".github/workflows/pylint.yml"
+      - ".pylintrc"
       - "setup.py"
 
 jobs:
@@ -16,7 +17,7 @@ jobs:
     env:
       BUILT_MODULE: ${{ github.workspace }}/built_module
       STUBS: ${{ github.workspace }}/stubs
-      PYTHONPATH: ${{ github.workspace }}
+      PYTHONPATH: ${{ github.workspace }}/built_module
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,58 +25,42 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: "3.13"
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake build-essential
-          python -m pip install --upgrade pip nanobind setuptools wheel pylint mypy
+          python -m pip install --upgrade pip
+          pip install --upgrade nanobind setuptools wheel pylint mypy
 
-      - name: Build C++ extensions
+      - name: Build nanobind extensions
         run: |
           mkdir -p build
           cd build
-          cmake ..
-          cmake --build . --config Release
+          cmake .. -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/built_module"
+          cmake --build . --config Release --target install
           cd ..
-
-          mkdir -p "built_module/pyTGM/"{encrypt,terminal,sound}
-
-          find build -name "*.so" -exec bash -c '
-            for f; do
-              if [[ $f == *"/encrypt/"* ]]; then
-                cp "$f" "built_module/pyTGM/encrypt/"
-              elif [[ $f == *"/terminal/"* ]]; then
-                cp "$f" "built_module/pyTGM/terminal/"
-              elif [[ $f == *"/sound/"* ]]; then
-                cp "$f" "built_module/pyTGM/sound/"
-              else
-                cp "$f" "built_module/pyTGM/"
-              fi
-            done
-          ' bash {} +
 
       - name: Verify built files
         run: |
-          echo "Checking for built files..."
+          echo "Checking for .so files in the build directory:"
           find build -name "*.so"
-          echo "Checking copied files..."
-          find built_module/pyTGM -name "*.so"
+          echo "Checking for .so files in the built_module directory:"
+          find built_module -name "*.so"
 
       - name: Test Python imports
         env:
           PYTHONPATH: ${{ github.workspace }}/built_module
         run: |
-          python -c "import pyTGM.encrypt; print('pyTGM.encrypt imported successfully')"
-          python -c "import pyTGM.terminal; print('pyTGM.terminal imported successfully')"
+          python -c "import pyTGM.sound; print('pyTGM.sound imported successfully')"
+          python -c "import pyTGM.terminal.geky; print('pyTGM.terminal.geky imported successfully')"
 
       - name: Generate stubs & run pylint
         env:
           PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs:${{ github.workspace }}
         run: |
           mkdir -p "${{ github.workspace }}/stubs"
-
           submodules=(
             "pyTGM.sound"
             "pyTGM.encrypt"
@@ -88,11 +73,9 @@ jobs:
             "pyTGM.terminal.geky"
             "pyTGM.terminal.pos"
           )
-
           for mod in "${submodules[@]}"; do
             echo "Generating stubs for $mod"
             stubgen -m "$mod" -o "${{ github.workspace }}/stubs"
           done
-
-          # Run pylint
+          pip install .
           pylint $(git ls-files '*.py')
