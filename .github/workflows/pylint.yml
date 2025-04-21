@@ -56,6 +56,20 @@ jobs:
             done
           ' bash {} +
 
+      - name: Verify built files
+        run: |
+          echo "Checking for built files..."
+          find build -name "*.so"
+          echo "Checking copied files..."
+          find built_module/pyTGM -name "*.so"
+
+      - name: Test Python imports
+        env:
+          PYTHONPATH: ${{ github.workspace }}/built_module
+        run: |
+          python -c "import pyTGM.encrypt; print('pyTGM.encrypt imported successfully')"
+          python -c "import pyTGM.terminal; print('pyTGM.terminal imported successfully')"
+
       - name: Generate stubs & run pylint
         env:
           PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs:${{ github.workspace }}
@@ -74,13 +88,11 @@ jobs:
             "pyTGM.terminal.geky"
             "pyTGM.terminal.pos"
           )
-          echo "submodules=${submodules[*]}" >> $GITHUB_ENV
 
-          for mod in ${{ env.submodules }}; do
+          for mod in "${submodules[@]}"; do
             echo "Generating stubs for $mod"
             stubgen -m "$mod" -o "${{ github.workspace }}/stubs"
           done
 
-          pip install .
-
-          pylint $(git ls-files '*.py') --rcfile=.pylintrc
+          # Run pylint
+          pylint $(git ls-files '*.py')
