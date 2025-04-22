@@ -33,16 +33,18 @@ jobs:
           sudo apt-get install -y cmake build-essential
           python -m pip install --upgrade pip
           pip install --upgrade nanobind setuptools wheel pylint mypy
-          # Get the path to nanobind and add it to CMAKE_PREFIX_PATH
-          export NANOBIND_PATH=$(python -c "import nanobind; print(nanobind.__path__[0])")
-          echo "NANOBIND_PATH=${NANOBIND_PATH}"
-          export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$NANOBIND_PATH
+
+      - name: Determine nanobind CMake directory
+        id: nanobind
+        run: echo "dir=$(python -m nanobind --cmake_dir)" >> $GITHUB_OUTPUT
 
       - name: Build nanobind extensions
         run: |
           mkdir -p build
           cd build
-          cmake .. -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/built_module"
+          cmake .. \
+            -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/built_module" \
+            -Dnanobind_DIR="${{ steps.nanobind.outputs.dir }}"
           cmake --build . --config Release --target install
           cd ..
 
