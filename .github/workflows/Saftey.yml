@@ -17,4 +17,4 @@ jobs:
       - name: Install Safety
         run: pip install safety
       - name: Run Safety
-        run: safety check
+        run: safety scan
