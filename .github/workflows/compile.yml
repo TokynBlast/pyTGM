@@ -1,40 +1,54 @@
-name: Compile C++
+name: Compile and Lint
 
 on:
   push:
-    paths:
-      - pyTGM/**/*.cpp
-      - .github/workflows/compile.yml
-      - CMakeLists.txt
-      - setup.py
     branches:
       - main
+  pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  compile-and-lint:
+    runs-on: ubuntu-24.04
+
     env:
-      PYTHONPATH: ${{ github.workspace }}
+      BUILT_MODULE: ${{ github.workspace }}/built_module
+      STUBS: ${{ github.workspace }}/stubs
+      PYTHONPATH: ${{ github.workspace }}/built_module
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: '3.11'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-dev cmake g++ ninja-build
-          python -m pip install --upgrade pip nanobind
-          pip install --upgrade setuptools wheel
-      - name: Configure and Build
+          sudo apt-get install -y cmake build-essential
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade setuptools wheel pylint mypy nanobind
+
+      - name: Get nanobind CMake directory
+        id: nb
+        run: echo "dir=$(python -m nanobind --cmake_dir)" >> $GITHUB_OUTPUT
+
+      - name: Configure project with CMake
         run: |
           mkdir -p build
           cd build
-          cmake ..
-          cmake --build . --config Release -j $(nproc)
-          cd ..
-          python setup.py build_ext
+          cmake .. \
+            -DCMAKE_INSTALL_PREFIX="${BUILT_MODULE}" \
+            -DPython3_EXECUTABLE="$(which python)" \
+            -DCMAKE_PREFIX_PATH="${{ steps.nb.outputs.dir }}"
+
+      - name: Build and install
+        run: |
+          cmake --build build --config Release --target install
+
+      - name: Run linters
+        run: |
+          pylint pyTGM
+          mypy pyTGM
