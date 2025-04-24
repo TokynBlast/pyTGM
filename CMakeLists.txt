@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find Python (explicitly use Python3 to match GitHub setup-python usage)
-find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
+find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 
 # Show Python include directory for debug
 message(STATUS "Using Python include dir: ${Python3_INCLUDE_DIRS}")
