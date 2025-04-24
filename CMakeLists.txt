@@ -5,27 +5,28 @@ project(pyTGM)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find Python
-find_package(Python REQUIRED COMPONENTS Interpreter Development)
+# Find Python (explicitly use Python3 to match GitHub setup-python usage)
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
 
-# Get Python include dirs
+# Show Python include directory for debug
 message(STATUS "Using Python include dir: ${Python3_INCLUDE_DIRS}")
 include_directories(${Python3_INCLUDE_DIRS})
 
-# Find nanobind
+# Get nanobind's CMake path via Python3 executable
 execute_process(
   COMMAND ${Python3_EXECUTABLE} -m nanobind --cmake_dir
   OUTPUT_VARIABLE NANOBIND_PATH
   OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 if(NOT EXISTS ${NANOBIND_PATH})
-  message(FATAL_ERROR "nanobind not found. Please install with: pip install nanobind")
+  message(FATAL_ERROR "nanobind not found at ${NANOBIND_PATH}. Please install with: pip install nanobind")
 endif()
 
+# Add nanobind to the search path and find it
 list(APPEND CMAKE_PREFIX_PATH ${NANOBIND_PATH})
 find_package(nanobind CONFIG REQUIRED)
 
-# Include nanobind
+# Include nanobind (this macro is optional if you're using nanobind_add_module)
 include_directories(${nanobind_INCLUDE_DIRS})
 
 # Build directory setup
@@ -34,6 +35,7 @@ file(GLOB_RECURSE ALL_CPP_FILES
   ${SRC_ROOT}/*.cpp
 )
 
+# Define module targets: "name:relative_path"
 set(MODULES
   "hk512:encrypt/hk512.cpp"
   "b64:encrypt/b64.cpp"
@@ -45,7 +47,7 @@ set(MODULES
   "sound:sound.cpp"
 )
 
-# Add each module
+# Add each nanobind extension module
 foreach(MODULE ${MODULES})
   string(REPLACE ":" ";" PARTS ${MODULE})
   list(GET PARTS 0 MOD_NAME)
