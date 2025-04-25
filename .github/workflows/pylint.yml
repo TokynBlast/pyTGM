@@ -1,88 +1,57 @@
-name: Pylint
+name: Compile and Lint
 
 on:
   push:
     branches:
       - main
-    paths:
-      - "pyTGM/**"
-      - "CMakeLists.txt"
-      - ".github/workflows/pylint.yml"
-      - ".pylintrc"
-      - "setup.py"
+  pull_request:
 
 jobs:
   compile-and-lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+
     env:
       BUILT_MODULE: ${{ github.workspace }}/built_module
       STUBS: ${{ github.workspace }}/stubs
       PYTHONPATH: ${{ github.workspace }}/built_module
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake build-essential
-          python -m pip install --upgrade pip
-          pip install --upgrade setuptools wheel pylint mypy
-          /usr/bin/python3.12 -m pip install nanobind
 
-      - name: Determine nanobind CMake directory
-        id: nanobind
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install setuptools wheel nanobind pylint mypy
+
+      - name: Get nanobind CMake directory
+        id: nb
         run: echo "dir=$(python -m nanobind --cmake_dir)" >> $GITHUB_OUTPUT
 
-      - name: Build nanobind extensions
+      - name: Configure project with CMake
         run: |
           mkdir -p build
           cd build
           cmake .. \
-            -DCMAKE_INSTALL_PREFIX="${{ github.workspace }}/built_module" \
-            -Dnanobind_DIR="${{ steps.nanobind.outputs.dir }}"
-          cmake --build . --config Release --target install
-          cd ..
+            -DCMAKE_INSTALL_PREFIX="${BUILT_MODULE}" \
+            -DPython_EXECUTABLE="$(which python)" \
+            -DCMAKE_PREFIX_PATH="${{ steps.nb.outputs.dir }}"
 
-      - name: Verify built files
+      - name: Build and install
         run: |
-          echo "Checking for .so files in the build directory:"
-          find build -name "*.so"
-          echo "Checking for .so files in the built_module directory:"
-          find built_module -name "*.so"
+          cmake --build build --config Release --target install
 
-      - name: Test Python imports
-        env:
-          PYTHONPATH: ${{ github.workspace }}/built_module
+      - name: Run linters
         run: |
-          python -c "import pyTGM.sound; print('pyTGM.sound imported successfully')"
-          python -c "import pyTGM.terminal.geky; print('pyTGM.terminal.geky imported successfully')"
-
-      - name: Generate stubs & run pylint
-        env:
-          PYTHONPATH: ${{ github.workspace }}/built_module:${{ github.workspace }}/stubs:${{ github.workspace }}
-        run: |
-          mkdir -p "${{ github.workspace }}/stubs"
-          submodules=(
-            "pyTGM.sound"
-            "pyTGM.encrypt"
-            "pyTGM.encrypt.hk512"
-            "pyTGM.encrypt.b64"
-            "pyTGM.rect"
-            "pyTGM.terminal"
-            "pyTGM.terminal.clear"
-            "pyTGM.terminal.color"
-            "pyTGM.terminal.geky"
-            "pyTGM.terminal.pos"
-          )
-          for mod in "${submodules[@]}"; do
-            echo "Generating stubs for $mod"
-            stubgen -m "$mod" -o "${{ github.workspace }}/stubs"
-          done
-          pip install .
-          pylint $(git ls-files '*.py')
+          pylint pyTGM
+          mypy pyTGM
