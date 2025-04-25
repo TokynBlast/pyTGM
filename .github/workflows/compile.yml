@@ -1,49 +1,41 @@
-name: C++ Lint
+name: Compile C++ modules
 
 on:
   push:
     paths:
-      - pyTGM/**/*.cpp
-      - .github/workflows/cpplint.yml
-      - CMakeLists.txt
-      - setup.py
-    branches:
-      - main
+      - '**/*.cpp'
+      - '**/*.hpp'
+      - 'CMakeLists.txt'
+      - '.github/workflows/compile.yml'
+  pull_request:
+    paths:
+      - '**/*.cpp'
+      - '**/*.hpp'
+      - 'CMakeLists.txt'
+      - '.github/workflows/compile.yml'
 
 jobs:
-  clang-tidy:
+  compile:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y clang-tidy python3-dev cmake ninja-build python3-pip
-          python3 -m pip install --upgrade pip
-          python3 -m pip install nanobind
-      - name: Configure Project and Generate compile_commands.json
-        run: |
-          mkdir -p build
-          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -GNinja .
-      - name: Run clang-tidy on C++ files
-        run: |
-          cd build
-          echo "Running clang-tidy linting process..."
-          
-          # Determine NANOBIND Includes
-          NANOBIND_INCLUDES=$(python3 -c "import nanobind; print(nanobind.include_dir())")
-          echo "NANOBIND_INCLUDES: $NANOBIND_INCLUDES"
-          # Determine Python Includes
-          PYTHON_INCLUDES=$(python3-config --includes | tr ' ' '\n' | grep "^-I" | sed 's/^-I//')
-          echo "PYTHON_INCLUDES: $PYTHON_INCLUDES"
-          # Prepare Include Arguments for clang-tidy
-          INCLUDE_ARGS=$(echo $PYTHON_INCLUDES | xargs -I{} echo --extra-arg="-I{}" | tr '\n' ' ')
-          echo "INCLUDE_ARGS: $INCLUDE_ARGS"
-          # Run clang-tidy and explicitly exclude /usr/include/python3.12
-          find ../pyTGM -type f \( -name '*.cpp' \) | xargs -I{} clang-tidy -p . {} \
-            --extra-arg="-I$NANOBIND_INCLUDES" $INCLUDE_ARGS \
-            --extra-arg="-I/usr/include/python3.12" --quiet || true
-          echo "clang-tidy process finished."
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential
+        pip install nanobind
+
+    - name: Configure and build with CMake
+      run: |
+        mkdir -p build
+        cd build
+        cmake .. -DCMAKE_BUILD_TYPE=Release
+        cmake --build . --config Release
