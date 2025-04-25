@@ -1,38 +1,29 @@
-cmake_minimum_required(VERSION 3.14)
-project(pyTGM)
+cmake_minimum_required(VERSION 3.15)
+project(pyTGM_project LANGUAGES CXX)
 
-# Set the C++ standard
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# Find Python (generic package, required by nanobind)
-find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
-
-# Display Python include path
-message(STATUS "Using Python include dir: ${Python_INCLUDE_DIRS}")
-include_directories(${Python_INCLUDE_DIRS})
-
-# Find nanobind using Python executable
-execute_process(
-  COMMAND ${Python_EXECUTABLE} -m nanobind --cmake_dir
-  OUTPUT_VARIABLE NANOBIND_PATH
-  OUTPUT_STRIP_TRAILING_WHITESPACE)
-
-if(NOT EXISTS ${NANOBIND_PATH})
-  message(FATAL_ERROR "nanobind not found at ${NANOBIND_PATH}. Please install with: pip install nanobind")
+# Always prefer Release unless user overrides
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-# Add nanobind to CMake prefix path
-list(APPEND CMAKE_PREFIX_PATH ${NANOBIND_PATH})
+# Find Python 3.11+ (you can adjust version requirement if you want)
+find_package(Python 3.11 REQUIRED COMPONENTS Interpreter Development.Module)
+
+# Find nanobind
+execute_process(
+    COMMAND "${Python_EXECUTABLE}" -m nanobind --cmake_dir
+    OUTPUT_VARIABLE nanobind_DIR
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 find_package(nanobind CONFIG REQUIRED)
 
-# Include nanobind (optional if using nanobind_add_module)
-include_directories(${nanobind_INCLUDE_DIRS})
+# Include Python headers
+include_directories(${Python_INCLUDE_DIRS})
 
-# Set source root
+# Define where your C++ files are
 set(SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/pyTGM)
 
-# Define all modules
+# List all modules (format: module_name : relative_path)
 set(MODULES
   "hk512:encrypt/hk512.cpp"
   "b64:encrypt/b64.cpp"
@@ -44,26 +35,39 @@ set(MODULES
   "sound:sound.cpp"
 )
 
-# Build each nanobind module
+# Build each C++ file as its own nanobind module
 foreach(MODULE ${MODULES})
   string(REPLACE ":" ";" PARTS ${MODULE})
   list(GET PARTS 0 MOD_NAME)
   list(GET PARTS 1 MOD_PATH)
+  
   set(SRC_FILE ${SRC_ROOT}/${MOD_PATH})
-
+  
   if(EXISTS ${SRC_FILE})
     message(STATUS "Building module: ${MOD_NAME} -> ${SRC_FILE}")
     nanobind_add_module(${MOD_NAME} ${SRC_FILE})
-    target_include_directories(${MOD_NAME} PRIVATE ${SRC_ROOT})
+    
+    # Ensure correct output path matching pyTGM/ structure
+    if(MOD_PATH MATCHES "terminal/")
+      set_target_properties(${MOD_NAME} PROPERTIES
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/pyTGM/terminal"
+      )
+    elseif(MOD_PATH MATCHES "encrypt/")
+      set_target_properties(${MOD_NAME} PROPERTIES
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/pyTGM/encrypt"
+      )
+    else()
+      set_target_properties(${MOD_NAME} PROPERTIES
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/pyTGM"
+      )
+    endif()
   else()
     message(WARNING "Source file for module '${MOD_NAME}' not found: ${SRC_FILE}")
   endif()
 endforeach()
 
-# Install the modules
-include(GNUInstallDirs)
-install(TARGETS
-  hk512 b64 rect clear color geky pos sound
-  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/pyTGM
-  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}/pyTGM
+# Install rules to allow "make install" later if needed
+install(TARGETS hk512 b64 rect clear color geky pos sound
+  LIBRARY DESTINATION pyTGM
 )
+
