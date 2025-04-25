@@ -1,4 +1,5 @@
-name: Safety Check
+name: Security Check
+
 on:
   push:
     paths:
@@ -6,15 +7,26 @@ on:
       - .github/workflows/Saftey.yml
     branches:
       - main
+
 jobs:
-  lint:
+  pip-audit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v3
-      - name: Install Safety
-        run: pip install safety
-      - name: Run Safety
-        run: safety scan
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pip-audit
+        run: pip install pip-audit
+
+      - name: Run pip-audit
+        run: pip-audit
+      - name: Install Bandit
+        run: pip install bandit
+
+      - name: Run Bandit on code
+        run: bandit -r pyTGM/
