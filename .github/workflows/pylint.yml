@@ -4,7 +4,29 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '**/*.cpp'
+      - '**/*.hpp'
+      - 'CMakeLists.txt'
+      - '.github/workflows/compile-and-lint.yml'
+      - '**/*.py'
+      - 'setup.py'
+      - '.pylintrc'
   pull_request:
+    paths:
+      - '**/*.cpp'
+      - '**/*.hpp'
+      - 'CMakeLists.txt'
+      - '.github/workflows/compile-and-lint.yml'
+      - '**/*.py'
+      - 'setup.py'
+      - '.pylintrc'
+  workflow_dispatch:  # (optional) allow manually triggering
+    inputs:
+      reason:
+        description: 'Reason for running manually'
+        required: false
+        default: 'Manual trigger'
 
 jobs:
   compile-and-lint:
