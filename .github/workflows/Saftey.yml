@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - pyTGM/**/*.py
-      - .github/workflows/Security-Check.yml
+      - .github/workflows/Saftey.yml
       - 'requirements.txt'
     branches:
       - main
