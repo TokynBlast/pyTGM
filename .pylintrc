@@ -1,7 +1,0 @@
-[MASTER]
-init-hook='import sys; sys.path.insert(0, "/home/runner/work/pyTGM/stubs"); sys.path.insert(1, "/home/runner/work/pyTGM/built_module")'
-extension-pkg-whitelist=hk512,b64,rect,geky,clear,color,pos,sound
-disable=missing-function-docstring,
-    line-too-long,
-    consider-using-with,
-    invalid-name
