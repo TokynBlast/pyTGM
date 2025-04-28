@@ -37,7 +37,7 @@ jobs:
           for pkg in sorted(vulnerable_packages):
               # Determine origin of the package (check common dependency files)
               origin = "not explicitly listed (possibly a transient dependency or manual install)"
-              for file in ["requirements.txt", "setup.py", "pyproject.toml"]:
+              for file in ["setup.py", "pyproject.toml"]:
                   try:
                       text = pathlib.Path(file).read_text()
                       if re.search(rf'(^|\s){re.escape(pkg)}(?==|\s|$)', text):
@@ -51,8 +51,6 @@ jobs:
 
       # Audit again after upgrades to ensure no vulnerabilities remain
       - name: Security audit (pip-audit post-upgrade)
-        run: pip-audit --local
-        # Alternatively, use the official pip-audit Action:
-        # uses: pypa/gh-action-pip-audit@v1.1.0
-        # with:
-        #   local: true   # audit only packages in our env
+        uses: pypa/gh-action-pip-audit@v1.1.0
+        with:
+           local: true   # audit only packages in our env
