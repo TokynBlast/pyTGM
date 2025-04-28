@@ -5,6 +5,7 @@ on:
     paths:
       - pyTGM/**/*.py
       - .github/workflows/Saftey.yml
+      - 'requirements.txt'
     branches:
       - main
 
