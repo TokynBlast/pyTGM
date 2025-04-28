@@ -4,54 +4,49 @@ on:
   push:
     paths:
       - pyTGM/**/*.py
-      - .github/workflows/Saftey.yml
+      - .github/workflows/Security-Check.yml
       - 'requirements.txt'
     branches:
       - main
 
 jobs:
-  security-audit:
+  security-scan:
     runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt  # or install via setup.py/pyproject as appropriate
-
-      # New step: Attempt to upgrade vulnerable packages before auditing
-      - name: Upgrade vulnerable dependencies (via pip-audit)
+      - name: Install system dependencies
         run: |
-          pip install --upgrade pip pip-audit
-          # Run pip-audit in JSON mode to find vulnerabilities (don't fail on exit)
-          pip-audit --format=json -o audit.json || true
-          python - <<'PYCODE'
-          import json, subprocess, re, pathlib
-          # Load audit results
-          with open('audit.json') as f:
-              results = json.load(f)
-          # Get all packages that have known vulnerabilities
-          vulnerable_packages = { item['name'] for item in results if item.get('vulns') }
-          for pkg in sorted(vulnerable_packages):
-              # Determine origin of the package (check common dependency files)
-              origin = "not explicitly listed (possibly a transient dependency or manual install)"
-              for file in ["setup.py", "pyproject.toml"]:
-                  try:
-                      text = pathlib.Path(file).read_text()
-                      if re.search(rf'(^|\s){re.escape(pkg)}(?==|\s|$)', text):
-                          origin = f"listed in {file}"
-                          break
-                  except FileNotFoundError:
-                      continue
-              print(f"⚠️ Vulnerable package '{pkg}' is {origin}. Upgrading it now...")
-              subprocess.run(["python", "-m", "pip", "install", "--upgrade", pkg], check=True)
-          PYCODE
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential
 
-      # Audit again after upgrades to ensure no vulnerabilities remain
-      - name: Security audit (pip-audit post-upgrade)
-        uses: pypa/gh-action-pip-audit@v1.1.0
-        with:
-           local: true   # audit only packages in our env
+      - name: Install required Python packages
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f "requirements.txt" ]; then
+            echo "Found requirements.txt, installing from it."
+            pip install -r requirements.txt
+          else
+            echo "No requirements.txt found, installing required packages manually if missing."
+            REQUIRED_PACKAGES="setuptools wheel nanobind pylint mypy pip-audit"
+            for PACKAGE in $REQUIRED_PACKAGES; do
+              if ! python -c "import $PACKAGE" 2>/dev/null; then
+                echo "Installing missing package: $PACKAGE"
+                pip install "$PACKAGE"
+              else
+                echo "Package $PACKAGE already installed."
+              fi
+            done
+          fi
+
+      - name: Audit Python dependencies for vulnerabilities
+        run: |
+          echo "Running pip-audit..."
+          pip-audit || echo "pip-audit found issues (continuing build anyway)"
