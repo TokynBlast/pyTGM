@@ -27,26 +27,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y cmake build-essential
 
-      - name: Install required Python packages
+      - name: Install pip-audit
         run: |
           python -m pip install --upgrade pip
-          if [ -f "requirements.txt" ]; then
-            echo "Found requirements.txt, installing from it."
-            pip install -r requirements.txt
-          else
-            echo "No requirements.txt found, installing required packages manually if missing."
-            REQUIRED_PACKAGES="setuptools wheel nanobind pylint mypy pip-audit"
-            for PACKAGE in $REQUIRED_PACKAGES; do
-              if ! python -c "import $PACKAGE" 2>/dev/null; then
-                echo "Installing missing package: $PACKAGE"
-                pip install "$PACKAGE"
-              else
-                echo "Package $PACKAGE already installed."
-              fi
-            done
-          fi
+          pip install pip-audit
 
-      - name: Audit Python dependencies for vulnerabilities
+      - name: Audit Python dependencies listed in requirements.txt
         run: |
-          echo "Running pip-audit..."
-          pip-audit || echo "pip-audit found issues (continuing build anyway)"
+          echo "Running pip-audit using requirements.txt..."
+          if [ -f "requirements.txt" ]; then
+            pip-audit -r requirements.txt || echo "pip-audit found issues (continuing build anyway)"
+          else
+            echo "No requirements.txt found. Skipping pip-audit."
+          fi
