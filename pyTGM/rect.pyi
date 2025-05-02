@@ -1,0 +1,3 @@
+# pyTGM/rect.pyi
+
+def rect(width: int, height: int, time: int = ..., character: str = ...) -> None: ...
