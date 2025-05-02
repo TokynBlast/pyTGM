@@ -1,30 +1,10 @@
 """ The init file for the pyTGM library """
-
-import pyTGM.sound
-import pyTGM.rect
-import pyTGM.terminal
-import pyTGM.encrypt
-
+from . import sound
+from . import rect
 __all__ = [
-    "terminal",
-    "encrypt",
     "sound",
     "rect",
-    "RESET",
-    "ITALIC",
-    "BOLD",
-    "UNDERLINE",
-    "INVIS",
-    "BLINK",
 ]
-
-RESET = "\x1b[0m"
-BOLD = "\x1b[1m"
-ITALIC = "\x1b[3m"
-UNDERLINE = "\x1b[4m"
-INVIS = "\x1b[8m"
-BLINK = "\x1b[5m"
-
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __download_url__ = 'https://pypi.org/tokynblast'
