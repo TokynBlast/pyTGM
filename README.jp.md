@@ -7,7 +7,7 @@
 | **《築く》** |[![《築く》 C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
 
 > [!warning]
-> それsourceコードunder developmentです。<br>most時間errorsです.
+> sourceコードunder developmentです。<br>[iie] ready for release[to]use.
 
 > [!warning]
 > 私は日本語を学んている。<br>和文たぶんミス！<br>「・」is for僕そしてお兄ちゃん<br>そして・ジスブ・鬼マークドーン <br>いいえ柄。<br>くヘルプださい。僕ミス
