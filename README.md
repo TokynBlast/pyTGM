@@ -9,7 +9,7 @@
 > [!warning]
 > The source code is going under some heavy development.<br>While it is, most of the time there will just be errors.
 
-> [!warning]
+> [!note]
 > This library could hypothetically run as early as 3.8, but it has never been tested.<br>3.11 works, with the exception of 
 
 ![日本語](htps://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-blue?style=flat-square&link=https%3A%2F%2Fgithub.com%2FTokynBlast%2FpyTGM%2Fblob%2Fmain%2FREADME.jp.md)
