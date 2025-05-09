@@ -8,7 +8,6 @@ using sockets and threading.
 import socket
 import threading
 
-@staticmethod
 def server(host: str = 'localhost', port: int = 5000) -> bool:
     """ Starts a multithreaded server to handle client connections """
     def server_():
@@ -25,14 +24,14 @@ def server(host: str = 'localhost', port: int = 5000) -> bool:
                     message = client_socket.recv(1024)
                     for conn in clients:
                         conn.send(message)
-                except Exception as e: # pylint: disable=broad-exception-caught
+                except Exception as e:  # pylint: disable=broad-exception-caught
                     print(f"Error with client: {e}")
                     clients.remove(client_socket)
                     client_socket.close()
                     break
 
         def receive():
-            """ Accepts incoming client connections."""
+            """ Accepts incoming client connections. """
             while True:
                 client_socket, address = server_socket.accept()
                 print(f"Connected with {address}")
@@ -48,7 +47,6 @@ def server(host: str = 'localhost', port: int = 5000) -> bool:
     server_thread.start()
     return True
 
-@staticmethod
 def client(message: str, host: str, port: int) -> bool:
     """ Connects to a server and sends a message """
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -61,7 +59,7 @@ def client(message: str, host: str, port: int) -> bool:
             try:
                 received_message = client_socket.recv(1024).decode('ascii')
                 messages.append(received_message)
-            except Exception as e: # pylint: disable=broad-exception-caught
+            except Exception as e:  # pylint: disable=broad-exception-caught
                 print(f"Error receiving message: {e}")
                 client_socket.close()
                 break
