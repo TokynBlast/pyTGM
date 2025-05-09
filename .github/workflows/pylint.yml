@@ -69,6 +69,7 @@ jobs:
 
       - name: Run linters
         run: |
+          unset PYTHONPATH
           pylint pyTGM
           mypy pyTGM
 
