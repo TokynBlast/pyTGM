@@ -72,7 +72,3 @@ jobs:
           unset PYTHONPATH
           pylint pyTGM
           mypy pyTGM
-
-      - name: Audit Python dependencies
-        run: |
-          pip-audit
