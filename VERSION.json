@@ -6,7 +6,7 @@
   "min_cpp_req": "C++17",
   "build": 11,
   "hashes": {
-    "pyTGM/terminal/__init__.py": "195069029f3b07d562f647cd1b13c91b5a7cb95f52610490af8cb51e2d03a01f",
+    "pyTGM/terminal/__init__.py": "da343c0e804e589f08d8f22e427aecf97423b793a4e4f4fb6a01856f735ca1c4",
     "pyTGM/encrypt/__init__.py": "3e44925b6acfd9c6fd6a81273893502a7f88f5498a5504951f1bd6ea6976c54f",
     "pyTGM/__init__.py": "ca9370895628eed658f89ca2989073716bc88896243ea050320e6153074a2f79",
     "pyTGM/local_server.py": "a1d8eb2fffa07a438fe4806ac2d451059367fa8ec22fb48a10007cf3fc2c4208",
