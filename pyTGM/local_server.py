@@ -9,7 +9,7 @@ import socket
 import threading
 
 @staticmethod
-def server(host: str = 'localhost', port: int = 5000) -> None:
+def server(host: str = 'localhost', port: int = 5000) -> bool:
     """ Starts a multithreaded server to handle client connections """
     def server_():
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -46,9 +46,10 @@ def server(host: str = 'localhost', port: int = 5000) -> None:
 
     server_thread = threading.Thread(target=server_)
     server_thread.start()
+    return True
 
 @staticmethod
-def client(message: str, host: str, port: int) -> None:
+def client(message: str, host: str, port: int) -> bool:
     """ Connects to a server and sends a message """
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((host, port))
@@ -77,3 +78,4 @@ def client(message: str, host: str, port: int) -> None:
 
     write_thread = threading.Thread(target=write)
     write_thread.start()
+    True
