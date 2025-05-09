@@ -78,4 +78,4 @@ def client(message: str, host: str, port: int) -> bool:
 
     write_thread = threading.Thread(target=write)
     write_thread.start()
-    True
+    return True
