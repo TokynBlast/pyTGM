@@ -1,12 +1,10 @@
 """The init file for the pyTGM library"""
-from . import sound as _sound
-from . import rect as _rect
+import importlib
+
+sound = importlib.import_module('.sound', __name__)
+rect = importlib.import_module('.rect', __name__)
 
 __all__ = ["sound", "rect"]
-
-# Public aliases
-sound = _sound
-rect = _rect
 
 __url__ = 'https://github.com/TokynBlast/pyTGM'
 __download_url__ = 'https://pypi.org/tokynblast'
