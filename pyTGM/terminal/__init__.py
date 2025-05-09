@@ -1,5 +1,4 @@
 """Everything that directly affects the terminal visuals"""
-from . import geky, clear, color, pos
 
 __all__ = [
     "geky",
