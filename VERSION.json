@@ -9,7 +9,7 @@
     "pyTGM/terminal/__init__.py": "da343c0e804e589f08d8f22e427aecf97423b793a4e4f4fb6a01856f735ca1c4",
     "pyTGM/encrypt/__init__.py": "7b6aea16eb2a288c6bc500a72d89450b30dc8f00ef7c2f9eb3a5f8754e1c7f65",
     "pyTGM/__init__.py": "200352cd5883e11113a8d1311163a1793c79cf58fa3806c12c9fe94228c3891d",
-    "pyTGM/local_server.py": "5afc93514c42b1267f5ca8fde3076491a3d514dd9db013e8ce0be8cdeed28c2a",
+    "pyTGM/local_server.py": "cde6d3dc971028ad1441862e8e73e65804e1b7e6ff5d00faa808263c4447cdbe",
     "pyTGM/encrypt/sha256.py": "f2254c49cb0d031d50fedda24199f31a790d9f87b7c2e4ff2d4fa3ab8ab29599",
     "pyTGM/terminal/geky/geky.cpp": "aabace4bd1c5d5b7837cc3aebf3078c0aeb8ff85da006bd5d4c0817e32ac8e82",
     "pyTGM/terminal/clear/clear.cpp": "7916425a688344e6e3af5988f922d02f9235630ec42078dda7b0e117193450b8",
