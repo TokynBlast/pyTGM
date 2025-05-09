@@ -8,7 +8,7 @@
   "hashes": {
     "pyTGM/terminal/__init__.py": "195069029f3b07d562f647cd1b13c91b5a7cb95f52610490af8cb51e2d03a01f",
     "pyTGM/encrypt/__init__.py": "1710dbc7a1254a0599302ef045e5eff2e5542a0a7bed267b7d710dcb05e88822",
-    "pyTGM/__init__.py": "ab59e3b349006965c7090196b876cceac87d63429a024201e4b8be9449ea0e14",
+    "pyTGM/__init__.py": "ca9370895628eed658f89ca2989073716bc88896243ea050320e6153074a2f79",
     "pyTGM/local_server.py": "a1d8eb2fffa07a438fe4806ac2d451059367fa8ec22fb48a10007cf3fc2c4208",
     "pyTGM/encrypt/sha256.py": "f2254c49cb0d031d50fedda24199f31a790d9f87b7c2e4ff2d4fa3ab8ab29599",
     "pyTGM/terminal/geky/geky.cpp": "aabace4bd1c5d5b7837cc3aebf3078c0aeb8ff85da006bd5d4c0817e32ac8e82",
