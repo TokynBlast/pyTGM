@@ -13,7 +13,7 @@
 > This library could hypothetically run as early as 3.8, but it has never been tested.<br>3.11 works, with the exception of linting one time in earlier versions of code.
 
 Want to read in another language?<br>
-<img alt="日本語 Badge" src="https://img.shields.io/badge/-日本語-FF0000?style=flat-square&link=https%3A%2F%2Fgithub.com%2FTokynBlast%2FpyTGM%2Fblob%2Fmain%2FREADME.jp.md">
+<a href="https://github.com/TokynBlast/pyTGM/blob/main/README.jp.md"><img alt="日本語 Badge" src="https://img.shields.io/badge/-日本語-FF0000?style=flat-square&link=https://github.com/TokynBlast/pyTGM/blob/main/README.jp.md"></a>
 
 ## Installing
 To install, run ```pip install pyTGM```<br>
