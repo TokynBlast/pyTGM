@@ -1,135 +1,162 @@
-# Workflow Status
+# 🛠️ ワークフロー状況（Workflow Status）
 
 <!-- Eventually, will be |linting|security|築く|です -->
-| **《Linting》** | [![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml) | [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml) | [![Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml)
-|-----------|----------|----------|----------|
-| **《Security》** | [![Safety Linting](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml) | [![SHA256 Generate そして Update](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml) | |
-| **《築く》** |[![《築く》 C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
 
-> [!warning]
-> sourceコードunder developmentです。<br>[iie] ready for release[to]use.
+| **《コードチェック》** | [![C++ Lint](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/cpplint.yml) | [![Pylint](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/pylint.yml)                                | [![Isort](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Isort.yml) |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **《セキュリティ》**  | [![Safety](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/Saftey.yml)     | [![SHA256 生成](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/generate-sha3-hashes.yml) |                                                                                                                                                        |
+| **《築く》**      | [![C++ ビルド](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)  |                                                                                                                                                                                          |                                                                                                                                                        |
 
-> [!warning]
-> 私は日本語を学んている。<br>和文たぶんミス！<br>「・」is for僕そしてお兄ちゃん<br>そして・ジスブ・鬼マークドーン <br>いいえ柄。<br>くヘルプださい。僕ミス
+> ⚠️ **注意：このプロジェクトは現在開発中です。**<br>本番環境での利用は自己責任でお願いします。
 
-## Installing
-走る ```pip install pyTGM```<br>
-before 5.0.0要らます、築くsource。<br>
-お兄ちゃん要らます ```cmake、setuptools、wheel```<br>
-また ```Python.h```<br>
-お兄ちゃんできるget from python3-devです<br><br>
-macOS築くfrom sourceです<br>
-走る ```setup.sh``` to install materials forです。<br><br>
+> 🧠 **補足：日本語を学習中のため、文法ミスがあるかもしれません。**<br>もしおかしい部分があれば、ぜひ教えてください！<br>「・」は僕とお兄ちゃんのための記号です。
 
-windows要らますVisual Studio 2017 or later。<br>
-for Python、enable:
-- Add Python to PATH
-- Customize installation > Development Tools
+---
 
-リナックスcommand changes:<br>
-```
-bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel elif command -v pacman >/dev/null; then sudo pacman -Sy --noconfirm python elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel elif command -v brew >/dev/null; then brew install python elif command -v pkg >/dev/null; then sudo pkg install -y python elif command -v emerge >/dev/null; then sudo emerge --ask dev-lang/python elif command -v apk >/dev/null; then sudo apk add --no-cache python3-dev else echo "Unsupported package manager. Install Python dev headers manually." exit 1 fi'
+## 📦 インストール方法（Installing）
+
+### pip の場合
+
+```sh
+pip install pyTGM
 ```
 
-# ピトグム【Python・Terminal・遊び・生み出す】
+バージョン 5.0.0 より前は、ソースコードからビルドする必要があります。
 
-ピトグムsimple alternative to Pygame, focus on ASCIIそしてANSI遊び生み出す, contained中terminal、です<br>
-has encryption、markup、sound playing、servers、また・もっと。
+### 必要なツール
 
-## Bugs・そして・Features
-bug [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)<br>
-feature [《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)<br>
-築くerror/warning、[《ここ》](https://github.com/TokynBlast/pyTGM/issues/new?template=compile_report.md)
+* cmake
+* setuptools
+* wheel
+* Python 開発ヘッダー（例: python3-dev）
 
-## 養う
-養うappreciated。<br>
-to築くcontribution、築くbranch[《ここ》](https://github.com/TokynBlast/pyTGM/branches)<br>
-then、add/remove、to 養う！<br>
-我々・証・それコードsafeそしてworking。<br>
-or、養う！[《ここ》](https://github.com/sponsors/TokynBlast)<br>
-ありがとう！
+### macOS の場合
 
-# Suggestions
-お兄ちゃんはいいえalways need everything。
-```\a```できる築くbeep、それ逃sequencesです。<br>
-図書館そして・もっと逃sequences共もっとcontrol！
-ピトグムuses them！ピトグムsimple interface forです。
+```sh
+./setup.sh
+```
 
-# 特色
+### Windows の場合
 
-## Terminal
+Visual Studio 2017 以降が必要です。
+Python インストール時に以下を有効にしてください：
+
+* Add Python to PATH
+* Customize installation > Development Tools
+
+### Linux の場合（自動検出）
+
+```sh
+bash -c 'if command -v apt-get >/dev/null; then sudo apt-get update && sudo apt-get install -y python3-dev elif command -v dnf >/dev/null; then sudo dnf install -y python3-devel elif command -v pacman >/dev/null; then sudo pacman -Sy --noconfirm python elif command -v zypper >/dev/null; then sudo zypper install -y python3-devel elif command -v brew >/dev/null; then brew install python elif command -v pkg >/dev/null; then sudo pkg install -y python elif command -v emerge >/dev/null; then sudo emerge --ask dev-lang/python elif command -v apk >/dev/null; then sudo apk add --no-cache python3-dev else echo "対応していないパッケージマネージャです。Python 開発ヘッダーを手動でインストールしてください。"; exit 1; fi'
+```
+
+---
+
+# 🎮 ピトグム【Python・Terminal・ゲーム作成】
+
+ピトグム（pyTGM）は、ターミナルで動作するシンプルなゲームを作成できるライブラリです。
+
+ASCIIやANSIアートを使って、音声・通信・暗号化などの機能も備えています。
+
+---
+
+## 🐞 バグ報告・機能要望
+
+* バグ報告：[ここをクリック](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=)
+* 機能提案：[ここをクリック](https://github.com/TokynBlast/pyTGM/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=)
+* ビルド関連の報告：[ここをクリック](https://github.com/TokynBlast/pyTGM/issues/new?template=compile_report.md)
+
+---
+
+## ❤️ コントリビューション（協力）
+
+* [ブランチを作成](https://github.com/TokynBlast/pyTGM/branches)して、変更を加えてください。
+* プルリクエストを送っていただければ、確認してマージします。
+* [GitHub Sponsors](https://github.com/sponsors/TokynBlast) による支援も大歓迎です！
+
+---
+
+## 💡 ヒント
+
+お兄ちゃん、全部の機能が必要なわけではないよ。
+
 ```python
-# Clear screen
-terminal.cls()
-
-# 色 text (赤, green, 青)
-terminal.color(0, 255, 0)  # (R, G, B)
-terminal.RESET             # Reset色
-
-# Markup
-terminal.BOLD
-terminal.ITALIC
-terminal.UNDERLINE
-
-# Keyboard Press Detection
-terminal.geky(times=1)
-
-# Systematically print rectangle
-rect(width, height, time=3, character=" ")
+\a  # ビープ音（ANSIエスケープ）
 ```
 
+ターミナルの制御やライブラリが提供する機能で、もっと自由に！
 
-## Sound Support
-共・ウィンドウズ、マック、リナックス:
+---
+
+## 🌟 機能例（Examples）
+
+### ターミナル制御
+
 ```python
-# Play audio file
-sound('../sounds/mysound.mp3')
+terminal.cls()  # 画面をクリア
+terminal.color(0, 255, 0)  # 色を指定（RGB）
+print(terminal.BOLD + "太字!" + terminal.RESET)
 ```
 
-## 網 <!--Find a way to say "server"　or a word used for it by Japanese dev-->
+### 音声再生
+
 ```python
-# Start 網そしてclient (PORT, message)
-LocalServer(1080, {'てと':((243,332), 57)})
+sound('mysound.mp3')  # Windows / macOS / Linux 対応
 ```
-受ける・example:
+
+### 簡易サーバー通信
+
 ```python
-{'初音ミクみ':((0,0), 100), 'レモン':((245,334), 43)}
+LocalServer(1080, {'名前': ((123, 456), 99)})
 ```
 
-## Encryption
+受信例：
 
-### ブ64:
 ```python
-# Set 一覧表
-encrypt.b64.Table.table = 'あいうえお...わをん...12...90...!@..._+'
-encrypt.b64.Table.generate('あいうえお...わをん...12...90...!@..._+', 32)  # (table: str, times: int)
-
-# Encode・そして・decode
-encrypt.b64.encode(text) # encode
-encrypt.b64.decode(text) # decode
+{'初音ミク': ((0, 0), 100), 'レモン': ((245, 334), 43)}
 ```
-時間setting table、要らます字中inputです！
-Extra字increase securityそしてsize of output.
+
+### 暗号化（Base64・SHA256・カスタム）
+
+#### Base64（ブ64）
+
 ```python
-encrypt.sha256(text)
+encrypt.b64.Table.table = 'あいうえおかきくけこ...'
+encrypt.b64.Table.generate('文字列セット', 32)
+
+encrypt.b64.encode(text)
+encrypt.b64.decode(text)
 ```
 
+#### SHA256 ハッシュ
 
-### フク512:
+```python
+encrypt.sha256("テキスト")
+```
+
+#### フク512（カスタム）
+
 ```python
 encrypt.hk512.encode(data, key)
 encrypt.hk512.decode(data, key)
 ```
 
-## Links
-- [Homepage](https://pyTGM.tokynblast.space/home)
-- [手引書](https://pyTGM.tokynblast.space/documentation/use)
-- [Source・コード](https://github.com/TokynBlast/pyTGM/tree/main)
-- [Bug Tracker](https://github.com/TokynBlast/pyTGM/issues)
-- [Changelog](https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt)
+---
 
-## License
-pyTGM licensed under Bspace, by Tokyn Blast/ときゆ/tokiyu.
+## 🔗 関連リンク
 
+* [ホームページ](https://pyTGM.tokynblast.space/home)
+* [使い方ガイド](https://pyTGM.tokynblast.space/documentation/use)
+* [GitHub リポジトリ](https://github.com/TokynBlast/pyTGM/tree/main)
+* [バグ報告と提案](https://github.com/TokynBlast/pyTGM/issues)
+* [更新履歴](https://github.com/TokynBlast/pyTGM/blob/main/CHANGELOG.txt)
 
-「木を隠すなら森の中」
+---
+
+## 🪪 ライセンス
+
+このプロジェクトは **Bspace License** に基づいて、Tokyn Blast（ときゆ）によって公開されています。
+
+---
+
+> 🌲 「木を隠すなら森の中」
