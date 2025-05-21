@@ -1,2 +1,2 @@
-global-include *.py *.cpp *.json *.txt *.md *.sh pyTGM/** *.hpp *.so *.typed *.ini
+global-include *.py *.cpp *.json *.txt *.md *.sh pyTGM/** *.hpp *.so *.typed *.pyi
 recursive-include pyTGM *.pyx *.cpp *.hpp
