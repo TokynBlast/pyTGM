@@ -5,13 +5,13 @@ S="🔧"; P="🐍"; I="📦"; U="⬆️"; D="🧰"; C="🛠️"; O="✅"; R="�
 
 # Detect system language and map to internal codes
 case "${LANG%%.*}" in
-  ja*) L=2 ;;  # Japanese
-  zh*) L=3 ;;  # Chinese
-  es*) L=4 ;;  # Spanish
-  *)   L=1 ;;  # Default to English
+  ja*) L=2 ;;  # JP
+  zh*) L=3 ;;  # CH
+  es*) L=4 ;;  # SP
+  *)   L=1 ;;  # EN
 esac
 
-# Language messages (English fallback is always used if missing)
+# Language
 [[ $L == 1 ]] && T=( "Starting pyTGM setup" "Checking Python..." "Python3 not found."
   "Checking pip..." "pip3 not found." "Upgrading pip..." "Install dev tools too? (y/n)"
   "Installing dev packages..." "Installing required packages..." "Setup complete!" "To run:"
@@ -37,7 +37,7 @@ command -v python3 &>/dev/null || { echo "$X ${T[2]}"; exit 1; }
 echo "$I ${T[3]}"
 command -v pip3 &>/dev/null || { echo "$X ${T[4]}"; exit 1; }
 
-# Upgrade pip only if outdated
+# Upgrade pip
 pip list --outdated --disable-pip-version-check 2>/dev/null | grep -q '^pip' && {
   echo "$U ${T[5]}"
   pip install --upgrade pip --disable-pip-version-check
@@ -49,16 +49,14 @@ pip list --outdated --disable-pip-version-check 2>/dev/null | grep -q '^pip' && 
 # Install path: use --user unless in venv
 [[ -z "$VIRTUAL_ENV" ]] && INSTALL_ARGS="--user" || INSTALL_ARGS=""
 
-# Install main requirements
+# Install requirements
 echo "$I ${T[8]}"
 PIP_NO_BUILD_ISOLATION=1 pip install $INSTALL_ARGS --prefer-binary -r requirements.txt
 
-# Install dev requirements (if chosen)
 [[ "$dev" == [yY] ]] && {
   echo "$C ${T[7]}"
   PIP_NO_BUILD_ISOLATION=1 pip install $INSTALL_ARGS --prefer-binary -r requirements-dev.txt
 }
 
-# Done
 echo "$O ${T[9]}"
 echo "$R ${T[10]} python3 -m pyTGM"
