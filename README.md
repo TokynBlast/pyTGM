@@ -7,7 +7,7 @@
 | **Build** |[![Compile C++](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml/badge.svg)](https://github.com/TokynBlast/pyTGM/actions/workflows/compile.yml)| | |
 
 > [!warning]
-> The source code is going under some heavy development.<br>While it is, most of the time there will just be errors.
+> This is the source code. That means this is in development. After 5.0.0, we will be using branches instead of messing with the source code.
 
 > [!note]
 > This library could hypothetically run as early as 3.8, but it has never been tested.<br>3.11 works, with the exception of linting one time in earlier versions of code.
