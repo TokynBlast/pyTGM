@@ -43,7 +43,7 @@ pip list --outdated --disable-pip-version-check 2>/dev/null | grep -q '^pip' && 
   pip install --upgrade pip --disable-pip-version-check
 }
 
-# Ask for dev tool install (if file exists)
+# Ask for dev tool install
 [ -f requirements-dev.txt ] && { echo "$D ${T[6]}"; read -r dev; }
 
 # Install path: use --user unless in venv
