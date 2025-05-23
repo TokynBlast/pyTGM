@@ -26,6 +26,15 @@
     "pyTGM/sound.cpp": "84a5d4e4c201be34040c7e4a86b5d10d31fb3425fb8e5e92820cc13588357c96",
     "pyTGM/encrypt/hk512.cpp": "f3ab0e39052fd6427c7ded47a5f552c45cc8420e884abd37824e32809008d1bd",
     "pyTGM/encrypt/b64.cpp": "44dac76022fb99162acf37fa2ea2b8cb800ecc437a388e924c807d9691e10afe",
-    "pyTGM/rect.cpp": "073322ebb91f62d16ffdb2ddf8d31dae410642c0a60fb3de593016c0389bed62"
+    "pyTGM/rect.cpp": "073322ebb91f62d16ffdb2ddf8d31dae410642c0a60fb3de593016c0389bed62",
+    "pyTGM/rect.pyi": "a713308e70d8c679cbc5e3438e60a8f557159be1cce34baf7215c838a4959b44",
+    "pyTGM/sound.pyi": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "pyTGM/encrypt/hk512.pyi": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "pyTGM/encrypt/b64.pyi": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "pyTGM/py.typed": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "pyTGM/terminal/clear.pyi": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "pyTGM/terminal/geky.pyi": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "pyTGM/terminal/pos.pyi": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "pyTGM/terminal/color.pyi": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
   }
 }
