@@ -1,2 +1,0 @@
-The purpose of having a build and lint on C++ is because I have had times, where the linter sees nothing, but compile gives multiple warnings and errors.
-Linting is theoretical, and cleaner errors and warnings, build is practical and sloppier.
