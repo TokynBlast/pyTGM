@@ -1,4 +1,4 @@
-"""The init file for the pyTGM library""" #pylint:disable=invalid-name
+"""The initiation file""" #pylint:disable=invalid-name
 import importlib
 
 sound = importlib.import_module('.sound', __name__)
