@@ -8,6 +8,10 @@ from pathlib import Path
 from multiprocessing import cpu_count
 from setuptools import setup, find_packages, Extension
 from setuptools.command.build_ext import build_ext
+import json
+
+with open("setup_meta.json", encoding="utf-8") as f:
+    meta = json.load(f)
 
 # OS-specific install_requires
 require = ['nanobind']
@@ -75,34 +79,10 @@ extensions = [
 ]
 
 setup(
-    name='pyTGM',
-    version='5.0.0',
-    description='A terminal-based game development library!',
-    long_description=(
-        Path('README.md').read_text(encoding='utf-8') + '\n\n' +
-        Path('CHANGELOG.txt').read_text(encoding='utf-8') + '\n\n' +
-        Path('CHANGELOG_NOTES.txt').read_text(encoding='utf-8')
-    ),
-    long_description_content_type='text/markdown',
-    url='https://github.com/TokynBlast/pyTGM',
-    author='Tokyn Blast',
-    author_email='tokynblast@gmail.com',
-    license='Bspace',
-    classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.11',
-        'Programming Language :: Python :: 3.12',
-        'Programming Language :: Python :: 3.13',
-        'Programming Language :: C++',
-    ],
-    keywords='game, terminal, pyTGM, ascii, ansi, devtools',
+    **meta,
+    long_description=long_description,
     packages=find_packages(),
     install_requires=require,
     ext_modules=extensions,
     cmdclass={"build_ext": CMakeBuild},
-    python_requires=">=3.11",
-    platforms=["any"],
 )
