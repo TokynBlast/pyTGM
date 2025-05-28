@@ -10,7 +10,7 @@ from setuptools import setup, find_packages, Extension
 from setuptools.command.build_ext import build_ext
 import json
 
-with open("setup_meta.json", encoding="utf-8") as f:
+with open("meta.json", encoding="utf-8") as f:
     meta = json.load(f)
 
 # OS-specific install_requires
