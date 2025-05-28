@@ -1,5 +1,5 @@
 # Bspace License
-Version 3.2.1<br>
+Version 3.3.0<br>
 License devolped by Tokyn Blast<br>
 Copyright (c) 2025 Tokyn Blast
 
@@ -8,7 +8,7 @@ Copyright (c) 2025 Tokyn Blast
 
 - **"Program" and "The Program"** refers to the program under this license and any of its variations
 - **"Author"** refers to the original developer of the Program
-- **"Developer"** refers to any person or organization who is making or has made a modified version of the Program
+- **"Developer"** refers to any person or organization who is making or has made a modified version of the Program, this title expands to human, coorpiration and non-human entites
 - **"Variation"** refers to any modified version of the Program as defined in Section 4
 - **"User"** refers to anybody who is using the original Program, or a modified version
 - **"[link]"** is a refrence link to the original Program, and the variation the Program is based on (If applicable)
