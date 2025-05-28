@@ -28,6 +28,7 @@ Key:
 - Pybind11 -> nanobind
 - Made cursor reset after doing rect
 - Added Japanese README
+- Added French, Jappanese, Chinese and Spanish to setup.sh
 - Multiple bug fixes
 
 4.1.2 (January 6, 2025)
