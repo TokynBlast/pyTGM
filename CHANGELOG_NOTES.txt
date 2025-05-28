@@ -86,3 +86,5 @@ because I was looking for a way to make it more efficient, more practical and mo
 
 Because in practice, there's a lot that people wouldn't really use, or have a simpler way to do it,
 nativley in Python.
+
+And sadly, development took FOREVER.
