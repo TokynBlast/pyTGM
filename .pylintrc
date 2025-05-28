@@ -1,2 +1,16 @@
 [MASTER]
 ignore-patterns=.*\.pyi
+init-hook='import sys; sys.path.append(".")'
+jobs=4
+persistent=no
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    too-few-public-methods,
+    too-many-arguments,
+    too-many-locals,
+    line-too-long,
+    duplicate-code
