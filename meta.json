@@ -1,0 +1,28 @@
+{
+  "name": "pyTGM",
+  "version": "5.0.0",
+  "description": "A terminal-based game development library!",
+  "long_description_files": [
+    "README.md",
+    "CHANGELOG.txt",
+    "CHANGELOG_NOTES.txt"
+  ],
+  "long_description_content_type": "text/markdown",
+  "url": "https://github.com/TokynBlast/pyTGM",
+  "author": "Tokyn Blast",
+  "author_email": "tokynblast@gmail.com",
+  "license": "Bspace",
+  "classifiers": [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: C++"
+  ],
+  "keywords": "game, terminal, pyTGM, ascii, ansi, devtools",
+  "python_requires": ">=3.11",
+  "platforms": ["any"]
+}
