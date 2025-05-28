@@ -2,13 +2,13 @@
 
 import os
 import sys
-import subprocess
+import json
 import platform
+import subprocess
 from pathlib import Path
 from multiprocessing import cpu_count
-from setuptools import setup, find_packages, Extension
 from setuptools.command.build_ext import build_ext
-import json
+from setuptools import setup, find_packages, Extension
 
 with open("meta.json", encoding="utf-8") as f:
     meta = json.load(f)
