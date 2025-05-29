@@ -6,7 +6,6 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-# Find Python 3.11+ (you can adjust version requirement if you want)
 find_package(Python 3.11 REQUIRED COMPONENTS Interpreter Development.Module)
 
 # Find nanobind
