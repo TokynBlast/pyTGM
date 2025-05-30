@@ -80,7 +80,7 @@ extensions = [
 
 setup(
     **meta,
-    long_description=(More actions
+    long_description=(
         open('README.md', encoding='utf-8').read() + '\n\n' +
         open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +
         open('CHANGELOG_NOTES.txt', encoding='utf-8').read()
