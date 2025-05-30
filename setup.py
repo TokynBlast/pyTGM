@@ -80,7 +80,11 @@ extensions = [
 
 setup(
     **meta,
-    long_description=long_description,
+    long_description=(More actions
+        open('README.md', encoding='utf-8').read() + '\n\n' +
+        open('CHANGELOG.txt', encoding='utf-8').read() + '\n\n' +
+        open('CHANGELOG_NOTES.txt', encoding='utf-8').read()
+    ),
     packages=find_packages(),
     install_requires=require,
     ext_modules=extensions,
