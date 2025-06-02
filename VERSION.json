@@ -23,7 +23,7 @@
     "pyTGM/terminal/pos.cpp": "92a5f7b5cc6c723f5d2e2f4dddd826c9a4230bdbe5affe2f72e98460fcc3971f",
     "pyTGM/terminal/geky.cpp": "6f1d7339bb566f8b1a54518d857799eefcc86162395a52dd8d41dc18689764e0",
     "pyTGM/terminal/clear.cpp": "8b80060bfa8f06f3ac04abac48b2aebec3b2bc033af62c28ad63659b9b33b422",
-    "pyTGM/sound.cpp": "84a5d4e4c201be34040c7e4a86b5d10d31fb3425fb8e5e92820cc13588357c96",
+    "pyTGM/sound.cpp": "5619cda5930cabbc47fc7d773320212176ecbb24505f0811a90919b158b54aec",
     "pyTGM/encrypt/hk512.cpp": "f3ab0e39052fd6427c7ded47a5f552c45cc8420e884abd37824e32809008d1bd",
     "pyTGM/encrypt/b64.cpp": "44dac76022fb99162acf37fa2ea2b8cb800ecc437a388e924c807d9691e10afe",
     "pyTGM/rect.cpp": "073322ebb91f62d16ffdb2ddf8d31dae410642c0a60fb3de593016c0389bed62",
