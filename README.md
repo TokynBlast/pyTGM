@@ -8,6 +8,7 @@
 
 > [!warning]
 > This is the source code. That means this is in development. After 5.0.0, we will be using branches instead of messing with the source code.
+> This project's priority will also be lower, as I plan to start new projects and focus on school. I would love if people could help, as I have been working on this project for two years now.
 
 > [!note]
 > This library could hypothetically run as early as 3.8, but it has never been tested.<br>3.11 works, with the exception of linting one time in earlier versions of code.
@@ -132,3 +133,4 @@ encrypt.hk512.decode(data, key)
 
 ## License
 pyTGM is licensed under Bspace, created by Tokyn Blast.
+
